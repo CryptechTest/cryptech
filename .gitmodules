@@ -86,3 +86,33 @@
 	path = mods/bottles
 	url = git@github.com:EmptyStar/bottles.git
 
+[submodule "mods/visible_sneak"]
+	path = mods/visible_sneak
+	url = git@github.com:niwla23/visible_sneak.git
+[submodule "mods/sfinv"]
+	path = mods/sfinv
+	url = git@github.com:rubenwardy/sfinv.git
+[submodule "mods/technic"]
+	path = mods/technic
+	url = git@github.com:minetest-mods/technic.git
+[submodule "mods/pipeworks"]
+	path = mods/pipeworks
+	url = git@github.com:mt-mods/pipeworks.git
+[submodule "mods/fluid_lib"]
+	path = mods/fluid_lib
+	url = git@github.com:CryptechTest/fluid_lib.git
+[submodule "mods/creatura"]
+	path = mods/creatura
+	url = git@github.com:ElCeejo/creatura.git
+[submodule "mods/animalia"]
+	path = mods/animalia
+	url = git@github.com:ElCeejo/animalia.git
+[submodule "mods/awards"]
+	path = mods/awards
+	url = git@github.com:CryptechTest/awards.git
+[submodule "mods/techpack_stairway"]
+	path = mods/techpack_stairway
+	url = git@github.com:joe7575/techpack_stairway.git
+[submodule "mods/digistuff"]
+	path = mods/digistuff
+	url = git@github.com:CryptechTest/digistuff.git
