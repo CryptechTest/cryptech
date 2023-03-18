@@ -85,3 +85,4 @@
 [submodule "mods/bottles"]
 	path = mods/bottles
 	url = git@github.com:EmptyStar/bottles.git
+
