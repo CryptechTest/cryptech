@@ -1,0 +1,84 @@
+[submodule "mods/vacuum"]
+	path = mods/vacuum
+	url = git@github.com:CryptechTest/vacuum.git
+[submodule "mods/3d_armor"]
+	path = mods/3d_armor
+	url = git@github.com:minetest-mods/3d_armor.git
+[submodule "mods/scifi_nodes"]
+	path = mods/scifi_nodes
+	url = git@github.com:D00Med/scifi_nodes.git
+[submodule "mods/unified_inventory"]
+	path = mods/unified_inventory
+	url = git@github.com:minetest-mods/unified_inventory.git
+[submodule "mods/skinsdb"]
+	path = mods/skinsdb
+	url = git@github.com:minetest-mods/skinsdb.git
+[submodule "mods/minetest_doc"]
+	path = mods/minetest_doc
+	url = git@github.com:CryptechTest/minetest_doc.git
+[submodule "mods/minetest_hudbars"]
+	path = mods/minetest_hudbars
+	url = git@github.com:CryptechTest/minetest_hudbars.git
+[submodule "mods/stamina"]
+	path = mods/stamina
+	url = git@github.com:CryptechTest/stamina.git
+[submodule "mods/minetest_playereffects"]
+	path = mods/minetest_playereffects
+	url = git@github.com:CryptechTest/minetest_playereffects.git
+[submodule "mods/illumination"]
+	path = mods/illumination
+	url = git@github.com:mt-mods/illumination.git
+[submodule "mods/radiant_damage"]
+	path = mods/radiant_damage
+	url = git@github.com:minetest-mods/radiant_damage.git
+[submodule "mods/invisible"]
+	path = mods/invisible
+	url = git@github.com:AiTechEye/invisible.git
+[submodule "mods/notices"]
+	path = mods/notices
+	url = git@github.com:LoneWolfHT/notices.git
+[submodule "mods/localchat"]
+	path = mods/localchat
+	url = git@github.com:qPexLegendary/MineTest-LocalChat.git
+[submodule "mods/wield3d"]
+	path = mods/wield3d
+	url = git@github.com:stujones11/wield3d.git
+[submodule "mods/minetest_tt"]
+	path = mods/minetest_tt
+	url = git@github.com:CryptechTest/minetest_tt.git
+[submodule "mods/spacesuit"]
+	path = mods/spacesuit
+	url = git@github.com:mt-mods/spacesuit.git
+[submodule "mods/other_worlds"]
+	path = mods/other_worlds
+	url = git@github.com:CryptechTest/other_worlds.git
+[submodule "mods/basic_materials"]
+	path = mods/basic_materials
+	url = git@github.com:mt-mods/basic_materials.git
+[submodule "mods/player_monoids"]
+	path = mods/player_monoids
+	url = git@github.com:minetest-mods/player_monoids.git
+[submodule "mods/playerlist"]
+	path = mods/playerlist
+	url = git@github.com:LizzyFleckenstein03/playerlist.git
+[submodule "mods/digilines"]
+	path = mods/digilines
+	url = git@github.com:minetest-mods/digilines.git
+[submodule "mods/mesecons"]
+	path = mods/mesecons
+	url = git@github.com:minetest-mods/mesecons.git
+[submodule "mods/digiterms"]
+	path = mods/digiterms
+	url = git@github.com:pyrollo/digiterms.git
+[submodule "mods/letters"]
+	path = mods/letters
+	url = git@github.com:minetest-mods/letters.git
+[submodule "mods/keyring"]
+	path = mods/keyring
+	url = git@github.com:louisroyer-minetest/keyring.git
+[submodule "mods/controls"]
+	path = mods/controls
+	url = git@github.com:mt-mods/controls.git
+[submodule "mods/unifieddyes"]
+	path = mods/unifieddyes
+	url = git@github.com:mt-mods/unifieddyes.git
