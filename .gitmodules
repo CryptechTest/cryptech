@@ -156,7 +156,7 @@
 	url = git@github.com:CodeScratcher/factions-mod.git
 [submodule "mods/news_markdown"]
 	path = mods/news_markdown
-	url = git@github.com:Bituvo/news_markdown.git
+	url = git@github.com:CryptechTest/news_markdown.git
 [submodule "mods/markdown2formspec2"]
 	path = mods/markdown2formspec2
 	url = git@github.com:ExeVirus/markdown2formspec2.git
