@@ -39,6 +39,7 @@ minetest.register_on_joinplayer(function(player)
         inv:add_item("main", "default:pick_diamond")
         inv:add_item("main", "vacuum:air_bottle 5")
         inv:add_item("main", "animalia:beef_cooked 5")
+        player:set_attribute("has_received_items", true)
         --inv:add_item("main", "default:shovel_diamond 4")
         --inv:add_item("main", "farming:hoe_diamond 4")
         local player = player
