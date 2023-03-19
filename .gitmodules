@@ -163,6 +163,3 @@
 [submodule "mods/formspec_ast"]
 	path = mods/formspec_ast
 	url = git@github.com:CryptechTest/formspec_ast.git
-[submodule "mods/pova"]
-	path = mods/pova
-	url = git@github.com:CryptechTest/pova.git
