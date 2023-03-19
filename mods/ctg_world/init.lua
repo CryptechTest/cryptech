@@ -50,7 +50,6 @@ minetest.register_on_newplayer(function(player)
 		armor:equip(player, ItemStack("spacesuit:pants"))
 		armor:equip(player, ItemStack("spacesuit:boots"))
 	end)
-    player:set_pos({x=0, y=30000, z=0})
 
 end)
 
@@ -66,6 +65,5 @@ minetest.register_on_respawnplayer(function(player)
 	armor:equip(player, ItemStack("spacesuit:chestplate"))
 	armor:equip(player, ItemStack("spacesuit:pants"))
 	armor:equip(player, ItemStack("spacesuit:boots"))
-    player:set_pos({x=0, y=30000, z=0})
 	return true
 end)
