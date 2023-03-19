@@ -85,7 +85,6 @@
 [submodule "mods/bottles"]
 	path = mods/bottles
 	url = git@github.com:EmptyStar/bottles.git
-
 [submodule "mods/visible_sneak"]
 	path = mods/visible_sneak
 	url = git@github.com:niwla23/visible_sneak.git
