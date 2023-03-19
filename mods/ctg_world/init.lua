@@ -36,8 +36,8 @@ minetest.override_item("vacuum:air_bottle", {
 -- Spawn newplayer function
 
 minetest.register_on_newplayer(function(player)
-	--local inv = player:get_inventory()
-	--inv:add_item("main", "default:pick_diamond 4")
+	local inv = player:get_inventory()
+	inv:add_item("main", "vacuum:air_bottle 5")
 	--inv:add_item("main", "default:shovel_diamond 4")
 	--inv:add_item("main", "farming:hoe_diamond 4")
 	local player = player
