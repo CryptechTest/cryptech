@@ -116,3 +116,33 @@
 [submodule "mods/digistuff"]
 	path = mods/digistuff
 	url = git@github.com:CryptechTest/digistuff.git
+[submodule "mods/composting"]
+	path = mods/composting
+	url = git@github.com:sfence/composting.git
+[submodule "mods/crops"]
+	path = mods/crops
+	url = git@github.com:minetest-mods/crops.git
+[submodule "mods/server_news"]
+	path = mods/server_news
+	url = git@github.com:Ezhh/server_news.git
+[submodule "mods/modlib"]
+	path = mods/modlib
+	url = git@github.com:appgurueu/modlib.git
+[submodule "mods/character_anim"]
+	path = mods/character_anim
+	url = git@github.com:appgurueu/character_anim.git
+[submodule "mods/3d_armor_flyswim"]
+	path = mods/3d_armor_flyswim
+	url = git@github.com:sirrobzeroone/3d_armor_flyswim.git
+[submodule "mods/lwcomponents"]
+	path = mods/lwcomponents
+	url = git@github.com:loosewheel/lwcomponents.git
+[submodule "mods/lwcomputers"]
+	path = mods/lwcomputers
+	url = git@github.com:loosewheel/lwcomputers.git
+[submodule "mods/lwcomputers_software"]
+	path = mods/lwcomputers_software
+	url = git@github.com:loosewheel/lwcomputers_software.git
+[submodule "mods/lwwires"]
+	path = mods/lwwires
+	url = git@github.com:loosewheel/lwwires.git
