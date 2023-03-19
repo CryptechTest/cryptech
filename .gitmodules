@@ -146,3 +146,12 @@
 [submodule "mods/lwwires"]
 	path = mods/lwwires
 	url = git@github.com:loosewheel/lwwires.git
+[submodule "mods/console"]
+	path = mods/console
+	url = git@github.com:CryptechTest/console.git
+[submodule "mods/timekeeper"]
+	path = mods/timekeeper
+	url = git@github.com:CryptechTest/timekeeper.git
+[submodule "mods/config"]
+	path = mods/config
+	url = git@github.com:CryptechTest/config.git
