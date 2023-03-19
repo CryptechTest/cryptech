@@ -146,12 +146,21 @@
 [submodule "mods/lwwires"]
 	path = mods/lwwires
 	url = git@github.com:loosewheel/lwwires.git
-[submodule "mods/console"]
-	path = mods/console
-	url = git@github.com:CryptechTest/console.git
-[submodule "mods/timekeeper"]
-	path = mods/timekeeper
-	url = git@github.com:CryptechTest/timekeeper.git
-[submodule "mods/config"]
-	path = mods/config
-	url = git@github.com:CryptechTest/config.git
+[submodule "mods/unified_inventory_themes"]
+	path = mods/unified_inventory_themes
+	url = git@github.com:CryptechTest/unified_inventory_themes.git
+[submodule "mods/emoji"]
+	path = mods/emoji
+	url = git@github.com:bosapara/emoji.git
+[submodule "mods/factions"]
+	path = mods/factions
+	url = git@github.com:CodeScratcher/factions-mod.git
+[submodule "mods/news_markdown"]
+	path = mods/news_markdown
+	url = git@github.com:Bituvo/news_markdown.git
+[submodule "mods/markdown2formspec2"]
+	path = mods/markdown2formspec2
+	url = git@github.com:ExeVirus/markdown2formspec2.git
+[submodule "mods/formspec_ast"]
+	path = mods/formspec_ast
+	url = git@github.com:CryptechTest/formspec_ast.git
