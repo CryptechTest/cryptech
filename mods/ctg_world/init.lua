@@ -37,7 +37,9 @@ minetest.override_item("vacuum:air_bottle", {
 
 minetest.register_on_newplayer(function(player)
 	local inv = player:get_inventory()
+    inv:add_item("main", "default:pick_diamond")
 	inv:add_item("main", "vacuum:air_bottle 5")
+    inv:add_item("main", "animalia:cooked_beef 5")
 	--inv:add_item("main", "default:shovel_diamond 4")
 	--inv:add_item("main", "farming:hoe_diamond 4")
 	local player = player
@@ -49,4 +51,20 @@ minetest.register_on_newplayer(function(player)
 		armor:equip(player, ItemStack("spacesuit:boots"))
 	end)
 
+end)
+
+-- Respawn player function
+
+minetest.register_on_respawnplayer(function(player)
+	local inv = player:get_inventory()
+	inv:add_item("main", "default:pick_diamond")
+	inv:add_item("main", "vacuum:air_bottle 5")
+    inv:add_item("main", "animalia:cooked_beef 5")
+	armor:remove_all(player)
+	armor:equip(player, ItemStack("spacesuit:helmet"))
+	armor:equip(player, ItemStack("spacesuit:chestplate"))
+	armor:equip(player, ItemStack("spacesuit:pants"))
+	armor:equip(player, ItemStack("spacesuit:boots"))
+
+	return true
 end)
