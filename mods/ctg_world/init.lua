@@ -50,7 +50,7 @@ minetest.register_on_newplayer(function(player)
 		armor:equip(player, ItemStack("spacesuit:pants"))
 		armor:equip(player, ItemStack("spacesuit:boots"))
 	end)
-    minetest.teleport_player(player:get_player_name(), {x=0, y=30000, z=0}, nil)
+    player:set_pos({x=0, y=30000, z=0})
 
 end)
 
