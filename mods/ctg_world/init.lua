@@ -49,10 +49,27 @@ minetest.register_on_joinplayer(function(player)
             armor:equip(player, ItemStack("spacesuit:chestplate"))
             armor:equip(player, ItemStack("spacesuit:pants"))
             armor:equip(player, ItemStack("spacesuit:boots"))
-            player:set_pos(minetest.setting_get_pos("static_spawnpoint") or {x = 0, y = 27000, z = 0})
+            
         end)
         
     end
+    local has_spawned = player:get_attribute("has_spawned")
+    if not has_spawned then 
+        player:set_attribute("has_spawned", "true")
+        local spawn_pos_str = player:get_attribute("spawn")
+
+        if spawn_pos_str ~= nil and spawn_pos_str ~= "" then
+            minetest.after(2, function()
+                player:set_pos(spawn_pos_str)
+            end)
+        else
+            minetest.after(2, function()
+                player:set_pos(minetest.setting_get_pos("static_spawnpoint") or {x = 0, y = 27000, z = 0})
+            end)
+        end
+    end
+    
+    
 end)
 
 
