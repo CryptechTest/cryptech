@@ -32,6 +32,32 @@ minetest.override_item("vacuum:air_bottle", {
 	on_place = refill_player_suit,
 })
 
+minetest.register_on_player_hpchange(function(player, hp_change, reason)
+    if reason.type == "fall" and hp_change < 0 then
+        -- Check if player is falling into water
+        local pos = player:get_pos()
+        local node = minetest.get_node({x = pos.x, y = pos.y, z = pos.z})
+        local node_def = minetest.registered_nodes[node.name]
+        local node_below = minetest.get_node({x = pos.x, y = pos.y - 1, z = pos.z})
+        local node_below_def = minetest.registered_nodes[node_below.name]
+        if node_def and node_def.groups then
+            -- Access the group values for the node definition
+            local group_value = node_def.groups["liquid"]
+            if group_value then
+                -- Do something based on the group value
+                return 0
+            end
+        elseif node_below_def and node_below_def.groups then
+            -- Access the group values for the node definition
+            local group_value = node_def.groups["liquid"]
+            if group_value then
+                -- Do something based on the group value
+                return 0
+            end
+        end
+    end
+end)
+
 minetest.register_on_joinplayer(function(player)
     local has_received_items = player:get_attribute("has_received_items")
     if not has_received_items then
