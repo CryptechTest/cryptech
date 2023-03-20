@@ -3,7 +3,7 @@
 	url = git@github.com:CryptechTest/vacuum.git
 [submodule "mods/3d_armor"]
 	path = mods/3d_armor
-	url = git@github.com:minetest-mods/3d_armor.git
+	url = git@github.com:CryptechTest/3d_armor.git
 [submodule "mods/scifi_nodes"]
 	path = mods/scifi_nodes
 	url = git@github.com:D00Med/scifi_nodes.git
@@ -40,9 +40,6 @@
 [submodule "mods/localchat"]
 	path = mods/localchat
 	url = git@github.com:qPexLegendary/MineTest-LocalChat.git
-[submodule "mods/wield3d"]
-	path = mods/wield3d
-	url = git@github.com:stujones11/wield3d.git
 [submodule "mods/minetest_tt"]
 	path = mods/minetest_tt
 	url = git@github.com:CryptechTest/minetest_tt.git
@@ -85,9 +82,6 @@
 [submodule "mods/bottles"]
 	path = mods/bottles
 	url = git@github.com:EmptyStar/bottles.git
-[submodule "mods/visible_sneak"]
-	path = mods/visible_sneak
-	url = git@github.com:niwla23/visible_sneak.git
 [submodule "mods/technic"]
 	path = mods/technic
 	url = git@github.com:minetest-mods/technic.git
@@ -163,3 +157,6 @@
 [submodule "mods/jetpack"]
 	path = mods/jetpack
 	url = git@github.com:CryptechTest/sum_jetpack.git
+[submodule "mods/bedrock"]
+	path = mods/bedrock
+	url = git@github.com:CryptechTest/bedrock.git
