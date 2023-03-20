@@ -163,6 +163,3 @@
 [submodule "mods/jetpack"]
 	path = mods/jetpack
 	url = git@github.com:CryptechTest/sum_jetpack.git
-[submodule "mods/playerphysics"]
-	path = mods/playerphysics
-	url = git@github.com:CryptechTest/playerphysics.git
