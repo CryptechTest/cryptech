@@ -160,6 +160,6 @@
 [submodule "mods/bedrock"]
 	path = mods/bedrock
 	url = git@github.com:CryptechTest/bedrock.git
-[submodule "mods/mods/ufo_ship"]
-	path = mods/mods/ufo_ship
+[submodule "mods/ufo_ship"]
+	path = mods/ufo_ship
 	url = git@github.com:CryptechTest/ufo_ship.git
