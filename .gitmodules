@@ -163,3 +163,6 @@
 [submodule "mods/formspec_ast"]
 	path = mods/formspec_ast
 	url = git@github.com:CryptechTest/formspec_ast.git
+[submodule "mods/jetpack"]
+	path = mods/jetpack
+	url = git@github.com:CryptechTest/sum_jetpack.git
