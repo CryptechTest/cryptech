@@ -33,27 +33,18 @@ minetest.override_item("vacuum:air_bottle", {
 })
 
 minetest.register_on_player_hpchange(function(player, hp_change, reason)
-    if reason.type == "fall" and hp_change < 0 then
+    if reason.type == "fall" then
         -- Check if player is falling into water
         local pos = player:get_pos()
-        local node = minetest.get_node({x = pos.x, y = pos.y, z = pos.z})
-        local node_def = minetest.registered_nodes[node.name]
-        local node_below = minetest.get_node({x = pos.x, y = pos.y - 1, z = pos.z})
-        local node_below_def = minetest.registered_nodes[node_below.name]
-        if node_def and node_def.groups then
-            -- Access the group values for the node definition
-            local group_value = node_def.groups["liquid"]
-            if group_value then
-                -- Do something based on the group value
-                return 0
+        local node = minetest.get_node(pos)
+        if node then
+            local def = minetest.registered_nodes[node.name]
+            if not def or def.walkable then
+                return
             end
-        elseif node_below_def and node_below_def.groups then
-            -- Access the group values for the node definition
-            local group_value = node_def.groups["liquid"]
-            if group_value then
-                -- Do something based on the group value
+            if minetest.get_item_group(node.name, "water") ~= 0 then
                 return 0
-            end
+            end           
         end
     end
 end)
