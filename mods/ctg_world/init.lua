@@ -36,14 +36,15 @@ minetest.register_on_player_hpchange(function(player, hp_change, reason)
     if reason.type == "fall" then
         -- Check if player is falling into water
         local pos = player:get_pos()
-        local node = minetest.get_node(pos)
+        local node = minetest.get_node({ x = pos.x , y = pos.y + 1, z = pos.z })
         if node then
             local def = minetest.registered_nodes[node.name]
             if not def or def.walkable then
                 return
             end
             if minetest.get_item_group(node.name, "water") ~= 0 then
-                return 0
+                hp_change = hp_change * -1
+                return hp_change
             end           
         end
     end
