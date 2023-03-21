@@ -175,3 +175,12 @@
 [submodule "mods/stainedglass"]
 	path = mods/stainedglass
 	url = git@github.com:CryptechTest/stainedglass.git
+[submodule "mods/itemshelf"]
+	path = mods/itemshelf
+	url = https://github.com/hkzorman/itemshelf.git
+[submodule "mods/minetest_doc_items"]
+	path = mods/minetest_doc_items
+	url = git@github.com:CryptechTest/minetest_doc_items.git
+[submodule "mods/minetest_doc_basics"]
+	path = mods/minetest_doc_basics
+	url = git@github.com:CryptechTest/minetest_doc_basics.git
