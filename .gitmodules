@@ -169,3 +169,9 @@
 [submodule "mods/hopper"]
 	path = mods/hopper
 	url = git@github.com:CryptechTest/hopper.git
+[submodule "mods/prefab"]
+	path = mods/prefab
+	url = https://github.com/mt-mods/prefab.git
+[submodule "mods/stainedglass"]
+	path = mods/stainedglass
+	url = git@github.com:CryptechTest/stainedglass.git
