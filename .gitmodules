@@ -196,3 +196,15 @@
 [submodule "mods/mapgen"]
 	path = mods/mapgen
 	url = git@github.com:minetest-mods/mg.git
+[submodule "mods/mobs"]
+	path = mods/mobs
+	url = git@github.com:CryptechTest/mobs_redo.git
+[submodule "mods/mobs_water"]
+	path = mods/mobs_water
+	url = git@github.com:CryptechTest/mobs_water.git
+[submodule "mods/mobs_monster"]
+	path = mods/mobs_monster
+	url = git@github.com:CryptechTest/mobs_monster.git
+[submodule "mods/mobs_ghost"]
+	path = mods/mobs_ghost
+	url = git@github.com:CryptechTest/mobs_ghost_redo.git
