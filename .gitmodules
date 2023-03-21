@@ -163,3 +163,6 @@
 [submodule "mods/ufo_ship"]
 	path = mods/ufo_ship
 	url = git@github.com:CryptechTest/ufo_ship.git
+[submodule "mods/wield3d"]
+	path = mods/wield3d
+	url = https://github.com/stujones11/wield3d.git
