@@ -166,3 +166,6 @@
 [submodule "mods/wield3d"]
 	path = mods/wield3d
 	url = https://github.com/stujones11/wield3d.git
+[submodule "mods/hopper"]
+	path = mods/hopper
+	url = git@github.com:CryptechTest/hopper.git
