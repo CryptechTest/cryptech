@@ -184,3 +184,6 @@
 [submodule "mods/minetest_doc_basics"]
 	path = mods/minetest_doc_basics
 	url = git@github.com:CryptechTest/minetest_doc_basics.git
+[submodule "mods/x_farming"]
+	path = mods/x_farming
+	url = git@github.com:CryptechTest/x_farming.git
