@@ -139,9 +139,6 @@
 [submodule "mods/emoji"]
 	path = mods/emoji
 	url = git@github.com:bosapara/emoji.git
-[submodule "mods/factions"]
-	path = mods/factions
-	url = git@github.com:CodeScratcher/factions-mod.git
 [submodule "mods/news_markdown"]
 	path = mods/news_markdown
 	url = git@github.com:CryptechTest/news_markdown.git
