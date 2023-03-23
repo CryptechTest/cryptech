@@ -12,7 +12,7 @@
 	url = git@github.com:minetest-mods/unified_inventory.git
 [submodule "mods/skinsdb"]
 	path = mods/skinsdb
-	url = git@github.com:minetest-mods/skinsdb.git
+	url = git@github.com:CryptechTest/skinsdb.git
 [submodule "mods/minetest_doc"]
 	path = mods/minetest_doc
 	url = git@github.com:CryptechTest/minetest_doc.git
