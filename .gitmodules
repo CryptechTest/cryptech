@@ -87,7 +87,7 @@
 	url = git@github.com:minetest-mods/technic.git
 [submodule "mods/pipeworks"]
 	path = mods/pipeworks
-	url = git@github.com:mt-mods/pipeworks.git
+	url = git@github.com:CryptechTest/pipeworks.git
 [submodule "mods/fluid_lib"]
 	path = mods/fluid_lib
 	url = git@github.com:CryptechTest/fluid_lib.git
