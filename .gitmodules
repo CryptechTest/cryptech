@@ -190,9 +190,6 @@
 [submodule "mods/moreblocks"]
 	path = mods/moreblocks
 	url = git@github.com:minetest-mods/moreblocks.git
-[submodule "mods/mapgen"]
-	path = mods/mapgen
-	url = git@github.com:minetest-mods/mg.git
 [submodule "mods/mobs"]
 	path = mods/mobs
 	url = git@github.com:CryptechTest/mobs_redo.git
