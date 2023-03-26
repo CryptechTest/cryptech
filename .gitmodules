@@ -202,3 +202,6 @@
 [submodule "mods/mobs_ghost"]
 	path = mods/mobs_ghost
 	url = git@github.com:CryptechTest/mobs_ghost_redo.git
+[submodule "mods/minetest_real_suffocation"]
+	path = mods/minetest_real_suffocation
+	url = git@github.com:CryptechTest/minetest_real_suffocation.git
