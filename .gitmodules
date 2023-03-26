@@ -91,12 +91,6 @@
 [submodule "mods/fluid_lib"]
 	path = mods/fluid_lib
 	url = git@github.com:CryptechTest/fluid_lib.git
-[submodule "mods/creatura"]
-	path = mods/creatura
-	url = git@github.com:ElCeejo/creatura.git
-[submodule "mods/animalia"]
-	path = mods/animalia
-	url = git@github.com:ElCeejo/animalia.git
 [submodule "mods/awards"]
 	path = mods/awards
 	url = git@github.com:CryptechTest/awards.git
@@ -205,3 +199,9 @@
 [submodule "mods/minetest_real_suffocation"]
 	path = mods/minetest_real_suffocation
 	url = git@github.com:CryptechTest/minetest_real_suffocation.git
+[submodule "mods/mobs_animal"]
+	path = mods/mobs_animal
+	url = git@github.com:CryptechTest/mobs_animal.git
+[submodule "mods/mobs_npc"]
+	path = mods/mobs_npc
+	url = git@github.com:CryptechTest/mobs_npc.git
