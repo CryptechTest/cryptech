@@ -121,9 +121,6 @@
 [submodule "mods/3d_armor_flyswim"]
 	path = mods/3d_armor_flyswim
 	url = git@github.com:sirrobzeroone/3d_armor_flyswim.git
-[submodule "mods/lwcomponents"]
-	path = mods/lwcomponents
-	url = git@github.com:loosewheel/lwcomponents.git
 [submodule "mods/lwcomputers"]
 	path = mods/lwcomputers
 	url = git@github.com:loosewheel/lwcomputers.git
