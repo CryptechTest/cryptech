@@ -205,3 +205,9 @@
 [submodule "mods/mobs_npc"]
 	path = mods/mobs_npc
 	url = git@github.com:CryptechTest/mobs_npc.git
+[submodule "mods/headlamp"]
+	path = mods/headlamp
+	url = git@github.com:OgelGames/headlamp.git
+[submodule "mods/hyperloop"]
+	path = mods/hyperloop
+	url = git@github.com:CryptechTest/Minetest-Hyperloop.git
