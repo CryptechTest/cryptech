@@ -63,12 +63,16 @@ minetest.register_on_joinplayer(function(player)
     local has_spawned = player:get_attribute("has_spawned")
     if not has_spawned then 
         player:set_attribute("has_spawned", "true")
-        local player_name = player:get_player_name()
-        local home = ui.home_pos[player_name]
-        if home ~= nil then
-            if ui.go_home(player) then
-                minetest.sound_play("teleport", {to_player = player_name})
-            end
+        local spawn_pos_str = player:get_attribute("spawn")
+
+        if spawn_pos_str ~= nil and spawn_pos_str ~= "" then
+            minetest.after(0, function()
+                player:set_pos(spawn_pos_str)
+            end)
+        else
+            minetest.after(0, function()
+                player:set_pos(minetest.setting_get_pos("static_spawnpoint") or {x = 0, y = 27000, z = 0})
+            end)
         end
     end
     
@@ -80,6 +84,7 @@ end)
 -- Respawn player function
 
 minetest.register_on_respawnplayer(function(player)
+    
 	local inv = player:get_inventory()
     armor:remove_all(player)
     inv:add_item("main", "default:pick_diamond")
@@ -94,5 +99,13 @@ minetest.register_on_respawnplayer(function(player)
 	armor:equip(player, ItemStack("spacesuit:chestplate"))
 	armor:equip(player, ItemStack("spacesuit:pants"))
 	armor:equip(player, ItemStack("spacesuit:boots"))
+    local has_spawned = player:get_attribute("has_spawned")
+    local player_name = player:get_player_name()
+    local home = ui.home_pos[player_name]
+    if home ~= nil then
+        if ui.go_home(player) then
+            minetest.sound_play("teleport", {to_player = player_name})
+        end
+    end    
 	return true
 end)
