@@ -103,7 +103,8 @@ minetest.register_on_respawnplayer(function(player)
     local player_name = player:get_player_name()
     local home = ui.home_pos[player_name]
     if home ~= nil then
-        ui.go_home(player)
-    end    
+		player:set_pos(home)
+		return true
+	end    
 	return true
 end)
