@@ -1,3 +1,5 @@
+local ui = unified_inventory
+
 local function give_or_drop_item(player, itemstack)
     local inv = minetest.get_inventory({type="player", name=player:get_player_name()})
     local remaining = inv:add_item("main", itemstack)
@@ -61,16 +63,12 @@ minetest.register_on_joinplayer(function(player)
     local has_spawned = player:get_attribute("has_spawned")
     if not has_spawned then 
         player:set_attribute("has_spawned", "true")
-        local spawn_pos_str = player:get_attribute("spawn")
-
-        if spawn_pos_str ~= nil and spawn_pos_str ~= "" then
-            minetest.after(0, function()
-                player:set_pos(spawn_pos_str)
-            end)
-        else
-            minetest.after(0, function()
-                player:set_pos(minetest.setting_get_pos("static_spawnpoint") or {x = 0, y = 27000, z = 0})
-            end)
+        local player_name = player:get_player_name()
+        local home = ui.home_pos[player_name]
+        if home ~= nil then
+            if ui.go_home(player) then
+                minetest.sound_play("teleport", {to_player = player_name})
+            end
         end
     end
     
