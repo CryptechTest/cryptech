@@ -71,7 +71,7 @@ minetest.register_on_joinplayer(function(player)
             end)
         else
             minetest.after(0, function()
-                player:set_pos(minetest.setting_get_pos("static_spawnpoint") or {x = 0, y = 27000, z = 0})
+                player:set_pos(minetest.setting_get_pos("static_spawnpoint") or {x = 0, y = 4500, z = 0})
             end)
         end
     end
@@ -103,9 +103,7 @@ minetest.register_on_respawnplayer(function(player)
     local player_name = player:get_player_name()
     local home = ui.home_pos[player_name]
     if home ~= nil then
-        if ui.go_home(player) then
-            minetest.sound_play("teleport", {to_player = player_name})
-        end
+        ui.go_home(player)
     end    
 	return true
 end)
