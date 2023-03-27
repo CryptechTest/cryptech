@@ -9,7 +9,7 @@
 	url = git@github.com:D00Med/scifi_nodes.git
 [submodule "mods/unified_inventory"]
 	path = mods/unified_inventory
-	url = git@github.com:minetest-mods/unified_inventory.git
+	url = git@github.com:CryptechTest/unified_inventory.git
 [submodule "mods/skinsdb"]
 	path = mods/skinsdb
 	url = git@github.com:CryptechTest/skinsdb.git
