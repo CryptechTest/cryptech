@@ -35,31 +35,29 @@ minetest.override_item("vacuum:air_bottle", {
 })
 
 
-minetest.register_on_joinplayer(function(player)
-    local has_received_items = player:get_attribute("has_received_items")
-    if not has_received_items then
-        local inv = player:get_inventory()
-        inv:add_item("main", "default:pick_diamond")
-        inv:add_item("main", "default:shovel_diamond")
-        inv:add_item("main", "default:torch")        
-        inv:add_item("main", "sum_jetpack:jetpack")
-        inv:add_item("main", "sum_jetpack:jetpack_fuel 2")
-        inv:add_item("main", "vacuum:air_bottle 1")
-        inv:add_item("main", "mobs:meat 5")
-        player:set_attribute("has_received_items", "true")
-        --inv:add_item("main", "default:shovel_diamond 4")
-        --inv:add_item("main", "farming:hoe_diamond 4")
-        local player = player
-        -- 3d_armor´s inventory is not fully set up in the beginning. They use a delay of 0, so we wait a bit for them and afterwards equip the spacesuit.
-        minetest.after(2, function()
-            armor:equip(player, ItemStack("spacesuit:helmet"))
-            armor:equip(player, ItemStack("spacesuit:chestplate"))
-            armor:equip(player, ItemStack("spacesuit:pants"))
-            armor:equip(player, ItemStack("spacesuit:boots"))
-            
-        end)
+minetest.register_on_newplayer(function(player)
+    local inv = player:get_inventory()
+    inv:add_item("main", "default:pick_diamond")
+    inv:add_item("main", "default:shovel_diamond")
+    inv:add_item("main", "default:torch")        
+    inv:add_item("main", "sum_jetpack:jetpack")
+    inv:add_item("main", "sum_jetpack:jetpack_fuel 2")
+    inv:add_item("main", "vacuum:air_bottle 1")
+    inv:add_item("main", "mobs:meat 5")
+    player:set_attribute("has_received_items", "true")
+    --inv:add_item("main", "default:shovel_diamond 4")
+    --inv:add_item("main", "farming:hoe_diamond 4")
+    local player = player
+    -- 3d_armor´s inventory is not fully set up in the beginning. They use a delay of 0, so we wait a bit for them and afterwards equip the spacesuit.
+    minetest.after(2, function()
+        armor:equip(player, ItemStack("spacesuit:helmet"))
+        armor:equip(player, ItemStack("spacesuit:chestplate"))
+        armor:equip(player, ItemStack("spacesuit:pants"))
+        armor:equip(player, ItemStack("spacesuit:boots"))
         
-    end
+    end)
+        
+
     local has_spawned = player:get_attribute("has_spawned")
     if not has_spawned then 
         player:set_attribute("has_spawned", "true")
@@ -85,26 +83,27 @@ end)
 
 minetest.register_on_respawnplayer(function(player)
     
-	local inv = player:get_inventory()
-    armor:remove_all(player)
-    inv:add_item("main", "default:pick_diamond")
-    inv:add_item("main", "default:shovel_diamond")
-    inv:add_item("main", "mesecons_torch:mesecon_torch_on")        
-    inv:add_item("main", "sum_jetpack:jetpack")
-    inv:add_item("main", "sum_jetpack:jetpack_fuel 2")
-	inv:add_item("main", "vacuum:air_bottle 1")
-    inv:add_item("main", "mobs:meat 5")
-	
-	armor:equip(player, ItemStack("spacesuit:helmet"))
-	armor:equip(player, ItemStack("spacesuit:chestplate"))
-	armor:equip(player, ItemStack("spacesuit:pants"))
-	armor:equip(player, ItemStack("spacesuit:boots"))
-    local has_spawned = player:get_attribute("has_spawned")
+    
     local player_name = player:get_player_name()
     local home = ui.home_pos[player_name]
     if home ~= nil then
 		player:set_pos(home)       
 		return true
+    else 
+        local inv = player:get_inventory()
+        armor:remove_all(player)
+        inv:add_item("main", "default:pick_diamond")
+        inv:add_item("main", "default:shovel_diamond")
+        inv:add_item("main", "mesecons_torch:mesecon_torch_on")        
+        inv:add_item("main", "sum_jetpack:jetpack")
+        inv:add_item("main", "sum_jetpack:jetpack_fuel 2")
+        inv:add_item("main", "vacuum:air_bottle 1")
+        inv:add_item("main", "mobs:meat 5")
+        
+        armor:equip(player, ItemStack("spacesuit:helmet"))
+        armor:equip(player, ItemStack("spacesuit:chestplate"))
+        armor:equip(player, ItemStack("spacesuit:pants"))
+        armor:equip(player, ItemStack("spacesuit:boots"))
 	end    
 	return true
 end)
