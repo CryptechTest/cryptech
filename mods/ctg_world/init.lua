@@ -32,23 +32,6 @@ minetest.override_item("vacuum:air_bottle", {
 	on_place = refill_player_suit,
 })
 
-minetest.register_on_player_hpchange(function(player, hp_change, reason)
-    if reason.type == "fall" then
-        -- Check if player is falling into water
-        local pos = player:get_pos()
-        local node = minetest.get_node({ x = pos.x , y = pos.y + 1, z = pos.z })
-        if node then
-            local def = minetest.registered_nodes[node.name]
-            if not def or def.walkable then
-                return
-            end
-            if minetest.get_item_group(node.name, "water") ~= 0 then
-                hp_change = hp_change * -1
-                return hp_change
-            end           
-        end
-    end
-end)
 
 minetest.register_on_joinplayer(function(player)
     local has_received_items = player:get_attribute("has_received_items")
@@ -56,11 +39,11 @@ minetest.register_on_joinplayer(function(player)
         local inv = player:get_inventory()
         inv:add_item("main", "default:pick_diamond")
         inv:add_item("main", "default:shovel_diamond")
-        inv:add_item("main", "mesecons_torch:mesecon_torch_on")        
+        inv:add_item("main", "default:torch")        
         inv:add_item("main", "sum_jetpack:jetpack")
-        inv:add_item("main", "sum_jetpack:jetpack_fuel 5")
+        inv:add_item("main", "sum_jetpack:jetpack_fuel 2")
         inv:add_item("main", "vacuum:air_bottle 5")
-        inv:add_item("main", "mobs:rat_cooked 5")
+        inv:add_item("main", "mobs:meat_cooked 5")
         player:set_attribute("has_received_items", "true")
         --inv:add_item("main", "default:shovel_diamond 4")
         --inv:add_item("main", "farming:hoe_diamond 4")
@@ -81,11 +64,11 @@ minetest.register_on_joinplayer(function(player)
         local spawn_pos_str = player:get_attribute("spawn")
 
         if spawn_pos_str ~= nil and spawn_pos_str ~= "" then
-            minetest.after(2, function()
+            minetest.after(0, function()
                 player:set_pos(spawn_pos_str)
             end)
         else
-            minetest.after(2, function()
+            minetest.after(0, function()
                 player:set_pos(minetest.setting_get_pos("static_spawnpoint") or {x = 0, y = 27000, z = 0})
             end)
         end
@@ -105,9 +88,9 @@ minetest.register_on_respawnplayer(function(player)
     inv:add_item("main", "default:shovel_diamond")
     inv:add_item("main", "mesecons_torch:mesecon_torch_on")        
     inv:add_item("main", "sum_jetpack:jetpack")
-    inv:add_item("main", "sum_jetpack:jetpack_fuel 5")
+    inv:add_item("main", "sum_jetpack:jetpack_fuel 2")
 	inv:add_item("main", "vacuum:air_bottle 2")
-    inv:add_item("main", "mobs:rat_cooked 2")
+    inv:add_item("main", "mobs:meat_cooked 2")
 	
 	armor:equip(player, ItemStack("spacesuit:helmet"))
 	armor:equip(player, ItemStack("spacesuit:chestplate"))
