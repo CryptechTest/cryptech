@@ -44,9 +44,6 @@ minetest.register_on_newplayer(function(player)
     inv:add_item("main", "sum_jetpack:jetpack_fuel 2")
     inv:add_item("main", "vacuum:air_bottle 1")
     inv:add_item("main", "mobs:meat 5")
-    player:set_attribute("has_received_items", "true")
-    --inv:add_item("main", "default:shovel_diamond 4")
-    --inv:add_item("main", "farming:hoe_diamond 4")
     local player = player
     -- 3d_armor´s inventory is not fully set up in the beginning. They use a delay of 0, so we wait a bit for them and afterwards equip the spacesuit.
     minetest.after(2, function()
@@ -81,8 +78,7 @@ end)
 
 -- Respawn player function
 
-minetest.register_on_respawnplayer(function(player)
-    
+minetest.register_on_respawnplayer(function(player)  
     
     local player_name = player:get_player_name()
     local home = ui.home_pos[player_name]
@@ -94,7 +90,7 @@ minetest.register_on_respawnplayer(function(player)
         armor:remove_all(player)
         inv:add_item("main", "default:pick_diamond")
         inv:add_item("main", "default:shovel_diamond")
-        inv:add_item("main", "mesecons_torch:mesecon_torch_on")        
+        inv:add_item("main", "default:torch")        
         inv:add_item("main", "sum_jetpack:jetpack")
         inv:add_item("main", "sum_jetpack:jetpack_fuel 2")
         inv:add_item("main", "vacuum:air_bottle 1")
