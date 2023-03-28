@@ -104,6 +104,7 @@ minetest.register_on_respawnplayer(function(player)
         armor:equip(player, ItemStack("spacesuit:chestplate"))
         armor:equip(player, ItemStack("spacesuit:pants"))
         armor:equip(player, ItemStack("spacesuit:boots"))
+        player:set_pos(minetest.setting_get_pos("static_spawnpoint") or {x = 0, y = 4500, z = 0})
 	end    
 	return true
 end)
