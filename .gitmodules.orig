@@ -214,9 +214,12 @@
 [submodule "mods/tubelib2"]
 	path = mods/tubelib2
 	url = git@github.com:joe7575/tubelib2.git
-[submodule "mods/protector"]
-	path = mods/protector
-	url = git@github.com:CryptechTest/protector.git
+<<<<<<< HEAD
 [submodule "mods/ctg_machines"]
 	path = mods/ctg_machines
 	url = git@github.com:CryptechTest/ctg_machines.git
+=======
+[submodule "mods/protector"]
+	path = mods/protector
+	url = git@github.com:CryptechTest/protector.git
+>>>>>>> 7e5fbe41d0a7425fcb4a431eb9545e8e1df68ad0
