@@ -103,9 +103,6 @@
 [submodule "mods/crops"]
 	path = mods/crops
 	url = git@github.com:minetest-mods/crops.git
-[submodule "mods/server_news"]
-	path = mods/server_news
-	url = git@github.com:Ezhh/server_news.git
 [submodule "mods/modlib"]
 	path = mods/modlib
 	url = git@github.com:appgurueu/modlib.git
@@ -130,12 +127,6 @@
 [submodule "mods/emoji"]
 	path = mods/emoji
 	url = git@github.com:bosapara/emoji.git
-[submodule "mods/news_markdown"]
-	path = mods/news_markdown
-	url = git@github.com:CryptechTest/news_markdown.git
-[submodule "mods/markdown2formspec2"]
-	path = mods/markdown2formspec2
-	url = git@github.com:ExeVirus/markdown2formspec2.git
 [submodule "mods/formspec_ast"]
 	path = mods/formspec_ast
 	url = git@github.com:CryptechTest/formspec_ast.git
