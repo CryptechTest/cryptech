@@ -220,3 +220,6 @@
 [submodule "mods/ctg_machines"]
 	path = mods/ctg_machines
 	url = git@github.com:CryptechTest/ctg_machines.git
+[submodule "mods/bweapons"]
+	path = mods/bweapons
+	url = git@github.com:CryptechTest/bweapons_modpack.git
