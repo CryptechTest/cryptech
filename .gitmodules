@@ -45,7 +45,7 @@
 	url = git@github.com:CryptechTest/minetest_tt.git
 [submodule "mods/spacesuit"]
 	path = mods/spacesuit
-	url = git@github.com:mt-mods/spacesuit.git
+	url = git@github.com:CryptechTest/spacesuit.git
 [submodule "mods/other_worlds"]
 	path = mods/other_worlds
 	url = git@github.com:CryptechTest/other_worlds.git

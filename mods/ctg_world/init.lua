@@ -14,10 +14,10 @@ local function refill_player_suit(itemstack, player, pointed_thing)
 	end
     for i, item in ipairs(invs:get_list("armor")) do
 		if item and item:get_name() ~= "" then
-			if item:get_name() == "spacesuit:helmet" or
-			   item:get_name() == "spacesuit:chestplate" or
-			   item:get_name() == "spacesuit:pants" or
-			   item:get_name() == "spacesuit:boots" then
+			if item:get_name() == "spacesuit:helmet_base" or
+			   item:get_name() == "spacesuit:chestplate_base" or
+			   item:get_name() == "spacesuit:pants_base" or
+			   item:get_name() == "spacesuit:boots_base" then
 				local max_refill = math.min(item:get_wear(), 65535)
 				armor:damage(player, i, item, -max_refill)
 			end
@@ -47,10 +47,10 @@ minetest.register_on_newplayer(function(player)
     local player = player
     -- 3d_armor´s inventory is not fully set up in the beginning. They use a delay of 0, so we wait a bit for them and afterwards equip the spacesuit.
     minetest.after(2, function()
-        armor:equip(player, ItemStack("spacesuit:helmet"))
-        armor:equip(player, ItemStack("spacesuit:chestplate"))
-        armor:equip(player, ItemStack("spacesuit:pants"))
-        armor:equip(player, ItemStack("spacesuit:boots"))
+        armor:equip(player, ItemStack("spacesuit:helmet_base"))
+        armor:equip(player, ItemStack("spacesuit:chestplate_base"))
+        armor:equip(player, ItemStack("spacesuit:pants_base"))
+        armor:equip(player, ItemStack("spacesuit:boots_base"))
         
     end)
         
@@ -96,10 +96,10 @@ minetest.register_on_respawnplayer(function(player)
         inv:add_item("main", "vacuum:air_bottle 1")
         inv:add_item("main", "mobs:meat 5")
         
-        armor:equip(player, ItemStack("spacesuit:helmet"))
-        armor:equip(player, ItemStack("spacesuit:chestplate"))
-        armor:equip(player, ItemStack("spacesuit:pants"))
-        armor:equip(player, ItemStack("spacesuit:boots"))
+        armor:equip(player, ItemStack("spacesuit:helmet_base"))
+        armor:equip(player, ItemStack("spacesuit:chestplate_base"))
+        armor:equip(player, ItemStack("spacesuit:pants_base"))
+        armor:equip(player, ItemStack("spacesuit:boots_base"))
         player:set_pos(minetest.setting_get_pos("static_spawnpoint") or {x = 0, y = 4500, z = 0})
 	end    
 	return true
