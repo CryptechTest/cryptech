@@ -30,7 +30,7 @@
 	url = git@github.com:mt-mods/illumination.git
 [submodule "mods/radiant_damage"]
 	path = mods/radiant_damage
-	url = git@github.com:minetest-mods/radiant_damage.git
+	url = git@github.com:CryptechTest/radiant_damage.git
 [submodule "mods/invisible"]
 	path = mods/invisible
 	url = git@github.com:AiTechEye/invisible.git
