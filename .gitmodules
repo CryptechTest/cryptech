@@ -84,7 +84,7 @@
 	url = git@github.com:EmptyStar/bottles.git
 [submodule "mods/technic"]
 	path = mods/technic
-	url = git@github.com:minetest-mods/technic.git
+	url = git@github.com:CryptechTest/technic.git
 [submodule "mods/pipeworks"]
 	path = mods/pipeworks
 	url = git@github.com:CryptechTest/pipeworks.git
