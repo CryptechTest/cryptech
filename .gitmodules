@@ -214,3 +214,6 @@
 [submodule "mods/bweapons"]
 	path = mods/bweapons
 	url = git@github.com:CryptechTest/bweapons_modpack.git
+[submodule "mods/ctg_armor"]
+	path = mods/ctg_armor
+	url = git@github.com:CryptechTest/ctg_armor.git
