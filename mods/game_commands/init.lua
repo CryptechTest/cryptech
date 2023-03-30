@@ -29,3 +29,22 @@ minetest.register_chatcommand("killme", {
 		end
 	end
 })
+
+minetest.register_chatcommand("spawn", {
+	description = S("Teleport to spawn"),
+	func = function(name)
+		local spawn = minetest.setting_get_pos("static_spawnpoint")
+		if spawn then
+			local player = minetest.get_player_by_name(name)
+			if player then
+				minetest.after(0, function()
+					player:set_pos({x = spawn.x, y = spawn.y + 1, z = spawn.z})
+				end)
+			else
+				-- Show error message if used when not logged in, eg: from IRC mod
+				return false, S("You need to be online to be teleported!")
+			end
+		end
+		
+	end
+})
