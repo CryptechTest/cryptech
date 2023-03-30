@@ -81,7 +81,7 @@
 	url = git@github.com:mt-mods/unifieddyes.git
 [submodule "mods/bottles"]
 	path = mods/bottles
-	url = git@github.com:EmptyStar/bottles.git
+	url = git@github.com:CryptechTest/bottles.git
 [submodule "mods/technic"]
 	path = mods/technic
 	url = git@github.com:CryptechTest/technic.git
