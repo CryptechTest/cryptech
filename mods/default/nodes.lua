@@ -1409,7 +1409,13 @@ minetest.register_node("default:papyrus", {
 	wield_image = "default_papyrus.png",
 	paramtype = "light",
 	sunlight_propagates = true,
-	walkable = false,
+	--walkable = false,
+    node_box = {
+        type = 'fixed',
+        fixed = {
+            { -0.01, -0.0, -0.01, 0.01, 0.0, 0.01 },
+        }
+    },
 	selection_box = {
 		type = "fixed",
 		fixed = {-6 / 16, -0.5, -6 / 16, 6 / 16, 0.5, 6 / 16},
