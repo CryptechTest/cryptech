@@ -516,6 +516,7 @@ end
 -- Large cactus
 
 function default.grow_large_cactus(pos)
+    minetest.set_node(pos, {name = "air"})
 	local path = minetest.get_modpath("default") ..
 		"/schematics/large_cactus.mts"
 	minetest.place_schematic({x = pos.x - 2, y = pos.y - 1, z = pos.z - 2},
