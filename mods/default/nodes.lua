@@ -1319,10 +1319,15 @@ minetest.register_node("default:cactus", {
 	description = S("Cactus"),
 	tiles = {"default_cactus_top.png", "default_cactus_top.png",
 		"default_cactus_side.png"},
-	paramtype2 = "facedir",
-	groups = {choppy = 3},
+	paramtype2 = "wallmounted",
+	groups = {choppy = 3, attached_node = 2, thorns = 3},
 	sounds = default.node_sound_wood_defaults(),
-	on_place = minetest.rotate_node,
+
+	--on_place = minetest.rotate_node,
+
+	after_dig_node = function(pos, node, metadata, digger)
+		default.dig_up(pos, node, digger)
+	end,
 })
 
 minetest.register_node("default:large_cactus_seedling", {
@@ -1341,7 +1346,7 @@ minetest.register_node("default:large_cactus_seedling", {
 			5 / 16, 0.5, 5 / 16
 		}
 	},
-	groups = {choppy = 3, dig_immediate = 3, attached_node = 1},
+	groups = {choppy = 3, dig_immediate = 3, attached_node = 3, thorns = 1},
 	sounds = default.node_sound_wood_defaults(),
 
 	on_place = function(itemstack, placer, pointed_thing)
@@ -1409,7 +1414,7 @@ minetest.register_node("default:papyrus", {
 		type = "fixed",
 		fixed = {-6 / 16, -0.5, -6 / 16, 6 / 16, 0.5, 6 / 16},
 	},
-	groups = {snappy = 3, flammable = 2},
+	groups = {snappy = 3, flammable = 2, attached_node = 3},
 	sounds = default.node_sound_leaves_defaults(),
 
 	after_dig_node = function(pos, node, metadata, digger)
