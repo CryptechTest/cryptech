@@ -226,3 +226,6 @@
 [submodule "mods/flow"]
 	path = mods/flow
 	url = git@github.com:CryptechTest/flow.git
+[submodule "mods/pathfinder"]
+	path = mods/pathfinder
+	url = git@github.com:MarkuBu/pathfinder.git
