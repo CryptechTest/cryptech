@@ -79,7 +79,7 @@ end)
 -- Respawn player function
 
 minetest.register_on_respawnplayer(function(player)  
-    
+    if player:get_attach() then player:set_detach() end
     local player_name = player:get_player_name()
     local home = ui.home_pos[player_name]
     if home ~= nil then
