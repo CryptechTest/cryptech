@@ -6,7 +6,7 @@
 	url = git@github.com:CryptechTest/3d_armor.git
 [submodule "mods/scifi_nodes"]
 	path = mods/scifi_nodes
-	url = git@github.com:D00Med/scifi_nodes.git
+	url = git@github.com:CryptechTest/scifi_nodes.git
 [submodule "mods/unified_inventory"]
 	path = mods/unified_inventory
 	url = git@github.com:CryptechTest/unified_inventory.git
