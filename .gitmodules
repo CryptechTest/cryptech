@@ -228,4 +228,4 @@
 	url = git@github.com:CryptechTest/flow.git
 [submodule "mods/pathfinder"]
 	path = mods/pathfinder
-	url = git@github.com:MarkuBu/pathfinder.git
+	url = git@github.com:CryptechTest/pathfinder.git
