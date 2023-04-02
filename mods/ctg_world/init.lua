@@ -79,12 +79,6 @@ end)
 -- Respawn player function
 
 minetest.register_on_respawnplayer(function(player)  
-    local hasMobs = minetest.get_modpath("mobs")
-    if hasMobs then 
-        minetest.after(0.1, function()
-            mobs.detach(player, {x = 1, y = 0, z = 1})
-        end)
-    end
     local player_name = player:get_player_name()
     local home = ui.home_pos[player_name]
     if home ~= nil then
