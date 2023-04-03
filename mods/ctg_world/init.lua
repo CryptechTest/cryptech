@@ -1,5 +1,10 @@
 local ui = unified_inventory
 
+
+-- load files
+local default_path = minetest.get_modpath("ctg_world")
+dofile(default_path .. DIR_DELIM .. "resources.lua")
+
 local function give_or_drop_item(player, itemstack)
     local inv = minetest.get_inventory({type="player", name=player:get_player_name()})
     local remaining = inv:add_item("main", itemstack)
@@ -40,7 +45,7 @@ minetest.register_on_newplayer(function(player)
     inv:add_item("main", "default:pick_diamond")
     inv:add_item("main", "default:shovel_diamond")
     inv:add_item("main", "default:torch")
-    --inv:add_item("main", "sum_jetpack:jetpack")
+    inv:add_item("main", "ctg_jetpack:jetpack_iron")
     --inv:add_item("main", "sum_jetpack:jetpack_fuel 2")
     inv:add_item("main", "vacuum:air_bottle 1")
     inv:add_item("main", "mobs:meat 5")
@@ -51,7 +56,7 @@ minetest.register_on_newplayer(function(player)
         armor:equip(player, ItemStack("spacesuit:chestplate_base"))
         armor:equip(player, ItemStack("spacesuit:pants_base"))
         armor:equip(player, ItemStack("spacesuit:boots_base"))
-        armor:equip(player, ItemStack("ctg_jetpack:jetpack_iron"))
+        --armor:equip(player, ItemStack("ctg_jetpack:jetpack_iron"))
     end)
         
 
@@ -90,7 +95,7 @@ minetest.register_on_respawnplayer(function(player)
         inv:add_item("main", "default:pick_diamond")
         inv:add_item("main", "default:shovel_diamond")
         inv:add_item("main", "default:torch")        
-        --inv:add_item("main", "sum_jetpack:jetpack")
+        inv:add_item("main", "ctg_jetpack:jetpack_iron")
         --inv:add_item("main", "sum_jetpack:jetpack_fuel 2")
         inv:add_item("main", "vacuum:air_bottle 1")
         inv:add_item("main", "mobs:meat 5")
@@ -99,8 +104,35 @@ minetest.register_on_respawnplayer(function(player)
         armor:equip(player, ItemStack("spacesuit:chestplate_base"))
         armor:equip(player, ItemStack("spacesuit:pants_base"))
         armor:equip(player, ItemStack("spacesuit:boots_base"))
-        armor:equip(player, ItemStack("ctg_jetpack:jetpack_iron"))
+        --armor:equip(player, ItemStack("ctg_jetpack:jetpack_iron"))
         player:set_pos(minetest.setting_get_pos("static_spawnpoint") or {x = 0, y = 4500, z = 0})
 	end    
 	return true
+end)
+
+local space_low = 4000  -- 1.0
+local space_high = 14999 -- 0.1
+local redsky_low = 14000 -- 0.08
+local redsky_high = 20999 -- 0.03
+
+local function get_gravity(pos)
+    if pos.y < space_low then
+        return 1.0
+    end
+    if pos.y >= space_low and pos.y < space_high then
+        return 0.1
+    end
+    if pos.y >= redsky_low and pos.y < redsky_high then
+        return 0.08
+    end
+    if pos.y >= redsky_high then
+        return 0.03
+    end
+end
+
+armor.register_on_equip(function(player, index, stack)
+    local pos = player.get_pos()
+    local grav = get_gravity(pos)
+    player:set_physics_override({gravity = grav})
+    minetest.log("update gravity: " .. grav)
 end)
