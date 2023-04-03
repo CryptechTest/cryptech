@@ -51,7 +51,7 @@ minetest.register_on_newplayer(function(player)
         armor:equip(player, ItemStack("spacesuit:chestplate_base"))
         armor:equip(player, ItemStack("spacesuit:pants_base"))
         armor:equip(player, ItemStack("spacesuit:boots_base"))
-        armor:equip(player, ItemStack("ctg_jetpack:jetpack"))
+        armor:equip(player, ItemStack("ctg_jetpack:jetpack_iron"))
     end)
         
 
@@ -99,7 +99,7 @@ minetest.register_on_respawnplayer(function(player)
         armor:equip(player, ItemStack("spacesuit:chestplate_base"))
         armor:equip(player, ItemStack("spacesuit:pants_base"))
         armor:equip(player, ItemStack("spacesuit:boots_base"))
-        armor:equip(player, ItemStack("ctg_jetpack:jetpack"))
+        armor:equip(player, ItemStack("ctg_jetpack:jetpack_iron"))
         player:set_pos(minetest.setting_get_pos("static_spawnpoint") or {x = 0, y = 4500, z = 0})
 	end    
 	return true
