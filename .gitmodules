@@ -232,3 +232,9 @@
 [submodule "mods/inventory_ores"]
 	path = mods/inventory_ores
 	url = git@github.com:fluxionary/minetest-inventory_ores.git
+[submodule "mods/futil"]
+	path = mods/futil
+	url = git@github.com:fluxionary/minetest-futil.git
+[submodule "mods/fmod"]
+	path = mods/fmod
+	url = git@github.com:fluxionary/minetest-fmod.git
