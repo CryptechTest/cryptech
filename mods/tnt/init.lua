@@ -403,6 +403,27 @@ local function tnt_explode(pos, radius, ignore_protection, ignore_on_blast, owne
 	return drops, radius
 end
 
+function tnt.safe_boom(pos, def)
+	def = def or {}
+	def.radius = def.radius or 1
+	def.damage_radius = def.damage_radius or def.radius * 2
+	local meta = minetest.get_meta(pos)
+	local owner = meta:get_string("owner")
+	
+	local sound = def.sound or "tnt_explode"
+	minetest.sound_play(sound, {pos = pos, gain = 2.5,
+			max_hear_distance = math.min(def.radius * 20, 128)}, true)
+	-- append entity drops
+	local damage_radius = (radius / math.max(1, def.radius)) * def.damage_radius
+	entity_physics(pos, damage_radius, drops)
+	if not def.disable_drops then
+		eject_drops(drops, pos, radius)
+	end
+	add_effects(pos, radius, drops)
+	minetest.log("action", "A SAFE TNT explosion occurred at " .. minetest.pos_to_string(pos) ..
+		" with radius " .. radius)
+end
+
 function tnt.boom(pos, def)
 	def = def or {}
 	def.radius = def.radius or 1
