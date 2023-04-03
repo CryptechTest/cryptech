@@ -418,10 +418,7 @@ function tnt.safe_boom(pos, def)
 	local radius = math.floor(def.radius * math.pow(count, 1/3))
 	local damage_radius = (radius / math.max(1, def.radius)) * def.damage_radius
 	entity_physics(pos, damage_radius, drops)
-	if not def.disable_drops then
-		eject_drops(drops, pos, radius)
-	end
-	add_effects(pos, radius, drops)
+	add_effects(pos, radius, {})
 	minetest.log("action", "A SAFE TNT explosion occurred at " .. minetest.pos_to_string(pos) ..
 		" with radius " .. radius)
 end
