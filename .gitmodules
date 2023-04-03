@@ -106,9 +106,6 @@
 [submodule "mods/modlib"]
 	path = mods/modlib
 	url = git@github.com:appgurueu/modlib.git
-[submodule "mods/character_anim"]
-	path = mods/character_anim
-	url = git@github.com:appgurueu/character_anim.git
 [submodule "mods/3d_armor_flyswim"]
 	path = mods/3d_armor_flyswim
 	url = git@github.com:sirrobzeroone/3d_armor_flyswim.git
