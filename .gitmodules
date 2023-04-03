@@ -238,3 +238,6 @@
 [submodule "mods/fmod"]
 	path = mods/fmod
 	url = git@github.com:fluxionary/minetest-fmod.git
+[submodule "mods/inspector"]
+	path = mods/inspector
+	url = git@github.com:minetest-mods/inspector.git
