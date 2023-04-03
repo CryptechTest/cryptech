@@ -241,3 +241,6 @@
 [submodule "mods/inspector"]
 	path = mods/inspector
 	url = git@github.com:minetest-mods/inspector.git
+[submodule "mods/mail"]
+	path = mods/mail
+	url = git@github.com:mt-mods/mail.git
