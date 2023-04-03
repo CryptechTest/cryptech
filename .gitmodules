@@ -229,3 +229,6 @@
 [submodule "mods/mobs_horse"]
 	path = mods/mobs_horse
 	url = git@github.com:CryptechTest/mob_horse.git
+[submodule "mods/inventory_ores"]
+	path = mods/inventory_ores
+	url = git@github.com:fluxionary/minetest-inventory_ores.git
