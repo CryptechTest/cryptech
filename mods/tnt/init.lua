@@ -414,6 +414,8 @@ function tnt.safe_boom(pos, def)
 	minetest.sound_play(sound, {pos = pos, gain = 2.5,
 			max_hear_distance = math.min(def.radius * 20, 128)}, true)
 	-- append entity drops
+	local count = 1
+	local radius = math.floor(def.radius * math.pow(count, 1/3))
 	local damage_radius = (radius / math.max(1, def.radius)) * def.damage_radius
 	entity_physics(pos, damage_radius, drops)
 	if not def.disable_drops then
