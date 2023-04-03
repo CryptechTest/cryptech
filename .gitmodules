@@ -108,7 +108,7 @@
 	url = git@github.com:appgurueu/modlib.git
 [submodule "mods/3d_armor_flyswim"]
 	path = mods/3d_armor_flyswim
-	url = git@github.com:sirrobzeroone/3d_armor_flyswim.git
+	url = git@github.com:CryptechTest/3d_armor_flyswim.git
 [submodule "mods/lwcomputers"]
 	path = mods/lwcomputers
 	url = git@github.com:CryptechTest/lwcomputers.git
