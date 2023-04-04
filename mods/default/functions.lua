@@ -221,7 +221,7 @@ function default.grow_cactus(pos, node)
 	if minetest.get_node_light(pos) < 13 then
 		return
 	end
-	minetest.set_node(pos, {name = "default:cactus", param2 = 3})
+	minetest.set_node(pos, {name = "default:cactus", param2 = 1})
 	return true
 end
 
