@@ -5,10 +5,10 @@ local S = beds.get_translator
 
 -- Fancy shaped bed
 
-beds.register_bed("beds:fancy_bed", {
-	description = S("Fancy Bed"),
-	inventory_image = "beds_bed_fancy.png",
-	wield_image = "beds_bed_fancy.png",
+beds.register_bed("beds:fancy_bed_red", {
+	description = S("Fancy Red Bed"),
+	inventory_image = "beds_bed_red_fancy.png",
+	wield_image = "beds_bed_red_fancy.png",
 	tiles = {
 		bottom = {
 			"beds_bed_top1.png",
@@ -49,17 +49,17 @@ beds.register_bed("beds:fancy_bed", {
 	selectionbox = {-0.5, -0.5, -0.5, 0.5, 0.06, 1.5},
 	recipe = {
 		{"", "", "group:stick"},
-		{"wool:white", "wool:white", "wool:white"},
+		{"wool:red", "wool:red", "wool:white"},
 		{"group:wood", "group:wood", "group:wood"},
 	},
 })
 
 -- Simple shaped bed
 
-beds.register_bed("beds:bed", {
-	description = S("Simple Bed"),
-	inventory_image = "beds_bed.png",
-	wield_image = "beds_bed.png",
+beds.register_bed("beds:bed_red", {
+	description = S("Simple Red Bed"),
+	inventory_image = "beds_bed_red.png",
+	wield_image = "beds_bed_red.png",
 	tiles = {
 		bottom = {
 			"beds_bed_top_bottom.png^[transformR90",
@@ -84,7 +84,7 @@ beds.register_bed("beds:bed", {
 	},
 	selectionbox = {-0.5, -0.5, -0.5, 0.5, 0.0625, 1.5},
 	recipe = {
-		{"wool:white", "wool:white", "wool:white"},
+		{"wool:red", "wool:red", "wool:white"},
 		{"group:wood", "group:wood", "group:wood"}
 	},
 })

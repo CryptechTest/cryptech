@@ -244,7 +244,6 @@
 [submodule "mods/mail"]
 	path = mods/mail
 	url = git@github.com:mt-mods/mail.git
-
 [submodule "mods/minecart"]
 	path = mods/minecart
 	url = git@github.com:joe7575/minecart.git
