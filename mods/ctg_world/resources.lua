@@ -112,8 +112,9 @@ end
 
 minetest.register_node("ctg_world:nickel_block", {
 	description = S("Nickel Block"),
-	tiles = {"ctg_nickel_block_top.png","ctg_nickel_block_top.png","ctg_nickel_block.png"},
-	paramtype2 = "facedir",
+	tiles = {"ctg_nickel_block_top.png"},
+	--tiles = {"ctg_nickel_block_top.png","ctg_nickel_block_top.png","ctg_nickel_block.png"},
+	--paramtype2 = "facedir",
 	sounds = default.node_sound_metal_defaults(),
 	groups = {cracky = 1, level = 1, metal = 2},
 	is_ground_content = false,
@@ -187,8 +188,9 @@ end
 
 minetest.register_node("ctg_world:aluminum_block", {
 	description = S("Aluminum Block"),
-	tiles = {"ctg_aluminum_block_top.png","ctg_aluminum_block_top.png","ctg_aluminum_block.png"},
-	paramtype2 = "facedir",
+	tiles = {"ctg_aluminum_block_top.png"},
+	--tiles = {"ctg_aluminum_block_top.png","ctg_aluminum_block_top.png","ctg_aluminum_block.png"},
+	--paramtype2 = "facedir",
 	sounds = default.node_sound_metal_defaults(),
 	groups = {cracky = 1, level = 1, metal = 4},
 	is_ground_content = false,
