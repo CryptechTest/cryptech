@@ -244,15 +244,4 @@
 [submodule "mods/mail"]
 	path = mods/mail
 	url = git@github.com:mt-mods/mail.git
-[submodule "mods/advtrains"]
-	path = mods/advtrains
-	url = git@github.com:CryptechTest/advtrains.git
-[submodule "mods/basic_trains"]
-	path = mods/basic_trains
-	url = git@github.com:CryptechTest/basic_trains.git
-[submodule "mods/technictrain"]
-	path = mods/technictrain
-	url = git@github.com:CryptechTest/technictrain.git
-[submodule "mods/advtrains_freight_train"]
-	path = mods/advtrains_freight_train
-	url = git@github.com:CryptechTest/advtrains_freight_train.git
+
