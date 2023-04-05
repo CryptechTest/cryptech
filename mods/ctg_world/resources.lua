@@ -35,10 +35,32 @@ if minetest.get_modpath("other_worlds") then
 	})
 end
 
+minetest.register_node("ctg_world:titanium_block", {
+	description = S("Titanium Block"),
+	tiles = {"ctg_titanium_block_top.png","ctg_titanium_block_top.png","ctg_titanium_block.png"},
+	paramtype2 = "facedir",
+	sounds = default.node_sound_metal_defaults(),
+	groups = {cracky = 1, level = 2, metal = 3},
+	is_ground_content = false,
+
+	on_place = minetest.rotate_node,
+})
+
+
+
+minetest.register_craft({
+	output = "ctg_world:titanium_block",
+	recipe = {
+		{"ctg_world:titanium_ingot", "ctg_world:titanium_ingot", "ctg_world:titanium_ingot"},
+		{"ctg_world:titanium_ingot", "ctg_world:titanium_ingot", "ctg_world:titanium_ingot"},
+		{"ctg_world:titanium_ingot", "ctg_world:titanium_ingot", "ctg_world:titanium_ingot"},
+	}
+})
+
 minetest.register_craft({
 	type = "cooking",
-	output = "default:titanium_ingot",
-	recipe = "default:titanium_lump",
+	output = "ctg_world:titanium_ingot",
+	recipe = "ctg_world:titanium_lump",
 })
 
 minetest.register_craftitem("ctg_world:titanium_ingot", {
