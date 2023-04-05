@@ -248,3 +248,12 @@
 [submodule "mods/minecart"]
 	path = mods/minecart
 	url = git@github.com:joe7575/minecart.git
+[submodule "mods/vehicle"]
+	path = mods/vehicle
+	url = git@github.com:CryptechTest/vehicle_mash.git
+[submodule "mods/lib_mount"]
+	path = mods/lib_mount
+	url = git@github.com:minetest-mods/lib_mount.git
+[submodule "mods/roads"]
+	path = mods/roads
+	url = git@github.com:CryptechTest/roads.git
