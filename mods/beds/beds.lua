@@ -118,9 +118,56 @@ local function registerSimpleBed(color)
 	--minetest.register_alias("beds:bed_top_red", "beds:bed_top")
 end
 
+-- Simple shaped bed
+local function registerSimpleBag(color)
+	local c = ""
+	for w in color:gmatch("[^_]+") do
+		c = c.." "..w:gsub("^%l", string.upper)
+	end
+	beds.register_bed("beds:bag_"..color, {		
+		description = S("Simple"..c.." Sleeping Bag"),
+		inventory_image = "beds_bag_"..color..".png",
+		wield_image = "beds_bag_"..color..".png",
+		tiles = {
+			bottom = {
+				"beds_bed_"..color.."_top_bottom.png^[transformR90",
+				"beds_bed_"..color.."_top_bottom.png^[transformR90",
+				"beds_bed_"..color.."_top_bottom.png^[transformR90",
+				"beds_bed_"..color.."_top_bottom.png^[transformR90",
+				"beds_bed_"..color.."_top_bottom.png^[transformR90",
+				"beds_bed_"..color.."_top_bottom.png^[transformR90",
+			},
+			top = {
+				"beds_bed_"..color.."_top_bottom.png^[transformR90",
+				"beds_bed_"..color.."_top_bottom.png^[transformR90",
+				"beds_bed_"..color.."_top_bottom.png^[transformR90",
+				"beds_bed_"..color.."_top_bottom.png^[transformR90",
+				"beds_bed_"..color.."_top_bottom.png^[transformR90",
+				"beds_bed_"..color.."_top_bottom.png^[transformR90",
+			}
+		},
+		nodebox = {
+			bottom = {-0.5, -0.5, -0.5, 0.5, -0.3750, 0.5},
+			top = {-0.5, -0.5, -0.5, 0.5, -0.375, 0.5}
+		},
+		selectionbox = {-0.5, -0.5, -0.5, 0.5, -0.3750, 1.5},
+		recipe = {
+			{"wool:slab_"..color, "wool:slab_"..color, "wool:slab_"..color},
+			
+		},
+	})
+	minetest.register_craft({
+		type = "fuel",
+		recipe = "beds:bag_"..color.."_bottom",
+		burntime = 4,
+	})
+
+end
+
 
 for i = 1, #colors do
 	registerSimpleBed(colors[i])
+	registerSimpleBag(colors[i])
 	registerFancyBed(colors[i])
 end
 
