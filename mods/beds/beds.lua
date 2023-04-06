@@ -4,61 +4,72 @@
 local S = beds.get_translator
 
 -- colors per wool
-local colors = { "black", --[["blue", "brown", "cyan", "dark_green", --]]"dark_grey", --[["green",--]] "grey",--[[ "magenta", "orange", "pink", --]]"red",--[[ "violet", "white", "yellow"--]]}
+local colors = { "black", "blue", "brown", "cyan", "dark_green", "dark_grey", "green", "grey", "magenta", "orange", "pink", "red", "violet", "white", "yellow" }
 
 -- Fancy shaped bed
+local function registerFancyBed(color)
+	local c = ""
+	for w in color:gmatch("[^_]+") do
+		c = c.." "..w:gsub("^%l", string.upper)
+	end
+	beds.register_bed("beds:fancy_bed_"..color, {
+		description = S("Fancy"..c.." Bed"),
+		inventory_image = "beds_bed_"..color.."_fancy.png",
+		wield_image = "beds_bed_"..color.."_fancy.png",
+		tiles = {
+			bottom = {
+				"beds_bed_"..color.."_top1.png",
+				"beds_bed_under.png",
+				"beds_bed_"..color.."_side1.png",
+				"beds_bed_"..color.."_side1.png^[transformFX",
+				"beds_bed_"..color.."_foot.png",
+				"beds_bed_"..color.."_foot.png",
+			},
+			top = {
+				"beds_bed_"..color.."_top2.png",
+				"beds_bed_under.png",
+				"beds_bed_"..color.."_side2.png",
+				"beds_bed_"..color.."_side2.png^[transformFX",
+				"beds_bed_head.png",
+				"beds_bed_head.png",
+			}
+		},
+		nodebox = {
+			bottom = {
+				{-0.5, -0.5, -0.5, -0.375, -0.065, -0.4375},
+				{0.375, -0.5, -0.5, 0.5, -0.065, -0.4375},
+				{-0.5, -0.375, -0.5, 0.5, -0.125, -0.4375},
+				{-0.5, -0.375, -0.5, -0.4375, -0.125, 0.5},
+				{0.4375, -0.375, -0.5, 0.5, -0.125, 0.5},
+				{-0.4375, -0.3125, -0.4375, 0.4375, -0.0625, 0.5},
+			},
+			top = {
+				{-0.5, -0.5, 0.4375, -0.375, 0.1875, 0.5},
+				{0.375, -0.5, 0.4375, 0.5, 0.1875, 0.5},
+				{-0.5, 0, 0.4375, 0.5, 0.125, 0.5},
+				{-0.5, -0.375, 0.4375, 0.5, -0.125, 0.5},
+				{-0.5, -0.375, -0.5, -0.4375, -0.125, 0.5},
+				{0.4375, -0.375, -0.5, 0.5, -0.125, 0.5},
+				{-0.4375, -0.3125, -0.5, 0.4375, -0.0625, 0.4375},
+			}
+		},
+		selectionbox = {-0.5, -0.5, -0.5, 0.5, 0.06, 1.5},
+		recipe = {
+			{"", "", "group:stick"},
+			{"wool:"..color, "wool:"..color, "wool:white"},
+			{"group:wood", "group:wood", "group:wood"},
+		},
+	})
 
-beds.register_bed("beds:fancy_bed_red", {
-	description = S("Fancy Red Bed"),
-	inventory_image = "beds_bed_red_fancy.png",
-	wield_image = "beds_bed_red_fancy.png",
-	tiles = {
-		bottom = {
-			"beds_bed_red_top1.png",
-			"beds_bed_under.png",
-			"beds_bed_red_side1.png",
-			"beds_bed_red_side1.png^[transformFX",
-			"beds_bed_red_foot.png",
-			"beds_bed_red_foot.png",
-		},
-		top = {
-			"beds_bed_red_top2.png",
-			"beds_bed_under.png",
-			"beds_bed_red_side2.png",
-			"beds_bed_red_side2.png^[transformFX",
-			"beds_bed_head.png",
-			"beds_bed_head.png",
-		}
-	},
-	nodebox = {
-		bottom = {
-			{-0.5, -0.5, -0.5, -0.375, -0.065, -0.4375},
-			{0.375, -0.5, -0.5, 0.5, -0.065, -0.4375},
-			{-0.5, -0.375, -0.5, 0.5, -0.125, -0.4375},
-			{-0.5, -0.375, -0.5, -0.4375, -0.125, 0.5},
-			{0.4375, -0.375, -0.5, 0.5, -0.125, 0.5},
-			{-0.4375, -0.3125, -0.4375, 0.4375, -0.0625, 0.5},
-		},
-		top = {
-			{-0.5, -0.5, 0.4375, -0.375, 0.1875, 0.5},
-			{0.375, -0.5, 0.4375, 0.5, 0.1875, 0.5},
-			{-0.5, 0, 0.4375, 0.5, 0.125, 0.5},
-			{-0.5, -0.375, 0.4375, 0.5, -0.125, 0.5},
-			{-0.5, -0.375, -0.5, -0.4375, -0.125, 0.5},
-			{0.4375, -0.375, -0.5, 0.5, -0.125, 0.5},
-			{-0.4375, -0.3125, -0.5, 0.4375, -0.0625, 0.4375},
-		}
-	},
-	selectionbox = {-0.5, -0.5, -0.5, 0.5, 0.06, 1.5},
-	recipe = {
-		{"", "", "group:stick"},
-		{"wool:red", "wool:red", "wool:white"},
-		{"group:wood", "group:wood", "group:wood"},
-	},
-})
+	minetest.register_craft({
+		type = "fuel",
+		recipe = "beds:fancy_bed_"..color.."_bottom",
+		burntime = 13,
+	})
+end
+
 
 -- Simple shaped bed
-
 local function registerSimpleBed(color)
 	local c = ""
 	for w in color:gmatch("[^_]+") do
@@ -108,18 +119,15 @@ local function registerSimpleBed(color)
 end
 
 
-for i = 1, 4 do
+for i = 1, #colors do
 	registerSimpleBed(colors[i])
+	registerFancyBed(colors[i])
 end
 
 
 -- Fuel
 
-minetest.register_craft({
-	type = "fuel",
-	recipe = "beds:fancy_bed_bottom",
-	burntime = 13,
-})
+
 
 --minetest.register_craft({
 --	type = "fuel",
