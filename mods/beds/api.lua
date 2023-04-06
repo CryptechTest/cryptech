@@ -157,7 +157,7 @@ function beds.register_bed(name, def)
 		is_ground_content = false,
 		pointable = false,
 		groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 3, bed = 2,
-				not_in_creative_inventory = 1, attached_node = 3},
+				not_in_creative_inventory = 1},
 		sounds = def.sounds or default.node_sound_wood_defaults(),
 		drop = name .. "_bottom",
 		node_box = {
