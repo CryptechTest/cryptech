@@ -36,7 +36,7 @@ function beds.register_bed(name, def)
 		paramtype2 = "facedir",
 		is_ground_content = false,
 		stack_max = 1,
-		groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 3, bed = 1, attached_node=3},
+		groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 3, bed = 1},
 		sounds = def.sounds or default.node_sound_wood_defaults(),
 		node_box = {
 			type = "fixed",
