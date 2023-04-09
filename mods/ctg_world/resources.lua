@@ -1,5 +1,7 @@
 local S = minetest.get_translator(minetest.get_current_modname())
 
+-- titanium
+
 minetest.register_node("ctg_world:stone_with_titanium", {
     description = S("Titanium Ore"),
     tiles = {"default_stone.png^ctg_mineral_titanium.png"},
@@ -81,6 +83,8 @@ minetest.register_craftitem("ctg_world:titanium_lump", {
 })
 
 -------------------------------------------------------------
+
+-- nickel
 
 minetest.register_node("ctg_world:stone_with_nickel", {
     description = S("Nickel Ore"),
@@ -165,7 +169,42 @@ minetest.register_craftitem("ctg_world:nickel_lump", {
     inventory_image = "ctg_nickel_lump.png"
 })
 
+minetest.register_craftitem("ctg_world:nickel_dust", {
+    description = S("Nickel Dust"),
+    inventory_image = "ctg_nickel_dust.png"
+})
+
+minetest.register_craftitem("ctg_world:coppery_metal", {
+    description = S("Coppery Metal Clumps"),
+    inventory_image = "ctg_coppery_dust.png"
+})
+
+-- alloy
+minetest.register_craftitem("ctg_world:hiduminium_stock", {
+    description = S("Hiduminium Stock"),
+    inventory_image = "ctg_hiduminium_stock.png"
+})
+
+technic.register_grinder_recipe({
+    input = {"ctg_world:nickel_ingot"},
+    output = "ctg_world:nickel_dust 1"
+})
+
+technic.register_alloy_recipe({
+    input = {"technic:copper_dust 2", "ctg_world:nickel_dust 1"},
+    output = "ctg_world:coppery_metal 1",
+    time = 5
+})
+
+technic.register_alloy_recipe({
+    input = {"ctg_world:aluminum_ingot 4", "ctg_world:coppery_metal 1"},
+    output = "ctg_world:hiduminium_stock 3",
+    time = 8
+})
+
 -------------------------------------------------------------
+
+-- aluminum
 
 minetest.register_node("ctg_world:stone_with_aluminum", {
     description = S("Aluminum Ore"),
