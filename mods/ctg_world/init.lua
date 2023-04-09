@@ -113,32 +113,3 @@ minetest.register_on_respawnplayer(function(player)
     end
     return true
 end)
-
-local space_low = 4000 -- 1.0
-local space_high = 14999 -- 0.1
-local redsky_low = 14000 -- 0.08
-local redsky_high = 20999 -- 0.03
-
-local function get_gravity(pos)
-    if pos.y < space_low then
-        return 1.0
-    end
-    if pos.y >= space_low and pos.y < space_high then
-        return 0.1
-    end
-    if pos.y >= redsky_low and pos.y < redsky_high then
-        return 0.08
-    end
-    if pos.y >= redsky_high then
-        return 0.03
-    end
-end
-
-armor.register_on_equip(function(player, index, stack)
-    local pos = player.get_pos()
-    local grav = get_gravity(pos)
-    player:set_physics_override({
-        gravity = grav
-    })
-    minetest.log("update gravity: " .. grav)
-end)
