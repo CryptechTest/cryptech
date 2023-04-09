@@ -243,7 +243,7 @@
 	url = git@github.com:minetest-mods/inspector.git
 [submodule "mods/mail"]
 	path = mods/mail
-	url = git@github.com:mt-mods/mail.git
+	url = git@github.com:CryptechTest/mail.git
 [submodule "mods/minecart"]
 	path = mods/minecart
 	url = git@github.com:joe7575/minecart.git
