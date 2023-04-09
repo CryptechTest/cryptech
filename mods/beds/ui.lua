@@ -146,79 +146,77 @@ minetest.register_allow_player_inventory_action(function(player, action, invento
 end)
 
 minetest.register_on_player_receive_fields(function(player, formname, fields)
-    if formname ~= "" then
-        return
-    end
-
-    for i = 1, 24 do
-        if fields.save then
-            if fields["bedname_" .. i] then
+    if formname == "" then
+        for i = 1, 24 do
+            if fields.save then
+                if fields["bedname_" .. i] then
+                    local inv = player:get_inventory()
+                    local stack = inv:get_stack("beds", i)
+                    local meta = stack:get_meta()
+                    meta:set_string("description", esc(fields["bedname_" .. i]))
+                    inv:set_stack("beds", i, stack)
+                    ui.set_inventory_formspec(player, "bed" .. i)
+                    return
+                end
+            elseif fields.remove then
+                if fields["bedname_" .. i] then
+                    local inv = player:get_inventory()
+                    local stack = inv:get_stack("beds", i)
+                    local name = stack:get_description() or ("bed_" .. i)
+                    local hasname = false
+                    if fields["bedname_" .. i] == name then
+                        inv:remove_item("beds", stack)
+                        ui.set_inventory_formspec(player, ui.default)
+                        hasname = true
+                    end
+                    if not hasname then
+                        minetest.chat_send_player(player:get_player_name(),
+                            S("You must enter the exact name of the bed into the name field to remove a bed!"))
+                    end
+                end
+            elseif fields["teleport_bed" .. i] then
                 local inv = player:get_inventory()
                 local stack = inv:get_stack("beds", i)
-                local meta = stack:get_meta()
-                meta:set_string("description", esc(fields["bedname_" .. i]))
-                inv:set_stack("beds", i, stack)
-                ui.set_inventory_formspec(player, "bed" .. i)
+                if stack ~= nil then
+                    local meta = stack:get_meta()
+                    local pos = minetest.deserialize(meta:get_string("pos"))
+                    if pos ~= nil then
+                        local on_cooldown = beds.bed_cooldown[minetest.serialize(pos)] or false
+                        if not on_cooldown then
+                            ui.set_inventory_formspec(player, ui.default)
+                            player:set_pos({ x = pos.x, y = pos.y + 1, z = pos.z })
+                            beds.bed_cooldown[minetest.serialize(pos)] = true
+                            minetest.after(beds_cooldown, function()
+                                beds.bed_cooldown[minetest.serialize(pos)] = false
+                            end, pos)
+                        else
+                            minetest.chat_send_player(player:get_player_name(), S("This bed is on cooldown!"))
+                        end
+                    else
+                        inv:remove_item("beds", stack)
+                        ui.set_inventory_formspec(player, ui.default)
+                    end
+                end
                 return
             end
-        elseif fields.remove then
-            if fields["bedname_" .. i] then
+            if fields["bed" .. i] then
                 local inv = player:get_inventory()
                 local stack = inv:get_stack("beds", i)
-                local name = stack:get_description() or ("bed_" .. i)
-                local hasname = false
-                if fields["bedname_" .. i] == name then
-                    inv:remove_item("beds", stack)
-                    ui.set_inventory_formspec(player, ui.default)
-                    hasname = true
-                end
-                if not hasname then
-                    minetest.chat_send_player(player:get_player_name(),
-                        S("You must enter the exact name of the bed into the name field to remove a bed!"))
-                end
-            end
-        elseif fields["teleport_bed" .. i] then
-            local inv = player:get_inventory()
-            local stack = inv:get_stack("beds", i)
-            if stack ~= nil then
-                local meta = stack:get_meta()
-                local pos = minetest.deserialize(meta:get_string("pos"))
-                if pos ~= nil then
-                    local on_cooldown = beds.bed_cooldown[minetest.serialize(pos)] or false
-                    if not on_cooldown then
+                if stack ~= nil then
+                    local meta = stack:get_meta()
+                    local pos = minetest.deserialize(meta:get_string("pos"))
+                    local node = minetest.get_node(pos)
+                    if node.name ~= stack:get_name() then
+                        inv:remove_item("beds", stack)
                         ui.set_inventory_formspec(player, ui.default)
-                        player:set_pos({ x = pos.x, y = pos.y + 1, z = pos.z })
-                        beds.bed_cooldown[minetest.serialize(pos)] = true
-                        minetest.after(beds_cooldown, function()
-                            beds.bed_cooldown[minetest.serialize(pos)] = false
-                        end, pos)
                     else
-                        minetest.chat_send_player(player:get_player_name(), S("This bed is on cooldown!"))
+                        ui.set_inventory_formspec(player, "bed" .. i)
                     end
                 else
-                    inv:remove_item("beds", stack)
                     ui.set_inventory_formspec(player, ui.default)
                 end
+                return
             end
-            return
-        end
-        if fields["bed" .. i] then
-            local inv = player:get_inventory()
-            local stack = inv:get_stack("beds", i)
-            if stack ~= nil then
-                local meta = stack:get_meta()
-                local pos = minetest.deserialize(meta:get_string("pos"))
-                local node = minetest.get_node(pos)
-                if node.name ~= stack:get_name() then
-                    inv:remove_item("beds", stack)
-                    ui.set_inventory_formspec(player, ui.default)
-                else
-                    ui.set_inventory_formspec(player, "bed" .. i)
-                end
-            else
-                ui.set_inventory_formspec(player, ui.default)
-            end
-            return
         end
     end
 end)
