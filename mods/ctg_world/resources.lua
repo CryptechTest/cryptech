@@ -264,3 +264,75 @@ if minetest.get_modpath("basic_materials") then
         recipe = {"ctg_world:aluminum_ingot", "ctg_world:aluminum_ingot"}
     })
 end
+
+--- resources
+
+minetest.register_node("ctg_world:desert_stone_with_coal", {
+    description = S("Coal Ore"),
+    tiles = {"default_desert_stone.png^default_mineral_coal.png"},
+    groups = {
+        cracky = 1
+    },
+    drop = "default:coal_lump",
+    sounds = default.node_sound_stone_defaults()
+})
+
+minetest.register_node("ctg_world:desert_stone_with_copper", {
+    description = S("Copper Ore"),
+    tiles = {"default_desert_stone.png^default_mineral_copper.png"},
+    groups = {
+        cracky = 1
+    },
+    drop = "default:copper_lump",
+    sounds = default.node_sound_stone_defaults()
+})
+
+minetest.register_node("ctg_world:desert_stone_with_diamond", {
+    description = S("Diamond Ore"),
+    tiles = {"default_desert_stone.png^default_mineral_diamond.png"},
+    groups = {
+        cracky = 1
+    },
+    drop = "default:diamond_lump",
+    sounds = default.node_sound_stone_defaults()
+})
+
+minetest.register_node("ctg_world:desert_stone_with_gold", {
+    description = S("Gold Ore"),
+    tiles = {"default_desert_stone.png^default_mineral_gold.png"},
+    groups = {
+        cracky = 1
+    },
+    drop = "default:gold_lump",
+    sounds = default.node_sound_stone_defaults()
+})
+
+minetest.register_node("ctg_world:desert_stone_with_iron", {
+    description = S("Iron Ore"),
+    tiles = {"default_desert_stone.png^default_mineral_iron.png"},
+    groups = {
+        cracky = 1
+    },
+    drop = "default:iron_lump",
+    sounds = default.node_sound_stone_defaults()
+})
+
+minetest.register_node("ctg_world:desert_stone_with_tin", {
+    description = S("Tin Ore"),
+    tiles = {"default_desert_stone.png^default_mineral_tin.png"},
+    groups = {
+        cracky = 1
+    },
+    drop = "default:tin_lump",
+    sounds = default.node_sound_stone_defaults()
+})
+
+minetest.register_node("ctg_world:desert_stone_with_mese", {
+    description = S("Mese Ore"),
+    tiles = {"default_desert_stone.png^default_mineral_mese.png"},
+    groups = {
+        cracky = 1
+    },
+    drop = "default:mese_crystal",
+    sounds = default.node_sound_stone_defaults()
+})
