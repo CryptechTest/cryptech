@@ -4,12 +4,17 @@
 local S = minetest.get_translator("beds")
 local esc = minetest.formspec_escape
 
+
 beds = {}
 beds.player = {}
 beds.bed_position = {}
+beds.player_bed = {}
+beds.bed_cooldown = {}
 beds.pos = {}
 beds.spawn = {}
 beds.get_translator = S
+beds.colors = { "black", "blue", "brown", "cyan", "dark_green", "dark_grey", "green", "grey", "magenta", "orange",
+	"pink", "red", "violet", "white", "yellow" }
 
 beds.formspec = "size[8,11;true]" ..
 	"no_prepend[]" ..
@@ -29,3 +34,4 @@ dofile(modpath .. "/functions.lua")
 dofile(modpath .. "/api.lua")
 dofile(modpath .. "/beds.lua")
 dofile(modpath .. "/spawns.lua")
+dofile(modpath .. "/ui.lua")
