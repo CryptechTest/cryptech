@@ -78,18 +78,14 @@ minetest.register_on_newplayer(function(player)
             end)
         end
     end
-
 end)
 
 -- Respawn player function
 
 minetest.register_on_respawnplayer(function(player)
     local player_name = player:get_player_name()
-    local home = ui.home_pos[player_name]
-    if home ~= nil then
-        player:set_pos(home)
-        return true
-    else
+    local spawn = beds.spawn[player_name]
+    if spawn == nil then
         local inv = player:get_inventory()
         armor:remove_all(player)
         inv:add_item("main", "default:pick_diamond")

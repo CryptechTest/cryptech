@@ -115,7 +115,7 @@ function beds.register_bed(name, def)
 
 			minetest.set_node(pos, { name = name .. "_bottom", param2 = dir })
 			minetest.set_node(botpos, { name = name .. "_top", param2 = dir })
-
+			beds.spawn[player_name] = { x = pos.x, y = pos.y + 1, z = pos.z }
 			local inv = placer:get_inventory()
 			local slot = 0
 			for i = 1, 24 do
