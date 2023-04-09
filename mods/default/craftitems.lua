@@ -148,7 +148,7 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
 		return
 	end
 
-	if fields.close then
+	if fields.quit then
 		book_writers[player_name] = nil
 	end
 
@@ -179,6 +179,7 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
 		data.description = S("\"@1\" by @2", short_title, data.owner)
 		data.text = fields.text:sub(1, max_text_size)
 		data.text = data.text:gsub("\r\n", "\n"):gsub("\r", "\n")
+		data.text = data.text:gsub("[%z\1-\8\11-\31\127]", "") -- strip naughty control characters (keeps \t and \n)
 		data.page = 1
 		data.page_max = math.ceil((#data.text:gsub("[^\n]", "") + 1) / lpp)
 
@@ -229,7 +230,7 @@ end)
 minetest.register_craftitem("default:blueberries", {
 	description = S("Blueberries"),
 	inventory_image = "default_blueberries.png",
-	groups = {food_blueberries = 1, food_berry = 1, food_blueberry = 1},
+	groups = {food_blueberries = 1, food_berry = 1},
 	on_use = minetest.item_eat(2),
 })
 
