@@ -2,6 +2,7 @@ License of source code
 ----------------------
 
 The MIT License (MIT)
+Copyright (C) 2023 CryptechTest Developers
 Copyright (C) 2014-2016 BlockMen
 Copyright (C) 2014-2016 Various Minetest developers and contributors
 
@@ -29,6 +30,7 @@ Licenses of media (textures)
 ----------------------------
 
 Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)
+Copyright (C) 2023 CryptechTest Developers
 Copyright (C) 2014-2016 BlockMen
 Copyright (C) 2018 TumeniNodes
 

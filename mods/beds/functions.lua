@@ -79,15 +79,14 @@ local function lay_down(player, pos, bed_pos, state, skip)
 			jump = physics_override.jump,
 			gravity = physics_override.gravity
 		})
-		player:set_eye_offset({x = 0, y = 0, z = 0}, {x = 0, y = 0, z = 0})
+		player:set_eye_offset({ x = 0, y = 0, z = 0 }, { x = 0, y = 0, z = 0 })
 		player:set_look_horizontal(math.random(1, 180) / 100)
 		player_api.player_attached[name] = false
 		hud_flags.wielditem = true
-		player_api.set_animation(player, "stand" , 30)
+		player_api.set_animation(player, "stand", 30)
 
-	-- lay down
+		-- lay down
 	else
-
 		-- Check if bed is occupied
 		for _, other_pos in pairs(beds.bed_position) do
 			if vector.distance(bed_pos, other_pos) < 0.1 then
@@ -114,7 +113,7 @@ local function lay_down(player, pos, bed_pos, state, skip)
 
 		beds.pos[name] = pos
 		beds.bed_position[name] = bed_pos
-		beds.player[name] = {physics_override = player:get_physics_override()}
+		beds.player[name] = { physics_override = player:get_physics_override() }
 
 		local yaw, param2 = get_look_yaw(bed_pos)
 		player:set_look_horizontal(yaw)
@@ -126,11 +125,11 @@ local function lay_down(player, pos, bed_pos, state, skip)
 			y = bed_pos.y + 0.07,
 			z = bed_pos.z + dir.z / 2
 		}
-		player:set_physics_override({speed = 0, jump = 0, gravity = 0})
+		player:set_physics_override({ speed = 0, jump = 0, gravity = 0 })
 		player:set_pos(p)
 		player_api.player_attached[name] = true
 		hud_flags.wielditem = false
-		player_api.set_animation(player, "lay" , 0)
+		player_api.set_animation(player, "lay", 0)
 	end
 
 	player:hud_set_flags(hud_flags)
@@ -162,8 +161,8 @@ local function update_formspecs(finished)
 		end
 	end
 
-	for name,_ in pairs(beds.player) do
-		minetest.show_formspec(name, "beds_form", form_n)
+	for name, _ in pairs(beds.player) do
+		minetest.show_formspec(name, "beds:beds_form", form_n)
 	end
 end
 
@@ -273,7 +272,7 @@ minetest.register_on_dieplayer(function(player)
 end)
 
 minetest.register_on_player_receive_fields(function(player, formname, fields)
-	if formname ~= "beds_form" then
+	if formname ~= "beds:beds_form" then
 		return
 	end
 

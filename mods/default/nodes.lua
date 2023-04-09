@@ -1319,15 +1319,10 @@ minetest.register_node("default:cactus", {
 	description = S("Cactus"),
 	tiles = {"default_cactus_top.png", "default_cactus_top.png",
 		"default_cactus_side.png"},
-	paramtype2 = "wallmounted",
-	groups = {choppy = 3, attached_node = 2, thorns = 3},
+	paramtype2 = "facedir",
+	groups = {choppy = 3},
 	sounds = default.node_sound_wood_defaults(),
-
-	--on_place = minetest.rotate_node,
-
-	after_dig_node = function(pos, node, metadata, digger)
-		default.dig_up(pos, node, digger)
-	end,
+	on_place = minetest.rotate_node,
 })
 
 minetest.register_node("default:large_cactus_seedling", {
@@ -1346,7 +1341,7 @@ minetest.register_node("default:large_cactus_seedling", {
 			5 / 16, 0.5, 5 / 16
 		}
 	},
-	groups = {choppy = 3, dig_immediate = 3, attached_node = 3, thorns = 1},
+	groups = {choppy = 3, dig_immediate = 3, attached_node = 1},
 	sounds = default.node_sound_wood_defaults(),
 
 	on_place = function(itemstack, placer, pointed_thing)
@@ -1409,18 +1404,12 @@ minetest.register_node("default:papyrus", {
 	wield_image = "default_papyrus.png",
 	paramtype = "light",
 	sunlight_propagates = true,
-	--walkable = false,
-    node_box = {
-        type = 'fixed',
-        fixed = {
-            { -0.01, -0.0, -0.01, 0.01, 0.0, 0.01 },
-        }
-    },
+	walkable = false,
 	selection_box = {
 		type = "fixed",
 		fixed = {-6 / 16, -0.5, -6 / 16, 6 / 16, 0.5, 6 / 16},
 	},
-	groups = {snappy = 3, flammable = 2, attached_node = 3},
+	groups = {snappy = 3, flammable = 2},
 	sounds = default.node_sound_leaves_defaults(),
 
 	after_dig_node = function(pos, node, metadata, digger)
@@ -2608,12 +2597,12 @@ local function register_sign(material, desc, def)
 			if not text then
 				return
 			end
-			if string.len(text) > 512 then
+			if #text > 512 then
 				minetest.chat_send_player(player_name, S("Text too long"))
 				return
 			end
-			default.log_player_action(sender, "wrote \"" .. text ..
-				"\" to the sign at", pos)
+			text = text:gsub("[%z-\8\11-\31\127]", "") -- strip naughty control characters (keeps \t and \n)
+			default.log_player_action(sender, ("wrote %q to the sign at"):format(text), pos)
 			local meta = minetest.get_meta(pos)
 			meta:set_string("text", text)
 
