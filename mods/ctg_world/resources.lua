@@ -1,5 +1,20 @@
 local S = minetest.get_translator(minetest.get_current_modname())
 
+local function register_more(name)
+    if minetest.get_modpath("moreblocks") ~= nil then
+        local mod = "ctg_world"
+        local nodename = mod .. ":" .. name
+        local ndef = table.copy(minetest.registered_nodes[nodename])
+        ndef.sunlight_propagates = true
+        -- Use the primary tile for all sides of cut glasslike nodes and disregard paramtype2.
+        if #ndef.tiles > 1 and ndef.drawtype and ndef.drawtype:find("glass") then
+            ndef.tiles = {ndef.tiles[1]}
+            ndef.paramtype2 = nil
+        end
+        stairsplus:register_all(mod, name, nodename, ndef)
+    end
+end
+
 -- titanium
 
 minetest.register_node("ctg_world:stone_with_titanium", {
@@ -81,6 +96,9 @@ minetest.register_craftitem("ctg_world:titanium_lump", {
     description = S("Titanium Lump"),
     inventory_image = "ctg_titanium_lump.png"
 })
+
+-- more types
+register_more("titanium_block")
 
 -------------------------------------------------------------
 
@@ -202,6 +220,8 @@ technic.register_alloy_recipe({
     time = 8
 })
 
+register_more("nickel_block")
+
 -------------------------------------------------------------
 
 -- aluminum
@@ -303,6 +323,8 @@ if minetest.get_modpath("basic_materials") then
         recipe = {"ctg_world:aluminum_ingot", "ctg_world:aluminum_ingot"}
     })
 end
+
+register_more("aluminum_block")
 
 --- resources
 
