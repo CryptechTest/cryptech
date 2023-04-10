@@ -39,7 +39,7 @@
 	url = git@github.com:LoneWolfHT/notices.git
 [submodule "mods/localchat"]
 	path = mods/localchat
-	url = git@github.com:qPexLegendary/MineTest-LocalChat.git
+	url = git@github.com:CryptechTest/MineTest-LocalChat.git
 [submodule "mods/minetest_tt"]
 	path = mods/minetest_tt
 	url = git@github.com:CryptechTest/minetest_tt.git
