@@ -42,7 +42,7 @@ local form = "size[10,7.8] bgcolor[#333444cc; false] image_button_exit[0,0;2,2;"
 
 unified_inventory.register_button("emoji", {
     type = "image",
-    image = "1_emoji.png",
+    image = "ui_emoji_icon.png",
     tooltip = "Emoji",
     action = function(player)
         minetest.log(minetest.serialize(minetest.get_player_information(player:get_player_name())))
