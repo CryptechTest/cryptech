@@ -13,7 +13,7 @@ end
 
 ui.register_button("beds", {
     type = "image",
-    image = "beds_bed_red.png",
+    image = "ui_beds_icon.png",
     tooltip = "Beds"
 })
 
