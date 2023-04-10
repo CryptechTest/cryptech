@@ -123,7 +123,7 @@
 	url = git@github.com:CryptechTest/unified_inventory_themes.git
 [submodule "mods/emoji"]
 	path = mods/emoji
-	url = git@github.com:bosapara/emoji.git
+	url = git@github.com:CryptechTest/emoji.git
 [submodule "mods/formspec_ast"]
 	path = mods/formspec_ast
 	url = git@github.com:CryptechTest/formspec_ast.git

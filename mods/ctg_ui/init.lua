@@ -45,6 +45,7 @@ unified_inventory.register_button("emoji", {
     image = "1_emoji.png",
     tooltip = "Emoji",
     action = function(player)
+        minetest.log(minetest.serialize(minetest.get_player_information(player:get_player_name())))
         minetest.show_formspec(player:get_player_name(), "emoji_form", form)
     end
 })
