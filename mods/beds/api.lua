@@ -133,7 +133,9 @@ function beds.register_bed(name, def)
 				inv:set_stack("beds", slot, bed)
 				beds.player_bed[minetest.serialize(pos)] = player_name
 				beds.bed_cooldown[minetest.serialize(pos)] = false
-				unified_inventory.set_inventory_formspec(placer, unified_inventory.current_page[player_name])
+				minetest.after(0, function()
+					unified_inventory.set_inventory_formspec(placer, unified_inventory.current_page[player_name])
+				end)
 			end
 			if not minetest.is_creative_enabled(player_name) then
 				itemstack:take_item()

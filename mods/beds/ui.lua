@@ -39,6 +39,16 @@ ui.register_page("beds", {
                         local name = stack:get_description() or ("bed_" .. k)
                         local meta = stack:get_meta()
                         local pos = minetest.deserialize(meta:get_string("pos"))
+                        local radius = 1                          -- radius of the area to load
+                        local minp = vector.subtract(pos, radius) -- minimum corner of the area to load
+                        local maxp = vector.add(pos, radius)      -- maximum corner of the area to load
+
+                        -- get a voxel manipulator for the area
+                        local vm = VoxelManip(minp, maxp)
+
+                        -- load the area into memory using read_from_map
+                        vm:read_from_map(minp, maxp)
+
                         local node = minetest.get_node(pos)
                         if node.name ~= stack:get_name() then
                             inv:remove_item("beds", stack)
@@ -89,6 +99,15 @@ for i = 1, 24 do
                     n = get_texture(stack)
                     local meta = stack:get_meta()
                     local pos = minetest.deserialize(meta:get_string("pos"))
+                    local radius = 1                          -- radius of the area to load
+                    local minp = vector.subtract(pos, radius) -- minimum corner of the area to load
+                    local maxp = vector.add(pos, radius)      -- maximum corner of the area to load
+
+                    -- get a voxel manipulator for the area
+                    local vm = VoxelManip(minp, maxp)
+
+                    -- load the area into memory using read_from_map
+                    vm:read_from_map(minp, maxp)
                     local node = minetest.get_node(pos)
                     if node.name ~= stack:get_name() then
                         inv:remove_item("beds", stack)
@@ -208,6 +227,15 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
             if stack ~= nil then
                 local meta = stack:get_meta()
                 local pos = minetest.deserialize(meta:get_string("pos"))
+                local radius = 1                                  -- radius of the area to load
+                local minp = vector.subtract(pos, radius)         -- minimum corner of the area to load
+                local maxp = vector.add(pos, radius)              -- maximum corner of the area to load
+
+                -- get a voxel manipulator for the area
+                local vm = VoxelManip(minp, maxp)
+
+                -- load the area into memory using read_from_map
+                vm:read_from_map(minp, maxp)
                 local node = minetest.get_node(pos)
                 if node.name ~= stack:get_name() then
                     inv:remove_item("beds", stack)
