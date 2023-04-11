@@ -193,9 +193,6 @@
 [submodule "mods/headlamp"]
 	path = mods/headlamp
 	url = git@github.com:OgelGames/headlamp.git
-[submodule "mods/hyperloop"]
-	path = mods/hyperloop
-	url = git@github.com:CryptechTest/Minetest-Hyperloop.git
 [submodule "mods/tubelib2"]
 	path = mods/tubelib2
 	url = git@github.com:joe7575/tubelib2.git
