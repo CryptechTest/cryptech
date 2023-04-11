@@ -194,6 +194,7 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
                     ui.set_inventory_formspec(player, ui.default)
                     if beds.spawn[player:get_player_name()] == pos then
                         beds.spawn[player:get_player_name()] = nil
+                        beds.player_bed[minetest.serialize(pos)] = nil
                     end
                 end
                 if not hasname then
