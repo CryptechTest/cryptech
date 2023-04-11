@@ -37,27 +37,27 @@ minetest.register_node("ctg_world:desert_stone_with_titanium", {
     sounds = default.node_sound_stone_defaults()
 })
 
---if minetest.get_modpath("other_worlds") then
-    minetest.register_node("ctg_world:stone_space_with_titanium", {
-        description = S("Titanium Ore"),
-        tiles = {"default_stone.png^ctg_mineral_titanium.png"},
-        groups = {
-            cracky = 1
-        },
-        drop = "ctg_world:titanium_lump",
-        sounds = default.node_sound_stone_defaults()
-    })
+-- if minetest.get_modpath("other_worlds") then
+minetest.register_node("ctg_world:stone_space_with_titanium", {
+    description = S("Titanium Ore"),
+    tiles = {"default_stone.png^ctg_mineral_titanium.png"},
+    groups = {
+        cracky = 1
+    },
+    drop = "ctg_world:titanium_lump",
+    sounds = default.node_sound_stone_defaults()
+})
 
-    minetest.register_node("ctg_world:stone_red_with_titanium", {
-        description = S("Titanium Ore"),
-        tiles = {"asteroid_redstone.png^ctg_mineral_titanium.png"},
-        groups = {
-            cracky = 1
-        },
-        drop = "ctg_world:titanium_lump",
-        sounds = default.node_sound_stone_defaults()
-    })
---end
+minetest.register_node("ctg_world:stone_red_with_titanium", {
+    description = S("Titanium Ore"),
+    tiles = {"asteroid_redstone.png^ctg_mineral_titanium.png"},
+    groups = {
+        cracky = 1
+    },
+    drop = "ctg_world:titanium_lump",
+    sounds = default.node_sound_stone_defaults()
+})
+-- end
 
 minetest.register_node("ctg_world:titanium_block", {
     description = S("Titanium Block"),
@@ -124,27 +124,27 @@ minetest.register_node("ctg_world:desert_stone_with_nickel", {
     sounds = default.node_sound_stone_defaults()
 })
 
---if minetest.get_modpath("other_worlds") then
-    minetest.register_node("ctg_world:stone_space_with_nickel", {
-        description = S("Nickel Ore"),
-        tiles = {"default_stone.png^ctg_mineral_nickel.png"},
-        groups = {
-            cracky = 1
-        },
-        drop = "ctg_world:nickel_lump",
-        sounds = default.node_sound_stone_defaults()
-    })
+-- if minetest.get_modpath("other_worlds") then
+minetest.register_node("ctg_world:stone_space_with_nickel", {
+    description = S("Nickel Ore"),
+    tiles = {"default_stone.png^ctg_mineral_nickel.png"},
+    groups = {
+        cracky = 1
+    },
+    drop = "ctg_world:nickel_lump",
+    sounds = default.node_sound_stone_defaults()
+})
 
-    minetest.register_node("ctg_world:red_stone_with_nickel", {
-        description = S("Nickel Ore"),
-        tiles = {"asteroid_redstone.png^ctg_mineral_nickel.png"},
-        groups = {
-            cracky = 1
-        },
-        drop = "ctg_world:nickel_lump",
-        sounds = default.node_sound_stone_defaults()
-    })
---end
+minetest.register_node("ctg_world:red_stone_with_nickel", {
+    description = S("Nickel Ore"),
+    tiles = {"asteroid_redstone.png^ctg_mineral_nickel.png"},
+    groups = {
+        cracky = 1
+    },
+    drop = "ctg_world:nickel_lump",
+    sounds = default.node_sound_stone_defaults()
+})
+-- end
 
 minetest.register_node("ctg_world:nickel_block", {
     description = S("Nickel Block"),
@@ -222,6 +222,20 @@ technic.register_alloy_recipe({
 
 register_more("nickel_block")
 
+minetest.register_craftitem("ctg_world:nickel_wire", {
+    description = S("Spool of nickel wire"),
+    groups = {
+        wire = 1
+    },
+    inventory_image = "ctg_nickel_wire.png"
+})
+
+minetest.register_craft({
+    output = "ctg_world:nickel_wire 2",
+    type = "shapeless",
+    recipe = {"ctg_world:nickel_ingot", "basic_materials:empty_spool", "basic_materials:empty_spool"}
+})
+
 -------------------------------------------------------------
 
 -- aluminum
@@ -246,27 +260,27 @@ minetest.register_node("ctg_world:desert_stone_with_aluminum", {
     sounds = default.node_sound_stone_defaults()
 })
 
---if minetest.get_modpath("other_worlds") then
-    minetest.register_node("ctg_world:stone_space_with_aluminum", {
-        description = S("Aluminum Ore"),
-        tiles = {"default_stone.png^ctg_mineral_aluminum.png"},
-        groups = {
-            cracky = 1
-        },
-        drop = "ctg_world:aluminum_lump",
-        sounds = default.node_sound_stone_defaults()
-    })
+-- if minetest.get_modpath("other_worlds") then
+minetest.register_node("ctg_world:stone_space_with_aluminum", {
+    description = S("Aluminum Ore"),
+    tiles = {"default_stone.png^ctg_mineral_aluminum.png"},
+    groups = {
+        cracky = 1
+    },
+    drop = "ctg_world:aluminum_lump",
+    sounds = default.node_sound_stone_defaults()
+})
 
-    minetest.register_node("ctg_world:red_stone_with_aluminum", {
-        description = S("Aluminum Ore"),
-        tiles = {"asteroid_redstone.png^ctg_mineral_aluminum.png"},
-        groups = {
-            cracky = 1
-        },
-        drop = "ctg_world:aluminum_lump",
-        sounds = default.node_sound_stone_defaults()
-    })
---end
+minetest.register_node("ctg_world:red_stone_with_aluminum", {
+    description = S("Aluminum Ore"),
+    tiles = {"asteroid_redstone.png^ctg_mineral_aluminum.png"},
+    groups = {
+        cracky = 1
+    },
+    drop = "ctg_world:aluminum_lump",
+    sounds = default.node_sound_stone_defaults()
+})
+-- end
 
 minetest.register_node("ctg_world:aluminum_block", {
     description = S("Aluminum Block"),
@@ -325,6 +339,12 @@ if minetest.get_modpath("basic_materials") then
 end
 
 register_more("aluminum_block")
+
+minetest.register_craft({
+    output = "basic_materials:aluminum_wire 2",
+    type = "shapeless",
+    recipe = {"ctg_world:aluminum_ingot", "basic_materials:empty_spool", "basic_materials:empty_spool"}
+})
 
 --- resources
 
