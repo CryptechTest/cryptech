@@ -187,9 +187,14 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
                 local name = stack:get_description() or ("bed_" .. i)
                 local hasname = false
                 if fields["bedname_" .. i] == name then
+                    hasname = true
+                    local meta = stack:get_meta()
+                    local pos = minetest.deserialize(meta:get_string("pos"))
                     inv:remove_item("beds", stack)
                     ui.set_inventory_formspec(player, ui.default)
-                    hasname = true
+                    if beds.spawn[player:get_player_name()] == pos then
+                        beds.spawn[player:get_player_name()] = nil
+                    end
                 end
                 if not hasname then
                     minetest.chat_send_player(player:get_player_name(),
@@ -208,6 +213,7 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
                         ui.set_inventory_formspec(player, ui.default)
                         player:set_pos({ x = pos.x, y = pos.y + 1, z = pos.z })
                         beds.bed_cooldown[minetest.serialize(pos)] = true
+                        beds.spawn[player:get_player_name()] = pos
                         minetest.after(beds_cooldown, function()
                             beds.bed_cooldown[minetest.serialize(pos)] = false
                         end, pos)
@@ -227,9 +233,9 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
             if stack ~= nil then
                 local meta = stack:get_meta()
                 local pos = minetest.deserialize(meta:get_string("pos"))
-                local radius = 1                                  -- radius of the area to load
-                local minp = vector.subtract(pos, radius)         -- minimum corner of the area to load
-                local maxp = vector.add(pos, radius)              -- maximum corner of the area to load
+                local radius = 1                          -- radius of the area to load
+                local minp = vector.subtract(pos, radius) -- minimum corner of the area to load
+                local maxp = vector.add(pos, radius)      -- maximum corner of the area to load
 
                 -- get a voxel manipulator for the area
                 local vm = VoxelManip(minp, maxp)
