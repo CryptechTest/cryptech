@@ -332,7 +332,7 @@ if minetest.get_modpath("basic_materials") then
     })
 
     minetest.register_craft({
-        output = "basic_materials:aluminum_strip 6",
+        output = "basic_materials:aluminum_bar 6",
         recipe = {{"", "", "ctg_world:aluminum_ingot"}, {"", "ctg_world:aluminum_ingot", ""},
                   {"ctg_world:aluminum_ingot", "", ""}}
     })
