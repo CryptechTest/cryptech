@@ -332,19 +332,26 @@ if minetest.get_modpath("basic_materials") then
     })
 
     minetest.register_craft({
-        type = "shapeless",
         output = "basic_materials:aluminum_strip 6",
-        recipe = {"ctg_world:aluminum_ingot", "ctg_world:aluminum_ingot"}
+        recipe = {{"", "", "ctg_world:aluminum_ingot"}, {"", "ctg_world:aluminum_ingot", ""},
+                  {"ctg_world:aluminum_ingot", "", ""}}
+    })
+
+    minetest.register_craft({
+        output = "basic_materials:aluminum_strip 12",
+        recipe = {{"", "ctg_world:aluminum_ingot", ""}, {"ctg_world:aluminum_ingot", "", ""}, {"", "", ""}}
     })
 end
 
 register_more("aluminum_block")
 
-minetest.register_craft({
-    output = "basic_materials:aluminum_wire 2",
-    type = "shapeless",
-    recipe = {"ctg_world:aluminum_ingot", "basic_materials:empty_spool", "basic_materials:empty_spool"}
-})
+if minetest.get_modpath("basic_materials") then
+    minetest.register_craft({
+        output = "basic_materials:aluminum_wire 2",
+        type = "shapeless",
+        recipe = {"ctg_world:aluminum_ingot", "basic_materials:empty_spool", "basic_materials:empty_spool"}
+    })
+end
 
 --- resources
 
