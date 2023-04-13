@@ -381,7 +381,7 @@ minetest.register_node("ctg_world:desert_stone_with_diamond", {
     groups = {
         cracky = 1
     },
-    drop = "default:diamond_lump",
+    drop = "default:diamond",
     sounds = default.node_sound_stone_defaults()
 })
 
