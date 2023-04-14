@@ -11,7 +11,7 @@ minetest.register_node("ctg_world:corestone", {
 })
 
 minetest.register_node("ctg_world:corestone_glow", {
-    description = S("Corestone"),
+    description = S("Corestone Glow"),
     tiles = {"corestone_glow.png"},
     groups = {
         cracky = 2,
@@ -23,7 +23,7 @@ minetest.register_node("ctg_world:corestone_glow", {
 })
 
 minetest.register_node("ctg_world:corestone_glow2", {
-    description = S("Corestone"),
+    description = S("Corestone Glowing"),
     tiles = {"corestone_glow.png"},
     groups = {
         cracky = 2,
