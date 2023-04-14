@@ -259,3 +259,6 @@
 [submodule "mods/livingcavesmobs"]
 	path = mods/livingcavesmobs
 	url = git@github.com:CryptechTest/livingcavesmobs.git
+[submodule "mods/goblins"]
+	path = mods/goblins
+	url = git@github.com:CryptechTest/goblins.git
