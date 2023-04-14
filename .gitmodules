@@ -256,3 +256,9 @@
 [submodule "ctg_airs"]
 	path = mods/ctg_airs
 	url = git@github.com:CryptechTest/ctg_airs.git
+[submodule "mods/livingcaves"]
+	path = mods/livingcaves
+	url = git@github.com:CryptechTest/livingcaves.git
+[submodule "mods/livingcavesmobs"]
+	path = mods/livingcavesmobs
+	url = git@github.com:CryptechTest/livingcavesmobs.git
