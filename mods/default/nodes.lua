@@ -1322,7 +1322,7 @@ minetest.register_node("default:cactus", {
 	paramtype2 = "wallmounted",
 	groups = {choppy = 3, attached_node = 2, thorns = 3},
 	sounds = default.node_sound_wood_defaults(),
-	on_place = minetest.rotate_node,
+	--on_place = minetest.rotate_node,
 	after_dig_node = function(pos, node, metadata, digger)
 		default.dig_up(pos, node, digger)
 	end,
