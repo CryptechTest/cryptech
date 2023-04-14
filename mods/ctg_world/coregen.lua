@@ -4,8 +4,33 @@ minetest.register_node("ctg_world:corestone", {
     description = S("Corestone"),
     tiles = {"corestone.png"},
     groups = {
-        cracky = 1, level = 4
+        cracky = 1,
+        level = 4
     },
+    sounds = default.node_sound_stone_defaults()
+})
+
+minetest.register_node("ctg_world:corestone_glow", {
+    description = S("Corestone"),
+    tiles = {"corestone_glow.png"},
+    groups = {
+        cracky = 2,
+        level = 4
+    },
+    paramtype = "light",
+    light_source = 7,
+    sounds = default.node_sound_stone_defaults()
+})
+
+minetest.register_node("ctg_world:corestone_glow2", {
+    description = S("Corestone"),
+    tiles = {"corestone_glow.png"},
+    groups = {
+        cracky = 2,
+        level = 4
+    },
+    paramtype = "light",
+    light_source = 12,
     sounds = default.node_sound_stone_defaults()
 })
 
@@ -66,6 +91,52 @@ minetest.register_ore({
             z = 5
         },
         seed = -317,
+        octaves = 1,
+        persist = 0.0
+    }
+})
+
+minetest.register_ore({
+    ore_type = "blob",
+    ore = "ctg_world:corestone_glow2",
+    wherein = {"ctg_world:corestone"},
+    clust_scarcity = 16 * 16 * 16,
+    clust_size = 2,
+    y_max = -10100,
+    y_min = -11001,
+    noise_threshold = 0.0,
+    noise_params = {
+        offset = 0.5,
+        scale = 0.6,
+        spread = {
+            x = 1,
+            y = 7,
+            z = 1
+        },
+        seed = -173,
+        octaves = 1,
+        persist = 0.0
+    }
+})
+
+minetest.register_ore({
+    ore_type = "blob",
+    ore = "ctg_world:corestone_glow",
+    wherein = {"ctg_world:corestone"},
+    clust_scarcity = 12 * 16 * 12,
+    clust_size = 5,
+    y_max = -10050,
+    y_min = -11001,
+    noise_threshold = 0.0,
+    noise_params = {
+        offset = 0.5,
+        scale = 0.5,
+        spread = {
+            x = 1,
+            y = 7,
+            z = 1
+        },
+        seed = -173,
         octaves = 1,
         persist = 0.0
     }

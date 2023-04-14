@@ -475,3 +475,169 @@ minetest.register_ore({
     y_max = -1280,
     y_min = -11000
 })
+
+-------------------------------------------
+
+minetest.register_ore({
+    ore_type = "scatter",
+    ore = "ctg_world:corestone_with_coal",
+    wherein = "ctg_world:corestone",
+    clust_scarcity = 20 * 20 * 20,
+    clust_num_ores = 10,
+    clust_size = 6,
+    y_max = -10000,
+    y_min = -11000
+})
+
+minetest.register_ore({
+    ore_type = "scatter",
+    ore = "ctg_world:corestone_with_iron",
+    wherein = "ctg_world:corestone",
+    clust_scarcity = 9 * 9 * 9,
+    clust_num_ores = 12,
+    clust_size = 5,
+    y_max = -10000,
+    y_min = -11000
+})
+
+minetest.register_ore({
+    ore_type = "scatter",
+    ore = "ctg_world:corestone_with_copper",
+    wherein = "ctg_world:corestone",
+    clust_scarcity = 9 * 9 * 9,
+    clust_num_ores = 12,
+    clust_size = 5,
+    y_max = -10000,
+    y_min = -11000
+})
+
+minetest.register_ore({
+    ore_type = "scatter",
+    ore = "ctg_world:corestone_with_tin",
+    wherein = "ctg_world:corestone",
+    clust_scarcity = 10 * 10 * 10,
+    clust_num_ores = 15,
+    clust_size = 5,
+    y_max = -10000,
+    y_min = -11000
+})
+
+minetest.register_ore({
+    ore_type = "scatter",
+    ore = "ctg_world:corestone_with_silver",
+    wherein = "ctg_world:corestone",
+    clust_scarcity = 16 * 16 * 16,
+    clust_num_ores = 15,
+    clust_size = 5,
+    y_max = -10000,
+    y_min = -11000
+})
+
+minetest.register_ore({
+    ore_type = "scatter",
+    ore = "ctg_world:corestone_with_lead",
+    wherein = "ctg_world:corestone",
+    clust_scarcity = 13 * 13 * 13,
+    clust_num_ores = 20,
+    clust_size = 5,
+    y_max = -10000,
+    y_min = -11000
+})
+
+minetest.register_ore({
+    ore_type = "scatter",
+    ore = "ctg_world:corestone_with_uranium",
+    wherein = "ctg_world:corestone",
+    clust_scarcity = 10 * 10 * 10,
+    clust_num_ores = 13,
+    clust_size = 5,
+    y_max = -10000,
+    y_min = -11000
+})
+minetest.register_ore({
+    ore_type = "scatter",
+    ore = "ctg_world:corestone_with_chromium",
+    wherein = "ctg_world:corestone",
+    clust_scarcity = 15 * 15 * 15,
+    clust_num_ores = 18,
+    clust_size = 5,
+    y_max = -10000,
+    y_min = -11000
+})
+
+minetest.register_ore({
+    ore_type = "scatter",
+    ore = "ctg_world:corestone_with_gold",
+    wherein = "ctg_world:corestone",
+    clust_scarcity = 13 * 13 * 13,
+    clust_num_ores = 15,
+    clust_size = 5,
+    y_max = -10000,
+    y_min = -11000
+})
+
+minetest.register_ore({
+    ore_type = "scatter",
+    ore = "ctg_world:corestone_with_mese",
+    wherein = "ctg_world:corestone",
+    clust_scarcity = 14 * 14 * 14,
+    clust_num_ores = 15,
+    clust_size = 5,
+    y_max = -10000,
+    y_min = -11000
+})
+
+minetest.register_ore({
+    ore_type = "scatter",
+    ore = "ctg_world:corestone_with_diamond",
+    wherein = "ctg_world:corestone",
+    clust_scarcity = 15 * 15 * 15,
+    clust_num_ores = 17,
+    clust_size = 5,
+    y_max = -10000,
+    y_min = -11000
+})
+
+minetest.register_ore({
+    ore_type = "scatter",
+    ore = "ctg_world:corestone_with_mithril",
+    wherein = "ctg_world:corestone",
+    clust_scarcity = 15 * 15 * 15,
+    clust_num_ores = 17,
+    clust_size = 5,
+    y_max = -10000,
+    y_min = -11000
+})
+
+minetest.register_ore({
+    ore_type = "scatter",
+    ore = "ctg_world:corestone_with_aluminum",
+    wherein = "ctg_world:corestone",
+    clust_scarcity = 10 * 10 * 10,
+    clust_num_ores = 15,
+    clust_size = 5,
+    y_max = -10000,
+    y_min = -11000
+})
+
+minetest.register_ore({
+    ore_type = "scatter",
+    ore = "ctg_world:corestone_with_nickel",
+    wherein = "ctg_world:corestone",
+    clust_scarcity = 10 * 10 * 10,
+    clust_num_ores = 15,
+    clust_size = 5,
+    y_max = -10000,
+    y_min = -11000
+})
+
+minetest.register_ore({
+    ore_type = "scatter",
+    ore = "ctg_world:corestone_with_titanium",
+    wherein = "ctg_world:corestone",
+    clust_scarcity = 10 * 10 * 10,
+    clust_num_ores = 16,
+    clust_size = 5,
+    y_max = -10000,
+    y_min = -11000
+})

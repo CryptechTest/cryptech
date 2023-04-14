@@ -5,6 +5,7 @@ local default_path = minetest.get_modpath("ctg_world")
 dofile(default_path .. DIR_DELIM .. "coregen.lua")
 dofile(default_path .. DIR_DELIM .. "atmosgen.lua")
 dofile(default_path .. DIR_DELIM .. "resources.lua")
+dofile(default_path .. DIR_DELIM .. "resources_core.lua")
 dofile(default_path .. DIR_DELIM .. "mapgen.lua")
 
 local function give_or_drop_item(player, itemstack)
