@@ -100,9 +100,6 @@
 [submodule "mods/digistuff"]
 	path = mods/digistuff
 	url = git@github.com:CryptechTest/digistuff.git
-[submodule "mods/crops"]
-	path = mods/crops
-	url = git@github.com:minetest-mods/crops.git
 [submodule "mods/modlib"]
 	path = mods/modlib
 	url = git@github.com:appgurueu/modlib.git
