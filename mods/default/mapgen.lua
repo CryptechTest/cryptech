@@ -99,7 +99,7 @@ function default.register_mgv6_ores()
 		wherein         = {"default:stone"},
 		clust_scarcity  = 16 * 16 * 16,
 		clust_size      = 5,
-		y_max           = 31000,
+		y_max           = 1000,
 		y_min           = -31,
 		noise_threshold = 0.0,
 		noise_params    = {
@@ -120,8 +120,8 @@ function default.register_mgv6_ores()
 		wherein         = {"default:stone"},
 		clust_scarcity  = 16 * 16 * 16,
 		clust_size      = 5,
-		y_max           = 31000,
-		y_min           = -31000,
+		y_max           = 1000,
+		y_min           = -10000,
 		noise_threshold = 0.0,
 		noise_params    = {
 			offset = 0.5,
@@ -144,7 +144,7 @@ function default.register_mgv6_ores()
 		clust_scarcity = 8 * 8 * 8,
 		clust_num_ores = 9,
 		clust_size     = 3,
-		y_max          = 31000,
+		y_max          = 1000,
 		y_min          = 1025,
 	})
 
@@ -156,7 +156,7 @@ function default.register_mgv6_ores()
 		clust_num_ores = 8,
 		clust_size     = 3,
 		y_max          = 64,
-		y_min          = -31000,
+		y_min          = -10000,
 	})
 
 	minetest.register_ore({
@@ -167,7 +167,7 @@ function default.register_mgv6_ores()
 		clust_num_ores = 27,
 		clust_size     = 6,
 		y_max          = 0,
-		y_min          = -31000,
+		y_min          = -10000,
 	})
 
 	-- Iron
@@ -179,7 +179,7 @@ function default.register_mgv6_ores()
 		clust_scarcity = 9 * 9 * 9,
 		clust_num_ores = 12,
 		clust_size     = 3,
-		y_max          = 31000,
+		y_max          = 1000,
 		y_min          = 1025,
 	})
 
@@ -191,7 +191,7 @@ function default.register_mgv6_ores()
 		clust_num_ores = 5,
 		clust_size     = 3,
 		y_max          = 0,
-		y_min          = -31000,
+		y_min          = -10000,
 	})
 
 	minetest.register_ore({
@@ -202,7 +202,7 @@ function default.register_mgv6_ores()
 		clust_num_ores = 27,
 		clust_size     = 6,
 		y_max          = -64,
-		y_min          = -31000,
+		y_min          = -10000,
 	})
 
 	-- Copper
@@ -214,7 +214,7 @@ function default.register_mgv6_ores()
 		clust_scarcity = 9 * 9 * 9,
 		clust_num_ores = 5,
 		clust_size     = 3,
-		y_max          = 31000,
+		y_max          = 1000,
 		y_min          = 1025,
 	})
 
@@ -237,7 +237,7 @@ function default.register_mgv6_ores()
 		clust_num_ores = 5,
 		clust_size     = 3,
 		y_max          = -64,
-		y_min          = -31000,
+		y_min          = -10000,
 	})
 
 	-- Tin
@@ -249,7 +249,7 @@ function default.register_mgv6_ores()
 		clust_scarcity = 10 * 10 * 10,
 		clust_num_ores = 5,
 		clust_size     = 3,
-		y_max          = 31000,
+		y_max          = 1000,
 		y_min          = 1025,
 	})
 
@@ -272,7 +272,7 @@ function default.register_mgv6_ores()
 		clust_num_ores = 5,
 		clust_size     = 3,
 		y_max          = -128,
-		y_min          = -31000,
+		y_min          = -10000,
 	})
 
 	-- Gold
@@ -284,7 +284,7 @@ function default.register_mgv6_ores()
 		clust_scarcity = 13 * 13 * 13,
 		clust_num_ores = 5,
 		clust_size     = 3,
-		y_max          = 31000,
+		y_max          = 1000,
 		y_min          = 1025,
 	})
 
@@ -307,7 +307,7 @@ function default.register_mgv6_ores()
 		clust_num_ores = 5,
 		clust_size     = 3,
 		y_max          = -256,
-		y_min          = -31000,
+		y_min          = -10000,
 	})
 
 	-- Mese crystal
@@ -319,7 +319,7 @@ function default.register_mgv6_ores()
 		clust_scarcity = 14 * 14 * 14,
 		clust_num_ores = 5,
 		clust_size     = 3,
-		y_max          = 31000,
+		y_max          = 1000,
 		y_min          = 1025,
 	})
 
@@ -342,7 +342,7 @@ function default.register_mgv6_ores()
 		clust_num_ores = 5,
 		clust_size     = 3,
 		y_max          = -256,
-		y_min          = -31000,
+		y_min          = -10000,
 	})
 
 	-- Diamond
@@ -354,7 +354,7 @@ function default.register_mgv6_ores()
 		clust_scarcity = 15 * 15 * 15,
 		clust_num_ores = 4,
 		clust_size     = 3,
-		y_max          = 31000,
+		y_max          = 1000,
 		y_min          = 1025,
 	})
 
@@ -377,7 +377,7 @@ function default.register_mgv6_ores()
 		clust_num_ores = 4,
 		clust_size     = 3,
 		y_max          = -256,
-		y_min          = -31000,
+		y_min          = -10000,
 	})
 
 	-- Mese block
@@ -389,7 +389,7 @@ function default.register_mgv6_ores()
 		clust_scarcity = 36 * 36 * 36,
 		clust_num_ores = 3,
 		clust_size     = 2,
-		y_max          = 31000,
+		y_max          = 1000,
 		y_min          = 1025,
 	})
 
@@ -401,7 +401,7 @@ function default.register_mgv6_ores()
 		clust_num_ores = 3,
 		clust_size     = 2,
 		y_max          = -1024,
-		y_min          = -31000,
+		y_min          = -10000,
 	})
 end
 
@@ -541,8 +541,8 @@ function default.register_ores()
 		wherein         = {"default:stone"},
 		clust_scarcity  = 16 * 16 * 16,
 		clust_size      = 5,
-		y_max           = 31000,
-		y_min           = -31000,
+		y_max           = 1000,
+		y_min           = -10000,
 		noise_threshold = 0.0,
 		noise_params    = {
 			offset = 0.5,
@@ -562,7 +562,7 @@ function default.register_ores()
 		wherein         = {"default:stone"},
 		clust_scarcity  = 16 * 16 * 16,
 		clust_size      = 5,
-		y_max           = 31000,
+		y_max           = 1000,
 		y_min           = -31,
 		noise_threshold = 0.0,
 		noise_params    = {
@@ -587,8 +587,8 @@ function default.register_ores()
 		wherein         = {"default:stone"},
 		clust_scarcity  = 16 * 16 * 16,
 		clust_size      = 5,
-		y_max           = 31000,
-		y_min           = -31000,
+		y_max           = 1000,
+		y_min           = -10000,
 		noise_threshold = 0.0,
 		noise_params    = {
 			offset = 0.5,
@@ -611,7 +611,7 @@ function default.register_ores()
 		clust_scarcity = 8 * 8 * 8,
 		clust_num_ores = 9,
 		clust_size     = 3,
-		y_max          = 31000,
+		y_max          = 1000,
 		y_min          = 1025,
 	})
 
@@ -634,7 +634,7 @@ function default.register_ores()
 		clust_num_ores = 30,
 		clust_size     = 5,
 		y_max          = -128,
-		y_min          = -31000,
+		y_min          = -10000,
 	})
 
 	-- Tin
@@ -646,7 +646,7 @@ function default.register_ores()
 		clust_scarcity = 10 * 10 * 10,
 		clust_num_ores = 5,
 		clust_size     = 3,
-		y_max          = 31000,
+		y_max          = 1000,
 		y_min          = 1025,
 	})
 
@@ -669,7 +669,7 @@ function default.register_ores()
 		clust_num_ores = 5,
 		clust_size     = 3,
 		y_max          = -128,
-		y_min          = -31000,
+		y_min          = -10000,
 	})
 
 	-- Copper
@@ -681,7 +681,7 @@ function default.register_ores()
 		clust_scarcity = 9 * 9 * 9,
 		clust_num_ores = 5,
 		clust_size     = 3,
-		y_max          = 31000,
+		y_max          = 1000,
 		y_min          = 1025,
 	})
 
@@ -704,7 +704,7 @@ function default.register_ores()
 		clust_num_ores = 5,
 		clust_size     = 3,
 		y_max          = -128,
-		y_min          = -31000,
+		y_min          = -10000,
 	})
 
 	-- Iron
@@ -716,7 +716,7 @@ function default.register_ores()
 		clust_scarcity = 9 * 9 * 9,
 		clust_num_ores = 12,
 		clust_size     = 3,
-		y_max          = 31000,
+		y_max          = 1000,
 		y_min          = 1025,
 	})
 
@@ -739,7 +739,7 @@ function default.register_ores()
 		clust_num_ores = 29,
 		clust_size     = 5,
 		y_max          = -256,
-		y_min          = -31000,
+		y_min          = -10000,
 	})
 
 	-- Gold
@@ -751,7 +751,7 @@ function default.register_ores()
 		clust_scarcity = 13 * 13 * 13,
 		clust_num_ores = 5,
 		clust_size     = 3,
-		y_max          = 31000,
+		y_max          = 1000,
 		y_min          = 1025,
 	})
 
@@ -774,7 +774,7 @@ function default.register_ores()
 		clust_num_ores = 5,
 		clust_size     = 3,
 		y_max          = -512,
-		y_min          = -31000,
+		y_min          = -10000,
 	})
 
 	-- Mese crystal
@@ -786,7 +786,7 @@ function default.register_ores()
 		clust_scarcity = 14 * 14 * 14,
 		clust_num_ores = 5,
 		clust_size     = 3,
-		y_max          = 31000,
+		y_max          = 1000,
 		y_min          = 1025,
 	})
 
@@ -809,7 +809,7 @@ function default.register_ores()
 		clust_num_ores = 5,
 		clust_size     = 3,
 		y_max          = -1024,
-		y_min          = -31000,
+		y_min          = -10000,
 	})
 
 	-- Diamond
@@ -821,7 +821,7 @@ function default.register_ores()
 		clust_scarcity = 15 * 15 * 15,
 		clust_num_ores = 4,
 		clust_size     = 3,
-		y_max          = 31000,
+		y_max          = 1000,
 		y_min          = 1025,
 	})
 
@@ -844,7 +844,7 @@ function default.register_ores()
 		clust_num_ores = 4,
 		clust_size     = 3,
 		y_max          = -2048,
-		y_min          = -31000,
+		y_min          = -10000,
 	})
 
 	-- Mese block
@@ -856,7 +856,7 @@ function default.register_ores()
 		clust_scarcity = 36 * 36 * 36,
 		clust_num_ores = 3,
 		clust_size     = 2,
-		y_max          = 31000,
+		y_max          = 1000,
 		y_min          = 1025,
 	})
 
@@ -879,7 +879,7 @@ function default.register_ores()
 		clust_num_ores = 5,
 		clust_size     = 3,
 		y_max          = -4096,
-		y_min          = -31000,
+		y_min          = -10000,
 	})
 end
 
@@ -909,7 +909,7 @@ function default.register_biomes()
 		depth_riverbed = 2,
 		node_dungeon = "default:ice",
 		node_dungeon_stair = "stairs:stair_ice",
-		y_max = 31000,
+		y_max = 1000,
 		y_min = -8,
 		heat_point = 0,
 		humidity_point = 73,
@@ -941,7 +941,7 @@ function default.register_biomes()
 		node_dungeon_alt = "default:mossycobble",
 		node_dungeon_stair = "stairs:stair_cobble",
 		y_max = -256,
-		y_min = -31000,
+		y_min = -10000,
 		heat_point = 0,
 		humidity_point = 73,
 	})
@@ -956,7 +956,7 @@ function default.register_biomes()
 		node_dungeon = "default:cobble",
 		node_dungeon_alt = "default:mossycobble",
 		node_dungeon_stair = "stairs:stair_cobble",
-		y_max = 31000,
+		y_max = 1000,
 		y_min = 47,
 		heat_point = 0,
 		humidity_point = 40,
@@ -1024,7 +1024,7 @@ function default.register_biomes()
 		node_dungeon_alt = "default:mossycobble",
 		node_dungeon_stair = "stairs:stair_cobble",
 		y_max = -256,
-		y_min = -31000,
+		y_min = -10000,
 		heat_point = 0,
 		humidity_point = 40,
 	})
@@ -1043,7 +1043,7 @@ function default.register_biomes()
 		node_dungeon = "default:cobble",
 		node_dungeon_alt = "default:mossycobble",
 		node_dungeon_stair = "stairs:stair_cobble",
-		y_max = 31000,
+		y_max = 1000,
 		y_min = 4,
 		heat_point = 25,
 		humidity_point = 70,
@@ -1076,7 +1076,7 @@ function default.register_biomes()
 		node_dungeon_alt = "default:mossycobble",
 		node_dungeon_stair = "stairs:stair_cobble",
 		y_max = -256,
-		y_min = -31000,
+		y_min = -10000,
 		heat_point = 25,
 		humidity_point = 70,
 	})
@@ -1095,7 +1095,7 @@ function default.register_biomes()
 		node_dungeon = "default:cobble",
 		node_dungeon_alt = "default:mossycobble",
 		node_dungeon_stair = "stairs:stair_cobble",
-		y_max = 31000,
+		y_max = 1000,
 		y_min = 4,
 		heat_point = 20,
 		humidity_point = 35,
@@ -1128,7 +1128,7 @@ function default.register_biomes()
 		node_dungeon_alt = "default:mossycobble",
 		node_dungeon_stair = "stairs:stair_cobble",
 		y_max = -256,
-		y_min = -31000,
+		y_min = -10000,
 		heat_point = 20,
 		humidity_point = 35,
 	})
@@ -1146,7 +1146,7 @@ function default.register_biomes()
 		node_dungeon = "default:cobble",
 		node_dungeon_alt = "default:mossycobble",
 		node_dungeon_stair = "stairs:stair_cobble",
-		y_max = 31000,
+		y_max = 1000,
 		y_min = 6,
 		heat_point = 50,
 		humidity_point = 35,
@@ -1195,7 +1195,7 @@ function default.register_biomes()
 		node_dungeon_alt = "default:mossycobble",
 		node_dungeon_stair = "stairs:stair_cobble",
 		y_max = -256,
-		y_min = -31000,
+		y_min = -10000,
 		heat_point = 50,
 		humidity_point = 35,
 	})
@@ -1213,7 +1213,7 @@ function default.register_biomes()
 		node_dungeon = "default:cobble",
 		node_dungeon_alt = "default:mossycobble",
 		node_dungeon_stair = "stairs:stair_cobble",
-		y_max = 31000,
+		y_max = 1000,
 		y_min = 6,
 		heat_point = 45,
 		humidity_point = 70,
@@ -1262,7 +1262,7 @@ function default.register_biomes()
 		node_dungeon_alt = "default:mossycobble",
 		node_dungeon_stair = "stairs:stair_cobble",
 		y_max = -256,
-		y_min = -31000,
+		y_min = -10000,
 		heat_point = 45,
 		humidity_point = 70,
 	})
@@ -1280,7 +1280,7 @@ function default.register_biomes()
 		node_dungeon = "default:cobble",
 		node_dungeon_alt = "default:mossycobble",
 		node_dungeon_stair = "stairs:stair_cobble",
-		y_max = 31000,
+		y_max = 1000,
 		y_min = 1,
 		heat_point = 60,
 		humidity_point = 68,
@@ -1329,7 +1329,7 @@ function default.register_biomes()
 		node_dungeon_alt = "default:mossycobble",
 		node_dungeon_stair = "stairs:stair_cobble",
 		y_max = -256,
-		y_min = -31000,
+		y_min = -10000,
 		heat_point = 60,
 		humidity_point = 68,
 	})
@@ -1347,7 +1347,7 @@ function default.register_biomes()
 		depth_riverbed = 2,
 		node_dungeon = "default:desert_stone",
 		node_dungeon_stair = "stairs:stair_desert_stone",
-		y_max = 31000,
+		y_max = 1000,
 		y_min = 4,
 		heat_point = 92,
 		humidity_point = 16,
@@ -1379,7 +1379,7 @@ function default.register_biomes()
 		node_dungeon_alt = "default:mossycobble",
 		node_dungeon_stair = "stairs:stair_cobble",
 		y_max = -256,
-		y_min = -31000,
+		y_min = -10000,
 		heat_point = 92,
 		humidity_point = 16,
 	})
@@ -1397,7 +1397,7 @@ function default.register_biomes()
 		depth_riverbed = 2,
 		node_dungeon = "default:sandstonebrick",
 		node_dungeon_stair = "stairs:stair_sandstone_block",
-		y_max = 31000,
+		y_max = 1000,
 		y_min = 4,
 		heat_point = 60,
 		humidity_point = 0,
@@ -1428,7 +1428,7 @@ function default.register_biomes()
 		node_dungeon_alt = "default:mossycobble",
 		node_dungeon_stair = "stairs:stair_cobble",
 		y_max = -256,
-		y_min = -31000,
+		y_min = -10000,
 		heat_point = 60,
 		humidity_point = 0,
 	})
@@ -1446,7 +1446,7 @@ function default.register_biomes()
 		node_dungeon = "default:cobble",
 		node_dungeon_alt = "default:mossycobble",
 		node_dungeon_stair = "stairs:stair_cobble",
-		y_max = 31000,
+		y_max = 1000,
 		y_min = 4,
 		heat_point = 40,
 		humidity_point = 0,
@@ -1478,7 +1478,7 @@ function default.register_biomes()
 		node_dungeon_alt = "default:mossycobble",
 		node_dungeon_stair = "stairs:stair_cobble",
 		y_max = -256,
-		y_min = -31000,
+		y_min = -10000,
 		heat_point = 40,
 		humidity_point = 0,
 	})
@@ -1496,7 +1496,7 @@ function default.register_biomes()
 		node_dungeon = "default:cobble",
 		node_dungeon_alt = "default:mossycobble",
 		node_dungeon_stair = "stairs:stair_cobble",
-		y_max = 31000,
+		y_max = 1000,
 		y_min = 1,
 		heat_point = 89,
 		humidity_point = 42,
@@ -1545,7 +1545,7 @@ function default.register_biomes()
 		node_dungeon_alt = "default:mossycobble",
 		node_dungeon_stair = "stairs:stair_cobble",
 		y_max = -256,
-		y_min = -31000,
+		y_min = -10000,
 		heat_point = 89,
 		humidity_point = 42,
 	})
@@ -1563,7 +1563,7 @@ function default.register_biomes()
 		node_dungeon = "default:cobble",
 		node_dungeon_alt = "default:mossycobble",
 		node_dungeon_stair = "stairs:stair_cobble",
-		y_max = 31000,
+		y_max = 1000,
 		y_min = 1,
 		heat_point = 86,
 		humidity_point = 65,
@@ -1612,7 +1612,7 @@ function default.register_biomes()
 		node_dungeon_alt = "default:mossycobble",
 		node_dungeon_stair = "stairs:stair_cobble",
 		y_max = -256,
-		y_min = -31000,
+		y_min = -10000,
 		heat_point = 86,
 		humidity_point = 65,
 	})
@@ -1735,7 +1735,7 @@ local function register_grass_decoration(offset, scale, length)
 			persist = 0.6
 		},
 		biomes = {"grassland", "deciduous_forest"},
-		y_max = 31000,
+		y_max = 1000,
 		y_min = 1,
 		decoration = "default:grass_" .. length,
 	})
@@ -1756,7 +1756,7 @@ local function register_dry_grass_decoration(offset, scale, length)
 			persist = 0.6
 		},
 		biomes = {"savanna"},
-		y_max = 31000,
+		y_max = 1000,
 		y_min = 1,
 		decoration = "default:dry_grass_" .. length,
 	})
@@ -1777,7 +1777,7 @@ local function register_fern_decoration(seed, length)
 			persist = 0.7
 		},
 		biomes = {"coniferous_forest"},
-		y_max = 31000,
+		y_max = 1000,
 		y_min = 6,
 		decoration = "default:fern_" .. length,
 	})
@@ -1803,7 +1803,7 @@ function default.register_decorations()
 			persist = 1.0
 		},
 		biomes = {"savanna"},
-		y_max = 31000,
+		y_max = 1000,
 		y_min = 1,
 		decoration = "default:dry_dirt",
 		place_offset_y = -1,
@@ -1826,7 +1826,7 @@ function default.register_decorations()
 			persist = 0.66
 		},
 		biomes = {"deciduous_forest"},
-		y_max = 31000,
+		y_max = 1000,
 		y_min = 1,
 		schematic = minetest.get_modpath("default") .. "/schematics/apple_tree.mts",
 		flags = "place_center_x, place_center_z",
@@ -1848,7 +1848,7 @@ function default.register_decorations()
 			persist = 0.66
 		},
 		biomes = {"deciduous_forest"},
-		y_max = 31000,
+		y_max = 1000,
 		y_min = 1,
 		schematic = minetest.get_modpath("default") .. "/schematics/apple_log.mts",
 		flags = "place_center_x",
@@ -1895,7 +1895,7 @@ function default.register_decorations()
 		sidelen = 80,
 		fill_ratio = 0.1,
 		biomes = {"rainforest"},
-		y_max = 31000,
+		y_max = 1000,
 		y_min = 1,
 		schematic = minetest.get_modpath("default") .. "/schematics/jungle_tree.mts",
 		flags = "place_center_x, place_center_z",
@@ -1934,7 +1934,7 @@ function default.register_decorations()
 		sidelen = 80,
 		fill_ratio = 0.005,
 		biomes = {"rainforest"},
-		y_max = 31000,
+		y_max = 1000,
 		y_min = 1,
 		schematic = minetest.get_modpath("default") .. "/schematics/jungle_log.mts",
 		flags = "place_center_x",
@@ -1959,7 +1959,7 @@ function default.register_decorations()
 			persist = 0.66
 		},
 		biomes = {"taiga", "coniferous_forest"},
-		y_max = 31000,
+		y_max = 1000,
 		y_min = 4,
 		schematic = minetest.get_modpath("default") .. "/schematics/pine_tree.mts",
 		flags = "place_center_x, place_center_z",
@@ -1979,7 +1979,7 @@ function default.register_decorations()
 			persist = 0.66
 		},
 		biomes = {"taiga", "coniferous_forest"},
-		y_max = 31000,
+		y_max = 1000,
 		y_min = 4,
 		schematic = minetest.get_modpath("default") .. "/schematics/small_pine_tree.mts",
 		flags = "place_center_x, place_center_z",
@@ -1993,7 +1993,7 @@ function default.register_decorations()
 		sidelen = 80,
 		fill_ratio = 0.0018,
 		biomes = {"taiga", "coniferous_forest"},
-		y_max = 31000,
+		y_max = 1000,
 		y_min = 4,
 		schematic = minetest.get_modpath("default") .. "/schematics/pine_log.mts",
 		flags = "place_center_x",
@@ -2018,7 +2018,7 @@ function default.register_decorations()
 			persist = 0.66
 		},
 		biomes = {"savanna"},
-		y_max = 31000,
+		y_max = 1000,
 		y_min = 1,
 		schematic = minetest.get_modpath("default") .. "/schematics/acacia_tree.mts",
 		flags = "place_center_x, place_center_z",
@@ -2040,7 +2040,7 @@ function default.register_decorations()
 			persist = 0.66
 		},
 		biomes = {"savanna"},
-		y_max = 31000,
+		y_max = 1000,
 		y_min = 1,
 		schematic = minetest.get_modpath("default") .. "/schematics/acacia_log.mts",
 		flags = "place_center_x",
@@ -2065,7 +2065,7 @@ function default.register_decorations()
 			persist = 0.66
 		},
 		biomes = {"deciduous_forest"},
-		y_max = 31000,
+		y_max = 1000,
 		y_min = 1,
 		schematic = minetest.get_modpath("default") .. "/schematics/aspen_tree.mts",
 		flags = "place_center_x, place_center_z",
@@ -2086,7 +2086,7 @@ function default.register_decorations()
 			persist = 0.66
 		},
 		biomes = {"deciduous_forest"},
-		y_max = 31000,
+		y_max = 1000,
 		y_min = 1,
 		schematic = minetest.get_modpath("default") .. "/schematics/aspen_log.mts",
 		flags = "place_center_x",
@@ -2111,7 +2111,7 @@ function default.register_decorations()
 			persist = 0.6
 		},
 		biomes = {"desert"},
-		y_max = 31000,
+		y_max = 1000,
 		y_min = 4,
 		schematic = minetest.get_modpath("default") .. "/schematics/large_cactus.mts",
 		flags = "place_center_x, place_center_z",
@@ -2134,7 +2134,7 @@ function default.register_decorations()
 			persist = 0.6
 		},
 		biomes = {"desert"},
-		y_max = 31000,
+		y_max = 1000,
 		y_min = 4,
 		decoration = "default:cactus",
 		height = 2,
@@ -2202,7 +2202,7 @@ function default.register_decorations()
 			persist = 0.7,
 		},
 		biomes = {"grassland", "deciduous_forest"},
-		y_max = 31000,
+		y_max = 1000,
 		y_min = 1,
 		schematic = minetest.get_modpath("default") .. "/schematics/bush.mts",
 		flags = "place_center_x, place_center_z",
@@ -2224,7 +2224,7 @@ function default.register_decorations()
 			persist = 0.7,
 		},
 		biomes = {"grassland", "snowy_grassland"},
-		y_max = 31000,
+		y_max = 1000,
 		y_min = 1,
 		place_offset_y = 1,
 		schematic = minetest.get_modpath("default") .. "/schematics/blueberry_bush.mts",
@@ -2247,7 +2247,7 @@ function default.register_decorations()
 			persist = 0.7,
 		},
 		biomes = {"savanna"},
-		y_max = 31000,
+		y_max = 1000,
 		y_min = 1,
 		schematic = minetest.get_modpath("default") .. "/schematics/acacia_bush.mts",
 		flags = "place_center_x, place_center_z",
@@ -2269,7 +2269,7 @@ function default.register_decorations()
 			persist = 0.7,
 		},
 		biomes = {"taiga", "snowy_grassland"},
-		y_max = 31000,
+		y_max = 1000,
 		y_min = 4,
 		schematic = minetest.get_modpath("default") .. "/schematics/pine_bush.mts",
 		flags = "place_center_x, place_center_z",
@@ -2306,7 +2306,7 @@ function default.register_decorations()
 		sidelen = 80,
 		fill_ratio = 0.1,
 		biomes = {"rainforest"},
-		y_max = 31000,
+		y_max = 1000,
 		y_min = 1,
 		decoration = "default:junglegrass",
 	})
@@ -2328,7 +2328,7 @@ function default.register_decorations()
 			persist = 0.6
 		},
 		biomes = {"desert", "sandstone_desert", "cold_desert"},
-		y_max = 31000,
+		y_max = 1000,
 		y_min = 2,
 		decoration = "default:dry_shrub",
 		param2 = 4,
