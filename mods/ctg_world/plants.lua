@@ -70,3 +70,70 @@ minetest.register_decoration({
     y_min = 0,
     schematic = minetest.get_modpath('x_farming') .. '/schematics/x_farming_salt_decor.mts'
 })
+
+
+local drop_nodes = {
+	"livingcaves:rootcave_bigroot",
+    "livingcaves:rootcave_bigroot2",
+    "livingcaves:rootcave_hangingroot",
+    "livingcaves:rootcave_hangingroot2",
+    "livingcaves:rootcave_smallroot",
+    "livingcaves:rootcave_smallroot2",
+    "livingcaves:hangingmold",
+    "livingcaves:hangingmoldend",
+    "livingcaves:hangingmoss",
+    "livingcaves:hangingmossend",
+    "livingcaves:lichen",
+    "livingcaves:glowshroom",
+    "livingcaves:glowshroom_top",
+    "livingcaves:moss"
+}
+
+local function get_node_drops(node)
+	if node.name == "default:papyrus" then
+		if math.random(10) == 1 then
+			return nil
+		end
+		return {}
+	end
+	return minetest.get_node_drops(node)
+end
+
+-- weird nodes near water
+minetest.register_abm({
+	label = "cave plants water interact",
+	nodenames = drop_nodes,
+	neighbors = {"default:water_flowing", "default:water_source"},
+	interval = 3,
+	chance = 2,
+    max_y = -30,
+	min_y = -11000,
+	action = function(pos)
+
+		local node = minetest.get_node(pos)
+		minetest.set_node(pos, {name = "air"})
+
+		for _, drop in pairs(get_node_drops(node)) do
+			minetest.add_item(pos, ItemStack(drop))
+		end
+    end
+})
+
+minetest.register_abm({
+	label = "cave plants lava interact",
+	nodenames = drop_nodes,
+	neighbors = {"default:lava_flowing", "default:lava_source"},
+	interval = 2,
+	chance = 1,
+    max_y = -30,
+	min_y = -11000,
+	action = function(pos)
+
+		local node = minetest.get_node(pos)
+		minetest.set_node(pos, {name = "air"})
+
+		for _, drop in pairs(get_node_drops(node)) do
+			minetest.add_item(pos, ItemStack(drop))
+		end
+    end
+})
