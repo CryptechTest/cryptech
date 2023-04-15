@@ -262,3 +262,6 @@
 [submodule "mods/goblins"]
 	path = mods/goblins
 	url = git@github.com:CryptechTest/goblins.git
+[submodule "mods/what_is_this_uwu"]
+	path = mods/what_is_this_uwu
+	url = git@github.com:Rotfuchs-von-Vulpes/what_is_this_uwu-minetest.git
