@@ -265,3 +265,9 @@
 [submodule "mods/what_is_this_uwu"]
 	path = mods/what_is_this_uwu
 	url = git@github.com:Rotfuchs-von-Vulpes/what_is_this_uwu-minetest.git
+[submodule "mods/ambience"]
+	path = mods/ambience
+	url = git@github.com:CryptechTest/ambience.git
+[submodule "mods/wilhelminessounds"]
+	path = mods/wilhelminessounds
+	url = git@github.com:Skandarella/wilhelminessounds.git
