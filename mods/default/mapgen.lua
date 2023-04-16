@@ -389,7 +389,7 @@ function default.register_mgv6_ores()
 		clust_scarcity = 36 * 36 * 36,
 		clust_num_ores = 3,
 		clust_size     = 2,
-		y_max          = 1000,
+		y_max          = -100,
 		y_min          = -1025,
 	})
 
@@ -611,7 +611,7 @@ function default.register_ores()
 		clust_scarcity = 8 * 8 * 8,
 		clust_num_ores = 9,
 		clust_size     = 3,
-		y_max          = 1000,
+		y_max          = -100,
 		y_min          = -1025,
 	})
 
@@ -646,7 +646,7 @@ function default.register_ores()
 		clust_scarcity = 10 * 10 * 10,
 		clust_num_ores = 5,
 		clust_size     = 3,
-		y_max          = 1000,
+		y_max          = -100,
 		y_min          = -1025,
 	})
 
@@ -681,7 +681,7 @@ function default.register_ores()
 		clust_scarcity = 9 * 9 * 9,
 		clust_num_ores = 5,
 		clust_size     = 3,
-		y_max          = 1000,
+		y_max          = 10,
 		y_min          = -1025,
 	})
 
@@ -716,7 +716,7 @@ function default.register_ores()
 		clust_scarcity = 9 * 9 * 9,
 		clust_num_ores = 12,
 		clust_size     = 3,
-		y_max          = 1000,
+		y_max          = -100,
 		y_min          = -1025,
 	})
 
@@ -751,7 +751,7 @@ function default.register_ores()
 		clust_scarcity = 13 * 13 * 13,
 		clust_num_ores = 5,
 		clust_size     = 3,
-		y_max          = 1000,
+		y_max          = -200,
 		y_min          = -1025,
 	})
 
@@ -786,7 +786,7 @@ function default.register_ores()
 		clust_scarcity = 14 * 14 * 14,
 		clust_num_ores = 5,
 		clust_size     = 3,
-		y_max          = 1000,
+		y_max          = -200,
 		y_min          = -1025,
 	})
 
@@ -821,7 +821,7 @@ function default.register_ores()
 		clust_scarcity = 15 * 15 * 15,
 		clust_num_ores = 4,
 		clust_size     = 3,
-		y_max          = 1000,
+		y_max          = -300,
 		y_min          = -1023,
 	})
 
@@ -856,7 +856,7 @@ function default.register_ores()
 		clust_scarcity = 36 * 36 * 36,
 		clust_num_ores = 3,
 		clust_size     = 2,
-		y_max          = 1000,
+		y_max          = -300,
 		y_min          = -1025,
 	})
 
