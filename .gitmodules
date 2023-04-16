@@ -271,3 +271,12 @@
 [submodule "mods/wilhelminessounds"]
 	path = mods/wilhelminessounds
 	url = git@github.com:Skandarella/wilhelminessounds.git
+[submodule "mods/saltd"]
+	path = mods/saltd
+	url = git@github.com:CryptechTest/saltd.git
+[submodule "mods/badlands"]
+	path = mods/badlands
+	url = git@github.com:CryptechTest/badlands.git
+[submodule "mods/bakedclay"]
+	path = mods/bakedclay
+	url = git@github.com:CryptechTest/bakedclay.git
