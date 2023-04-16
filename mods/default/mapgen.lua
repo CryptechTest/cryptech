@@ -145,7 +145,7 @@ function default.register_mgv6_ores()
 		clust_num_ores = 9,
 		clust_size     = 3,
 		y_max          = 1000,
-		y_min          = 1025,
+		y_min          = -1025,
 	})
 
 	minetest.register_ore({
@@ -180,7 +180,7 @@ function default.register_mgv6_ores()
 		clust_num_ores = 12,
 		clust_size     = 3,
 		y_max          = 1000,
-		y_min          = 1025,
+		y_min          = -1025,
 	})
 
 	minetest.register_ore({
@@ -215,7 +215,7 @@ function default.register_mgv6_ores()
 		clust_num_ores = 5,
 		clust_size     = 3,
 		y_max          = 1000,
-		y_min          = 1025,
+		y_min          = -1025,
 	})
 
 	minetest.register_ore({
@@ -250,7 +250,7 @@ function default.register_mgv6_ores()
 		clust_num_ores = 5,
 		clust_size     = 3,
 		y_max          = 1000,
-		y_min          = 1025,
+		y_min          = -1025,
 	})
 
 	minetest.register_ore({
@@ -285,7 +285,7 @@ function default.register_mgv6_ores()
 		clust_num_ores = 5,
 		clust_size     = 3,
 		y_max          = 1000,
-		y_min          = 1025,
+		y_min          = -1025,
 	})
 
 	minetest.register_ore({
@@ -320,7 +320,7 @@ function default.register_mgv6_ores()
 		clust_num_ores = 5,
 		clust_size     = 3,
 		y_max          = 1000,
-		y_min          = 1025,
+		y_min          = -1025,
 	})
 
 	minetest.register_ore({
@@ -355,7 +355,7 @@ function default.register_mgv6_ores()
 		clust_num_ores = 4,
 		clust_size     = 3,
 		y_max          = 1000,
-		y_min          = 1025,
+		y_min          = -1025,
 	})
 
 	minetest.register_ore({
@@ -390,7 +390,7 @@ function default.register_mgv6_ores()
 		clust_num_ores = 3,
 		clust_size     = 2,
 		y_max          = 1000,
-		y_min          = 1025,
+		y_min          = -1025,
 	})
 
 	minetest.register_ore({
@@ -612,7 +612,7 @@ function default.register_ores()
 		clust_num_ores = 9,
 		clust_size     = 3,
 		y_max          = 1000,
-		y_min          = 1025,
+		y_min          = -1025,
 	})
 
 	minetest.register_ore({
@@ -647,7 +647,7 @@ function default.register_ores()
 		clust_num_ores = 5,
 		clust_size     = 3,
 		y_max          = 1000,
-		y_min          = 1025,
+		y_min          = -1025,
 	})
 
 	minetest.register_ore({
@@ -682,7 +682,7 @@ function default.register_ores()
 		clust_num_ores = 5,
 		clust_size     = 3,
 		y_max          = 1000,
-		y_min          = 1025,
+		y_min          = -1025,
 	})
 
 	minetest.register_ore({
@@ -717,7 +717,7 @@ function default.register_ores()
 		clust_num_ores = 12,
 		clust_size     = 3,
 		y_max          = 1000,
-		y_min          = 1025,
+		y_min          = -1025,
 	})
 
 	minetest.register_ore({
@@ -752,7 +752,7 @@ function default.register_ores()
 		clust_num_ores = 5,
 		clust_size     = 3,
 		y_max          = 1000,
-		y_min          = 1025,
+		y_min          = -1025,
 	})
 
 	minetest.register_ore({
@@ -787,7 +787,7 @@ function default.register_ores()
 		clust_num_ores = 5,
 		clust_size     = 3,
 		y_max          = 1000,
-		y_min          = 1025,
+		y_min          = -1025,
 	})
 
 	minetest.register_ore({
@@ -822,7 +822,7 @@ function default.register_ores()
 		clust_num_ores = 4,
 		clust_size     = 3,
 		y_max          = 1000,
-		y_min          = 1025,
+		y_min          = -1023,
 	})
 
 	minetest.register_ore({
@@ -857,7 +857,7 @@ function default.register_ores()
 		clust_num_ores = 3,
 		clust_size     = 2,
 		y_max          = 1000,
-		y_min          = 1025,
+		y_min          = -1025,
 	})
 
 	minetest.register_ore({
