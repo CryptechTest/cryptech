@@ -344,8 +344,8 @@ farming.register_plant = function(name, def)
 		end
 		local drop = {
 			items = {
-				{ items = { mname .. ":" .. pname },    rarity = base_rarity },
-				{ items = { mname .. ":" .. pname },    rarity = base_rarity * 2 },
+				{ items = { mname .. ":" .. pname },      rarity = base_rarity },
+				{ items = { mname .. ":" .. pname },      rarity = base_rarity * 2 },
 				{ items = { mname .. ":seed_" .. pname }, rarity = base_rarity },
 				{ items = { mname .. ":seed_" .. pname }, rarity = base_rarity * 2 },
 			}
@@ -361,6 +361,7 @@ farming.register_plant = function(name, def)
 		end
 
 		minetest.register_node(":" .. mname .. ":" .. pname .. "_" .. i, {
+			description = def.harvest_description,
 			drawtype = "plantlike",
 			waving = 1,
 			tiles = { mname .. "_" .. pname .. "_" .. i .. ".png" },
