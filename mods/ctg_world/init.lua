@@ -4,6 +4,7 @@ local ui = unified_inventory
 local default_path = minetest.get_modpath("ctg_world")
 dofile(default_path .. DIR_DELIM .. "coregen.lua")
 dofile(default_path .. DIR_DELIM .. "atmosgen.lua")
+dofile(default_path .. DIR_DELIM .. "biomes.lua")
 dofile(default_path .. DIR_DELIM .. "resources.lua")
 dofile(default_path .. DIR_DELIM .. "resources_core.lua")
 dofile(default_path .. DIR_DELIM .. "plants.lua")

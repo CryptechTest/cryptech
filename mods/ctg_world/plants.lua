@@ -106,7 +106,7 @@ minetest.register_abm({
 	neighbors = {"default:water_flowing", "default:water_source"},
 	interval = 3,
 	chance = 2,
-    max_y = -30,
+    max_y = 1000,
 	min_y = -11000,
 	action = function(pos)
 
@@ -125,7 +125,7 @@ minetest.register_abm({
 	neighbors = {"default:lava_flowing", "default:lava_source"},
 	interval = 2,
 	chance = 1,
-    max_y = -30,
+    max_y = 1000,
 	min_y = -11000,
 	action = function(pos)
 
