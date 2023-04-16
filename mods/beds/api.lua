@@ -137,7 +137,7 @@ function beds.register_bed(name, def)
 					unified_inventory.set_inventory_formspec(placer, unified_inventory.current_page[player_name])
 				end)
 				local node_meta = minetest.get_meta(pos)
-				node_meta:set_string("infotext", S("owner: ") .. player_name)
+				node_meta:set_string("infotext", S("Owner: ") .. player_name)
 			end
 			if not minetest.is_creative_enabled(player_name) then
 				itemstack:take_item()
