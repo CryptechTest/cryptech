@@ -137,3 +137,20 @@ minetest.register_abm({
 		end
     end
 })
+
+local function add_thorns(name)
+	for itemstring, def in pairs(minetest.registered_nodes) do
+        if name == itemstring then
+            local node = minetest.registered_nodes[name]
+            local marked_groups = node.groups
+            marked_groups.thorns = 1
+            minetest.override_item(name, { groups = marked_groups })
+        end
+    end
+end
+
+local function init_plants()
+    add_thorns("saltd:thorny_bush")
+end
+
+minetest.after(0, init_plants)
