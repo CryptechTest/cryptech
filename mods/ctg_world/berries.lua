@@ -433,7 +433,7 @@ minetest.register_node('ctg_world:strawberry_bowl_mix', {
 
 -- food craft recipe
 minetest.register_craft({
-    output = 'ctg_world:strawberry_bowl 2',
+    output = 'ctg_world:strawberry_bowl_mix 2',
     type = "shapeless",
     recipe = {'ctg_world:strawberry_bowl', 'ctg_world:blueberry_bowl'}
 })
