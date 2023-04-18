@@ -171,9 +171,9 @@ minetest.register_node("ctg_world:glowberry_bush_sapling", {
 
 -- leaf decay
 default.register_leafdecay({
-    trunks = { 'default:bush_stem' },
-    leaves = { 'ctg_world:glowberry_bush_leaves', 'ctg_world:glowberry_bush_leaves_with_berries' },
-    radius = 3,
+    trunks = {'default:bush_stem'},
+    leaves = {'ctg_world:glowberry_bush_leaves', 'ctg_world:glowberry_bush_leaves_with_berries'},
+    radius = 3
 })
 
 -- bonemeal register
@@ -198,11 +198,11 @@ minetest.register_craftitem("ctg_world:glowberries", {
     on_use = minetest.item_eat(1.8)
 })
 
--- food
+-- food: glowberry
 minetest.register_node('ctg_world:glowberry_bowl', {
     description = S('Bowl of Glowberries') .. '\n' .. S('Compost chance') .. ': 100%\n' ..
-        minetest.colorize(x_farming.colors.brown, S('Hunger') .. ': 13'),
-    short_description = S('Bowl of Glowberries'),
+        minetest.colorize(x_farming.colors.brown, S('Hunger') .. ': 14'),
+    short_description = S('Bowl of Blue-Glowberries'),
     drawtype = 'mesh',
     mesh = 'x_farming_beetroot_soup.obj',
     tiles = {'ctg_bowl_glowberries_mesh.png'},
@@ -226,7 +226,7 @@ minetest.register_node('ctg_world:glowberry_bowl', {
         attached_node = 1,
         compost = 100
     },
-    on_use = minetest.item_eat(13, 'x_farming:bowl'),
+    on_use = minetest.item_eat(14, 'x_farming:bowl'),
     sounds = default.node_sound_wood_defaults(),
     sunlight_propagates = true
 })
@@ -238,10 +238,10 @@ minetest.register_craft({
     recipe = {'ctg_world:glowberries', 'ctg_world:blueberry_mix_bowl'}
 })
 
--- food
+-- food: glowberry mix
 minetest.register_node('ctg_world:glowberry_bowl_mix', {
     description = S('Bowl of Mixed Glowberries') .. '\n' .. S('Compost chance') .. ': 100%\n' ..
-        minetest.colorize(x_farming.colors.brown, S('Hunger') .. ': 15'),
+        minetest.colorize(x_farming.colors.brown, S('Hunger') .. ': 16'),
     short_description = S('Bowl of Mixed Glowberries'),
     drawtype = 'mesh',
     mesh = 'x_farming_beetroot_soup.obj',
@@ -266,7 +266,7 @@ minetest.register_node('ctg_world:glowberry_bowl_mix', {
         attached_node = 1,
         compost = 100
     },
-    on_use = minetest.item_eat(15, 'x_farming:bowl'),
+    on_use = minetest.item_eat(16, 'x_farming:bowl'),
     sounds = default.node_sound_wood_defaults(),
     sunlight_propagates = true
 })
@@ -278,7 +278,7 @@ minetest.register_craft({
     recipe = {'ctg_world:glowberries', 'ctg_world:glowberry_bowl', 'livingcaves:hangingmossend2'}
 })
 
--- food
+-- food: blueberry mix
 minetest.register_node('ctg_world:blueberry_mix_bowl', {
     description = S('Bowl of Mixed Blueberries') .. '\n' .. S('Compost chance') .. ': 100%\n' ..
         minetest.colorize(x_farming.colors.brown, S('Hunger') .. ': 12'),
@@ -318,7 +318,7 @@ minetest.register_craft({
     recipe = {'ctg_world:glowberries', 'ctg_world:blueberry_bowl'}
 })
 
--- food
+-- food: blueberry
 minetest.register_node('ctg_world:blueberry_bowl', {
     description = S('Bowl of Blueberries') .. '\n' .. S('Compost chance') .. ': 100%\n' ..
         minetest.colorize(x_farming.colors.brown, S('Hunger') .. ': 11'),
@@ -356,4 +356,84 @@ minetest.register_craft({
     output = 'ctg_world:blueberry_bowl',
     recipe = {{'default:blueberries', 'group:food_sugar', 'default:blueberries'},
               {'default:blueberries', 'default:blueberries', 'default:blueberries'}, {'', 'x_farming:bowl', ''}}
+})
+
+-- food: strawberry
+minetest.register_node('ctg_world:strawberry_bowl', {
+    description = S('Bowl of Strawberries') .. '\n' .. S('Compost chance') .. ': 100%\n' ..
+        minetest.colorize(x_farming.colors.brown, S('Hunger') .. ': 11'),
+    short_description = S('Bowl of Strawberries'),
+    drawtype = 'mesh',
+    mesh = 'x_farming_beetroot_soup.obj',
+    tiles = {'ctg_bowl_strawberries_mesh.png'},
+    inventory_image = 'ctg_bowl_strawberries.png',
+    wield_image = 'ctg_bowl_strawberries.png',
+    paramtype = 'light',
+    paramtype2 = 'facedir',
+    is_ground_content = false,
+    walkable = true,
+    selection_box = {
+        type = 'fixed',
+        fixed = {-0.5, -0.5, -0.5, 0.5, 0.1, 0.5}
+    },
+    collision_box = {
+        type = 'fixed',
+        fixed = {-0.5, -0.5, -0.5, 0.5, -0.1, 0.5}
+    },
+    groups = {
+        vessel = 1,
+        dig_immediate = 3,
+        attached_node = 1,
+        compost = 100
+    },
+    on_use = minetest.item_eat(11, 'x_farming:bowl'),
+    sounds = default.node_sound_wood_defaults(),
+    sunlight_propagates = true
+})
+
+-- food craft recipe
+minetest.register_craft({
+    output = 'ctg_world:strawberry_bowl',
+    recipe = {{'x_farming:strawberry', 'group:food_sugar', 'x_farming:strawberry'},
+              {'x_farming:strawberry', 'x_farming:strawberry', 'x_farming:strawberry'}, {'', 'x_farming:bowl', ''}}
+})
+
+-- food: mixed strawberry blueberry
+minetest.register_node('ctg_world:strawberry_bowl_mix', {
+    description = S('Bowl of Strawberries and Blueberries') .. '\n' .. S('Compost chance') .. ': 100%\n' ..
+        minetest.colorize(x_farming.colors.brown, S('Hunger') .. ': 13'),
+    short_description = S('Bowl of mixed sweet berries'),
+    drawtype = 'mesh',
+    mesh = 'x_farming_beetroot_soup.obj',
+    tiles = {'ctg_bowl_strawberries_mix_mesh.png'},
+    inventory_image = 'ctg_bowl_strawberries_mix.png',
+    wield_image = 'ctg_bowl_strawberries_mix.png',
+    paramtype = 'light',
+    paramtype2 = 'facedir',
+    is_ground_content = false,
+    walkable = true,
+    selection_box = {
+        type = 'fixed',
+        fixed = {-0.5, -0.5, -0.5, 0.5, 0.1, 0.5}
+    },
+    collision_box = {
+        type = 'fixed',
+        fixed = {-0.5, -0.5, -0.5, 0.5, -0.1, 0.5}
+    },
+    groups = {
+        vessel = 1,
+        dig_immediate = 3,
+        attached_node = 1,
+        compost = 100
+    },
+    on_use = minetest.item_eat(13, 'x_farming:bowl'),
+    sounds = default.node_sound_wood_defaults(),
+    sunlight_propagates = true
+})
+
+-- food craft recipe
+minetest.register_craft({
+    output = 'ctg_world:strawberry_bowl 2',
+    type = "shapeless",
+    recipe = {'ctg_world:strawberry_bowl', 'ctg_world:blueberry_bowl'}
 })
