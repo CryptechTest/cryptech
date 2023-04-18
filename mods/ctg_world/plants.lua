@@ -154,3 +154,16 @@ local function init_plants()
 end
 
 minetest.after(0, init_plants)
+
+minetest.register_craftitem('ctg_world:sugar', {
+    description = S('Sugar'),
+    short_description = S('Sugar'),
+    inventory_image = 'x_farming_sugar.png',
+    groups = { flammable = 1, food_sugar = 1 },
+})
+
+minetest.register_craft({
+    type = 'shapeless',
+    output = 'ctg_world:sugar',
+    recipe = { 'default:papyrus' }
+})

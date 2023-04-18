@@ -201,7 +201,7 @@ minetest.register_craftitem("ctg_world:glowberries", {
 -- food
 minetest.register_node('ctg_world:glowberry_bowl', {
     description = S('Bowl of Glowberries') .. '\n' .. S('Compost chance') .. ': 100%\n' ..
-        minetest.colorize(x_farming.colors.brown, S('Hunger') .. ': 10'),
+        minetest.colorize(x_farming.colors.brown, S('Hunger') .. ': 13'),
     short_description = S('Bowl of Glowberries'),
     drawtype = 'mesh',
     mesh = 'x_farming_beetroot_soup.obj',
@@ -226,7 +226,7 @@ minetest.register_node('ctg_world:glowberry_bowl', {
         attached_node = 1,
         compost = 100
     },
-    on_use = minetest.item_eat(10, 'x_farming:bowl'),
+    on_use = minetest.item_eat(13, 'x_farming:bowl'),
     sounds = default.node_sound_wood_defaults(),
     sunlight_propagates = true
 })
@@ -234,15 +234,14 @@ minetest.register_node('ctg_world:glowberry_bowl', {
 -- food craft recipe
 minetest.register_craft({
     output = 'ctg_world:glowberry_bowl',
-    recipe = {{'ctg_world:glowberries', 'ctg_world:glowberries', 'ctg_world:glowberries'},
-              {'ctg_world:glowberries', 'ctg_world:glowberries', 'ctg_world:glowberries'},
-              {'group:sugar', 'x_farming:bowl', 'group:sugar'}}
+    type = 'shapeless',
+    recipe = {'ctg_world:glowberries', 'ctg_world:blueberry_mix_bowl'}
 })
 
 -- food
 minetest.register_node('ctg_world:glowberry_bowl_mix', {
     description = S('Bowl of Mixed Glowberries') .. '\n' .. S('Compost chance') .. ': 100%\n' ..
-        minetest.colorize(x_farming.colors.brown, S('Hunger') .. ': 11'),
+        minetest.colorize(x_farming.colors.brown, S('Hunger') .. ': 15'),
     short_description = S('Bowl of Mixed Glowberries'),
     drawtype = 'mesh',
     mesh = 'x_farming_beetroot_soup.obj',
@@ -267,7 +266,7 @@ minetest.register_node('ctg_world:glowberry_bowl_mix', {
         attached_node = 1,
         compost = 100
     },
-    on_use = minetest.item_eat(12, 'x_farming:bowl'),
+    on_use = minetest.item_eat(15, 'x_farming:bowl'),
     sounds = default.node_sound_wood_defaults(),
     sunlight_propagates = true
 })
@@ -275,9 +274,8 @@ minetest.register_node('ctg_world:glowberry_bowl_mix', {
 -- food craft recipe
 minetest.register_craft({
     output = 'ctg_world:glowberry_bowl_mix',
-    recipe = {{'ctg_world:glowberries', 'livingcaves:hangingmossend2', 'ctg_world:glowberries'},
-              {'ctg_world:glowberries', 'livingcaves:hangingmossend2', 'ctg_world:glowberries'},
-              {'group:sugar', 'x_farming:bowl', 'group:sugar'}}
+    type = 'shapeless',
+    recipe = {'ctg_world:glowberries', 'ctg_world:glowberry_bowl', 'livingcaves:hangingmossend2'}
 })
 
 -- food
@@ -315,9 +313,9 @@ minetest.register_node('ctg_world:blueberry_mix_bowl', {
 
 -- food craft recipe
 minetest.register_craft({
-    output = 'ctg_world:blueberry_bowl',
-    recipe = {{'default:blueberries', 'group:sugar', 'default:blueberries'},
-              {'ctg_world:glowberries', 'group:food_berry', 'ctg_world:glowberries'}, {'', 'x_farming:bowl', ''}}
+    output = 'ctg_world:blueberry_mix_bowl',
+    type = 'shapeless',
+    recipe = {'ctg_world:glowberries', 'ctg_world:blueberry_bowl'}
 })
 
 -- food
@@ -356,6 +354,6 @@ minetest.register_node('ctg_world:blueberry_bowl', {
 -- food craft recipe
 minetest.register_craft({
     output = 'ctg_world:blueberry_bowl',
-    recipe = {{'default:blueberries', 'group:sugar', 'default:blueberries'},
+    recipe = {{'default:blueberries', 'group:food_sugar', 'default:blueberries'},
               {'default:blueberries', 'default:blueberries', 'default:blueberries'}, {'', 'x_farming:bowl', ''}}
 })
