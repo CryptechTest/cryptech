@@ -291,7 +291,6 @@ minetest.register_decoration({
 ---------------------------------------------------------------
 
 minetest.register_decoration({
-    -- deco_type = "simple",
     deco_type = "schematic",
     place_on = {"ctg_world:plantstone"},
     sidelen = 8,
@@ -312,13 +311,11 @@ minetest.register_decoration({
     flags = "place_center_x,place_center_z,all_floors",
     y_max = -90,
     y_min = -6000,
-    -- decoration = "ctg_world:plantstone",
     schematic = minetest.get_modpath("ctg_world") .. "/schematics/cave_bush_1.mts",
     rotation = "random"
 })
 
 minetest.register_decoration({
-    -- deco_type = "simple",
     deco_type = "schematic",
     place_on = {"ctg_world:plantstone"},
     sidelen = 8,
@@ -339,13 +336,11 @@ minetest.register_decoration({
     flags = "place_center_x,place_center_z,all_floors",
     y_max = -90,
     y_min = -6000,
-    -- decoration = "ctg_world:plantstone",
     schematic = minetest.get_modpath("ctg_world") .. "/schematics/cave_bush_2.mts",
     rotation = "random"
 })
 
 minetest.register_decoration({
-    -- deco_type = "simple",
     deco_type = "schematic",
     place_on = {"ctg_world:plantstone"},
     sidelen = 8,
@@ -366,16 +361,15 @@ minetest.register_decoration({
     flags = "place_center_x,place_center_z,all_floors",
     y_max = -90,
     y_min = -6000,
-    -- decoration = "ctg_world:plantstone",
     schematic = minetest.get_modpath("ctg_world") .. "/schematics/cave_bush_3.mts",
     rotation = "random"
 })
 
 local function register_grass2_decoration(offset, scale, length)
     minetest.register_decoration({
-        -- name = "default:grass_" .. length,
+        name = "ctg_world:grass_" .. length,
         deco_type = "simple",
-        place_on = {"ctg_world:plantstone"},
+        place_on = {"ctg_world:plantstone", "livingcaves:mushcave2_bottom"},
         sidelen = 16,
         -- place_offset_y = 1,
         noise_params = {
@@ -400,9 +394,9 @@ end
 
 local function register_fern2_decoration(seed, length)
     minetest.register_decoration({
-        -- name = "default:fern_" .. length,
+        name = "ctg_world:fern_" .. length,
         deco_type = "simple",
-        place_on = {"ctg_world:plantstone", "livingcaves:mushcave_bottom"},
+        place_on = {"ctg_world:plantstone", "livingcaves:mushcave_bottom", "livingcaves:mushcave2_bottom"},
         sidelen = 16,
         -- place_offset_y = 1,
         noise_params = {
