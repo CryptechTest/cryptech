@@ -8,6 +8,7 @@ dofile(default_path .. DIR_DELIM .. "biomes.lua")
 dofile(default_path .. DIR_DELIM .. "resources.lua")
 dofile(default_path .. DIR_DELIM .. "resources_core.lua")
 dofile(default_path .. DIR_DELIM .. "plants.lua")
+dofile(default_path .. DIR_DELIM .. "berries.lua")
 dofile(default_path .. DIR_DELIM .. "mapgen.lua")
 
 local function give_or_drop_item(player, itemstack)
