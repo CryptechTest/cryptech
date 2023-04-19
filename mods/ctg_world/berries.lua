@@ -437,3 +437,140 @@ minetest.register_craft({
     type = "shapeless",
     recipe = {'ctg_world:strawberry_bowl', 'ctg_world:blueberry_bowl'}
 })
+
+if minetest.get_modpath("bottles") then
+    local function make_bottle(spec)
+
+        local on_drink = function(itemstack, placer)
+            return minetest.item_eat(spec.feed_amount, 'vessels:glass_bottle')
+        end
+
+        local contents_node = minetest.registered_items[spec.contents[1]]
+        if not contents_node then
+            return false
+        end
+
+        if spec.image then
+            -- do nothing
+        elseif contents_node.inventory_image and type(contents_node.inventory_image) == "string" then
+            spec.image = contents_node.inventory_image
+        elseif contents_node.tiles and type(contents_node.tiles[1]) == "string" then
+            spec.image = contents_node.tiles[1]
+        elseif contents_node.tiles and type(contents_node.tiles[1]) == "table" then
+            spec.image = contents_node.tiles[1].name
+        else
+            return false
+        end
+
+        local contents_node2 = minetest.registered_items[spec.contents[2]]
+        local liquid_image = ""
+        if contents_node2 and contents_node2.inventory_image and type(contents_node2.inventory_image) == "string" then
+            liquid_image = contents_node2.inventory_image
+        end
+
+        spec.image = "[combine:16x16:0,0=" .. liquid_image .. "^" .. spec.image .. "^[opacity:128" ..
+                         "^vessels_glass_bottle_mask.png^[makealpha:0,254,0"
+        spec.name = "ctg_world:" .. spec.name
+
+        -- Ensure that name is not already in use, fail registration if so
+        if bottles.registered_filled_bottles[spec.name] then
+            return false
+        end
+
+        -- Normalize target type
+        if spec.target_type == "string" then
+            spec.target = {spec.target}
+        end
+
+        -- Ensure that target nodes are not already in use, fail registration if so
+        for _, target in ipairs(spec.target) do
+            if bottles.target_node_map[target] then
+                return false
+            end
+        end
+
+        -- Map target nodes to spec
+        for _, target in ipairs(spec.target) do
+            bottles.target_node_map[target] = spec
+        end
+
+        -- Put bottle into map of registered filled bottles
+        bottles.registered_filled_bottles[spec.name] = spec
+
+        -- Register new bottle node
+        minetest.register_node(spec.name, {
+            description = spec.description .. '\n' ..
+                minetest.colorize(x_farming.colors.brown, S('Hunger') .. ': ' .. spec.feed_amount),
+            short_description = spec.description,
+            drawtype = "plantlike",
+            tiles = {spec.image},
+            inventory_image = spec.image,
+            wield_image = spec.image,
+            paramtype = "light",
+            is_ground_content = false,
+            walkable = false,
+            selection_box = {
+                type = "fixed",
+                fixed = {-0.25, -0.5, -0.25, 0.25, 0.3, 0.25}
+            },
+            groups = spec.groups,
+            sounds = default.node_sound_glass_defaults(),
+            on_use = on_drink()
+        })
+
+        minetest.register_craft({
+            output = spec.name .. " " .. spec.craft_recieve_count,
+            type = 'shapeless',
+            recipe = spec.contents
+        })
+    end
+
+    -- drinks
+    make_bottle({
+        target = {"x_farming:strawberry"},
+        sound = "default_water_footstep",
+        contents = {"x_farming:strawberry", "x_farming:bottle_soymilk"},
+        name = "bottle_of_strawberry_milk",
+        description = "Bottle of Strawberry Milk",
+        craft_recieve_count = 1,
+        groups = {
+            vessel = 1,
+            dig_immediate = 3,
+            attached_node = 1,
+            food_milk = 1
+        },
+        feed_amount = 4
+    })
+
+    make_bottle({
+        target = {"default:blueberries"},
+        sound = "default_water_footstep",
+        contents = {"default:blueberries", "x_farming:bottle_soymilk"},
+        name = "bottle_of_blueberry_milk",
+        description = "Bottle of Blueberry Milk",
+        craft_recieve_count = 1,
+        groups = {
+            vessel = 1,
+            dig_immediate = 3,
+            attached_node = 1,
+            food_milk = 1
+        },
+        feed_amount = 4
+    })
+
+    make_bottle({
+        target = {"x_farming:bottle_coffee"},
+        sound = "default_water_footstep",
+        contents = {"x_farming:bottle_coffee", "x_farming:bottle_soymilk"},
+        name = "bottle_of_coffe_with_milk",
+        description = "Bottle of Coffee with Milk",
+        craft_recieve_count = 2,
+        groups = {
+            vessel = 1,
+            dig_immediate = 3,
+            attached_node = 1,
+            food_milk = 1
+        },
+        feed_amount = 4
+    })
+end
