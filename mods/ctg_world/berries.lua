@@ -573,4 +573,21 @@ if minetest.get_modpath("bottles") then
         },
         feed_amount = 4
     })
+
+    make_bottle({
+        target = {"x_farming:chocolate"},
+        sound = "default_water_footstep",
+        contents = {"x_farming:chocolate", "x_farming:bottle_soymilk"},
+        name = "bottle_of_chocolate_milk",
+        image = "x_farming_cocoa_bean.png",
+        description = "Bottle of Chocolate Milk",
+        craft_recieve_count = 1,
+        groups = {
+            vessel = 1,
+            dig_immediate = 3,
+            attached_node = 1,
+            food_milk = 1
+        },
+        feed_amount = 4
+    })
 end
