@@ -590,4 +590,44 @@ if minetest.get_modpath("bottles") then
         },
         feed_amount = 4
     })
+
+    -- hot cup of coffee
+    local coffee_cup_hot_desc = S('Hot Cup of Coffee with Milk') .. '\n' ..
+                                    minetest.colorize(x_farming.colors.brown, S('Hunger') .. ': 7')
+
+    minetest.register_node('ctg_world:coffee_cup_hot_2', {
+        description = coffee_cup_hot_desc,
+        short_description = coffee_cup_hot_desc,
+        drawtype = 'mesh',
+        mesh = 'x_farming_coffee_cup_hot.obj',
+        tiles = {'x_farming_coffee_cup_hot_mesh.png'},
+        inventory_image = 'x_farming_coffee_cup_hot.png',
+        wield_image = 'x_farming_coffee_cup_hot.png',
+        paramtype = 'light',
+        paramtype2 = 'facedir',
+        is_ground_content = false,
+        walkable = true,
+        selection_box = {
+            type = 'fixed',
+            fixed = {-0.25, -0.5, -0.4, 0.25, 0.5, 0.25}
+        },
+        collision_box = {
+            type = 'fixed',
+            fixed = {-0.25, -0.5, -0.4, 0.25, 0, 0.25}
+        },
+        groups = {
+            vessel = 1,
+            dig_immediate = 3,
+            attached_node = 1
+        },
+        on_use = minetest.item_eat(7),
+        sounds = default.node_sound_glass_defaults(),
+        sunlight_propagates = true
+    })
+
+    minetest.register_craft({
+        output = "ctg_world:coffee_cup_hot_2",
+        type = 'cooking',
+        recipe = "ctg_world:bottle_of_coffe_with_milk"
+    })
 end
