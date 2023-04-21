@@ -10,6 +10,7 @@ dofile(default_path .. DIR_DELIM .. "resources_core.lua")
 dofile(default_path .. DIR_DELIM .. "plants.lua")
 dofile(default_path .. DIR_DELIM .. "berries.lua")
 dofile(default_path .. DIR_DELIM .. "mapgen.lua")
+dofile(default_path .. DIR_DELIM .. "items.lua")
 
 local function give_or_drop_item(player, itemstack)
     local inv = minetest.get_inventory({
