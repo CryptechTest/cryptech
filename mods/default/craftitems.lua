@@ -11,14 +11,14 @@ local function formspec_core(tab)
 	return "tabheader[0,0;book_header;" ..
 		esc(S("Write")) .. "," ..
 		esc(S("Read")) .. ";" ..
-		tab  ..  ";false;false]"
+		tab .. ";false;false]"
 end
 
 local function formspec_write(title, text)
 	return "field[0.5,1;7.5,0;title;" .. esc(S("Title:")) .. ";" ..
-			esc(title) .. "]" ..
+		esc(title) .. "]" ..
 		"textarea[0.5,1.5;7.5,7;text;" .. esc(S("Contents:")) .. ";" ..
-			esc(text) .. "]" ..
+		esc(text) .. "]" ..
 		"button_exit[2.5,7.5;3,1;save;" .. esc(S("Save")) .. "]"
 end
 
@@ -28,7 +28,7 @@ local function formspec_read(owner, title, string, text, page, page_max)
 		"tableoptions[background=#00000000;highlight=#00000000;border=false]" ..
 		"table[0.4,0;7,0.5;title;#FFFF00," .. esc(title) .. "]" ..
 		"textarea[0.5,1.5;7.5,7;;" ..
-			esc(string ~= "" and string or text) .. ";]" ..
+		esc(string ~= "" and string or text) .. ";]" ..
 		"button[2.4,7.6;0.8,0.8;book_prev;<]" ..
 		"label[3.2,7.7;" .. esc(S("Page @1 of @2", page, page_max)) .. "]" ..
 		"button[4.9,7.6;0.8,0.8;book_next;>]"
@@ -70,7 +70,7 @@ local function book_on_use(itemstack, user)
 		owner = data.owner
 
 		for str in (text .. "\n"):gmatch("([^\n]*)[\n]") do
-			lines[#lines+1] = str
+			lines[#lines + 1] = str
 		end
 
 		if data.page then
@@ -97,7 +97,7 @@ local function book_on_use(itemstack, user)
 
 	minetest.show_formspec(player_name, "default:book", formspec_size .. formspec)
 	-- Store the wield index in case the user accidentally switches before the formspec is shown
-	book_writers[player_name] = {wield_index = user:get_wield_index()}
+	book_writers[player_name] = { wield_index = user:get_wield_index() }
 	return itemstack
 end
 
@@ -136,7 +136,7 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
 		elseif tab == 2 then
 			local lines, string = {}, ""
 			for str in (text .. "\n"):gmatch("([^\n]*)[\n]") do
-				lines[#lines+1] = str
+				lines[#lines + 1] = str
 			end
 			string = formspec_string(lpp, data.page, lines, string)
 			contents = formspec_read(player_name, title, string,
@@ -193,7 +193,6 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
 		else
 			stack:get_meta():from_table({ fields = data })
 		end
-
 	elseif fields.book_next or fields.book_prev then
 		if not data.page then
 			return
@@ -214,7 +213,7 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
 			end
 		end
 
-		stack:get_meta():from_table({fields = data})
+		stack:get_meta():from_table({ fields = data })
 		stack = book_on_use(stack, player)
 	end
 
@@ -228,23 +227,30 @@ end)
 --
 
 minetest.register_craftitem("default:blueberries", {
-	description = S("Blueberries"),
+	description = S("Blueberries") .. '\n' ..
+		minetest.colorize('#DEB887', S('Hunger') .. ': 2'),
 	inventory_image = "default_blueberries.png",
-	groups = {food_blueberries = 1, food_berry = 1, food_blueberry = 1},
-	on_use = minetest.item_eat(2),
+	groups = { food_blueberries = 1, food_berry = 1, food_blueberry = 1, hunger_amount = 2 },
+	on_use = function(itemstack, user, pointed_thing)
+		local hunger_amount = minetest.get_item_group(itemstack:get_name(), "hunger_amount") or 0
+		if hunger_amount == 0 then
+			return itemstack
+		end
+		minetest.item_eat(hunger_amount)
+	end,
 })
 
 minetest.register_craftitem("default:book", {
 	description = S("Book"),
 	inventory_image = "default_book.png",
-	groups = {book = 1, flammable = 3},
+	groups = { book = 1, flammable = 3 },
 	on_use = book_on_use,
 })
 
 minetest.register_craftitem("default:book_written", {
 	description = S("Book with Text"),
 	inventory_image = "default_book_written.png",
-	groups = {book = 1, not_in_creative_inventory = 1, flammable = 3},
+	groups = { book = 1, not_in_creative_inventory = 1, flammable = 3 },
 	stack_max = 1,
 	on_use = book_on_use,
 })
@@ -267,7 +273,7 @@ minetest.register_craftitem("default:clay_lump", {
 minetest.register_craftitem("default:coal_lump", {
 	description = S("Coal Lump"),
 	inventory_image = "default_coal_lump.png",
-	groups = {coal = 1, flammable = 1}
+	groups = { coal = 1, flammable = 1 }
 })
 
 minetest.register_craftitem("default:copper_ingot", {
@@ -323,7 +329,7 @@ minetest.register_craftitem("default:obsidian_shard", {
 minetest.register_craftitem("default:paper", {
 	description = S("Paper"),
 	inventory_image = "default_paper.png",
-	groups = {flammable = 3},
+	groups = { flammable = 3 },
 })
 
 minetest.register_craftitem("default:steel_ingot", {
@@ -334,7 +340,7 @@ minetest.register_craftitem("default:steel_ingot", {
 minetest.register_craftitem("default:stick", {
 	description = S("Stick"),
 	inventory_image = "default_stick.png",
-	groups = {stick = 1, flammable = 2},
+	groups = { stick = 1, flammable = 2 },
 })
 
 minetest.register_craftitem("default:tin_ingot", {
@@ -354,9 +360,9 @@ minetest.register_craftitem("default:tin_lump", {
 minetest.register_craft({
 	output = "default:book",
 	recipe = {
-		{"default:paper"},
-		{"default:paper"},
-		{"default:paper"},
+		{ "default:paper" },
+		{ "default:paper" },
+		{ "default:paper" },
 	}
 })
 
@@ -365,109 +371,109 @@ default.register_craft_metadata_copy("default:book", "default:book_written")
 minetest.register_craft({
 	output = "default:bronze_ingot 9",
 	recipe = {
-		{"default:copper_ingot", "default:copper_ingot", "default:copper_ingot"},
-		{"default:copper_ingot", "default:tin_ingot", "default:copper_ingot"},
-		{"default:copper_ingot", "default:copper_ingot", "default:copper_ingot"},
+		{ "default:copper_ingot", "default:copper_ingot", "default:copper_ingot" },
+		{ "default:copper_ingot", "default:tin_ingot",    "default:copper_ingot" },
+		{ "default:copper_ingot", "default:copper_ingot", "default:copper_ingot" },
 	}
 })
 
 minetest.register_craft({
 	output = "default:clay_brick 4",
 	recipe = {
-		{"default:brick"},
+		{ "default:brick" },
 	}
 })
 
 minetest.register_craft({
 	output = "default:clay_lump 4",
 	recipe = {
-		{"default:clay"},
+		{ "default:clay" },
 	}
 })
 
 minetest.register_craft({
 	output = "default:coal_lump 9",
 	recipe = {
-		{"default:coalblock"},
+		{ "default:coalblock" },
 	}
 })
 
 minetest.register_craft({
 	output = "default:copper_ingot 9",
 	recipe = {
-		{"default:copperblock"},
+		{ "default:copperblock" },
 	}
 })
 
 minetest.register_craft({
 	output = "default:diamond 9",
 	recipe = {
-		{"default:diamondblock"},
+		{ "default:diamondblock" },
 	}
 })
 
 minetest.register_craft({
 	output = "default:gold_ingot 9",
 	recipe = {
-		{"default:goldblock"},
+		{ "default:goldblock" },
 	}
 })
 
 minetest.register_craft({
 	output = "default:mese_crystal",
 	recipe = {
-		{"default:mese_crystal_fragment", "default:mese_crystal_fragment", "default:mese_crystal_fragment"},
-		{"default:mese_crystal_fragment", "default:mese_crystal_fragment", "default:mese_crystal_fragment"},
-		{"default:mese_crystal_fragment", "default:mese_crystal_fragment", "default:mese_crystal_fragment"},
+		{ "default:mese_crystal_fragment", "default:mese_crystal_fragment", "default:mese_crystal_fragment" },
+		{ "default:mese_crystal_fragment", "default:mese_crystal_fragment", "default:mese_crystal_fragment" },
+		{ "default:mese_crystal_fragment", "default:mese_crystal_fragment", "default:mese_crystal_fragment" },
 	}
 })
 
 minetest.register_craft({
 	output = "default:mese_crystal 9",
 	recipe = {
-		{"default:mese"},
+		{ "default:mese" },
 	}
 })
 
 minetest.register_craft({
 	output = "default:mese_crystal_fragment 9",
 	recipe = {
-		{"default:mese_crystal"},
+		{ "default:mese_crystal" },
 	}
 })
 
 minetest.register_craft({
 	output = "default:obsidian_shard 9",
 	recipe = {
-		{"default:obsidian"}
+		{ "default:obsidian" }
 	}
 })
 
 minetest.register_craft({
 	output = "default:paper",
 	recipe = {
-		{"default:papyrus", "default:papyrus", "default:papyrus"},
+		{ "default:papyrus", "default:papyrus", "default:papyrus" },
 	}
 })
 
 minetest.register_craft({
 	output = "default:steel_ingot 9",
 	recipe = {
-		{"default:steelblock"},
+		{ "default:steelblock" },
 	}
 })
 
 minetest.register_craft({
 	output = "default:stick 4",
 	recipe = {
-		{"group:wood"},
+		{ "group:wood" },
 	}
 })
 
 minetest.register_craft({
 	output = "default:tin_ingot 9",
 	recipe = {
-		{"default:tinblock"},
+		{ "default:tinblock" },
 	}
 })
 

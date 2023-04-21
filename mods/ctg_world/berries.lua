@@ -4,7 +4,7 @@ local S = minetest.get_translator(minetest.get_current_modname())
 minetest.register_node("ctg_world:glowberry_bush_leaves_with_berries", {
     description = S("Glow Bush Leaves with Berries"),
     drawtype = "allfaces_optional",
-    tiles = {"cave_leaves_glow.png"},
+    tiles = { "cave_leaves_glow.png" },
     paramtype = "light",
     light_source = 7,
     groups = {
@@ -17,7 +17,6 @@ minetest.register_node("ctg_world:glowberry_bush_leaves_with_berries", {
     drop = "ctg_world:glowberries",
     sounds = default.node_sound_leaves_defaults(),
     node_dig_prediction = "ctg_world:glowberry_bush_leaves",
-
     after_dig_node = function(pos, oldnode, oldmetadata, digger)
         local ticks = tonumber(oldmetadata.fields.ticks or "0")
         minetest.set_node(pos, {
@@ -35,7 +34,7 @@ minetest.register_node("ctg_world:glowberry_bush_leaves_with_berries", {
 minetest.register_node("ctg_world:glowberry_bush_leaves", {
     description = S("Glow Bush Leaves"),
     drawtype = "allfaces_optional",
-    tiles = {"cave_leaves.png"},
+    tiles = { "cave_leaves.png" },
     paramtype = "light",
     light_source = 2,
     groups = {
@@ -46,15 +45,14 @@ minetest.register_node("ctg_world:glowberry_bush_leaves", {
     },
     drop = {
         max_items = 1,
-        items = {{
-            items = {"ctg_world:glowberry_bush_sapling"},
+        items = { {
+            items = { "ctg_world:glowberry_bush_sapling" },
             rarity = 20
         }, {
-            items = {"ctg_world:glowberry_bush_leaves"}
-        }}
+            items = { "ctg_world:glowberry_bush_leaves" }
+        } }
     },
     sounds = default.node_sound_leaves_defaults(),
-
     on_timer = function(pos, elapsed)
         if minetest.get_node_light(pos) > 11 or minetest.get_node_light(pos) < 3 then
             minetest.get_node_timer(pos):start(300)
@@ -68,7 +66,6 @@ minetest.register_node("ctg_world:glowberry_bush_leaves", {
             meta:set_int("ticks", ticks + 1)
         end
     end,
-
     after_place_node = default.after_place_leaves
 })
 
@@ -126,7 +123,7 @@ end
 minetest.register_node("ctg_world:glowberry_bush_sapling", {
     description = S("Glowberry Bush Sapling"),
     drawtype = "plantlike",
-    tiles = {"ctg_glowberry_sapling.png"},
+    tiles = { "ctg_glowberry_sapling.png" },
     inventory_image = "ctg_glowberry_sapling.png",
     wield_image = "ctg_glowberry_sapling.png",
     paramtype = "light",
@@ -136,7 +133,7 @@ minetest.register_node("ctg_world:glowberry_bush_sapling", {
     on_timer = grow_berry_bush,
     selection_box = {
         type = "fixed",
-        fixed = {-4 / 16, -0.5, -4 / 16, 4 / 16, 2 / 16, 4 / 16}
+        fixed = { -4 / 16, -0.5, -4 / 16, 4 / 16, 2 / 16, 4 / 16 }
     },
     groups = {
         snappy = 2,
@@ -146,11 +143,9 @@ minetest.register_node("ctg_world:glowberry_bush_sapling", {
         sapling = 1
     },
     sounds = default.node_sound_leaves_defaults(),
-
     on_construct = function(pos)
         minetest.get_node_timer(pos):start(math.random(900, 2500))
     end,
-
     on_place = function(itemstack, placer, pointed_thing)
         itemstack = default.sapling_on_place(itemstack, placer, pointed_thing, "ctg_world:glowberry_bush_sapling",
             -- minp, maxp to be checked, relative to sapling pos
@@ -171,31 +166,39 @@ minetest.register_node("ctg_world:glowberry_bush_sapling", {
 
 -- leaf decay
 default.register_leafdecay({
-    trunks = {'default:bush_stem'},
-    leaves = {'ctg_world:glowberry_bush_leaves', 'ctg_world:glowberry_bush_leaves_with_berries'},
+    trunks = { 'default:bush_stem' },
+    leaves = { 'ctg_world:glowberry_bush_leaves', 'ctg_world:glowberry_bush_leaves_with_berries' },
     radius = 3
 })
 
 -- bonemeal register
 if (minetest.get_modpath("x_farming")) then
-    x_farming.x_bonemeal:register_tree_defs({{
+    x_farming.x_bonemeal:register_tree_defs({ {
         name = 'ctg_world:glowberry_bush_sapling',
         chance = 3,
         grow_tree = x_grow_berry_bush
-    }})
+    } })
 end
 
 ---------------------------------------------------------
 
 -- food
 minetest.register_craftitem("ctg_world:glowberries", {
-    description = S("Glowberries"),
+    description = S('Glowberries') .. '\n' ..
+        minetest.colorize(x_farming.colors.brown, S('Hunger') .. ': 2'),
     inventory_image = "ctg_glowberries.png",
     groups = {
         food_berry = 1,
-        food_glowberry = 1
+        food_glowberry = 1,
+        hunger_amount = 2
     },
-    on_use = minetest.item_eat(1.8)
+    on_use = function(itemstack, user, pointed_thing)
+        local hunger_amount = minetest.get_item_group(itemstack:get_name(), "hunger_amount") or 0
+        if hunger_amount == 0 then
+            return itemstack
+        end
+        minetest.item_eat(hunger_amount)
+    end
 })
 
 -- food: glowberry
@@ -205,7 +208,7 @@ minetest.register_node('ctg_world:glowberry_bowl', {
     short_description = S('Bowl of Blue-Glowberries'),
     drawtype = 'mesh',
     mesh = 'x_farming_beetroot_soup.obj',
-    tiles = {'ctg_bowl_glowberries_mesh.png'},
+    tiles = { 'ctg_bowl_glowberries_mesh.png' },
     inventory_image = 'ctg_bowl_glowberries.png',
     wield_image = 'ctg_bowl_glowberries.png',
     paramtype = 'light',
@@ -214,19 +217,26 @@ minetest.register_node('ctg_world:glowberry_bowl', {
     walkable = true,
     selection_box = {
         type = 'fixed',
-        fixed = {-0.5, -0.5, -0.5, 0.5, 0.1, 0.5}
+        fixed = { -0.5, -0.5, -0.5, 0.5, 0.1, 0.5 }
     },
     collision_box = {
         type = 'fixed',
-        fixed = {-0.5, -0.5, -0.5, 0.5, -0.1, 0.5}
+        fixed = { -0.5, -0.5, -0.5, 0.5, -0.1, 0.5 }
     },
     groups = {
         vessel = 1,
         dig_immediate = 3,
         attached_node = 1,
-        compost = 100
+        compost = 100,
+        hunger_amount = 14
     },
-    on_use = minetest.item_eat(14, 'x_farming:bowl'),
+    on_use = function(itemstack, user, pointed_thing)
+        local hunger_amount = minetest.get_item_group(itemstack:get_name(), "hunger_amount") or 0
+        if hunger_amount == 0 then
+            return itemstack
+        end
+        minetest.item_eat(hunger_amount, 'x_farming:bowl')
+    end,
     sounds = default.node_sound_wood_defaults(),
     sunlight_propagates = true
 })
@@ -235,7 +245,7 @@ minetest.register_node('ctg_world:glowberry_bowl', {
 minetest.register_craft({
     output = 'ctg_world:glowberry_bowl',
     type = 'shapeless',
-    recipe = {'ctg_world:glowberries', 'ctg_world:blueberry_mix_bowl'}
+    recipe = { 'ctg_world:glowberries', 'ctg_world:blueberry_mix_bowl' }
 })
 
 -- food: glowberry mix
@@ -245,7 +255,7 @@ minetest.register_node('ctg_world:glowberry_bowl_mix', {
     short_description = S('Bowl of Mixed Glowberries'),
     drawtype = 'mesh',
     mesh = 'x_farming_beetroot_soup.obj',
-    tiles = {'ctg_bowl_glowberries2_mesh.png'},
+    tiles = { 'ctg_bowl_glowberries2_mesh.png' },
     inventory_image = 'ctg_bowl_glowberries2.png',
     wield_image = 'ctg_bowl_glowberries2.png',
     paramtype = 'light',
@@ -254,19 +264,26 @@ minetest.register_node('ctg_world:glowberry_bowl_mix', {
     walkable = true,
     selection_box = {
         type = 'fixed',
-        fixed = {-0.5, -0.5, -0.5, 0.5, 0.1, 0.5}
+        fixed = { -0.5, -0.5, -0.5, 0.5, 0.1, 0.5 }
     },
     collision_box = {
         type = 'fixed',
-        fixed = {-0.5, -0.5, -0.5, 0.5, -0.1, 0.5}
+        fixed = { -0.5, -0.5, -0.5, 0.5, -0.1, 0.5 }
     },
     groups = {
         vessel = 1,
         dig_immediate = 3,
         attached_node = 1,
-        compost = 100
+        compost = 100,
+        hunger_amount = 16
     },
-    on_use = minetest.item_eat(16, 'x_farming:bowl'),
+    on_use = function(itemstack, user, pointed_thing)
+        local hunger_amount = minetest.get_item_group(itemstack:get_name(), "hunger_amount") or 0
+        if hunger_amount == 0 then
+            return itemstack
+        end
+        minetest.item_eat(hunger_amount, 'x_farming:bowl')
+    end,
     sounds = default.node_sound_wood_defaults(),
     sunlight_propagates = true
 })
@@ -275,7 +292,7 @@ minetest.register_node('ctg_world:glowberry_bowl_mix', {
 minetest.register_craft({
     output = 'ctg_world:glowberry_bowl_mix',
     type = 'shapeless',
-    recipe = {'ctg_world:glowberries', 'ctg_world:glowberry_bowl', 'livingcaves:hangingmossend2'}
+    recipe = { 'ctg_world:glowberries', 'ctg_world:glowberry_bowl', 'livingcaves:hangingmossend2' }
 })
 
 -- food: blueberry mix
@@ -285,7 +302,7 @@ minetest.register_node('ctg_world:blueberry_mix_bowl', {
     short_description = S('Bowl of Mixed Blueberries'),
     drawtype = 'mesh',
     mesh = 'x_farming_beetroot_soup.obj',
-    tiles = {'ctg_bowl_berry_mix_mesh.png'},
+    tiles = { 'ctg_bowl_berry_mix_mesh.png' },
     inventory_image = 'ctg_bowl_berry_mix.png',
     wield_image = 'ctg_bowl_berry_mix.png',
     paramtype = 'light',
@@ -294,19 +311,26 @@ minetest.register_node('ctg_world:blueberry_mix_bowl', {
     walkable = true,
     selection_box = {
         type = 'fixed',
-        fixed = {-0.5, -0.5, -0.5, 0.5, 0.1, 0.5}
+        fixed = { -0.5, -0.5, -0.5, 0.5, 0.1, 0.5 }
     },
     collision_box = {
         type = 'fixed',
-        fixed = {-0.5, -0.5, -0.5, 0.5, -0.1, 0.5}
+        fixed = { -0.5, -0.5, -0.5, 0.5, -0.1, 0.5 }
     },
     groups = {
         vessel = 1,
         dig_immediate = 3,
         attached_node = 1,
-        compost = 100
+        compost = 100,
+        hunger_amount = 12
     },
-    on_use = minetest.item_eat(12, 'x_farming:bowl'),
+    on_use = function(itemstack, user, pointed_thing)
+        local hunger_amount = minetest.get_item_group(itemstack:get_name(), "hunger_amount") or 0
+        if hunger_amount == 0 then
+            return itemstack
+        end
+        minetest.item_eat(hunger_amount, 'x_farming:bowl')
+    end,
     sounds = default.node_sound_wood_defaults(),
     sunlight_propagates = true
 })
@@ -315,7 +339,7 @@ minetest.register_node('ctg_world:blueberry_mix_bowl', {
 minetest.register_craft({
     output = 'ctg_world:blueberry_mix_bowl',
     type = 'shapeless',
-    recipe = {'ctg_world:glowberries', 'ctg_world:blueberry_bowl'}
+    recipe = { 'ctg_world:glowberries', 'ctg_world:blueberry_bowl' }
 })
 
 -- food: blueberry
@@ -325,7 +349,7 @@ minetest.register_node('ctg_world:blueberry_bowl', {
     short_description = S('Bowl of Blueberries'),
     drawtype = 'mesh',
     mesh = 'x_farming_beetroot_soup.obj',
-    tiles = {'ctg_bowl_blueberries_mesh.png'},
+    tiles = { 'ctg_bowl_blueberries_mesh.png' },
     inventory_image = 'ctg_bowl_blueberries.png',
     wield_image = 'ctg_bowl_blueberries.png',
     paramtype = 'light',
@@ -334,19 +358,26 @@ minetest.register_node('ctg_world:blueberry_bowl', {
     walkable = true,
     selection_box = {
         type = 'fixed',
-        fixed = {-0.5, -0.5, -0.5, 0.5, 0.1, 0.5}
+        fixed = { -0.5, -0.5, -0.5, 0.5, 0.1, 0.5 }
     },
     collision_box = {
         type = 'fixed',
-        fixed = {-0.5, -0.5, -0.5, 0.5, -0.1, 0.5}
+        fixed = { -0.5, -0.5, -0.5, 0.5, -0.1, 0.5 }
     },
     groups = {
         vessel = 1,
         dig_immediate = 3,
         attached_node = 1,
-        compost = 100
+        compost = 100,
+        hunger_amount = 11
     },
-    on_use = minetest.item_eat(11, 'x_farming:bowl'),
+    on_use = function(itemstack, user, pointed_thing)
+        local hunger_amount = minetest.get_item_group(itemstack:get_name(), "hunger_amount") or 0
+        if hunger_amount == 0 then
+            return itemstack
+        end
+        minetest.item_eat(hunger_amount, 'x_farming:bowl')
+    end,
     sounds = default.node_sound_wood_defaults(),
     sunlight_propagates = true
 })
@@ -354,8 +385,8 @@ minetest.register_node('ctg_world:blueberry_bowl', {
 -- food craft recipe
 minetest.register_craft({
     output = 'ctg_world:blueberry_bowl',
-    recipe = {{'default:blueberries', 'group:food_sugar', 'default:blueberries'},
-              {'default:blueberries', 'default:blueberries', 'default:blueberries'}, {'', 'x_farming:bowl', ''}}
+    recipe = { { 'default:blueberries', 'group:food_sugar', 'default:blueberries' },
+        { 'default:blueberries', 'default:blueberries', 'default:blueberries' }, { '', 'x_farming:bowl', '' } }
 })
 
 -- food: strawberry
@@ -365,7 +396,7 @@ minetest.register_node('ctg_world:strawberry_bowl', {
     short_description = S('Bowl of Strawberries'),
     drawtype = 'mesh',
     mesh = 'x_farming_beetroot_soup.obj',
-    tiles = {'ctg_bowl_strawberries_mesh.png'},
+    tiles = { 'ctg_bowl_strawberries_mesh.png' },
     inventory_image = 'ctg_bowl_strawberries.png',
     wield_image = 'ctg_bowl_strawberries.png',
     paramtype = 'light',
@@ -374,19 +405,26 @@ minetest.register_node('ctg_world:strawberry_bowl', {
     walkable = true,
     selection_box = {
         type = 'fixed',
-        fixed = {-0.5, -0.5, -0.5, 0.5, 0.1, 0.5}
+        fixed = { -0.5, -0.5, -0.5, 0.5, 0.1, 0.5 }
     },
     collision_box = {
         type = 'fixed',
-        fixed = {-0.5, -0.5, -0.5, 0.5, -0.1, 0.5}
+        fixed = { -0.5, -0.5, -0.5, 0.5, -0.1, 0.5 }
     },
     groups = {
         vessel = 1,
         dig_immediate = 3,
         attached_node = 1,
-        compost = 100
+        compost = 100,
+        hunger_amount = 11
     },
-    on_use = minetest.item_eat(11, 'x_farming:bowl'),
+    on_use = function(itemstack, user, pointed_thing)
+        local hunger_amount = minetest.get_item_group(itemstack:get_name(), "hunger_amount") or 0
+        if hunger_amount == 0 then
+            return itemstack
+        end
+        minetest.item_eat(hunger_amount, 'x_farming:bowl')
+    end,
     sounds = default.node_sound_wood_defaults(),
     sunlight_propagates = true
 })
@@ -394,8 +432,8 @@ minetest.register_node('ctg_world:strawberry_bowl', {
 -- food craft recipe
 minetest.register_craft({
     output = 'ctg_world:strawberry_bowl',
-    recipe = {{'x_farming:strawberry', 'group:food_sugar', 'x_farming:strawberry'},
-              {'x_farming:strawberry', 'x_farming:strawberry', 'x_farming:strawberry'}, {'', 'x_farming:bowl', ''}}
+    recipe = { { 'x_farming:strawberry', 'group:food_sugar', 'x_farming:strawberry' },
+        { 'x_farming:strawberry', 'x_farming:strawberry', 'x_farming:strawberry' }, { '', 'x_farming:bowl', '' } }
 })
 
 -- food: mixed strawberry blueberry
@@ -405,7 +443,7 @@ minetest.register_node('ctg_world:strawberry_bowl_mix', {
     short_description = S('Bowl of mixed sweet berries'),
     drawtype = 'mesh',
     mesh = 'x_farming_beetroot_soup.obj',
-    tiles = {'ctg_bowl_strawberries_mix_mesh.png'},
+    tiles = { 'ctg_bowl_strawberries_mix_mesh.png' },
     inventory_image = 'ctg_bowl_strawberries_mix.png',
     wield_image = 'ctg_bowl_strawberries_mix.png',
     paramtype = 'light',
@@ -414,19 +452,26 @@ minetest.register_node('ctg_world:strawberry_bowl_mix', {
     walkable = true,
     selection_box = {
         type = 'fixed',
-        fixed = {-0.5, -0.5, -0.5, 0.5, 0.1, 0.5}
+        fixed = { -0.5, -0.5, -0.5, 0.5, 0.1, 0.5 }
     },
     collision_box = {
         type = 'fixed',
-        fixed = {-0.5, -0.5, -0.5, 0.5, -0.1, 0.5}
+        fixed = { -0.5, -0.5, -0.5, 0.5, -0.1, 0.5 }
     },
     groups = {
         vessel = 1,
         dig_immediate = 3,
         attached_node = 1,
-        compost = 100
+        compost = 100,
+        hunger_amount = 13
     },
-    on_use = minetest.item_eat(13, 'x_farming:bowl'),
+    on_use = function(itemstack, user, pointed_thing)
+        local hunger_amount = minetest.get_item_group(itemstack:get_name(), "hunger_amount") or 0
+        if hunger_amount == 0 then
+            return itemstack
+        end
+        minetest.item_eat(hunger_amount, 'x_farming:bowl')
+    end,
     sounds = default.node_sound_wood_defaults(),
     sunlight_propagates = true
 })
@@ -435,12 +480,11 @@ minetest.register_node('ctg_world:strawberry_bowl_mix', {
 minetest.register_craft({
     output = 'ctg_world:strawberry_bowl_mix 2',
     type = "shapeless",
-    recipe = {'ctg_world:strawberry_bowl', 'ctg_world:blueberry_bowl'}
+    recipe = { 'ctg_world:strawberry_bowl', 'ctg_world:blueberry_bowl' }
 })
 
 if minetest.get_modpath("bottles") then
     local function make_bottle(spec)
-
         local on_drink = function(itemstack, placer)
             return minetest.item_eat(spec.feed_amount, 'vessels:glass_bottle')
         end
@@ -469,7 +513,7 @@ if minetest.get_modpath("bottles") then
         end
 
         spec.image = "[combine:16x16:0,0=" .. liquid_image .. "^" .. spec.image .. "^[opacity:128" ..
-                         "^vessels_glass_bottle_mask.png^[makealpha:0,254,0"
+            "^vessels_glass_bottle_mask.png^[makealpha:0,254,0"
         spec.name = "ctg_world:" .. spec.name
 
         -- Ensure that name is not already in use, fail registration if so
@@ -479,7 +523,7 @@ if minetest.get_modpath("bottles") then
 
         -- Normalize target type
         if spec.target_type == "string" then
-            spec.target = {spec.target}
+            spec.target = { spec.target }
         end
 
         -- Ensure that target nodes are not already in use, fail registration if so
@@ -503,7 +547,7 @@ if minetest.get_modpath("bottles") then
                 minetest.colorize(x_farming.colors.brown, S('Hunger') .. ': ' .. spec.feed_amount),
             short_description = spec.description,
             drawtype = "plantlike",
-            tiles = {spec.image},
+            tiles = { spec.image },
             inventory_image = spec.image,
             wield_image = spec.image,
             paramtype = "light",
@@ -511,7 +555,7 @@ if minetest.get_modpath("bottles") then
             walkable = false,
             selection_box = {
                 type = "fixed",
-                fixed = {-0.25, -0.5, -0.25, 0.25, 0.3, 0.25}
+                fixed = { -0.25, -0.5, -0.25, 0.25, 0.3, 0.25 }
             },
             groups = spec.groups,
             sounds = default.node_sound_glass_defaults(),
@@ -527,9 +571,9 @@ if minetest.get_modpath("bottles") then
 
     -- drinks
     make_bottle({
-        target = {"x_farming:strawberry"},
+        target = { "x_farming:strawberry" },
         sound = "default_water_footstep",
-        contents = {"x_farming:strawberry", "x_farming:bottle_soymilk"},
+        contents = { "x_farming:strawberry", "x_farming:bottle_soymilk" },
         name = "bottle_of_strawberry_milk",
         description = "Bottle of Strawberry Milk",
         craft_recieve_count = 1,
@@ -543,9 +587,9 @@ if minetest.get_modpath("bottles") then
     })
 
     make_bottle({
-        target = {"default:blueberries"},
+        target = { "default:blueberries" },
         sound = "default_water_footstep",
-        contents = {"default:blueberries", "x_farming:bottle_soymilk"},
+        contents = { "default:blueberries", "x_farming:bottle_soymilk" },
         name = "bottle_of_blueberry_milk",
         description = "Bottle of Blueberry Milk",
         craft_recieve_count = 1,
@@ -559,9 +603,9 @@ if minetest.get_modpath("bottles") then
     })
 
     make_bottle({
-        target = {"x_farming:bottle_coffee"},
+        target = { "x_farming:bottle_coffee" },
         sound = "default_water_footstep",
-        contents = {"x_farming:bottle_coffee", "x_farming:bottle_soymilk"},
+        contents = { "x_farming:bottle_coffee", "x_farming:bottle_soymilk" },
         name = "bottle_of_coffe_with_milk",
         description = "Bottle of Coffee with Milk",
         craft_recieve_count = 2,
@@ -575,9 +619,9 @@ if minetest.get_modpath("bottles") then
     })
 
     make_bottle({
-        target = {"x_farming:chocolate"},
+        target = { "x_farming:chocolate" },
         sound = "default_water_footstep",
-        contents = {"x_farming:chocolate", "x_farming:bottle_soymilk"},
+        contents = { "x_farming:chocolate", "x_farming:bottle_soymilk" },
         name = "bottle_of_chocolate_milk",
         image = "x_farming_cocoa_bean.png",
         description = "Bottle of Chocolate Milk",
@@ -593,14 +637,14 @@ if minetest.get_modpath("bottles") then
 
     -- hot cup of coffee
     local coffee_cup_hot_desc = S('Hot Cup of Coffee with Milk') .. '\n' ..
-                                    minetest.colorize(x_farming.colors.brown, S('Hunger') .. ': 7')
+        minetest.colorize(x_farming.colors.brown, S('Hunger') .. ': 7')
 
     minetest.register_node('ctg_world:coffee_cup_hot_2', {
         description = coffee_cup_hot_desc,
         short_description = coffee_cup_hot_desc,
         drawtype = 'mesh',
         mesh = 'x_farming_coffee_cup_hot.obj',
-        tiles = {'x_farming_coffee_cup_hot_mesh.png'},
+        tiles = { 'x_farming_coffee_cup_hot_mesh.png' },
         inventory_image = 'x_farming_coffee_cup_hot.png',
         wield_image = 'x_farming_coffee_cup_hot.png',
         paramtype = 'light',
@@ -609,18 +653,25 @@ if minetest.get_modpath("bottles") then
         walkable = true,
         selection_box = {
             type = 'fixed',
-            fixed = {-0.25, -0.5, -0.4, 0.25, 0.5, 0.25}
+            fixed = { -0.25, -0.5, -0.4, 0.25, 0.5, 0.25 }
         },
         collision_box = {
             type = 'fixed',
-            fixed = {-0.25, -0.5, -0.4, 0.25, 0, 0.25}
+            fixed = { -0.25, -0.5, -0.4, 0.25, 0, 0.25 }
         },
         groups = {
             vessel = 1,
             dig_immediate = 3,
-            attached_node = 1
+            attached_node = 1,
+            hunger_amount = 7
         },
-        on_use = minetest.item_eat(7),
+        on_use = function(itemstack, user, pointed_thing)
+            local hunger_amount = minetest.get_item_group(itemstack:get_name(), "hunger_amount") or 0
+            if hunger_amount == 0 then
+                return itemstack
+            end
+            minetest.item_eat(hunger_amount, 'x_farming:bowl')
+        end,
         sounds = default.node_sound_glass_defaults(),
         sunlight_propagates = true
     })

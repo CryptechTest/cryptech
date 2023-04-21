@@ -185,7 +185,8 @@ minetest.register_abm({
 --
 
 minetest.register_node("flowers:mushroom_red", {
-	description = S("Red Mushroom"),
+	description = S("Red Mushroom") .. '\n' ..
+		minetest.colorize('#DEB887', S('Hunger') .. ': -5'),
 	tiles = { "flowers_mushroom_red.png" },
 	inventory_image = "flowers_mushroom_red.png",
 	wield_image = "flowers_mushroom_red.png",
@@ -194,9 +195,15 @@ minetest.register_node("flowers:mushroom_red", {
 	sunlight_propagates = true,
 	walkable = false,
 	buildable_to = true,
-	groups = { mushroom = 1, snappy = 3, attached_node = 1, flammable = 1 },
+	groups = { mushroom = 1, snappy = 3, attached_node = 1, flammable = 1, hunger_amount = -5 },
 	sounds = default.node_sound_leaves_defaults(),
-	on_use = minetest.item_eat(-5),
+	on_use = function(itemstack, user, pointed_thing)
+		local hunger_amount = minetest.get_item_group(itemstack:get_name(), "hunger_amount") or 0
+		if hunger_amount == 0 then
+			return itemstack
+		end
+		minetest.item_eat(hunger_amount)
+	end,
 	selection_box = {
 		type = "fixed",
 		fixed = { -4 / 16, -0.5, -4 / 16, 4 / 16, -1 / 16, 4 / 16 },
@@ -204,7 +211,8 @@ minetest.register_node("flowers:mushroom_red", {
 })
 
 minetest.register_node("flowers:mushroom_brown", {
-	description = S("Brown Mushroom"),
+	description = S("Brown Mushroom") .. '\n' ..
+		minetest.colorize('#DEB887', S('Hunger') .. ': 1'),
 	tiles = { "flowers_mushroom_brown.png" },
 	inventory_image = "flowers_mushroom_brown.png",
 	wield_image = "flowers_mushroom_brown.png",
@@ -213,9 +221,15 @@ minetest.register_node("flowers:mushroom_brown", {
 	sunlight_propagates = true,
 	walkable = false,
 	buildable_to = true,
-	groups = { mushroom = 1, food_mushroom = 1, snappy = 3, attached_node = 1, flammable = 1 },
+	groups = { mushroom = 1, food_mushroom = 1, snappy = 3, attached_node = 1, flammable = 1, hunger_amount = 1 },
 	sounds = default.node_sound_leaves_defaults(),
-	on_use = minetest.item_eat(1),
+	on_use = function(itemstack, user, pointed_thing)
+		local hunger_amount = minetest.get_item_group(itemstack:get_name(), "hunger_amount") or 0
+		if hunger_amount == 0 then
+			return itemstack
+		end
+		minetest.item_eat(hunger_amount)
+	end,
 	selection_box = {
 		type = "fixed",
 		fixed = { -3 / 16, -0.5, -3 / 16, 3 / 16, -2 / 16, 3 / 16 },
