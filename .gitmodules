@@ -138,7 +138,7 @@
 	url = git@github.com:CryptechTest/hopper.git
 [submodule "mods/prefab"]
 	path = mods/prefab
-	url = https://github.com/mt-mods/prefab.git
+	url = https://github.com/CryptechTest/prefab.git
 [submodule "mods/stainedglass"]
 	path = mods/stainedglass
 	url = git@github.com:CryptechTest/stainedglass.git

@@ -44,7 +44,7 @@ local function add_simple_flower(name, desc, box, f_groups)
 		description = desc,
 		drawtype = "plantlike",
 		waving = 1,
-		tiles = {"flowers_" .. name .. ".png"},
+		tiles = { "flowers_" .. name .. ".png" },
 		inventory_image = "flowers_" .. name .. ".png",
 		wield_image = "flowers_" .. name .. ".png",
 		sunlight_propagates = true,
@@ -64,54 +64,54 @@ flowers.datas = {
 	{
 		"rose",
 		S("Red Rose"),
-		{-2 / 16, -0.5, -2 / 16, 2 / 16, 5 / 16, 2 / 16},
-		{color_red = 1, flammable = 1}
+		{ -2 / 16,       -0.5,         -2 / 16, 2 / 16, 5 / 16, 2 / 16 },
+		{ color_red = 1, flammable = 1 }
 	},
 	{
 		"tulip",
 		S("Orange Tulip"),
-		{-2 / 16, -0.5, -2 / 16, 2 / 16, 3 / 16, 2 / 16},
-		{color_orange = 1, flammable = 1}
+		{ -2 / 16,          -0.5,         -2 / 16, 2 / 16, 3 / 16, 2 / 16 },
+		{ color_orange = 1, flammable = 1 }
 	},
 	{
 		"dandelion_yellow",
 		S("Yellow Dandelion"),
-		{-4 / 16, -0.5, -4 / 16, 4 / 16, -2 / 16, 4 / 16},
-		{color_yellow = 1, flammable = 1}
+		{ -4 / 16,          -0.5,         -4 / 16, 4 / 16, -2 / 16, 4 / 16 },
+		{ color_yellow = 1, flammable = 1 }
 	},
 	{
 		"chrysanthemum_green",
 		S("Green Chrysanthemum"),
-		{-4 / 16, -0.5, -4 / 16, 4 / 16, -1 / 16, 4 / 16},
-		{color_green = 1, flammable = 1}
+		{ -4 / 16,         -0.5,         -4 / 16, 4 / 16, -1 / 16, 4 / 16 },
+		{ color_green = 1, flammable = 1 }
 	},
 	{
 		"geranium",
 		S("Blue Geranium"),
-		{-2 / 16, -0.5, -2 / 16, 2 / 16, 2 / 16, 2 / 16},
-		{color_blue = 1, flammable = 1}
+		{ -2 / 16,        -0.5,         -2 / 16, 2 / 16, 2 / 16, 2 / 16 },
+		{ color_blue = 1, flammable = 1 }
 	},
 	{
 		"viola",
 		S("Viola"),
-		{-5 / 16, -0.5, -5 / 16, 5 / 16, -1 / 16, 5 / 16},
-		{color_violet = 1, flammable = 1}
+		{ -5 / 16,          -0.5,         -5 / 16, 5 / 16, -1 / 16, 5 / 16 },
+		{ color_violet = 1, flammable = 1 }
 	},
 	{
 		"dandelion_white",
 		S("White Dandelion"),
-		{-5 / 16, -0.5, -5 / 16, 5 / 16, -2 / 16, 5 / 16},
-		{color_white = 1, flammable = 1}
+		{ -5 / 16,         -0.5,         -5 / 16, 5 / 16, -2 / 16, 5 / 16 },
+		{ color_white = 1, flammable = 1 }
 	},
 	{
 		"tulip_black",
 		S("Black Tulip"),
-		{-2 / 16, -0.5, -2 / 16, 2 / 16, 3 / 16, 2 / 16},
-		{color_black = 1, flammable = 1}
+		{ -2 / 16,         -0.5,         -2 / 16, 2 / 16, 3 / 16, 2 / 16 },
+		{ color_black = 1, flammable = 1 }
 	},
 }
 
-for _,item in pairs(flowers.datas) do
+for _, item in pairs(flowers.datas) do
 	add_simple_flower(unpack(item))
 end
 
@@ -127,8 +127,8 @@ function flowers.flower_spread(pos, node)
 	-- as this is the only way to generate them.
 	-- However, preserve grasses in sand dune biomes.
 	if minetest.get_item_group(under.name, "sand") == 1 and
-			under.name ~= "default:sand" then
-		minetest.set_node(pos, {name = "default:dry_shrub"})
+		under.name ~= "default:sand" then
+		minetest.set_node(pos, { name = "default:dry_shrub" })
 		return
 	end
 
@@ -156,14 +156,14 @@ function flowers.flower_spread(pos, node)
 		for si = 1, math.min(3, num_soils) do
 			local soil = soils[math.random(num_soils)]
 			local soil_name = minetest.get_node(soil).name
-			local soil_above = {x = soil.x, y = soil.y + 1, z = soil.z}
+			local soil_above = { x = soil.x, y = soil.y + 1, z = soil.z }
 			light = minetest.get_node_light(soil_above)
 			if light and light >= 13 and
-					-- Only spread to same surface node
-					soil_name == under.name and
-					-- Desert sand is in the soil group
-					soil_name ~= "default:desert_sand" then
-				minetest.set_node(soil_above, {name = node.name})
+				-- Only spread to same surface node
+				soil_name == under.name and
+				-- Desert sand is in the soil group
+				soil_name ~= "default:desert_sand" then
+				minetest.set_node(soil_above, { name = node.name })
 			end
 		end
 	end
@@ -171,7 +171,7 @@ end
 
 minetest.register_abm({
 	label = "Flower spread",
-	nodenames = {"group:flora"},
+	nodenames = { "group:flora" },
 	interval = 13,
 	chance = 300,
 	action = function(...)
@@ -186,7 +186,7 @@ minetest.register_abm({
 
 minetest.register_node("flowers:mushroom_red", {
 	description = S("Red Mushroom"),
-	tiles = {"flowers_mushroom_red.png"},
+	tiles = { "flowers_mushroom_red.png" },
 	inventory_image = "flowers_mushroom_red.png",
 	wield_image = "flowers_mushroom_red.png",
 	drawtype = "plantlike",
@@ -194,18 +194,18 @@ minetest.register_node("flowers:mushroom_red", {
 	sunlight_propagates = true,
 	walkable = false,
 	buildable_to = true,
-	groups = {mushroom = 1, snappy = 3, attached_node = 1, flammable = 1},
+	groups = { mushroom = 1, snappy = 3, attached_node = 1, flammable = 1 },
 	sounds = default.node_sound_leaves_defaults(),
 	on_use = minetest.item_eat(-5),
 	selection_box = {
 		type = "fixed",
-		fixed = {-4 / 16, -0.5, -4 / 16, 4 / 16, -1 / 16, 4 / 16},
+		fixed = { -4 / 16, -0.5, -4 / 16, 4 / 16, -1 / 16, 4 / 16 },
 	}
 })
 
 minetest.register_node("flowers:mushroom_brown", {
 	description = S("Brown Mushroom"),
-	tiles = {"flowers_mushroom_brown.png"},
+	tiles = { "flowers_mushroom_brown.png" },
 	inventory_image = "flowers_mushroom_brown.png",
 	wield_image = "flowers_mushroom_brown.png",
 	drawtype = "plantlike",
@@ -213,12 +213,12 @@ minetest.register_node("flowers:mushroom_brown", {
 	sunlight_propagates = true,
 	walkable = false,
 	buildable_to = true,
-	groups = {mushroom = 1, food_mushroom = 1, snappy = 3, attached_node = 1, flammable = 1},
+	groups = { mushroom = 1, food_mushroom = 1, snappy = 3, attached_node = 1, flammable = 1 },
 	sounds = default.node_sound_leaves_defaults(),
 	on_use = minetest.item_eat(1),
 	selection_box = {
 		type = "fixed",
-		fixed = {-3 / 16, -0.5, -3 / 16, 3 / 16, -2 / 16, 3 / 16},
+		fixed = { -3 / 16, -0.5, -3 / 16, 3 / 16, -2 / 16, 3 / 16 },
 	}
 })
 
@@ -233,22 +233,22 @@ function flowers.mushroom_spread(pos, node)
 		return
 	end
 	local positions = minetest.find_nodes_in_area_under_air(
-		{x = pos.x - 1, y = pos.y - 2, z = pos.z - 1},
-		{x = pos.x + 1, y = pos.y + 1, z = pos.z + 1},
-		{"group:soil", "group:tree"})
+		{ x = pos.x - 1, y = pos.y - 2, z = pos.z - 1 },
+		{ x = pos.x + 1, y = pos.y + 1, z = pos.z + 1 },
+		{ "group:soil", "group:tree" })
 	if #positions == 0 then
 		return
 	end
 	local pos2 = positions[math.random(#positions)]
 	pos2.y = pos2.y + 1
 	if minetest.get_node_light(pos2, 0.5) <= 3 then
-		minetest.set_node(pos2, {name = node.name})
+		minetest.set_node(pos2, { name = node.name })
 	end
 end
 
 minetest.register_abm({
 	label = "Mushroom spread",
-	nodenames = {"group:mushroom"},
+	nodenames = { "group:mushroom" },
 	interval = 11,
 	chance = 150,
 	action = function(...)
@@ -276,7 +276,7 @@ local waterlily_def = {
 	drawtype = "nodebox",
 	paramtype = "light",
 	paramtype2 = "facedir",
-	tiles = {"flowers_waterlily.png", "flowers_waterlily_bottom.png"},
+	tiles = { "flowers_waterlily.png", "flowers_waterlily_bottom.png" },
 	inventory_image = "flowers_waterlily.png",
 	wield_image = "flowers_waterlily.png",
 	use_texture_alpha = "clip",
@@ -284,18 +284,17 @@ local waterlily_def = {
 	walkable = false,
 	buildable_to = true,
 	floodable = true,
-	groups = {snappy = 3, flower = 1, flammable = 1},
+	groups = { snappy = 3, flower = 1, flammable = 1 },
 	sounds = default.node_sound_leaves_defaults(),
 	node_placement_prediction = "",
 	node_box = {
 		type = "fixed",
-		fixed = {-0.5, -31 / 64, -0.5, 0.5, -15 / 32, 0.5}
+		fixed = { -0.5, -31 / 64, -0.5, 0.5, -15 / 32, 0.5 }
 	},
 	selection_box = {
 		type = "fixed",
-		fixed = {-7 / 16, -0.5, -7 / 16, 7 / 16, -15 / 32, 7 / 16}
+		fixed = { -7 / 16, -0.5, -7 / 16, 7 / 16, -15 / 32, 7 / 16 }
 	},
-
 	on_place = function(itemstack, placer, pointed_thing)
 		local pos = pointed_thing.above
 		local node = minetest.get_node(pointed_thing.under)
@@ -303,16 +302,18 @@ local waterlily_def = {
 
 		if def and def.on_rightclick then
 			return def.on_rightclick(pointed_thing.under, node, placer, itemstack,
-					pointed_thing)
+				pointed_thing)
 		end
 
 		if def and def.liquidtype == "source" and
-				minetest.get_item_group(node.name, "water") > 0 then
+			minetest.get_item_group(node.name, "water") > 0 then
 			local player_name = placer and placer:get_player_name() or ""
 			if not minetest.is_protected(pos, player_name) then
-				minetest.set_node(pos, {name = "flowers:waterlily" ..
-					(def.waving == 3 and "_waving" or ""),
-					param2 = math.random(0, 3)})
+				minetest.set_node(pos, {
+					name = "flowers:waterlily" ..
+						(def.waving == 3 and "_waving" or ""),
+					param2 = math.random(0, 3)
+				})
 				if not minetest.is_creative_enabled(player_name) then
 					itemstack:take_item()
 				end
@@ -333,4 +334,3 @@ waterlily_waving_def.groups.not_in_creative_inventory = 1
 
 minetest.register_node("flowers:waterlily", waterlily_def)
 minetest.register_node("flowers:waterlily_waving", waterlily_waving_def)
-
