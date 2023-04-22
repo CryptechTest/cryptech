@@ -34,14 +34,14 @@ minetest.register_biome({
     humidity_point = 0
 })
 
-minetest.register_biome({
+--[[minetest.register_biome({
     name = "upper_atmos",
     node_stone = "vacuum:atmos_thin",
     y_max = 4000,
     y_min = 2000,
     heat_point = 10,
     humidity_point = 5
-})
+})--]]
 
 minetest.register_biome({
     name = "lower_atmos",
