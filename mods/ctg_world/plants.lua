@@ -167,3 +167,15 @@ minetest.register_craft({
     output = 'ctg_world:sugar',
     recipe = { 'default:papyrus' }
 })
+
+minetest.clear_craft({output = "scifi_nodes:plant1"})
+minetest.clear_craft({output = "scifi_nodes:plant2"})
+minetest.clear_craft({output = "scifi_nodes:plant3"})
+minetest.clear_craft({output = "scifi_nodes:plant4"})
+minetest.clear_craft({output = "scifi_nodes:plant5"})
+minetest.clear_craft({output = "scifi_nodes:plant6"})
+minetest.clear_craft({output = "scifi_nodes:plant7"})
+minetest.clear_craft({output = "scifi_nodes:plant8"})
+minetest.clear_craft({output = "scifi_nodes:plant9"})
+minetest.clear_craft({output = "scifi_nodes:plant10"})
+minetest.clear_craft({output = "scifi_nodes:plant_trap"})
