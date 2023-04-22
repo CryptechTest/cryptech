@@ -202,7 +202,7 @@ minetest.register_node("flowers:mushroom_red", {
 		if hunger_amount == 0 then
 			return itemstack
 		end
-		minetest.item_eat(hunger_amount)
+		return minetest.item_eat(hunger_amount)(itemstack, user, pointed_thing)
 	end,
 	selection_box = {
 		type = "fixed",
@@ -228,7 +228,7 @@ minetest.register_node("flowers:mushroom_brown", {
 		if hunger_amount == 0 then
 			return itemstack
 		end
-		minetest.item_eat(hunger_amount)
+		return minetest.item_eat(hunger_amount)(itemstack, user, pointed_thing)
 	end,
 	selection_box = {
 		type = "fixed",

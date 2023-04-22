@@ -817,7 +817,7 @@ minetest.register_node("default:apple", {
 		if hunger_amount == 0 then
 			return itemstack
 		end
-		minetest.item_eat(hunger_amount)
+		return minetest.item_eat(hunger_amount)(itemstack, user, pointed_thing)
 	end,
 	sounds = default.node_sound_leaves_defaults(),
 	after_place_node = function(pos, placer, itemstack)

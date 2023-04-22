@@ -197,7 +197,7 @@ minetest.register_craftitem("ctg_world:glowberries", {
         if hunger_amount == 0 then
             return itemstack
         end
-        minetest.item_eat(hunger_amount)
+        return minetest.item_eat(hunger_amount)(itemstack, user, pointed_thing)
     end
 })
 
@@ -235,7 +235,7 @@ minetest.register_node('ctg_world:glowberry_bowl', {
         if hunger_amount == 0 then
             return itemstack
         end
-        minetest.item_eat(hunger_amount, 'x_farming:bowl')
+        return minetest.item_eat(hunger_amount, 'x_farming:bowl')(itemstack, user, pointed_thing)
     end,
     sounds = default.node_sound_wood_defaults(),
     sunlight_propagates = true
@@ -282,7 +282,7 @@ minetest.register_node('ctg_world:glowberry_bowl_mix', {
         if hunger_amount == 0 then
             return itemstack
         end
-        minetest.item_eat(hunger_amount, 'x_farming:bowl')
+        return minetest.item_eat(hunger_amount, 'x_farming:bowl')(itemstack, user, pointed_thing)
     end,
     sounds = default.node_sound_wood_defaults(),
     sunlight_propagates = true
@@ -329,7 +329,7 @@ minetest.register_node('ctg_world:blueberry_mix_bowl', {
         if hunger_amount == 0 then
             return itemstack
         end
-        minetest.item_eat(hunger_amount, 'x_farming:bowl')
+        return minetest.item_eat(hunger_amount, 'x_farming:bowl')(itemstack, user, pointed_thing)
     end,
     sounds = default.node_sound_wood_defaults(),
     sunlight_propagates = true
@@ -376,7 +376,7 @@ minetest.register_node('ctg_world:blueberry_bowl', {
         if hunger_amount == 0 then
             return itemstack
         end
-        minetest.item_eat(hunger_amount, 'x_farming:bowl')
+        return minetest.item_eat(hunger_amount, 'x_farming:bowl')(itemstack, user, pointed_thing)
     end,
     sounds = default.node_sound_wood_defaults(),
     sunlight_propagates = true
@@ -423,7 +423,7 @@ minetest.register_node('ctg_world:strawberry_bowl', {
         if hunger_amount == 0 then
             return itemstack
         end
-        minetest.item_eat(hunger_amount, 'x_farming:bowl')
+        return minetest.item_eat(hunger_amount, 'x_farming:bowl')(itemstack, user, pointed_thing)
     end,
     sounds = default.node_sound_wood_defaults(),
     sunlight_propagates = true
@@ -470,7 +470,7 @@ minetest.register_node('ctg_world:strawberry_bowl_mix', {
         if hunger_amount == 0 then
             return itemstack
         end
-        minetest.item_eat(hunger_amount, 'x_farming:bowl')
+        return minetest.item_eat(hunger_amount, 'x_farming:bowl')(itemstack, user, pointed_thing)
     end,
     sounds = default.node_sound_wood_defaults(),
     sunlight_propagates = true
@@ -670,7 +670,7 @@ if minetest.get_modpath("bottles") then
             if hunger_amount == 0 then
                 return itemstack
             end
-            minetest.item_eat(hunger_amount, 'x_farming:bowl')
+            return minetest.item_eat(hunger_amount, 'x_farming:bowl')(itemstack, user, pointed_thing)
         end,
         sounds = default.node_sound_glass_defaults(),
         sunlight_propagates = true

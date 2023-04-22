@@ -236,7 +236,7 @@ minetest.register_craftitem("default:blueberries", {
 		if hunger_amount == 0 then
 			return itemstack
 		end
-		minetest.item_eat(hunger_amount)
+		return minetest.item_eat(hunger_amount)(itemstack, user, pointed_thing)
 	end,
 })
 

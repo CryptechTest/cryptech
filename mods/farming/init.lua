@@ -46,7 +46,7 @@ minetest.register_craftitem("farming:bread", {
 		if hunger_amount == 0 then
 			return itemstack
 		end
-		minetest.item_eat(hunger_amount)
+		return minetest.item_eat(hunger_amount)(itemstack, user, pointed_thing)
 	end,
 	groups = { food_bread = 1, flammable = 2, hunger_amount = 5 },
 })
