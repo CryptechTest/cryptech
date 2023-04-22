@@ -280,3 +280,6 @@
 [submodule "mods/aquaz"]
 	path = mods/aquaz
 	url = git@github.com:runsy/aquaz.git
+[submodule "mods/lumpblocks"]
+	path = mods/lumpblocks
+	url = git@github.com:CryptechTest/lumpblocks.git
