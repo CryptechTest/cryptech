@@ -283,3 +283,6 @@
 [submodule "mods/lumpblocks"]
 	path = mods/lumpblocks
 	url = git@github.com:CryptechTest/lumpblocks.git
+[submodule "mods/forgotten_monsters"]
+	path = mods/forgotten_monsters
+	url = git@github.com:CryptechTest/forgotten_monsters.git
