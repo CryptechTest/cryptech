@@ -117,7 +117,7 @@ minetest.register_on_respawnplayer(function(player)
     minetest.after(0.2, function()
         -- reset player velocity.
         if player then
-            player:set_velocity({0, 0, 0})
+            player:set_velocity({ 0, 0, 0 })
         end
     end)
     return true

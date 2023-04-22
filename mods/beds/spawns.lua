@@ -82,8 +82,10 @@ function beds.save_player_beds()
 	local data = {}
 	local output = io.open(beds_file, "w")
 	for k, v in pairs(beds.player_bed) do
-		local pos = minetest.deserialize(k)
-		table.insert(data, string.format("%.1f %.1f %.1f %s\n", pos.x, pos.y, pos.z, v))
+		if k ~= nil then
+			local pos = minetest.deserialize(k)
+			table.insert(data, string.format("%.1f %.1f %.1f %s\n", pos.x, pos.y, pos.z, v))
+		end
 	end
 	output:write(table.concat(data))
 	io.close(output)

@@ -34,9 +34,23 @@ local function destruct_bed(pos, n)
 					local meta = bed:get_meta()
 					local ppos = meta:get_string("pos")
 					if minetest.serialize(pos) == ppos then
-						minetest.log("bed:" .. bed:get_description())
 						inv:remove_item("beds", bed)
 						beds.bed_cooldown[minetest.serialize(pos)] = false
+						local last = false
+						for j = 1, 24 do
+							local b = inv:get_stack("beds", j)
+							if not b:is_empty() then
+								local m = b:get_meta()
+								local pp = minetest.deserialize(m:get_string("pos"))
+								beds.spawn[player_name] = { x = pp.x, y = pp.y, z = pp.z }
+								last = true
+								break
+							end
+						end
+						if not last then
+							beds.spawn[player_name] = nil
+						end
+						break
 					end
 				end
 			end
