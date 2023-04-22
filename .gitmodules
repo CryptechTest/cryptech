@@ -277,3 +277,6 @@
 [submodule "mods/bakedclay"]
 	path = mods/bakedclay
 	url = git@github.com:CryptechTest/bakedclay.git
+[submodule "mods/aquaz"]
+	path = mods/aquaz
+	url = git@github.com:runsy/aquaz.git
