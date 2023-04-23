@@ -682,3 +682,11 @@ if minetest.get_modpath("bottles") then
         recipe = "ctg_world:bottle_of_coffe_with_milk"
     })
 end
+
+-- grub
+minetest.register_craft({
+	output = "livingcavesmobs:grub",
+	type = "shapeless",
+	recipe =
+	{ "livingcavesmobs:mothegg", "ctg_world:glowberry_bush_leaves", "ctg_world:glowberry_bush_leaves", "ctg_world:glowberry_bush_leaves" }
+})
