@@ -89,3 +89,19 @@ minetest.override_item("growler:growler_meat", {
         return minetest.item_eat(hunger_amount)(itemstack, user, pointed_thing)
     end
 })
+
+lumpblocks.register_lump_block { base_name = 'aluminum_lump', name = 'ctg_world:aluminum_lump_block', lump =
+'ctg_world:aluminum_lump', colours = {
+    '#B35E2F',
+    '#E6C9B7' }, description =
+    S('Raw Aluminum Block') };
+lumpblocks.register_lump_block { base_name = 'nickel_lump', name = 'ctg_world:nickel_lump_block', lump =
+'ctg_world:nickel_lump', colours = {
+    '#387737',
+    '#A2C782' }, description =
+    S('Raw Nickel Block') };
+lumpblocks.register_lump_block { base_name = 'titanium_lump', name = 'ctg_world:titanium_lump_block', lump =
+'ctg_world:titanium_lump', colours = {
+    '#8E8BBE',
+    '#80B5C1' }, description =
+    S('Raw Titanium Block') };
