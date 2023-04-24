@@ -5,6 +5,7 @@ local S = minetest.get_translator(minetest.get_current_modname())
 minetest.clear_craft({ output = "unified_inventory:bag_small" })
 minetest.clear_craft({ output = "unified_inventory:bag_medium" })
 minetest.clear_craft({ output = "unified_inventory:bag_large" })
+minetest.clear_craft({ output = "mobs:saddle" })
 
 -- new recipes
 
