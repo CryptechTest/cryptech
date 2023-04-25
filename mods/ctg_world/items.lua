@@ -7,6 +7,12 @@ minetest.clear_craft({ output = "unified_inventory:bag_medium" })
 minetest.clear_craft({ output = "unified_inventory:bag_large" })
 minetest.clear_craft({ output = "mobs:saddle" })
 
+local saddle_def = minetest.registered_items["mobs:saddle"]
+saddle_def.groups.not_in_creative_inventory = 1
+minetest.override_item("mobs:saddle", {
+    group = saddle_def
+})
+
 -- new recipes
 
 minetest.register_craft({
