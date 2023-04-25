@@ -286,3 +286,12 @@
 [submodule "mods/forgotten_monsters"]
 	path = mods/forgotten_monsters
 	url = git@github.com:CryptechTest/forgotten_monsters.git
+[submodule "mods/basic_signs"]
+	path = mods/basic_signs
+	url = git@github.com:mt-mods/basic_signs.git
+[submodule "mods/signs_lib"]
+	path = mods/signs_lib
+	url = git@github.com:mt-mods/signs_lib.git
+[submodule "mods/playtime"]
+	path = mods/playtime
+	url = git@github.com:Lejo1/playtime.git
