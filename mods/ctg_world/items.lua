@@ -6,11 +6,20 @@ minetest.clear_craft({ output = "unified_inventory:bag_small" })
 minetest.clear_craft({ output = "unified_inventory:bag_medium" })
 minetest.clear_craft({ output = "unified_inventory:bag_large" })
 minetest.clear_craft({ output = "mobs:saddle" })
+minetest.clear_craft({ output = "prefab:boat" })
+
+-- remove items from creative
 
 local saddle_def = minetest.registered_items["mobs:saddle"]
 saddle_def.groups.not_in_creative_inventory = 1
 minetest.override_item("mobs:saddle", {
     group = saddle_def
+})
+
+local boat_def = minetest.registered_items["prefab:boat"]
+boat_def.groups.not_in_creative_inventory = 1
+minetest.override_item("prefab:boat", {
+    group = boat_def
 })
 
 -- new recipes
