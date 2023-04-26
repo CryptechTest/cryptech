@@ -225,46 +225,10 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	output = "vehicle_mash:car_yellow",
-	recipe = {
-		{"vehicle_mash:tire", "vehicle_mash:windshield", "vehicle_mash:tire"},
-		{"default:steelblock", "vehicle_mash:motor", "dye:yellow"},
-		{"vehicle_mash:tire", "vehicle_mash:battery", "vehicle_mash:tire"},
-	}
-})
-
-minetest.register_craft({
-	output = "vehicle_mash:car_yellow",
-	recipe = {
-		{"vehicle_mash:tire", "vehicle_mash:windshield", "vehicle_mash:tire"},
-		{"default:steelblock", "vehicle_mash:motor", "dye:yellow"},
-		{"vehicle_mash:tire", "vehicle_mash:battery", "vehicle_mash:tire"},
-	}
-})
-
-minetest.register_craft({
-	output = "vehicle_mash:car_yellow",
-	recipe = {
-		{"vehicle_mash:tire", "vehicle_mash:windshield", "vehicle_mash:tire"},
-		{"default:steelblock", "vehicle_mash:motor", "dye:yellow"},
-		{"vehicle_mash:tire", "vehicle_mash:battery", "vehicle_mash:tire"},
-	}
-})
-
-minetest.register_craft({
-	output = "vehicle_mash:car_yellow",
-	recipe = {
-		{"vehicle_mash:tire", "vehicle_mash:windshield", "vehicle_mash:tire"},
-		{"default:steelblock", "vehicle_mash:motor", "dye:yellow"},
-		{"vehicle_mash:tire", "vehicle_mash:battery", "vehicle_mash:tire"},
-	}
-})
-
-minetest.register_craft({
 	output = "vehicle_mash:hover_blue",
 	recipe = {
-		{"", "dye:blue", "default:steelblock"},
-		{"default:steelblock", "default:steelblock", "vehicle_mash:motor"},
+		{"", "dye:blue", "scifi_nodes:white2"},
+		{"scifi_nodes:white2", "scifi_nodes:white2", "vehicle_mash:motor"},
 		{"technic:rubber", "technic:rubber", "technic:rubber"},
 	}
 })
@@ -272,8 +236,8 @@ minetest.register_craft({
 minetest.register_craft({
 	output = "vehicle_mash:hover_green",
 	recipe = {
-		{"", "dye:green", "default:steelblock"},
-		{"default:steelblock", "default:steelblock", "vehicle_mash:motor"},
+		{"", "dye:green", "scifi_nodes:white2"},
+		{"scifi_nodes:white2", "scifi_nodes:white2", "vehicle_mash:motor"},
 		{"technic:rubber", "technic:rubber", "technic:rubber"},
 	}
 })
@@ -281,8 +245,8 @@ minetest.register_craft({
 minetest.register_craft({
 	output = "vehicle_mash:hover_red",
 	recipe = {
-		{"", "dye:red", "default:steelblock"},
-		{"default:steelblock", "default:steelblock", "vehicle_mash:motor"},
+		{"", "dye:red", "scifi_nodes:white2"},
+		{"scifi_nodes:white2", "scifi_nodes:white2", "vehicle_mash:motor"},
 		{"technic:rubber", "technic:rubber", "technic:rubber"},
 	}
 })
@@ -290,8 +254,8 @@ minetest.register_craft({
 minetest.register_craft({
 	output = "vehicle_mash:hover_yellow",
 	recipe = {
-		{"", "dye:yellow", "default:steelblock"},
-		{"default:steelblock", "default:steelblock", "vehicle_mash:motor"},
+		{"", "dye:yellow", "scifi_nodes:white2"},
+		{"scifi_nodes:white2", "scifi_nodes:white2", "vehicle_mash:motor"},
 		{"technic:rubber", "technic:rubber", "technic:rubber"},
 	}
 })
