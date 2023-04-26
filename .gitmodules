@@ -301,3 +301,6 @@
 [submodule "mods/precipitation"]
 	path = mods/precipitation
 	url = git@github.com:CryptechTest/precipitation.git
+[submodule "mods/ctg_starships"]
+	path = mods/ctg_starships
+	url = git@github.com:CryptechTest/ctg_starships.git
