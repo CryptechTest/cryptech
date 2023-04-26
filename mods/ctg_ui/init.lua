@@ -37,7 +37,10 @@ local form = "size[10,7.8] bgcolor[#333444cc; false] image_button_exit[0,0;2,2;"
     "^17_emoji.png;17_emoji;] image_button_exit[4,6;2,2;" ..
     bg ..
     "^18_emoji.png;18_emoji;] image_button_exit[6,6;2,2;" ..
-    bg .. "^19_emoji.png;19_emoji;] image_button_exit[8,6;2,2;" .. bg .. "^20_emoji.png;20_emoji;]"
+    bg .. 
+    "^19_emoji.png;19_emoji;] image_button_exit[8,6;2,2;" .. 
+    bg .. 
+    "^20_emoji.png;20_emoji;]"
 
 
 unified_inventory.register_button("emoji", {
