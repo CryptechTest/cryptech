@@ -119,8 +119,6 @@ local function update_clouds()
 			-- now adjust the shadow intensity
 			local biome = minetest.get_biome_data(player:get_pos())
 			player:set_lighting({ shadows = { intensity = 0.77 * (1 - density) } })
-
-			minetest.log("density:" .. density .. " density_max:" .. density_max)
 			local moisture_index = (biome.heat - 10) * biome.humidity / 100
 			local is_storming = (density > density_max - (density_max / 8)) and moisture_index > 17
 			local is_raining = density > density_max * 0.75 and moisture_index > 16
@@ -162,7 +160,6 @@ local function update_clouds()
 				player:set_clouds(clouds)
 			elseif is_raining and current_weather ~= "rain" then
 				player_weather[player:get_player_name()] = "rain"
-				minetest.log("raining")
 				player:set_sky({
 					type = "regular",
 					clouds = true,
@@ -196,7 +193,6 @@ local function update_clouds()
 				})
 			elseif is_sprinkling and current_weather ~= "sprinkle" then
 				player_weather[player:get_player_name()] = "sprinkle"
-				minetest.log("sprinkling")
 				player:set_sky({
 					type = "regular",
 					clouds = true,
