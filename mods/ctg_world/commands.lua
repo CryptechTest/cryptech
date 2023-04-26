@@ -24,6 +24,7 @@ minetest.register_chatcommand("listbiomes", {
             table.sort(biomes)
             for i = 1, #biomes do
                 minetest.chat_send_player(name, biomes[i])
+                minetest.log(biomes[i])
             end
             return true
         end

@@ -295,3 +295,9 @@
 [submodule "mods/playtime"]
 	path = mods/playtime
 	url = git@github.com:Lejo1/playtime.git
+[submodule "mods/lightning"]
+	path = mods/lightning
+	url = git@github.com:CryptechTest/lightning.git
+[submodule "mods/precipitation"]
+	path = mods/precipitation
+	url = git@github.com:CryptechTest/precipitation.git
