@@ -99,7 +99,9 @@ local function update_clouds()
 	for _, player in ipairs(minetest.get_connected_players()) do
 		-- Fallback to mid-value 50 for very old worlds
 		local precip = "none"
-		if player:get_pos().y >= -11000 and player:get_pos().y <= 200 then
+		local clouds = player:get_clouds()
+		local cloud_height = clouds and clouds.height or 120
+		if player:get_pos().y >= -11000 and player:get_pos().y <= cloud_height - 1.5 then
 			local humid = minetest.get_humidity(player:get_pos()) or 50
 			-- Default and classic density value is 0.4, make this happen
 			-- at humidity midvalue 50 when n_density is at midvalue 0.5.
