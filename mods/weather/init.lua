@@ -98,7 +98,8 @@ local function update_clouds()
 
 	for _, player in ipairs(minetest.get_connected_players()) do
 		-- Fallback to mid-value 50 for very old worlds
-		if player:get_pos().y >= -11000 and player:get_pos().y < 2000 then
+		local precip = "none"
+		if player:get_pos().y >= -11000 and player:get_pos().y <= 200 then
 			local humid = minetest.get_humidity(player:get_pos()) or 50
 			-- Default and classic density value is 0.4, make this happen
 			-- at humidity midvalue 50 when n_density is at midvalue 0.5.
@@ -260,7 +261,7 @@ local function update_clouds()
 				end
 			end
 			lightning.storm(player, is_storming)
-			local precip = "none"
+
 			if biome.heat > 35 then
 				if is_storming then
 					precip = "storm"
@@ -278,8 +279,8 @@ local function update_clouds()
 					precip = "flurry"
 				end
 			end
-			precipitation.set_precipitation(player, precip)
 		end
+		precipitation.set_precipitation(player, precip)
 	end
 end
 
