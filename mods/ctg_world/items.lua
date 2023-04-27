@@ -7,7 +7,13 @@ minetest.clear_craft({ output = "unified_inventory:bag_medium" })
 minetest.clear_craft({ output = "unified_inventory:bag_large" })
 minetest.clear_craft({ output = "mobs:saddle" })
 minetest.clear_craft({ output = "prefab:boat" })
+local recipe = {
+    { 'skullkingsitems:bone' }
+}
+minetest.clear_craft({recipe = recipe})
+
 -- unregister items from creative
+
 minetest.unregister_item("prefab:boat")
 minetest.unregister_item("mobs:saddle")
 
@@ -37,6 +43,33 @@ minetest.register_craft({
         { "",             "",                             "" },
         { "mobs:leather", "unified_inventory:bag_medium", "mobs:leather" },
         { "mobs:leather", "unified_inventory:bag_medium", "mobs:leather" },
+    },
+})
+
+minetest.register_craft({
+    type = "shapeless",
+    output = "x_farming:bonemeal 3",
+    recipe = {
+        "skullkingsitems:bone",
+        
+    },
+})
+
+minetest.register_craft({
+    type = "shapeless",
+    output = "x_farming:bonemeal 9",
+    recipe = {
+        "skullkingsitems:bone_block",
+        
+    },
+})
+
+minetest.register_craft({
+    type = "shapeless",
+    output = "x_farming:bonemeal 3",
+    recipe = {
+        "goblins:goblins_goblin_bone",
+        
     },
 })
 
