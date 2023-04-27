@@ -17,7 +17,7 @@ end
 -- Parameters
 
 local TSCALE = 600 -- Time scale of noise variation in seconds
-local CYCLE = 8    -- Time period of cyclic clouds update in seconds
+local CYCLE = 1    -- Time period of cyclic clouds update in seconds
 
 local np_density = {
 	offset = 0.5,
@@ -70,7 +70,7 @@ local nobj_speedx = nil
 local nobj_speedz = nil
 
 local player_weather = {}
-
+local player_sky = {}
 
 -- Update clouds function
 
@@ -101,7 +101,7 @@ local function update_clouds()
 		local precip = "none"
 		local clouds = player:get_clouds()
 		local cloud_height = clouds and clouds.height or 120
-		if player:get_pos().y >= -11000 and player:get_pos().y <= cloud_height - 1.5 then
+		if player:get_pos().y >= -11000 and player:get_pos().y <= 2000 then
 			local humid = minetest.get_humidity(player:get_pos()) or 50
 			-- Default and classic density value is 0.4, make this happen
 			-- at humidity midvalue 50 when n_density is at midvalue 0.5.
@@ -119,150 +119,26 @@ local function update_clouds()
 				), 2),
 				speed = { x = n_speedx * 4, z = n_speedz * 4 },
 			})
+
 			-- now adjust the shadow intensity
 			local biome = minetest.get_biome_data(player:get_pos())
 			player:set_lighting({ shadows = { intensity = 0.77 * (1 - density) } })
 			local moisture_index = (biome.heat - 10) * biome.humidity / 100
 			local is_storming = (density > density_max - (density_max / 8)) and moisture_index > 17
-			local is_raining = density > density_max * 0.75 and moisture_index > 16
-			local is_sprinkling = density > density_max * 0.7 and moisture_index > 14
-			local current_weather = player_weather[player:get_player_name()]
-			if is_storming and current_weather ~= "storm" then
+			local is_raining = density > density_max * 0.7 and moisture_index > 16
+			local is_sprinkling = density > density_max * 0.55 and moisture_index > 14
+			if player:get_pos().y > cloud_height + 1.5 then
+				player_weather[player:get_player_name()] = "normal"
+			elseif is_storming then
 				player_weather[player:get_player_name()] = "storm"
-				player:set_moon({
-					visible = false,
-					scale = 0.0,
-				})
-				player:set_stars({
-					visible = false
-				})
-				player:set_sun({
-					visible = false,
-					scale = 0.0,
-					sunrise_visible = false
-				})
-				player:set_sky({
-					type = "plain",
-					clouds = true,
-					base_color = "#2c2f2f",
-					sunrise_visible = false,
-					sky_color = {
-						day_horizon = "#6c95ab",
-						dawn_horizon = "#959abd",
-						fog_sun_tint = "#c28d63",
-						fog_moon_tint = "#687999",
-						dawn_sky = "#9193a3",
-						day_sky = "#9fafbd",
-						night_sky = "#002559",
-						indoors = "#444444",
-						night_horizon = "#4b70a3"
-					}
-				})
-				local clouds = player:get_clouds()
-				clouds.color = "#787777f5"
-				player:set_clouds(clouds)
-			elseif is_raining and current_weather ~= "rain" then
+			elseif is_raining then
 				player_weather[player:get_player_name()] = "rain"
-				player:set_sky({
-					type = "regular",
-					clouds = true,
-					sunrise_visible = false,
-					base_color = "#4E5056",
-					sky_color = {
-						day_sky = "#3E5C71",
-						day_horizon = "#4D6671",
-						dawn_sky = "#4E5056",
-						dawn_horizon = "#5B606F",
-						fog_tint_type = "default",
-						night_sky = "#1D4374",
-						night_horizon = "#334F74",
-						indoors = "#4F4F4F",
-					}
-				})
-				local clouds = player:get_clouds()
-				clouds.color = "#A59F9Fe5"
-				player:set_clouds(clouds)
-				player:set_moon({
-					visible = false,
-					scale = 0.0,
-				})
-				player:set_stars({
-					visible = false
-				})
-				player:set_sun({
-					visible = false,
-					scale = 0.0,
-					sunrise_visible = false
-				})
-			elseif is_sprinkling and current_weather ~= "sprinkle" then
+			elseif is_sprinkling then
 				player_weather[player:get_player_name()] = "sprinkle"
-				player:set_sky({
-					type = "regular",
-					clouds = true,
-					sunrise_visible = false,
-					base_color = "#4F88B3",
-					sky_color = {
-						day_sky = "#4F88B3",
-						day_horizon = "#6F9CB4",
-						dawn_sky = "#6F727C",
-						dawn_horizon = "#8B90B0",
-						fog_tint_type = "default",
-						night_sky = "#0F57BA",
-						night_horizon = "#3970BA",
-						indoors = "#595959",
-					}
-				})
-				local clouds = player:get_clouds()
-				clouds.color = "#D2C8C8d5"
-				player:set_clouds(clouds)
-				player:set_moon({
-					visible = false,
-					scale = 1.0,
-				})
-				player:set_stars({
-					visible = false
-				})
-				player:set_sun({
-					visible = false,
-					scale = 1.0,
-					sunrise_visible = false
-				})
 			else
-				if current_weather ~= "normal" then
-					player_weather[player:get_player_name()] = "normal"
-					player:set_sky({
-						type = "regular",
-						clouds = true,
-						sunrise_visible = true,
-						base_color = "#ffffff",
-						sky_color = {
-							day_sky = "#61b5f5",
-							day_horizon = "#90d3f6",
-							dawn_sky = "#9193a3",
-							dawn_horizon = "#bac1f0",
-							fog_tint_type = "default",
-							night_sky = "#006bff",
-							night_horizon = "#4090ff",
-							indoors = "#646464",
-						}
-					})
-					local clouds = player:get_clouds()
-					clouds.color = "#fff0f0d5"
-					player:set_clouds(clouds)
-					player:set_moon({
-						visible = true
-					})
-					player:set_stars({
-						visible = true
-					})
-					player:set_sun({
-						visible = true,
-						scale = 1.0,
-						sunrise_visible = true
-					})
-				end
+				player_weather[player:get_player_name()] = "normal"
 			end
-			lightning.storm(player, is_storming)
+			lightning.storm(player, player_weather[player:get_player_name()] ~= nil and is_storming)
 
 			if biome.heat > 35 then
 				if is_storming then
@@ -281,8 +157,139 @@ local function update_clouds()
 					precip = "flurry"
 				end
 			end
+		else
+			lightning.storm(player, false)
+			player_weather[player:get_player_name()] = nil
+			player_sky[player:get_player_name()] = nil
 		end
-		precipitation.set_precipitation(player, precip)
+		if player:get_pos().y <= cloud_height - 1 then
+			precipitation.set_precipitation(player, precip)
+		else
+			precipitation.set_precipitation(player, "none")
+		end
+	end
+end
+
+local function update_sky()
+	for _, player in ipairs(minetest.get_connected_players()) do
+		local ppos = player:get_pos()
+		if ppos.y >= -75 and ppos.y <= 2000 then
+			local clouds = player:get_clouds()
+			local player_name = player:get_player_name()
+			local current_weather = player_weather[player_name]
+
+			if current_weather == "storm" and player_sky[player_name] ~= "storm" then
+				player_sky[player_name] = "storm"
+
+				player:set_sky({
+					type = "plain",
+					clouds = true,
+					base_color = "#2C2C2C",
+					sunrise_visible = false,
+					sky_color = {
+						day_sky = "#4A7A9D",
+						day_horizon = "#59849D",
+						dawn_sky = "#657B9F",
+						dawn_horizon = "#677E9B",
+						fog_tint_type = "custom",
+						fog_sun_tint = "#7B6755",
+						fog_moon_tint = "#54708F",
+						night_sky = "#002559",
+						night_horizon = "#3F6DA0",
+						indoors = "#4B5F6D",
+					}
+				})
+				clouds.color = "#7E8D9BFF"
+				player:set_clouds(clouds)
+				player:set_moon()
+				player:set_stars({
+					visible = true,
+					color = "#ebebff0f"
+				})
+				player:set_sun()
+			elseif current_weather == "rain" and player_sky[player_name] ~= "rain" then
+				player_sky[player_name] = "rain"
+				player:set_sky({
+					type = "regular",
+					clouds = true,
+					sunrise_visible = false,
+					base_color = "#7E92A0",
+					sky_color = {
+						day_sky = "#749EBC",
+						day_horizon = "#84A8BD",
+						dawn_sky = "#909FBE",
+						dawn_horizon = "#92A2BB",
+						fog_tint_type = "custom",
+						fog_sun_tint = "#A58B74",
+						fog_moon_tint = "#7E94AF",
+						night_sky = "#5485C0",
+						night_horizon = "#6991C0",
+						indoors = "#75838C",
+					}
+				})
+				clouds.color = "#A59F9Fff"
+				player:set_clouds(clouds)
+				player:set_moon()
+				player:set_stars({
+					visible = true,
+					color = "#ebebff13"
+				})
+				player:set_sun()
+			elseif current_weather == "sprinkle" and player_sky[player_name] ~= "sprinkle" then
+				player_sky[player:get_player_name()] = "sprinkle"
+				player:set_sky({
+					type = "regular",
+					clouds = true,
+					sunrise_visible = false,
+					base_color = "#BFC9D0",
+					sky_color = {
+						day_sky = "#A0C2DC",
+						day_horizon = "#AFCCDD",
+						dawn_sky = "#BBC4DE",
+						dawn_horizon = "#BDC6DB",
+						fog_tint_type = "custom",
+						fog_sun_tint = "#D1B094",
+						fog_moon_tint = "#AAB9CF",
+						night_sky = "#7FAAE0",
+						night_horizon = "#95B6E0",
+						indoors = "#A1A7AC",
+					}
+				})
+				clouds.color = "#D4D6DBF0"
+				player:set_clouds(clouds)
+				player:set_moon()
+				player:set_stars({
+					visible = true,
+					color = "#ebebff36"
+				})
+				player:set_sun()
+			elseif (current_weather == "normal") and player_sky[player_name] ~= "normal" then
+				player_sky[player:get_player_name()] = "normal"
+				player:set_sky({
+					type = "regular",
+					clouds = true,
+					sunrise_visible = true,
+					base_color = "#ffffff",
+					sky_color = {
+						day_sky = "#61b5f5",
+						day_horizon = "#90d3f6",
+						dawn_sky = "#9193a3",
+						dawn_horizon = "#bac1f0",
+						fog_tint_type = "default",
+						night_sky = "#006bff",
+						night_horizon = "#4090ff",
+						indoors = "#646464",
+					}
+				})
+				clouds.color = "#fff0f0d5"
+				player:set_clouds(clouds)
+				player:set_moon()
+				player:set_stars()
+				player:set_sun()
+			else
+				player_sky[player:get_player_name()] = nil
+			end
+		end
 	end
 end
 
@@ -292,8 +299,14 @@ local function cyclic_update()
 	minetest.after(CYCLE, cyclic_update)
 end
 
+local function skybox_update()
+	update_sky()
+	minetest.after(CYCLE, skybox_update)
+end
+
 
 minetest.after(0, cyclic_update)
+minetest.after(0.3, skybox_update)
 
 
 -- Update on player join to instantly alter clouds from the default
