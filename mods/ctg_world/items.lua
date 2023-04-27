@@ -7,7 +7,10 @@ minetest.clear_craft({ output = "unified_inventory:bag_medium" })
 minetest.clear_craft({ output = "unified_inventory:bag_large" })
 minetest.clear_craft({ output = "mobs:saddle" })
 minetest.clear_craft({ output = "prefab:boat" })
-minetest.clear_craft({ output = "dye:white" })
+local recipe = {
+    { 'skullkingsitems:bone' }
+}
+minetest.clear_craft({recipe = recipe})
 
 -- unregister items from creative
 

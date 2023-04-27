@@ -12,14 +12,14 @@ minetest.clear_craft({ output = "vehicle_mash:car_dark_green" })
 minetest.clear_craft({ output = "vehicle_mash:car_dark_grey" })
 minetest.clear_craft({ output = "vehicle_mash:car_green" })
 minetest.clear_craft({ output = "vehicle_mash:car_grey" })
--- minetest.clear_craft({ output = "vehicle_mash:car_hot_rod" })
+minetest.clear_craft({ output = "vehicle_mash:car_hot_rod" })
 minetest.clear_craft({ output = "vehicle_mash:car_magenta" })
---minetest.clear_craft({ output = "vehicle_mash:car_nyan_ride" })
---minetest.clear_craft({ output = "vehicle_mash:car_oerkki_bliss" })
+minetest.clear_craft({ output = "vehicle_mash:car_nyan_ride" })
+minetest.clear_craft({ output = "vehicle_mash:car_oerkki_bliss" })
 minetest.clear_craft({ output = "vehicle_mash:car_orange" })
 minetest.clear_craft({ output = "vehicle_mash:car_pink" })
 minetest.clear_craft({ output = "vehicle_mash:car_red" })
---minetest.clear_craft({ output = "vehicle_mash:car_road_master" })
+minetest.clear_craft({ output = "vehicle_mash:car_road_master" })
 minetest.clear_craft({ output = "vehicle_mash:car_violet" })
 minetest.clear_craft({ output = "vehicle_mash:car_white" })
 minetest.clear_craft({ output = "vehicle_mash:car_yellow" })
@@ -119,17 +119,14 @@ minetest.register_craft({
 		{"vehicle_mash:tire", "vehicle_mash:battery", "vehicle_mash:tire"},
 	}
 })
---[[
-    minetest.register_craft({
+
+minetest.register_craft({
+    type = "shapeless",
 	output = "vehicle_mash:car_hot_rod",
 	recipe = {
-		{"vehicle_mash:tire", "vehicle_mash:windshield", "vehicle_mash:tire"},
-		{"default:steelblock", "vehicle_mash:motor", ""},
-		{"vehicle_mash:tire", "vehicle_mash:battery", "vehicle_mash:tire"},
+		"vehicle_mash:car_red", "dye:red", "dye:yellow"
 	}
 })
-]]
-
 
 minetest.register_craft({
 	output = "vehicle_mash:car_magenta",
@@ -139,26 +136,22 @@ minetest.register_craft({
 		{"vehicle_mash:tire", "vehicle_mash:battery", "vehicle_mash:tire"},
 	}
 })
---[[
+
 minetest.register_craft({
+    type = "shapeless",
 	output = "vehicle_mash:car_nyan_ride",
 	recipe = {
-		{"vehicle_mash:tire", "vehicle_mash:windshield", "vehicle_mash:tire"},
-		{"default:steelblock", "vehicle_mash:motor", ""},
-		{"vehicle_mash:tire", "vehicle_mash:battery", "vehicle_mash:tire"},
+		"vehicle_mash:car_pink", "dye:pink", "dye:grey"
 	}
 })
-]]
---[[
+
 minetest.register_craft({
+    type = "shapeless",
 	output = "vehicle_mash:car_oerkki_bliss",
 	recipe = {
-		{"vehicle_mash:tire", "vehicle_mash:windshield", "vehicle_mash:tire"},
-		{"default:steelblock", "vehicle_mash:motor", ""},
-		{"vehicle_mash:tire", "vehicle_mash:battery", "vehicle_mash:tire"},
+		"vehicle_mash:car_black", "dye:black", "dye:violet"
 	}
 })
-]]
 
 minetest.register_craft({
 	output = "vehicle_mash:car_orange",
@@ -186,16 +179,14 @@ minetest.register_craft({
 		{"vehicle_mash:tire", "vehicle_mash:battery", "vehicle_mash:tire"},
 	}
 })
---[[
+
 minetest.register_craft({
+    type = "shapeless",
 	output = "vehicle_mash:car_road_master",
 	recipe = {
-		{"vehicle_mash:tire", "vehicle_mash:windshield", "vehicle_mash:tire"},
-		{"default:steelblock", "vehicle_mash:motor", ""},
-		{"vehicle_mash:tire", "vehicle_mash:battery", "vehicle_mash:tire"},
+		"vehicle_mash:car_brown", "dye:black", "dye:brown"
 	}
 })
-]]
 
 minetest.register_craft({
 	output = "vehicle_mash:car_violet",
