@@ -108,7 +108,7 @@ local function update_clouds()
 			-- density_max = 0.25 at humid = 0.
 			-- density_max = 0.8 at humid = 50.
 			-- density_max = 1.35 at humid = 100.
-			local density_max = 0.7 + ((humid - 50) / 50) * 0.55
+			local density_max = 0.73 + ((humid - 50) / 50) * 0.55
 			local density = rangelim(density_max, 0.2, 1.0) * n_density
 			player:set_clouds({
 				-- Range limit density_max to always have occasional
@@ -124,7 +124,7 @@ local function update_clouds()
 			local biome = minetest.get_biome_data(player:get_pos())
 			player:set_lighting({ shadows = { intensity = 0.77 * (1 - density) } })
 			local moisture_index = (biome.heat - 10) * biome.humidity / 100
-			local is_storming = (density > density_max - (density_max / 8)) and moisture_index > 17
+			local is_storming = density > density_max * 0.85 and moisture_index > 17
 			local is_raining = density > density_max * 0.7 and moisture_index > 16
 			local is_sprinkling = density > density_max * 0.6 and moisture_index > 14
 			if player:get_pos().y > cloud_height + 1.5 then
@@ -184,7 +184,7 @@ local function update_sky()
 				player:set_sky({
 					type = "plain",
 					clouds = true,
-					base_color = "#2C2C2C",
+					base_color = "#545151",
 					sunrise_visible = false,
 					sky_color = {
 						day_sky = "#4A7A9D",
@@ -199,7 +199,7 @@ local function update_sky()
 						indoors = "#4B5F6D",
 					}
 				})
-				clouds.color = "#7E8D9BFF"
+				clouds.color = "#5B636AFF"
 				player:set_clouds(clouds)
 				player:set_moon()
 				player:set_stars({
@@ -230,7 +230,7 @@ local function update_sky()
 						indoors = "#75838C",
 					}
 				})
-				clouds.color = "#A59F9Fff"
+				clouds.color = "#B5B3B8FF"
 				player:set_clouds(clouds)
 				player:set_moon()
 				player:set_stars({
@@ -258,7 +258,7 @@ local function update_sky()
 						indoors = "#A1A7AC",
 					}
 				})
-				clouds.color = "#D4D6DBF0"
+				clouds.color = "#DAD2D4F0"
 				player:set_clouds(clouds)
 				player:set_moon()
 				player:set_stars({
