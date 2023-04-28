@@ -142,3 +142,17 @@ lumpblocks.register_lump_block { base_name = 'titanium_lump', name = 'ctg_world:
     '#8E8BBE',
     '#80B5C1' }, description =
     S('Raw Titanium Block') };
+
+local a = "ctg_world:aluminum_ingot"
+local u = "pipeworks:tube_1"
+local n = "ctg_world:nickel_ingot"
+-- air tight tubes
+minetest.register_craft({
+    output = "ctg_world:aluminum_block_embedded_tube 1",
+    recipe = {{a, a, a}, {a, u, a}, {a, a, a}}
+})
+
+minetest.register_craft({
+    output = "ctg_world:nickel_block_embedded_tube 1",
+    recipe = {{n, n, n}, {n, u, n}, {n, n, n}}
+})
