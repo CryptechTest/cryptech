@@ -126,7 +126,7 @@ local function update_clouds()
 			local moisture_index = (biome.heat - 10) * biome.humidity / 100
 			local is_storming = (density > density_max - (density_max / 8)) and moisture_index > 17
 			local is_raining = density > density_max * 0.7 and moisture_index > 16
-			local is_sprinkling = density > density_max * 0.55 and moisture_index > 14
+			local is_sprinkling = density > density_max * 0.6 and moisture_index > 14
 			if player:get_pos().y > cloud_height + 1.5 then
 				player_weather[player:get_player_name()] = "normal"
 			elseif is_storming then
@@ -162,7 +162,7 @@ local function update_clouds()
 			player_weather[player:get_player_name()] = nil
 			player_sky[player:get_player_name()] = nil
 		end
-		if player:get_pos().y <= cloud_height - 1 then
+		if player:get_pos().y <= cloud_height + 1.5 then
 			precipitation.set_precipitation(player, precip)
 		else
 			precipitation.set_precipitation(player, "none")
@@ -203,10 +203,13 @@ local function update_sky()
 				player:set_clouds(clouds)
 				player:set_moon()
 				player:set_stars({
-					visible = true,
+					visible = false,
 					color = "#ebebff0f"
 				})
-				player:set_sun()
+				player:set_sun({
+					visible = false,
+					sunrise_visible = false
+				})
 			elseif current_weather == "rain" and player_sky[player_name] ~= "rain" then
 				player_sky[player_name] = "rain"
 				player:set_sky({
@@ -231,7 +234,7 @@ local function update_sky()
 				player:set_clouds(clouds)
 				player:set_moon()
 				player:set_stars({
-					visible = true,
+					visible = false,
 					color = "#ebebff13"
 				})
 				player:set_sun()
