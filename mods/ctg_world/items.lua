@@ -12,6 +12,22 @@ local recipe = {
 }
 minetest.clear_craft({recipe = recipe})
 
+local dye_dark_greyrecipe = {
+    {'dye:blue', 'dye:orange'}
+}
+minetest.clear_craft({recipe = dye_dark_greyrecipe})
+
+local dye_dark_greyrecipe_2 = {
+    {'dye:yellow', 'dye:violet'}
+}
+minetest.clear_craft({recipe = dye_dark_greyrecipe_2})
+
+local dye_magenta = {
+    {'dye:blue', 'dye:red'}
+}
+minetest.clear_craft({recipe = dye_magenta})
+
+
 -- unregister items from creative
 
 minetest.unregister_item("prefab:boat")
@@ -71,6 +87,27 @@ minetest.register_craft({
         "goblins:goblins_goblin_bone",
         
     },
+})
+
+minetest.register_craft({
+    type = "shapeless",
+    output = "dye:brown 2",
+    recipe = {"dye:blue", "dye:orange"},
+})
+
+minetest.register_craft({
+    type = "shapeless",
+    output = "dye:brown 2",
+    recipe = {
+        "dye:yellow",
+        "dye:violet",
+    },
+})
+
+minetest.register_craft({
+    type = "shapeless",
+    output = "dye:violet 2",
+    recipe = {"dye:blue", "dye:red"},
 })
 
 for i = 1, #aquaz.coral_deco do
