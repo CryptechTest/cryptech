@@ -310,3 +310,7 @@
 [submodule "mods/factory_bridges"]
 	path = mods/factory_bridges
 	url = git@github.com:CryptechTest/factory_bridges.git
+[submodule "mods/ctg_schematics"]
+	path = mods/ctg_schematics
+	url = git@github.com:CryptechTest/ctg_schematics.git
+
