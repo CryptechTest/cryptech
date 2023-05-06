@@ -304,3 +304,6 @@
 [submodule "mods/ctg_starships"]
 	path = mods/ctg_starships
 	url = git@github.com:CryptechTest/ctg_starships.git
+[submodule "mods/ctg_schematics"]
+	path = mods/ctg_schematics
+	url = git@github.com:CryptechTest/ctg_schematics.git
