@@ -17,7 +17,7 @@ end
 -- Parameters
 
 local TSCALE = 600 -- Time scale of noise variation in seconds
-local CYCLE = 1    -- Time period of cyclic clouds update in seconds
+local CYCLE = 8    -- Time period of cyclic clouds update in seconds
 
 local np_density = {
 	offset = 0.5,
@@ -108,7 +108,7 @@ local function update_clouds()
 			-- density_max = 0.25 at humid = 0.
 			-- density_max = 0.8 at humid = 50.
 			-- density_max = 1.35 at humid = 100.
-			local density_max = 0.73 + ((humid - 50) / 50) * 0.55
+			local density_max = 0.7 + ((humid - 50) / 50) * 0.55
 			local density = rangelim(density_max, 0.2, 1.0) * n_density
 			player:set_clouds({
 				-- Range limit density_max to always have occasional
@@ -182,20 +182,20 @@ local function update_sky()
 				player_sky[player_name] = "storm"
 
 				player:set_sky({
-					type = "plain",
+					type = "regular",
 					clouds = true,
 					base_color = "#545151",
 					sunrise_visible = false,
 					sky_color = {
-						day_sky = "#4A7A9D",
-						day_horizon = "#59849D",
-						dawn_sky = "#657B9F",
-						dawn_horizon = "#677E9B",
+						day_sky = "#4F6474",
+						day_horizon = "#56646D",
+						dawn_sky = "#5A606D",
+						dawn_horizon = "#5B616C",
 						fog_tint_type = "custom",
-						fog_sun_tint = "#7B6755",
-						fog_moon_tint = "#54708F",
-						night_sky = "#002559",
-						night_horizon = "#3F6DA0",
+						fog_sun_tint = "#625952",
+						fog_moon_tint = "#545C68",
+						night_sky = "#354154",
+						night_horizon = "#4C5B6E",
 						indoors = "#4B5F6D",
 					}
 				})
@@ -281,7 +281,7 @@ local function update_sky()
 						fog_tint_type = "default",
 						night_sky = "#006bff",
 						night_horizon = "#4090ff",
-						indoors = "#646464",
+						indoors = "#5A5858",
 					}
 				})
 				clouds.color = "#fff0f0d5"

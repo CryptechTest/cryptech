@@ -304,3 +304,9 @@
 [submodule "mods/ctg_starships"]
 	path = mods/ctg_starships
 	url = git@github.com:CryptechTest/ctg_starships.git
+[submodule "mods/tsm_railcorridors"]
+	path = mods/tsm_railcorridors
+	url = git@github.com:CryptechTest/minetest_tsm_railcorridors.git
+[submodule "mods/factory_bridges"]
+	path = mods/factory_bridges
+	url = git@github.com:CryptechTest/factory_bridges.git
