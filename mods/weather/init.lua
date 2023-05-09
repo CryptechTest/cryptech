@@ -123,7 +123,7 @@ local function update_clouds()
 			-- now adjust the shadow intensity
 			local biome = minetest.get_biome_data(player:get_pos())
 			player:set_lighting({ shadows = { intensity = 0.77 * (1 - density) } })
-			local moisture_index = (biome.heat - 10) * biome.humidity / 100
+			local moisture_index = math.abs((biome.heat - 10) * biome.humidity / 100)
 			local is_storming = density > density_max * 0.85 and moisture_index > 17
 			local is_raining = density > density_max * 0.7 and moisture_index > 16
 			local is_sprinkling = density > density_max * 0.6 and moisture_index > 14
@@ -173,7 +173,7 @@ end
 local function update_sky()
 	for _, player in ipairs(minetest.get_connected_players()) do
 		local ppos = player:get_pos()
-		if ppos.y >= -75 and ppos.y <= 2000 then
+		if ppos.y >= -74 and ppos.y <= 2000 then
 			local clouds = player:get_clouds()
 			local player_name = player:get_player_name()
 			local current_weather = player_weather[player_name]
@@ -291,6 +291,7 @@ local function update_sky()
 				player:set_sun()
 			else
 				player_sky[player:get_player_name()] = nil
+				player_weather[player_name] = nil
 			end
 		end
 	end
@@ -304,12 +305,12 @@ end
 
 local function skybox_update()
 	update_sky()
-	minetest.after(CYCLE, skybox_update)
+	minetest.after(0.7, skybox_update)
 end
 
 
 minetest.after(0, cyclic_update)
-minetest.after(0.3, skybox_update)
+minetest.after(0.7, skybox_update)
 
 
 -- Update on player join to instantly alter clouds from the default
