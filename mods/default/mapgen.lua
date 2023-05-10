@@ -1494,7 +1494,7 @@ function default.register_biomes()
 		y_max = 1000,
 		y_min = 1,
 		heat_point = 70,
-		humidity_point = 30,
+		humidity_point = 10,
 	})
 
 	minetest.register_biome({
@@ -1511,7 +1511,7 @@ function default.register_biomes()
 		y_max = 0,
 		y_min = -1,
 		heat_point = 70,
-		humidity_point = 50,
+		humidity_point = 30,
 	})
 
 	minetest.register_biome({
@@ -1530,7 +1530,7 @@ function default.register_biomes()
 		y_max = -2,
 		y_min = -255,
 		heat_point = 70,
-		humidity_point = 70,
+		humidity_point = 40,
 	})
 
 	minetest.register_biome({
@@ -1542,7 +1542,7 @@ function default.register_biomes()
 		y_max = -256,
 		y_min = -1000,
 		heat_point = 70,
-		humidity_point = 30,
+		humidity_point = 10,
 	})
 
 	-- Rainforest
@@ -1560,7 +1560,7 @@ function default.register_biomes()
 		node_dungeon_stair = "stairs:stair_cobble",
 		y_max = 1000,
 		y_min = 1,
-		heat_point = 80,
+		heat_point = 90,
 		humidity_point = 90,
 	})
 
@@ -1577,7 +1577,7 @@ function default.register_biomes()
 		node_dungeon_stair = "stairs:stair_cobble",
 		y_max = 0,
 		y_min = -1,
-		heat_point = 80,
+		heat_point = 90,
 		humidity_point = 100,
 	})
 
@@ -1596,7 +1596,7 @@ function default.register_biomes()
 		vertical_blend = 1,
 		y_max = -2,
 		y_min = -255,
-		heat_point = 80,
+		heat_point = 90,
 		humidity_point = 90,
 	})
 
@@ -1608,7 +1608,7 @@ function default.register_biomes()
 		node_dungeon_stair = "stairs:stair_cobble",
 		y_max = -256,
 		y_min = -1000,
-		heat_point = 80,
+		heat_point = 90,
 		humidity_point = 80,
 	})
 end
