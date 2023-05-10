@@ -1395,7 +1395,7 @@ function default.register_biomes()
 		y_max = 1000,
 		y_min = 4,
 		heat_point = 80,
-		humidity_point = 20,
+		humidity_point = 0,
 	})
 
 	minetest.register_biome({
@@ -1413,7 +1413,7 @@ function default.register_biomes()
 		y_max = 3,
 		y_min = -255,
 		heat_point = 80,
-		humidity_point = 50,
+		humidity_point = 10,
 	})
 
 	minetest.register_biome({
@@ -1425,7 +1425,7 @@ function default.register_biomes()
 		y_max = -256,
 		y_min = -1000,
 		heat_point = 80,
-		humidity_point = 20,
+		humidity_point = 10,
 	})
 
 	-- Cold desert
