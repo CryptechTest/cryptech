@@ -314,3 +314,6 @@
 	path = mods/ctg_schematics
 	url = git@github.com:CryptechTest/ctg_schematics.git
 
+[submodule "mods/testcoin"]
+	path = mods/testcoin
+	url = git@github.com:CryptechTest/TestCoin.git
