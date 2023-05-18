@@ -120,6 +120,31 @@ minetest.register_craft({
     recipe = { "x_farming:corn" },
 })
 
+minetest.register_craft({
+    type = 'cooking',
+    cooktime = 15,
+    output = 'ctg_world:corn_on_the_cob',
+    recipe = 'x_farming:corn'
+})
+
+--new item
+
+-- corn on the cob
+
+minetest.register_craftitem("ctg_world:corn_on_the_cob", {
+    description = S('corn on the cob') .. '\n' ..
+        minetest.colorize(x_farming.colors.brown, S('Hunger') .. ': 4'),
+    inventory_image = "ctg_corn_on_the_cob.png",
+    
+    on_use = function(itemstack, user, pointed_thing)
+        local hunger_amount = minetest.get_item_group(itemstack:get_name(), "hunger_amount") or 0
+        if hunger_amount == 0 then
+            return itemstack
+        end
+        return minetest.item_eat(hunger_amount)(itemstack, user, pointed_thing)
+    end
+})
+
 for i = 1, #aquaz.coral_deco do
     local def = minetest.registered_nodes[aquaz.coral_deco[i].name]
     local marked_groups = def.groups
