@@ -67,7 +67,6 @@ minetest.register_craft({
     output = "x_farming:bonemeal 3",
     recipe = {
         "skullkingsitems:bone",
-        
     },
 })
 
@@ -76,7 +75,6 @@ minetest.register_craft({
     output = "x_farming:bonemeal 9",
     recipe = {
         "skullkingsitems:bone_block",
-        
     },
 })
 
@@ -85,7 +83,6 @@ minetest.register_craft({
     output = "x_farming:bonemeal 3",
     recipe = {
         "goblins:goblins_goblin_bone",
-        
     },
 })
 
@@ -108,6 +105,19 @@ minetest.register_craft({
     type = "shapeless",
     output = "dye:violet 2",
     recipe = {"dye:blue", "dye:red"},
+})
+
+minetest.register_craft({
+    type = 'cooking',
+    cooktime = 10,
+    output = 'x_farming:corn_pop',
+    recipe = 'x_farming:seed_corn',
+})
+
+minetest.register_craft({
+    type = "shapeless",
+    output = "x_farming:seed_corn 4",
+    recipe = { "x_farming:corn" },
 })
 
 for i = 1, #aquaz.coral_deco do
