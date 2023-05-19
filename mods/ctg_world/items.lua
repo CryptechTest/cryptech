@@ -110,7 +110,8 @@ minetest.register_craft({
 minetest.register_craft({
     type = 'cooking',
     cooktime = 10,
-    output = 'x_farming:corn_pop',
+    output = 'x_farming:
+        _pop',
     recipe = 'x_farming:seed_corn',
 })
 
@@ -132,7 +133,7 @@ minetest.register_craft({
 -- corn on the cob
 
 minetest.register_craftitem("ctg_world:corn_on_the_cob", {
-    description = S('corn on the cob') .. '\n' ..
+    description = S('Corn on the Cob') .. '\n' ..
         minetest.colorize(x_farming.colors.brown, S('Hunger') .. ': 4'),
     inventory_image = "ctg_corn_on_the_cob.png",
     
