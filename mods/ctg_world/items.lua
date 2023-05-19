@@ -110,8 +110,7 @@ minetest.register_craft({
 minetest.register_craft({
     type = 'cooking',
     cooktime = 10,
-    output = 'x_farming:
-        _pop',
+    output = 'x_farming:corn_pop',
     recipe = 'x_farming:seed_corn',
 })
 
