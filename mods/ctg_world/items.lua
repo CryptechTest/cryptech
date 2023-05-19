@@ -12,6 +12,22 @@ local recipe = {
 }
 minetest.clear_craft({recipe = recipe})
 
+local dye_dark_greyrecipe = {
+    {'dye:blue', 'dye:orange'}
+}
+minetest.clear_craft({recipe = dye_dark_greyrecipe})
+
+local dye_dark_greyrecipe_2 = {
+    {'dye:yellow', 'dye:violet'}
+}
+minetest.clear_craft({recipe = dye_dark_greyrecipe_2})
+
+local dye_magenta = {
+    {'dye:blue', 'dye:red'}
+}
+minetest.clear_craft({recipe = dye_magenta})
+
+
 -- unregister items from creative
 
 minetest.unregister_item("prefab:boat")
@@ -51,7 +67,6 @@ minetest.register_craft({
     output = "x_farming:bonemeal 3",
     recipe = {
         "skullkingsitems:bone",
-        
     },
 })
 
@@ -60,7 +75,6 @@ minetest.register_craft({
     output = "x_farming:bonemeal 9",
     recipe = {
         "skullkingsitems:bone_block",
-        
     },
 })
 
@@ -69,8 +83,67 @@ minetest.register_craft({
     output = "x_farming:bonemeal 3",
     recipe = {
         "goblins:goblins_goblin_bone",
-        
     },
+})
+
+minetest.register_craft({
+    type = "shapeless",
+    output = "dye:brown 2",
+    recipe = {"dye:blue", "dye:orange"},
+})
+
+minetest.register_craft({
+    type = "shapeless",
+    output = "dye:brown 2",
+    recipe = {
+        "dye:yellow",
+        "dye:violet",
+    },
+})
+
+minetest.register_craft({
+    type = "shapeless",
+    output = "dye:violet 2",
+    recipe = {"dye:blue", "dye:red"},
+})
+
+minetest.register_craft({
+    type = 'cooking',
+    cooktime = 10,
+    output = 'x_farming:
+        _pop',
+    recipe = 'x_farming:seed_corn',
+})
+
+minetest.register_craft({
+    type = "shapeless",
+    output = "x_farming:seed_corn 4",
+    recipe = { "x_farming:corn" },
+})
+
+minetest.register_craft({
+    type = 'cooking',
+    cooktime = 15,
+    output = 'ctg_world:corn_on_the_cob',
+    recipe = 'x_farming:corn'
+})
+
+--new item
+
+-- corn on the cob
+
+minetest.register_craftitem("ctg_world:corn_on_the_cob", {
+    description = S('Corn on the Cob') .. '\n' ..
+        minetest.colorize(x_farming.colors.brown, S('Hunger') .. ': 4'),
+    inventory_image = "ctg_corn_on_the_cob.png",
+    
+    on_use = function(itemstack, user, pointed_thing)
+        local hunger_amount = minetest.get_item_group(itemstack:get_name(), "hunger_amount") or 0
+        if hunger_amount == 0 then
+            return itemstack
+        end
+        return minetest.item_eat(hunger_amount)(itemstack, user, pointed_thing)
+    end
 })
 
 for i = 1, #aquaz.coral_deco do
