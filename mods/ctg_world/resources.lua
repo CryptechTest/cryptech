@@ -424,3 +424,33 @@ minetest.register_node("ctg_world:desert_stone_with_mese", {
     drop = "default:mese_crystal",
     sounds = default.node_sound_stone_defaults()
 })
+
+minetest.register_node("ctg_world:desert_stone_with_zinc", {
+    description = S("Zinc Ore"),
+    tiles = {"default_desert_stone.png^technic_mineral_zinc.png"},
+    groups = {
+        cracky = 3
+    },
+    drop = "technic:zinc_lump",
+    sounds = default.node_sound_stone_defaults()
+})
+
+minetest.register_node("ctg_world:desert_stone_with_lead", {
+    description = S("Lead Ore"),
+    tiles = {"default_desert_stone.png^technic_mineral_lead.png"},
+    groups = {
+        cracky = 3
+    },
+    drop = "technic:lead_lump",
+    sounds = default.node_sound_stone_defaults()
+})
+
+minetest.register_node("ctg_world:desert_stone_with_chromium", {
+    description = S("Chromium Ore"),
+    tiles = {"default_desert_stone.png^technic_mineral_chromium.png"},
+    groups = {
+        cracky = 3
+    },
+    drop = "technic:chromium_lump",
+    sounds = default.node_sound_stone_defaults()
+})

@@ -1,15 +1,5 @@
 -- Scatter ores
 -- Coal
-minetest.register_ore({
-    ore_type = "scatter",
-    ore = "ctg_world:desert_stone_with_coal",
-    wherein = "default:desert_stone",
-    clust_scarcity = 8 * 8 * 8,
-    clust_num_ores = 9,
-    clust_size = 3,
-    y_max = 31000,
-    y_min = 1025
-})
 
 minetest.register_ore({
     ore_type = "scatter",
@@ -18,8 +8,8 @@ minetest.register_ore({
     clust_scarcity = 8 * 8 * 8,
     clust_num_ores = 8,
     clust_size = 3,
-    y_max = 64,
-    y_min = -31000
+    y_max = -1000,
+    y_min = -11000
 })
 
 minetest.register_ore({
@@ -29,8 +19,8 @@ minetest.register_ore({
     clust_scarcity = 24 * 24 * 24,
     clust_num_ores = 27,
     clust_size = 6,
-    y_max = 0,
-    y_min = -31000
+    y_max = 64,
+    y_min = -1000
 })
 
 -- Iron
@@ -39,22 +29,11 @@ minetest.register_ore({
     ore_type = "scatter",
     ore = "ctg_world:desert_stone_with_iron",
     wherein = "default:desert_stone",
-    clust_scarcity = 9 * 9 * 9,
-    clust_num_ores = 12,
-    clust_size = 3,
-    y_max = 31000,
-    y_min = 1025
-})
-
-minetest.register_ore({
-    ore_type = "scatter",
-    ore = "ctg_world:desert_stone_with_iron",
-    wherein = "default:desert_stone",
     clust_scarcity = 7 * 7 * 7,
     clust_num_ores = 5,
     clust_size = 3,
-    y_max = 0,
-    y_min = -31000
+    y_max = -1000,
+    y_min = -11000
 })
 
 minetest.register_ore({
@@ -64,22 +43,11 @@ minetest.register_ore({
     clust_scarcity = 24 * 24 * 24,
     clust_num_ores = 27,
     clust_size = 6,
-    y_max = -64,
-    y_min = -31000
+    y_max = 64,
+    y_min = -1000
 })
 
 -- Copper
-
-minetest.register_ore({
-    ore_type = "scatter",
-    ore = "ctg_world:desert_stone_with_copper",
-    wherein = "default:desert_stone",
-    clust_scarcity = 9 * 9 * 9,
-    clust_num_ores = 5,
-    clust_size = 3,
-    y_max = 31000,
-    y_min = 1025
-})
 
 minetest.register_ore({
     ore_type = "scatter",
@@ -100,21 +68,10 @@ minetest.register_ore({
     clust_num_ores = 5,
     clust_size = 3,
     y_max = -64,
-    y_min = -31000
+    y_min = -11000
 })
 
 -- Tin
-
-minetest.register_ore({
-    ore_type = "scatter",
-    ore = "ctg_world:desert_stone_with_tin",
-    wherein = "default:desert_stone",
-    clust_scarcity = 10 * 10 * 10,
-    clust_num_ores = 5,
-    clust_size = 3,
-    y_max = 31000,
-    y_min = 1025
-})
 
 minetest.register_ore({
     ore_type = "scatter",
@@ -135,21 +92,11 @@ minetest.register_ore({
     clust_num_ores = 5,
     clust_size = 3,
     y_max = -128,
-    y_min = -31000
+    y_min = -11000
 })
 
 -- Gold
 
-minetest.register_ore({
-    ore_type = "scatter",
-    ore = "ctg_world:desert_stone_with_gold",
-    wherein = "default:desert_stone",
-    clust_scarcity = 13 * 13 * 13,
-    clust_num_ores = 5,
-    clust_size = 3,
-    y_max = 31000,
-    y_min = 1025
-})
 
 minetest.register_ore({
     ore_type = "scatter",
@@ -170,21 +117,10 @@ minetest.register_ore({
     clust_num_ores = 5,
     clust_size = 3,
     y_max = -256,
-    y_min = -31000
+    y_min = -11000
 })
 
 -- Mese crystal
-
-minetest.register_ore({
-    ore_type = "scatter",
-    ore = "ctg_world:desert_stone_with_mese",
-    wherein = "default:desert_stone",
-    clust_scarcity = 14 * 14 * 14,
-    clust_num_ores = 5,
-    clust_size = 3,
-    y_max = 31000,
-    y_min = 1025
-})
 
 minetest.register_ore({
     ore_type = "scatter",
@@ -205,7 +141,7 @@ minetest.register_ore({
     clust_num_ores = 5,
     clust_size = 3,
     y_max = -256,
-    y_min = -31000
+    y_min = -11000
 })
 
 -- Diamond
@@ -214,19 +150,8 @@ minetest.register_ore({
     ore_type = "scatter",
     ore = "ctg_world:desert_stone_with_diamond",
     wherein = "default:desert_stone",
-    clust_scarcity = 15 * 15 * 15,
-    clust_num_ores = 4,
-    clust_size = 3,
-    y_max = 31000,
-    y_min = 1025
-})
-
-minetest.register_ore({
-    ore_type = "scatter",
-    ore = "ctg_world:desert_stone_with_diamond",
-    wherein = "default:desert_stone",
-    clust_scarcity = 17 * 17 * 17,
-    clust_num_ores = 4,
+    clust_scarcity = 12 * 12 * 12,
+    clust_num_ores = 3,
     clust_size = 3,
     y_max = -128,
     y_min = -255
@@ -237,10 +162,10 @@ minetest.register_ore({
     ore = "ctg_world:desert_stone_with_diamond",
     wherein = "default:desert_stone",
     clust_scarcity = 15 * 15 * 15,
-    clust_num_ores = 4,
+    clust_num_ores = 5,
     clust_size = 3,
     y_max = -256,
-    y_min = -31000
+    y_min = -11000
 })
 
 -- Mese block
@@ -252,43 +177,95 @@ minetest.register_ore({
     clust_scarcity = 36 * 36 * 36,
     clust_num_ores = 3,
     clust_size = 2,
-    y_max = 31000,
-    y_min = 1025
+    y_max = -1024,
+    y_min = -11000
+})
+
+-- Zinc Ore
+
+minetest.register_ore({
+    ore_type = "scatter",
+    ore = "ctg_world:desert_stone_with_zinc",
+    wherein = "default:desert_stone",
+    clust_scarcity = 36 * 36 * 36,
+    clust_num_ores = 3,
+    clust_size = 2,
+    y_max = -64,
+    y_min = -1024
 })
 
 minetest.register_ore({
     ore_type = "scatter",
-    ore = "ctg_world:desert_stone_with_mese",
+    ore = "ctg_world:desert_stone_with_zinc",
+    wherein = "default:desert_stone",
+    clust_scarcity = 36 * 36 * 36,
+    clust_num_ores = 4,
+    clust_size = 3,
+    y_max = -1024,
+    y_min = -11000
+})
+
+-- Lead Ore
+
+minetest.register_ore({
+    ore_type = "scatter",
+    ore = "ctg_world:desert_stone_with_lead",
+    wherein = "default:desert_stone",
+    clust_scarcity = 36 * 36 * 36,
+    clust_num_ores = 2,
+    clust_size = 2,
+    y_max = -64,
+    y_min = -1024
+})
+
+minetest.register_ore({
+    ore_type = "scatter",
+    ore = "ctg_world:desert_stone_with_lead",
+    wherein = "default:desert_stone",
+    clust_scarcity = 36 * 36 * 36,
+    clust_num_ores = 4,
+    clust_size = 2,
+    y_max = -1024,
+    y_min = -11000
+})
+
+-- Chromium Ore
+
+minetest.register_ore({
+    ore_type = "scatter",
+    ore = "ctg_world:desert_stone_with_chromium",
+    wherein = "default:desert_stone",
+    clust_scarcity = 36 * 36 * 36,
+    clust_num_ores = 2,
+    clust_size = 2,
+    y_max = -64,
+    y_min = -1024
+})
+
+minetest.register_ore({
+    ore_type = "scatter",
+    ore = "ctg_world:desert_stone_with_chromium",
     wherein = "default:desert_stone",
     clust_scarcity = 36 * 36 * 36,
     clust_num_ores = 3,
     clust_size = 2,
     y_max = -1024,
-    y_min = -31000
+    y_min = -11000
 })
 
 -- -------------------------------------------------------------
 -- -------------------------------------------------------------
 -- -------------------------------------------------------------
+
 -- Aluminum
-minetest.register_ore({
-    ore_type = "scatter",
-    ore = "ctg_world:stone_space_with_aluminum",
-    wherein = "asteroid:stone",
-    clust_scarcity = 10 * 10 * 10,
-    clust_num_ores = 5,
-    clust_size = 3,
-    y_max = 31000,
-    y_min = 1025
-})
 
 minetest.register_ore({
     ore_type = "scatter",
     ore = "ctg_world:stone_with_aluminum",
     wherein = "default:stone",
     clust_scarcity = 15 * 15 * 15,
-    clust_num_ores = 4,
-    clust_size = 3,
+    clust_num_ores = 3,
+    clust_size = 2,
     y_max = -32,
     y_min = -127
 })
@@ -299,20 +276,9 @@ minetest.register_ore({
     wherein = "default:stone",
     clust_scarcity = 12 * 12 * 12,
     clust_num_ores = 5,
-    clust_size = 4,
+    clust_size = 3,
     y_max = -128,
     y_min = -11000
-})
-
-minetest.register_ore({
-    ore_type = "scatter",
-    ore = "ctg_world:red_stone_with_aluminum",
-    wherein = "asteroid:redstone",
-    clust_scarcity = 10 * 10 * 10,
-    clust_num_ores = 5,
-    clust_size = 3,
-    y_max = 31000,
-    y_min = 1025
 })
 
 minetest.register_ore({
@@ -320,7 +286,7 @@ minetest.register_ore({
     ore = "ctg_world:desert_stone_with_aluminum",
     wherein = "default:desert_stone",
     clust_scarcity = 15 * 15 * 15,
-    clust_num_ores = 4,
+    clust_num_ores = 3,
     clust_size = 3,
     y_max = -32,
     y_min = -127
@@ -338,16 +304,6 @@ minetest.register_ore({
 })
 
 -- Nickel
-minetest.register_ore({
-    ore_type = "scatter",
-    ore = "ctg_world:stone_space_with_nickel",
-    wherein = "asteroid:stone",
-    clust_scarcity = 10 * 10 * 10,
-    clust_num_ores = 5,
-    clust_size = 3,
-    y_max = 31000,
-    y_min = 1025
-})
 
 minetest.register_ore({
     ore_type = "scatter",
@@ -369,17 +325,6 @@ minetest.register_ore({
     clust_size = 4,
     y_max = -128,
     y_min = -11000
-})
-
-minetest.register_ore({
-    ore_type = "scatter",
-    ore = "ctg_world:red_stone_with_nickel",
-    wherein = "asteroid:redstone",
-    clust_scarcity = 10 * 10 * 10,
-    clust_num_ores = 5,
-    clust_size = 3,
-    y_max = 31000,
-    y_min = 1025
 })
 
 minetest.register_ore({
@@ -406,26 +351,14 @@ minetest.register_ore({
 
 -- Titanium
 
--- space
-minetest.register_ore({
-    ore_type = "scatter",
-    ore = "ctg_world:stone_space_with_titanium",
-    wherein = "asteroid:stone",
-    clust_scarcity = 10 * 10 * 10,
-    clust_num_ores = 6,
-    clust_size = 5,
-    y_max = 31000,
-    y_min = 1025
-})
-
 -- ground
 minetest.register_ore({
     ore_type = "scatter",
     ore = "ctg_world:stone_with_titanium",
     wherein = "default:stone",
-    clust_scarcity = 17 * 17 * 17,
+    clust_scarcity = 12 * 12 * 12,
     clust_num_ores = 3,
-    clust_size = 3,
+    clust_size = 2,
     y_max = -320,
     y_min = -1270
 })
@@ -434,45 +367,33 @@ minetest.register_ore({
     ore_type = "scatter",
     ore = "ctg_world:stone_with_titanium",
     wherein = "default:stone",
-    clust_scarcity = 16 * 16 * 16,
-    clust_num_ores = 6,
-    clust_size = 3,
+    clust_scarcity = 26 * 26 * 26,
+    clust_num_ores = 8,
+    clust_size = 4,
     y_max = -1280,
     y_min = -11000
 })
 
--- space red
-minetest.register_ore({
-    ore_type = "scatter",
-    ore = "ctg_world:stone_red_with_titanium",
-    wherein = "asteroid:redstone",
-    clust_scarcity = 10 * 10 * 10,
-    clust_num_ores = 6,
-    clust_size = 5,
-    y_max = 31000,
-    y_min = 1025
-})
-
 -- ground
 minetest.register_ore({
     ore_type = "scatter",
     ore = "ctg_world:desert_stone_with_titanium",
     wherein = "default:desert_stone",
-    clust_scarcity = 13 * 13 * 13,
+    clust_scarcity = 7 * 7 * 7,
     clust_num_ores = 3,
     clust_size = 3,
-    y_max = -320,
-    y_min = -1270
+    y_max = -32,
+    y_min = -127
 })
 
 minetest.register_ore({
     ore_type = "scatter",
     ore = "ctg_world:desert_stone_with_titanium",
     wherein = "default:desert_stone",
-    clust_scarcity = 10 * 10 * 10,
+    clust_scarcity = 20 * 20 * 20,
     clust_num_ores = 5,
     clust_size = 3,
-    y_max = -1280,
+    y_max = -128,
     y_min = -11000
 })
 
@@ -554,6 +475,7 @@ minetest.register_ore({
     y_max = -10000,
     y_min = -11000
 })
+
 minetest.register_ore({
     ore_type = "scatter",
     ore = "ctg_world:corestone_with_chromium",
