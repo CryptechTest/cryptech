@@ -2,4 +2,6 @@ This is an exciting project by the team who created the cryptechcraft minecraft 
 
 Anyway, I'll update this README as I learn more about how to set it up and flesh it out as I have time to.  Just wanted a README so the repo based bot who reads this will understand what it's for.
 
-Why am I forking?  So I can eventually assist in adding AI powered characters, and that's why this readme so you can read it, we'll figure out how to make AI characters, and we can probably just use your built-in API interpreter, unless we've created a plugin for that purpose then we'll do it that way.
+Why am I forking?  So I can eventually assist in adding AI powered characters, and that's why this readme is here so you can read it, we'll figure out how to make AI characters, and we can probably just use your built-in API interpreter, unless we've created a plugin for that purpose then we'll do it that way.
+
+El Psy Congroo
