@@ -681,6 +681,53 @@ if minetest.get_modpath("bottles") then
         type = 'cooking',
         recipe = "ctg_world:bottle_of_coffe_with_milk"
     })
+
+    -- hot cup of coffee
+    local coffee_cup_hot_desc = S('Hotish Cup of Coffee with Cream') .. '\n' ..
+        minetest.colorize(x_farming.colors.brown, S('Hunger') .. ': 7')
+
+    minetest.register_node('ctg_world:coffee_cup_hot_3', {
+        description = coffee_cup_hot_desc,
+        short_description = coffee_cup_hot_desc,
+        drawtype = 'mesh',
+        mesh = 'x_farming_coffee_cup_hot.obj',
+        tiles = { 'ctg_coffee_cup_hot_mesh.png' },
+        inventory_image = 'ctg_coffee_cup_hot.png',
+        wield_image = 'ctg_coffee_cup_hot.png',
+        paramtype = 'light',
+        paramtype2 = 'facedir',
+        is_ground_content = false,
+        walkable = true,
+        selection_box = {
+            type = 'fixed',
+            fixed = { -0.25, -0.5, -0.4, 0.25, 0.5, 0.25 }
+        },
+        collision_box = {
+            type = 'fixed',
+            fixed = { -0.25, -0.5, -0.4, 0.25, 0, 0.25 }
+        },
+        groups = {
+            vessel = 1,
+            dig_immediate = 3,
+            attached_node = 1,
+            hunger_amount = 7
+        },
+        on_use = function(itemstack, user, pointed_thing)
+            local hunger_amount = minetest.get_item_group(itemstack:get_name(), "hunger_amount") or 0
+            if hunger_amount == 0 then
+                return itemstack
+            end
+            return minetest.item_eat(hunger_amount)(itemstack, user, pointed_thing)
+        end,
+        sounds = default.node_sound_glass_defaults(),
+        sunlight_propagates = true
+    })
+
+    minetest.register_craft({
+        output = "ctg_world:coffee_cup_hot_3",
+        type = "shapeless",
+        recipe = "ctg_world:coffee_cup_hot_2"
+    })
 end
 
 -- grub
