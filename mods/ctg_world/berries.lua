@@ -726,7 +726,7 @@ if minetest.get_modpath("bottles") then
     minetest.register_craft({
         output = "ctg_world:coffee_cup_hot_3",
         type = "shapeless",
-        recipe = "ctg_world:coffee_cup_hot_2"
+        recipe = {"ctg_world:coffee_cup_hot_2"}
     })
 end
 
