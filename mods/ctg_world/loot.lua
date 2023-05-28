@@ -1,4 +1,8 @@
 local ctg_loot = {
+    { name = 'testcoin:coin',               chance = 0.1,  count = { 1, 4 },       y = { 128, -3333 } },
+    { name = 'testcoin:coin',               chance = 0.1,  count = { 2, 8 },       y = { -3334, -6666 } },
+    { name = 'testcoin:coin',               chance = 0.1,  count = { 4, 16 },      y = { -6667, -9999 } },
+    { name = 'testcoin:coin',               chance = 0.1,  count = { 8, 32 },      y = { -10000, -11000 } },
     { name = '3d_armor:boots_steel',        chance = 0.25, y = { -5499, -1000 } },
     { name = '3d_armor:chestplate_steel',   chance = 0.25, y = { -5499, -1000 } },
     { name = '3d_armor:helmet_steel',       chance = 0.25, y = { -5499, -1000 } },
