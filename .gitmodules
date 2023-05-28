@@ -208,9 +208,6 @@
 [submodule "mods/mapfix"]
 	path = mods/mapfix
 	url = git@github.com:minetest-mods/mapfix.git
-[submodule "mods/ggraffiti"]
-	path = mods/ggraffiti
-	url = git@github.com:grorp/ggraffiti.git
 [submodule "mods/flow"]
 	path = mods/flow
 	url = git@github.com:CryptechTest/flow.git
