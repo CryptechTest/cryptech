@@ -670,7 +670,7 @@ if minetest.get_modpath("bottles") then
             if hunger_amount == 0 then
                 return itemstack
             end
-            return minetest.item_eat(hunger_amount, 'x_farming:bowl')(itemstack, user, pointed_thing)
+            return minetest.item_eat(hunger_amount)(itemstack, user, pointed_thing)
         end,
         sounds = default.node_sound_glass_defaults(),
         sunlight_propagates = true
