@@ -84,7 +84,7 @@ awards.register_award("award_needed_a_little_effort", {
 })
 
 awards.register_award("award_glowing_and_juicy", {
-    title = S("Baker"),
+    title = S("Glowing and Juicy"),
     description = S("Eat 10 Bowls of Glowberries."),
     icon = "award_glowing_and_juicy.png",
     trigger = {
