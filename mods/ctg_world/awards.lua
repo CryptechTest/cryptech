@@ -68,7 +68,7 @@ awards.register_award("award_glow_bush_harvester", {
     trigger = {
         type = "dig",
         node = "ctg_world:glowberry_bush_leaves",
-        target = 100
+        target = 50
     }
 })
 
