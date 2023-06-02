@@ -68,7 +68,7 @@ awards.register_award("award_glow_bush_harvester", {
     trigger = {
         type = "dig",
         node = "ctg_world:glowberry_bush_leaves",
-        target = 100
+        target = 50
     }
 })
 
@@ -84,7 +84,7 @@ awards.register_award("award_needed_a_little_effort", {
 })
 
 awards.register_award("award_glowing_and_juicy", {
-    title = S("Baker"),
+    title = S("Glowing and Juicy"),
     description = S("Eat 10 Bowls of Glowberries."),
     icon = "award_glowing_and_juicy.png",
     trigger = {
