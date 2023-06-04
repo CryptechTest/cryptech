@@ -192,6 +192,7 @@ minetest.register_craftitem("ctg_world:glowberries", {
         food_glowberry = 1,
         hunger_amount = 2
     },
+    light_source = 6,
     on_use = function(itemstack, user, pointed_thing)
         local hunger_amount = minetest.get_item_group(itemstack:get_name(), "hunger_amount") or 0
         if hunger_amount == 0 then
@@ -230,6 +231,7 @@ minetest.register_node('ctg_world:glowberry_bowl', {
         compost = 100,
         hunger_amount = 14
     },
+    light_source = 7,
     on_use = function(itemstack, user, pointed_thing)
         local hunger_amount = minetest.get_item_group(itemstack:get_name(), "hunger_amount") or 0
         if hunger_amount == 0 then
@@ -277,6 +279,7 @@ minetest.register_node('ctg_world:glowberry_bowl_mix', {
         compost = 100,
         hunger_amount = 16
     },
+    light_source = 6,
     on_use = function(itemstack, user, pointed_thing)
         local hunger_amount = minetest.get_item_group(itemstack:get_name(), "hunger_amount") or 0
         if hunger_amount == 0 then
@@ -324,6 +327,7 @@ minetest.register_node('ctg_world:blueberry_mix_bowl', {
         compost = 100,
         hunger_amount = 12
     },
+    light_source = 5,
     on_use = function(itemstack, user, pointed_thing)
         local hunger_amount = minetest.get_item_group(itemstack:get_name(), "hunger_amount") or 0
         if hunger_amount == 0 then
