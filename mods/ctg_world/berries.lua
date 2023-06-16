@@ -54,7 +54,7 @@ minetest.register_node("ctg_world:glowberry_bush_leaves", {
     },
     sounds = default.node_sound_leaves_defaults(),
     on_timer = function(pos, elapsed)
-        if minetest.get_node_light(pos) > 11 or minetest.get_node_light(pos) < 3 then
+        if minetest.get_node_light(pos) > 11 or minetest.get_node_light(pos) < 1 then
             minetest.get_node_timer(pos):start(300)
         else
             local meta_old = minetest.get_meta(pos)
