@@ -7,6 +7,7 @@ minetest.register_node("ctg_world:corestone", {
         cracky = 1,
         level = 4
     },
+    on_blast = function() end,
     sounds = default.node_sound_stone_defaults()
 })
 
@@ -19,6 +20,7 @@ minetest.register_node("ctg_world:corestone_glow", {
     },
     paramtype = "light",
     light_source = 7,
+    on_blast = function() end,
     sounds = default.node_sound_stone_defaults()
 })
 
@@ -31,6 +33,7 @@ minetest.register_node("ctg_world:corestone_glow2", {
     },
     paramtype = "light",
     light_source = 12,
+    on_blast = function() end,
     sounds = default.node_sound_stone_defaults()
 })
 
