@@ -9,6 +9,7 @@ minetest.register_node("ctg_world:corestone_with_coal", {
         level = 4
     },
     drop = "default:coal_lump",
+    on_blast = function() end,
     sounds = default.node_sound_stone_defaults()
 })
 
@@ -20,6 +21,7 @@ minetest.register_node("ctg_world:corestone_with_copper", {
         level = 4
     },
     drop = "default:copper_lump",
+    on_blast = function() end,
     sounds = default.node_sound_stone_defaults()
 })
 
@@ -31,6 +33,7 @@ minetest.register_node("ctg_world:corestone_with_diamond", {
         level = 4
     },
     drop = "default:diamond",
+    on_blast = function() end,
     sounds = default.node_sound_stone_defaults()
 })
 
@@ -42,6 +45,7 @@ minetest.register_node("ctg_world:corestone_with_gold", {
         level = 4
     },
     drop = "default:gold_lump",
+    on_blast = function() end,
     sounds = default.node_sound_stone_defaults()
 })
 
@@ -53,6 +57,7 @@ minetest.register_node("ctg_world:corestone_with_iron", {
         level = 4
     },
     drop = "default:iron_lump",
+    on_blast = function() end,
     sounds = default.node_sound_stone_defaults()
 })
 
@@ -64,6 +69,7 @@ minetest.register_node("ctg_world:corestone_with_tin", {
         level = 4
     },
     drop = "default:tin_lump",
+    on_blast = function() end,
     sounds = default.node_sound_stone_defaults()
 })
 
@@ -76,6 +82,7 @@ minetest.register_node("ctg_world:corestone_with_mese", {
         radioactive = 1
     },
     drop = "default:mese_crystal",
+    on_blast = function() end,
     sounds = default.node_sound_stone_defaults()
 })
 
@@ -87,6 +94,7 @@ minetest.register_node("ctg_world:corestone_with_aluminum", {
         level = 4
     },
     drop = "ctg_world:aluminum_lump",
+    on_blast = function() end,
     sounds = default.node_sound_stone_defaults()
 })
 
@@ -98,6 +106,7 @@ minetest.register_node("ctg_world:corestone_with_nickel", {
         level = 4
     },
     drop = "ctg_world:nickel_lump",
+    on_blast = function() end,
     sounds = default.node_sound_stone_defaults()
 })
 
@@ -109,6 +118,7 @@ minetest.register_node("ctg_world:corestone_with_titanium", {
         level = 4
     },
     drop = "ctg_world:titanium_lump",
+    on_blast = function() end,
     sounds = default.node_sound_stone_defaults()
 })
 
@@ -122,6 +132,7 @@ minetest.register_node("ctg_world:corestone_with_silver", {
         level = 4
     },
     drop = "moreores:silver_lump",
+    on_blast = function() end,
     sounds = default.node_sound_stone_defaults()
 })
 
@@ -133,6 +144,7 @@ minetest.register_node("ctg_world:corestone_with_lead", {
         level = 4
     },
     drop = "technic:lead_lump",
+    on_blast = function() end,
     sounds = default.node_sound_stone_defaults()
 })
 
@@ -145,6 +157,7 @@ minetest.register_node("ctg_world:corestone_with_uranium", {
         radioactive = 1
     },
     drop = "technic:uranium_lump",
+    on_blast = function() end,
     sounds = default.node_sound_stone_defaults()
 })
 
@@ -156,6 +169,7 @@ minetest.register_node("ctg_world:corestone_with_chromium", {
         level = 4
     },
     drop = "technic:chromium_lump",
+    on_blast = function() end,
     sounds = default.node_sound_stone_defaults()
 })
 
@@ -167,5 +181,6 @@ minetest.register_node("ctg_world:corestone_with_mithril", {
         level = 4
     },
     drop = "moreores:mithril_lump",
+    on_blast = function() end,
     sounds = default.node_sound_stone_defaults()
 })
