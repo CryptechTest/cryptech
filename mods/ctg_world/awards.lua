@@ -89,7 +89,7 @@ awards.register_award("award_glowing_and_juicy", {
     icon = "award_glowing_and_juicy.png",
     trigger = {
         type = "eat",
-        item = "farming:bread",
+        item = "ctg_world:glowberries",
         target = 10
     }
 })
