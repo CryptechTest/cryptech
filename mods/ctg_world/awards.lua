@@ -103,7 +103,7 @@ awards.register_award("award_red_sky_martyr", {
 
 awards.register_award("award_radiant_peril", {
     title = S("Radiant Peril"),
-    description = S("Die in the radiatin barrier."),
+    description = S("Die in the radiation barrier."),
     icon = "award_radiant_peril.png",
     secret = true,
 })
