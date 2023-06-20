@@ -51,7 +51,8 @@ ui.register_page("beds", {
 
                         local node = minetest.get_node(pos)
                         if node.name ~= stack:get_name() then
-                            inv:remove_item("beds", stack)
+                            stack:clear()
+                            inv:set_stack("beds", k, stack)
                         else
                             formspec[n] = "image_button[" ..
                                 (std_inv_x + ui.list_img_offset) + ((j - 1) * 1.2) ..
@@ -66,7 +67,8 @@ ui.register_page("beds", {
                             n = n + 1
                         end
                     else
-                        inv:remove_item("beds", stack)
+                        stack:clear()
+                        inv:set_stack("beds", k, stack)
                     end
                 end
             end
@@ -110,7 +112,8 @@ for i = 1, 24 do
                     vm:read_from_map(minp, maxp)
                     local node = minetest.get_node(pos)
                     if node.name ~= stack:get_name() then
-                        inv:remove_item("beds", stack)
+                        stack:clear()
+                        inv:set_stack("beds", i, stack)
                     else
                         formspec = {
                             perplayer_formspec.standard_inv_bg,
@@ -143,7 +146,8 @@ for i = 1, 24 do
                         }
                     end
                 else
-                    inv:remove_item("beds", stack)
+                    stack:clear()
+                    inv:set_stack("beds", i, stack)
                 end
             end
             return { formspec = table.concat(formspec) }
@@ -223,7 +227,8 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
                         minetest.chat_send_player(player:get_player_name(), S("This bed is on cooldown!"))
                     end
                 else
-                    inv:remove_item("beds", stack)
+                    stack:clear()
+                    inv:set_stack("beds", i, stack)
                     ui.set_inventory_formspec(player, ui.default)
                 end
             end
@@ -246,7 +251,8 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
                 vm:read_from_map(minp, maxp)
                 local node = minetest.get_node(pos)
                 if node.name ~= stack:get_name() then
-                    inv:remove_item("beds", stack)
+                    stack:clear()
+                    inv:set_stack("beds", i, stack)
                     ui.set_inventory_formspec(player, ui.default)
                 else
                     ui.set_inventory_formspec(player, "bed" .. i)
