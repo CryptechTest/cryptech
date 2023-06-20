@@ -165,7 +165,10 @@ local function update_clouds()
 		if player:get_pos().y <= cloud_height + 1.5 and player:get_pos().y >= -200 then
 			precipitation.set_precipitation(player, precip)
 		else
+			player_weather[player:get_player_name()] = nil
+			player_sky[player:get_player_name()] = nil
 			precipitation.set_precipitation(player, "none")
+			lightning.storm(player, false)
 		end
 	end
 end
