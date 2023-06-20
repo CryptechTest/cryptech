@@ -12,20 +12,20 @@ minetest.register_node("ctg_world:glowberry_bush_leaves_with_berries", {
         flammable = 2,
         leaves = 1,
         dig_immediate = 3,
-        leafdecay = 3
+        leafdecay = 3,
     },
     drop = "ctg_world:glowberries",
     sounds = default.node_sound_leaves_defaults(),
     node_dig_prediction = "ctg_world:glowberry_bush_leaves",
     after_dig_node = function(pos, oldnode, oldmetadata, digger)
         local ticks = tonumber(oldmetadata.fields.ticks or "0")
-        minetest.set_node(pos, {
-            name = "ctg_world:glowberry_bush_leaves"
-        })
-        if (ticks < 3) then
-            minetest.get_node_timer(pos):start(math.random(900, 4500))
+        if (ticks < 10) then
+            minetest.set_node(pos, { name = "ctg_world:glowberry_bush_leaves" })
+            minetest.get_node_timer(pos):start(math.random(300, 2000))
             local meta = minetest.get_meta(pos)
             meta:set_int("ticks", ticks)
+        else
+            minetest.set_node(pos, { name = "ctg_world:glowberry_bush_leaves_dry" })
         end
     end
 })
@@ -36,12 +36,12 @@ minetest.register_node("ctg_world:glowberry_bush_leaves", {
     drawtype = "allfaces_optional",
     tiles = { "cave_leaves.png" },
     paramtype = "light",
-    light_source = 2,
+    light_source = 3,
     groups = {
         snappy = 3,
         flammable = 2,
         leaves = 1,
-        leafdecay = 3
+        --leafdecay = 3,
     },
     drop = {
         max_items = 1,
@@ -54,19 +54,43 @@ minetest.register_node("ctg_world:glowberry_bush_leaves", {
     },
     sounds = default.node_sound_leaves_defaults(),
     on_timer = function(pos, elapsed)
-        if minetest.get_node_light(pos) > 11 or minetest.get_node_light(pos) < 1 then
-            minetest.get_node_timer(pos):start(300)
+        if minetest.get_node_light(pos) > 9 then
+            minetest.get_node_timer(pos):start(200)
         else
             local meta_old = minetest.get_meta(pos)
             local ticks = meta_old:get_int("ticks") or 0
-            minetest.set_node(pos, {
-                name = "ctg_world:glowberry_bush_leaves_with_berries"
-            })
+            minetest.set_node(pos, { name = "ctg_world:glowberry_bush_leaves_with_berries" })
             local meta = minetest.get_meta(pos)
             meta:set_int("ticks", ticks + 1)
         end
     end,
-    after_place_node = default.after_place_leaves
+    after_place_node = default.after_place_leaves,
+})
+
+-- glowberry_bush_leaves_dry
+minetest.register_node("ctg_world:glowberry_bush_leaves_dry", {
+    description = S("Dry Glow Bush Leaves"),
+    drawtype = "allfaces_optional",
+    tiles = { "cave_leaves_dry.png" },
+    paramtype = "light",
+    light_source = 2,
+    groups = {
+        snappy = 3,
+        flammable = 2,
+        leaves = 1,
+        leafdecay = 3,
+    },
+    drop = {
+        max_items = 1,
+        items = { {
+            items = { "ctg_world:glowberry_bush_sapling" },
+            rarity = 10
+        }, {
+            items = { "ctg_world:glowberry_bush_leaves_dry" }
+        } }
+    },
+    sounds = default.node_sound_leaves_defaults(),
+    after_place_node = default.after_place_leaves,
 })
 
 ---------------------------------------------------------
@@ -127,7 +151,7 @@ minetest.register_node("ctg_world:glowberry_bush_sapling", {
     inventory_image = "ctg_glowberry_sapling.png",
     wield_image = "ctg_glowberry_sapling.png",
     paramtype = "light",
-    light_source = 2,
+    light_source = 3,
     sunlight_propagates = true,
     walkable = false,
     on_timer = grow_berry_bush,
@@ -167,7 +191,7 @@ minetest.register_node("ctg_world:glowberry_bush_sapling", {
 -- leaf decay
 default.register_leafdecay({
     trunks = { 'default:bush_stem' },
-    leaves = { 'ctg_world:glowberry_bush_leaves', 'ctg_world:glowberry_bush_leaves_with_berries' },
+    leaves = { 'ctg_world:glowberry_bush_leaves_with_berries', 'ctg_world:glowberry_bush_leaves_dry' },
     radius = 3
 })
 
