@@ -185,3 +185,13 @@ minetest.clear_craft({ output = "scifi_nodes:flower1" })
 minetest.clear_craft({ output = "scifi_nodes:flower2" })
 minetest.clear_craft({ output = "scifi_nodes:flower3" })
 minetest.clear_craft({ output = "scifi_nodes:flower4" })
+
+if (minetest.get_modpath("nature_classic")) then
+    -- apple decay
+    local apple = 'default:apple'
+    default.register_leafdecay({
+        trunks = { nature.blossom_trunk },
+        leaves = { nature.blossom_node, nature.blossom_leaves, apple },
+        radius = nature.blossom_decay,
+    })
+end
