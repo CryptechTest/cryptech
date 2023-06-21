@@ -34,7 +34,8 @@ local function destruct_bed(pos, n)
 					local meta = bed:get_meta()
 					local ppos = meta:get_string("pos")
 					if minetest.serialize(pos) == ppos then
-						inv:remove_item("beds", bed)
+						bed:clear()
+						inv:set_stack("beds", i, bed)
 						beds.bed_cooldown[minetest.serialize(pos)] = false
 						local last = false
 						for j = 1, 24 do
@@ -87,9 +88,9 @@ function beds.register_bed(name, def)
 			local udef = minetest.registered_nodes[node.name]
 			if udef and udef.on_rightclick and
 				not (placer and placer:is_player() and
-				placer:get_player_control().sneak) then
+					placer:get_player_control().sneak) then
 				return udef.on_rightclick(under, node, placer, itemstack,
-						pointed_thing) or itemstack
+					pointed_thing) or itemstack
 			end
 
 			local pos
