@@ -195,3 +195,30 @@ if (minetest.get_modpath("nature_classic")) then
         radius = nature.blossom_decay,
     })
 end
+
+-- bonemeal register
+if (minetest.get_modpath("x_farming") and minetest.get_modpath("ferns")) then
+    x_farming.x_bonemeal:register_tree_defs({ {
+        name = 'ferns:sapling_tree_fern',
+        chance = 3,
+        grow_tree = function(pos)
+            if abstract_ferns.can_grow_tree_fern(pos) then
+                minetest.set_node(pos, {name = 'ferns:fern_trunk'})
+                return abstract_ferns.grow_tree_fern(pos)
+            end
+            return false
+        end
+    } })
+
+    x_farming.x_bonemeal:register_tree_defs({ {
+        name = 'ferns:sapling_giant_tree_fern',
+        chance = 3,
+        grow_tree = function(pos)
+            if abstract_ferns.can_grow_giant_tree_fern(pos) then
+                minetest.set_node(pos, {name = "ferns:fern_trunk_big"})
+                return abstract_ferns.grow_giant_tree_fern(pos)
+            end
+            return false
+        end
+    } })
+end
