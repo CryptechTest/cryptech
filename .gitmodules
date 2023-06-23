@@ -82,9 +82,6 @@
 [submodule "mods/bottles"]
 	path = mods/bottles
 	url = git@github.com:CryptechTest/bottles.git
-[submodule "mods/technic"]
-	path = mods/technic
-	url = git@github.com:CryptechTest/technic.git
 [submodule "mods/pipeworks"]
 	path = mods/pipeworks
 	url = git@github.com:CryptechTest/pipeworks.git
@@ -316,3 +313,7 @@
 [submodule "mods/smartshop"]
 	path = mods/smartshop
 	url = git@github.com:CryptechTest/minetest-smartshop.git
+[submodule "mods/technic_plus"]
+	path = mods/technic_plus
+	url = git@github.com:CryptechTest/technic_plus.git
+	branch = cryptech
