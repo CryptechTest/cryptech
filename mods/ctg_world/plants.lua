@@ -156,15 +156,22 @@ minetest.after(0, init_plants)
 minetest.register_craftitem('ctg_world:sugar', {
     description = S('Sugar'),
     short_description = S('Sugar'),
-    inventory_image = 'x_farming_sugar.png',
+    inventory_image = 'ctg_farming_sugar.png',
     groups = { flammable = 1, food_sugar = 1 },
 })
 
 minetest.register_craft({
-    type = 'shapeless',
-    output = 'ctg_world:sugar',
-    recipe = { 'default:papyrus' }
+    --type = 'shapeless',
+    --output = 'ctg_world:sugar',
+    --recipe = { 'default:papyrus' }
+    output = 'ctg_world:sugar 4',
+    recipe = {{ 'default:papyrus', "", 'default:papyrus' }, { "", 'default:papyrus' , "" }, { 'default:papyrus', "", 'default:papyrus' }}
 })
+
+if minetest.get_modpath("technic") then
+    technic.register_extractor_recipe({input = {'default:papyrus'}, output = 'ctg_world:sugar'})
+    technic.register_extractor_recipe({input = {'x_farming:stevia'}, output = 'x_farming:sugar_substitute'})
+end
 
 minetest.clear_craft({ output = "scifi_nodes:plant1" })
 minetest.clear_craft({ output = "scifi_nodes:plant2" })
