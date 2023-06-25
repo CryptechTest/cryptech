@@ -57,6 +57,11 @@ local function registerFancyBed(color)
 			{ "wool:" .. color, "wool:" .. color, "wool:white" },
 			{ "group:wood",     "group:wood",     "group:wood" },
 		},
+		recipe_alt = {
+			{ "",               "",               "group:stick" },
+			{ "x_farming:pillow_" .. color, "x_farming:pillow_" .. color, "x_farming:pillow_white" },
+			{ "group:wood",     "group:wood",     "group:wood" },
+		},
 	})
 
 	minetest.register_craft({
@@ -102,6 +107,10 @@ local function registerSimpleBed(color)
 		selectionbox = { -0.5, -0.5, -0.5, 0.5, 0.0625, 1.5 },
 		recipe = {
 			{ "wool:" .. color, "wool:" .. color, "wool:white" },
+			{ "group:wood",     "group:wood",     "group:wood" }
+		},
+		recipe_alt = {
+			{ "x_farming:pillow_" .. color, "x_farming:pillow_" .. color, "x_farming:pillow_white" },
 			{ "group:wood",     "group:wood",     "group:wood" }
 		},
 	})
@@ -151,7 +160,9 @@ local function registerSimpleBag(color)
 		selectionbox = { -0.5, -0.5, -0.5, 0.5, -0.3750, 1.5 },
 		recipe = {
 			{ "wool:slab_" .. color, "wool:slab_" .. color, "wool:slab_" .. color },
-
+		},
+		recipe_alt = {
+			{ "stairs:slab_pillow_" .. color, "stairs:slab_pillow_" .. color, "stairs:slab_pillow_" .. color },
 		},
 	})
 	minetest.register_craft({

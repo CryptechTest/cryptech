@@ -100,7 +100,7 @@ minetest.register_decoration({
 minetest.register_craftitem("farming:string", {
 	description = S("String"),
 	inventory_image = "farming_string.png",
-	groups = { flammable = 2 },
+	groups = { flammable = 2, string = 1 },
 })
 
 minetest.register_craft({

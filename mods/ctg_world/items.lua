@@ -38,7 +38,7 @@ minetest.unregister_item("mobs:saddle")
 minetest.register_craft({
     output = "unified_inventory:bag_small",
     recipe = {
-        { "",             "farming:string", "" },
+        { "",             "group:string", "" },
         { "mobs:leather", "mobs:leather",   "mobs:leather" },
         { "mobs:leather", "mobs:leather",   "mobs:leather" },
     },
