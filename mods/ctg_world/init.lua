@@ -15,6 +15,7 @@ dofile(default_path .. DIR_DELIM .. "items.lua")
 dofile(default_path .. DIR_DELIM .. "loot.lua")
 dofile(default_path .. DIR_DELIM .. "commands.lua")
 dofile(default_path .. DIR_DELIM .. "vehicles.lua")
+dofile(default_path .. DIR_DELIM .. "cotton.lua")
 dofile(default_path .. DIR_DELIM .. "awards.lua")
 local function give_or_drop_item(player, itemstack)
     local inv = minetest.get_inventory({

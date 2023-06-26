@@ -241,4 +241,11 @@ function beds.register_bed(name, def)
 		output = name,
 		recipe = def.recipe
 	})
+
+	if def.recipe_alt ~= nil then
+		minetest.register_craft({
+			output = name,
+			recipe = def.recipe_alt
+		})
+	end
 end

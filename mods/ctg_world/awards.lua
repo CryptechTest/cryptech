@@ -1,6 +1,5 @@
 local S = minetest.get_translator("ctg_world")
 
-
 awards.register_award("award_conqueror_of_the_skies1", {
     title = S("Conqueror of the Skies I"),
     description = S("Upgrade to a Bronze Jetpack."),
@@ -18,7 +17,7 @@ awards.register_award("award_conqueror_of_the_skies2", {
     description = S("Upgrade to a Iron Jetpack."),
     difficulty = 0.5,
     icon = "award_conqueror_of_the_skies.png^awards_level2.png",
-    requires = { "award_conqueror_of_the_skies1" },
+    requires = {"award_conqueror_of_the_skies1"},
     trigger = {
         type = "craft",
         item = "ctg_jetpack:jetpack_iron",
@@ -31,7 +30,7 @@ awards.register_award("award_conqueror_of_the_skies3", {
     description = S("Upgrade to a Titanium Jetpack."),
     difficulty = 1.0,
     icon = "award_conqueror_of_the_skies.png^awards_level3.png",
-    requires = { "award_conqueror_of_the_skies1", "award_conqueror_of_the_skies2" },
+    requires = {"award_conqueror_of_the_skies1", "award_conqueror_of_the_skies2"},
     trigger = {
         type = "craft",
         item = "ctg_jetpack:jetpack_titanium",
@@ -98,31 +97,29 @@ awards.register_award("award_red_sky_martyr", {
     title = S("Red Sky Martyr"),
     description = S("Die in Red Sky Space."),
     icon = "award_red_sky_martyr.png",
-    secret = true,
+    secret = true
 })
 
 awards.register_award("award_radiant_peril", {
     title = S("Radiant Peril"),
     description = S("Die in the radiation barrier."),
     icon = "award_radiant_peril.png",
-    secret = true,
+    secret = true
 })
 
 awards.register_award("award_deep_space_demise", {
     title = S("Deep Space Demise"),
     description = S("Die in Deep Space."),
     icon = "award_deep_space_demise.png",
-    secret = true,
+    secret = true
 })
 
 awards.register_award("award_life_support_engineer", {
     title = S("Life Support Engineer"),
     description = S("Place an Air Pump in space."),
     icon = "award_life_support_engineer.png",
-    secret = true,
+    secret = true
 })
-
-
 
 awards.register_on_death(function(player, data)
     local pos = player:get_pos()
@@ -143,3 +140,54 @@ awards.register_on_place(function(player, data)
     end
     return nil
 end)
+
+if minetest.get_modpath("x_farming") then
+
+    awards.register_award("awards_barley_farmer", {
+        title = S("Barley Farmer"),
+        description = S("Harvest 50 fully grown barley plant."),
+        icon = "awards_barley_farmer.png^awards_level3.png",
+        trigger = {
+            type = "dig",
+            node = "x_farming:barley",
+            target = 50,
+            requires = {"awards_farmer2"}
+        }
+    })
+
+    awards.register_award("awards_adv_barley_farmer", {
+        title = S("Master Barley Cultivator"),
+        description = S("Harvest 1000 fully grown barley plant."),
+        icon = "awards_adv_barley_farmer.png^awards_level7.png",
+        trigger = {
+            type = "dig",
+            node = "x_farming:barley",
+            target = 1000,
+            requires = {"awards_barley_farmer"}
+        }
+    })
+
+    awards.register_award("award_barley_bread", {
+        title = S("Dough Puncher"),
+        description = S("Eat 100 loaves of barley bread."),
+        icon = "award_barley_bread.png",
+        trigger = {
+            type = "eat",
+            item = "x_farming:bread",
+            target = 100,
+            requires = {"awards_barley_farmer"}
+        }
+    })
+
+    awards.register_award("award_potato_bowl", {
+        title = S("Baked Potato Bowl"),
+        description = S("Craft 10 bowls of french potatoes"),
+        icon = "awards_potato_bowl.png",
+        trigger = {
+            type = "craft",
+            item = "x_farming:french_potatoes_1",
+            target = 10,
+            requires = {"awards_farmer"}
+        }
+    })
+end

@@ -117,8 +117,8 @@ minetest.register_tool("fireflies:bug_net", {
 minetest.register_craft( {
 	output = "fireflies:bug_net",
 	recipe = {
-		{"farming:string", "farming:string"},
-		{"farming:string", "farming:string"},
+		{"group:string", "group:string"},
+		{"group:string", "group:string"},
 		{"group:stick", ""}
 	}
 })

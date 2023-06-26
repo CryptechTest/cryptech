@@ -601,7 +601,7 @@ if minetest.get_modpath("bottles") then
     make_bottle({
         target = { "x_farming:strawberry" },
         sound = "default_water_footstep",
-        contents = { "x_farming:strawberry", "x_farming:bottle_soymilk" },
+        contents = { "x_farming:strawberry", "group:food_milk_glass" },
         name = "bottle_of_strawberry_milk",
         description = "Bottle of Strawberry Milk",
         craft_recieve_count = 1,
@@ -609,7 +609,7 @@ if minetest.get_modpath("bottles") then
             vessel = 1,
             dig_immediate = 3,
             attached_node = 1,
-            food_milk = 1
+            --food_milk = 1
         },
         feed_amount = 4
     })
@@ -617,7 +617,7 @@ if minetest.get_modpath("bottles") then
     make_bottle({
         target = { "default:blueberries" },
         sound = "default_water_footstep",
-        contents = { "default:blueberries", "x_farming:bottle_soymilk" },
+        contents = { "default:blueberries", "group:food_milk_glass" },
         name = "bottle_of_blueberry_milk",
         description = "Bottle of Blueberry Milk",
         craft_recieve_count = 1,
@@ -625,7 +625,7 @@ if minetest.get_modpath("bottles") then
             vessel = 1,
             dig_immediate = 3,
             attached_node = 1,
-            food_milk = 1
+            --food_milk = 1
         },
         feed_amount = 4
     })
@@ -633,7 +633,7 @@ if minetest.get_modpath("bottles") then
     make_bottle({
         target = { "x_farming:bottle_coffee" },
         sound = "default_water_footstep",
-        contents = { "x_farming:bottle_coffee", "x_farming:bottle_soymilk" },
+        contents = { "x_farming:bottle_coffee", "group:food_milk_glass" },
         name = "bottle_of_coffe_with_milk",
         description = "Bottle of Coffee with Milk",
         craft_recieve_count = 2,
@@ -641,7 +641,7 @@ if minetest.get_modpath("bottles") then
             vessel = 1,
             dig_immediate = 3,
             attached_node = 1,
-            food_milk = 1
+            --food_coffee = 1
         },
         feed_amount = 4
     })
@@ -649,7 +649,7 @@ if minetest.get_modpath("bottles") then
     make_bottle({
         target = { "x_farming:chocolate" },
         sound = "default_water_footstep",
-        contents = { "x_farming:chocolate", "x_farming:bottle_soymilk" },
+        contents = { "x_farming:chocolate", "group:food_milk_glass" },
         name = "bottle_of_chocolate_milk",
         image = "x_farming_cocoa_bean.png",
         description = "Bottle of Chocolate Milk",
@@ -658,7 +658,7 @@ if minetest.get_modpath("bottles") then
             vessel = 1,
             dig_immediate = 3,
             attached_node = 1,
-            food_milk = 1
+            --food_milk = 1
         },
         feed_amount = 4
     })
