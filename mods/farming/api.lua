@@ -350,8 +350,19 @@ farming.register_plant = function(name, def)
 				{ items = { mname .. ":seed_" .. pname }, rarity = base_rarity * 2 },
 			}
 		}
-		local nodegroups = { snappy = 3, flammable = 2, plant = 1, not_in_creative_inventory = 1, attached_node = 1 }
+		local nodegroups = {
+			snappy = 3,
+			flammable = 2,
+			plant = 1,
+			not_in_creative_inventory = 1,
+			attached_node = 1,
+			farmable = 1,
+		}
 		nodegroups[pname] = i
+
+        if i < def.steps and i > 1 then
+            nodegroups['bees_pollinate_crop'] = 1
+        end
 
 		local next_plant = nil
 
