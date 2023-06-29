@@ -246,7 +246,10 @@ function default.grow_papyrus(pos, node)
 		pos.y = pos.y + 1
 		node = minetest.get_node(pos)
 	end
-	if height == 4 or node.name ~= "air" then
+	if height == 4 or
+		(node.name ~= "air" and
+		node.name ~= "technic:dummy_light_source" and
+		node.name ~= "vacuum:atmos_thick") then
 		return
 	end
 	if minetest.get_node_light(pos) < 13 then
