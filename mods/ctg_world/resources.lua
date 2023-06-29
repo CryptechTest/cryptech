@@ -82,6 +82,12 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
+    type = "shapeless",
+    output = "ctg_world:titanium_ingot 9",
+    recipe = {"ctg_world:titanium_block"}
+})
+
+minetest.register_craft({
     type = "cooking",
     output = "ctg_world:titanium_ingot",
     recipe = "ctg_world:titanium_lump"
@@ -169,6 +175,12 @@ minetest.register_craft({
     recipe = {{"ctg_world:nickel_ingot", "ctg_world:nickel_ingot", "ctg_world:nickel_ingot"},
               {"ctg_world:nickel_ingot", "ctg_world:nickel_ingot", "ctg_world:nickel_ingot"},
               {"ctg_world:nickel_ingot", "ctg_world:nickel_ingot", "ctg_world:nickel_ingot"}}
+})
+
+minetest.register_craft({
+    type = "shapeless",
+    output = "ctg_world:nickel_ingot 9",
+    recipe = {"ctg_world:nickel_block"}
 })
 
 minetest.register_craft({
@@ -319,6 +331,12 @@ minetest.register_craft({
     recipe = {{"ctg_world:aluminum_ingot", "ctg_world:aluminum_ingot", "ctg_world:aluminum_ingot"},
               {"ctg_world:aluminum_ingot", "ctg_world:aluminum_ingot", "ctg_world:aluminum_ingot"},
               {"ctg_world:aluminum_ingot", "ctg_world:aluminum_ingot", "ctg_world:aluminum_ingot"}}
+})
+
+minetest.register_craft({
+    type = "shapeless",
+    output = "ctg_world:aluminum_ingot 9",
+    recipe = {"ctg_world:aluminum_block"}
 })
 
 minetest.register_craft({
