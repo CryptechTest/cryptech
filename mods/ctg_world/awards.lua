@@ -190,4 +190,38 @@ if minetest.get_modpath("x_farming") then
             requires = {"awards_farmer"}
         }
     })
+
+    awards.register_award("award_bee_honey", {
+        title = S("Busy Bee"),
+        description = S("Collect 50 bees"),
+        icon = "awards_bee_honey.png",
+        trigger = {
+            type = "dig",
+            item = "x_farming:bee",
+            target = 50
+        }
+    })
+
+    awards.register_award("award_bee_hive", {
+        title = S("For the Swarm!"),
+        description = S("Craft 10 honeycomb saws"),
+        icon = "awards_bee_hive.png",
+        trigger = {
+            type = "craft",
+            item = "x_farming:honeycomb_saw",
+            target = 10
+        }
+    })
+
+    awards.register_award("award_bee_keeper", {
+        title = S("Bee Keeper"),
+        description = S("Craft 100 bee hives"),
+        icon = "awards_bee_keeper.png",
+        trigger = {
+            type = "craft",
+            item = "x_farming:bee_hive",
+            target = 100,
+            requires = {"award_bee_honey", "award_bee_hive"}
+        }
+    })
 end
