@@ -114,7 +114,7 @@ minetest.register_node("ctg_world:stone_with_nickel", {
     description = S("Nickel Ore"),
     tiles = {"default_stone.png^ctg_mineral_nickel.png"},
     groups = {
-        cracky = 1
+        cracky = 2
     },
     drop = "ctg_world:nickel_lump",
     sounds = default.node_sound_stone_defaults()
@@ -124,7 +124,7 @@ minetest.register_node("ctg_world:desert_stone_with_nickel", {
     description = S("Nickel Ore"),
     tiles = {"default_desert_stone.png^ctg_mineral_nickel.png"},
     groups = {
-        cracky = 1
+        cracky = 2
     },
     drop = "ctg_world:nickel_lump",
     sounds = default.node_sound_stone_defaults()
@@ -135,7 +135,7 @@ minetest.register_node("ctg_world:stone_space_with_nickel", {
     description = S("Nickel Ore"),
     tiles = {"default_stone.png^ctg_mineral_nickel.png"},
     groups = {
-        cracky = 1
+        cracky = 2
     },
     drop = "ctg_world:nickel_lump",
     sounds = default.node_sound_stone_defaults()
@@ -145,7 +145,7 @@ minetest.register_node("ctg_world:red_stone_with_nickel", {
     description = S("Nickel Ore"),
     tiles = {"asteroid_redstone.png^ctg_mineral_nickel.png"},
     groups = {
-        cracky = 1
+        cracky = 2
     },
     drop = "ctg_world:nickel_lump",
     sounds = default.node_sound_stone_defaults()
@@ -159,7 +159,7 @@ minetest.register_node("ctg_world:nickel_block", {
     -- paramtype2 = "facedir",
     sounds = default.node_sound_metal_defaults(),
     groups = {
-        cracky = 1,
+        cracky = 2,
         level = 1,
         metal = 2
     },
@@ -256,7 +256,7 @@ minetest.register_node("ctg_world:stone_with_aluminum", {
     description = S("Aluminum Ore"),
     tiles = {"default_stone.png^ctg_mineral_aluminum.png"},
     groups = {
-        cracky = 1,
+        cracky = 2,
         aluminum_ore = 1
     },
     drop = "ctg_world:aluminum_lump",
@@ -267,7 +267,7 @@ minetest.register_node("ctg_world:desert_stone_with_aluminum", {
     description = S("Aluminum Ore"),
     tiles = {"default_desert_stone.png^ctg_mineral_aluminum.png"},
     groups = {
-        cracky = 1,
+        cracky = 2,
         aluminum_ore = 1
     },
     drop = "ctg_world:aluminum_lump",
@@ -279,7 +279,7 @@ minetest.register_node("ctg_world:stone_space_with_aluminum", {
     description = S("Aluminum Ore"),
     tiles = {"default_stone.png^ctg_mineral_aluminum.png"},
     groups = {
-        cracky = 1,
+        cracky = 2,
         aluminum_ore = 1
     },
     drop = "ctg_world:aluminum_lump",
@@ -290,7 +290,7 @@ minetest.register_node("ctg_world:red_stone_with_aluminum", {
     description = S("Aluminum Ore"),
     tiles = {"asteroid_redstone.png^ctg_mineral_aluminum.png"},
     groups = {
-        cracky = 1,
+        cracky = 2,
         aluminum_ore = 1
     },
     drop = "ctg_world:aluminum_lump",
@@ -305,7 +305,7 @@ minetest.register_node("ctg_world:aluminum_block", {
     -- paramtype2 = "facedir",
     sounds = default.node_sound_metal_defaults(),
     groups = {
-        cracky = 1,
+        cracky = 2,
         level = 1,
         metal = 4
     },
@@ -381,7 +381,7 @@ minetest.register_node("ctg_world:desert_stone_with_coal", {
     description = S("Coal Ore"),
     tiles = {"default_desert_stone.png^default_mineral_coal.png"},
     groups = {
-        cracky = 1
+        cracky = 3
     },
     drop = "default:coal_lump",
     sounds = default.node_sound_stone_defaults()
@@ -391,7 +391,7 @@ minetest.register_node("ctg_world:desert_stone_with_copper", {
     description = S("Copper Ore"),
     tiles = {"default_desert_stone.png^default_mineral_copper.png"},
     groups = {
-        cracky = 1
+        cracky = 3
     },
     drop = "default:copper_lump",
     sounds = default.node_sound_stone_defaults()
@@ -411,7 +411,7 @@ minetest.register_node("ctg_world:desert_stone_with_gold", {
     description = S("Gold Ore"),
     tiles = {"default_desert_stone.png^default_mineral_gold.png"},
     groups = {
-        cracky = 1
+        cracky = 2
     },
     drop = "default:gold_lump",
     sounds = default.node_sound_stone_defaults()
@@ -421,7 +421,7 @@ minetest.register_node("ctg_world:desert_stone_with_iron", {
     description = S("Iron Ore"),
     tiles = {"default_desert_stone.png^default_mineral_iron.png"},
     groups = {
-        cracky = 1
+        cracky = 2
     },
     drop = "default:iron_lump",
     sounds = default.node_sound_stone_defaults()
@@ -431,7 +431,7 @@ minetest.register_node("ctg_world:desert_stone_with_tin", {
     description = S("Tin Ore"),
     tiles = {"default_desert_stone.png^default_mineral_tin.png"},
     groups = {
-        cracky = 1
+        cracky = 2
     },
     drop = "default:tin_lump",
     sounds = default.node_sound_stone_defaults()
@@ -441,7 +441,7 @@ minetest.register_node("ctg_world:desert_stone_with_mese", {
     description = S("Mese Ore"),
     tiles = {"default_desert_stone.png^default_mineral_mese.png"},
     groups = {
-        cracky = 1
+        cracky = 3
     },
     drop = "default:mese_crystal",
     sounds = default.node_sound_stone_defaults()
