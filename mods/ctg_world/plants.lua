@@ -83,6 +83,8 @@ local drop_nodes = {
     "livingcaves:hangingmoldend",
     "livingcaves:hangingmoss",
     "livingcaves:hangingmossend",
+    "livingcaves:hangingmoss2",
+    "livingcaves:hangingmossend2",
     "livingcaves:lichen",
     "livingcaves:glowshroom",
     "livingcaves:glowshroom_top",

@@ -1861,7 +1861,7 @@ function default.register_decorations()
 			sidelen = 80,
 			noise_params = {
 				offset = 0.0,
-				scale = 0.0025,
+				scale = 0.0048,
 				spread = { x = 250, y = 250, z = 250 },
 				seed = 2685,
 				octaves = 3,
@@ -1885,10 +1885,10 @@ function default.register_decorations()
 		deco_type = "schematic",
 		place_on = { "default:dirt_with_rainforest_litter" },
 		sidelen = 80,
-		fill_ratio = 0.1,
+		fill_ratio = 0.0467,
 		biomes = { "rainforest" },
 		y_max = 1000,
-		y_min = 1,
+		y_min = -1,
 		schematic = minetest.get_modpath("default") .. "/schematics/jungle_tree.mts",
 		flags = "place_center_x, place_center_z",
 		rotation = "random",
@@ -1904,7 +1904,7 @@ function default.register_decorations()
 		-- Noise tuned to place swamp trees where papyrus is absent
 		noise_params = {
 			offset = 0.0,
-			scale = -0.1,
+			scale = -0.08,
 			spread = { x = 200, y = 200, z = 200 },
 			seed = 354,
 			octaves = 1,
