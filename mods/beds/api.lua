@@ -153,6 +153,7 @@ function beds.register_bed(name, def)
 				end)
 				local node_meta = minetest.get_meta(pos)
 				node_meta:set_string("infotext", S("Owner: ") .. player_name)
+				node_meta:set_string("owner", player_name)
 			end
 			if not minetest.is_creative_enabled(player_name) then
 				itemstack:take_item()
