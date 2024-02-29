@@ -191,7 +191,7 @@ if minetest.get_modpath("x_farming") then
         }
     })
 
-    awards.register_award("award_bee_honey", {
+    --[[awards.register_award("award_bee_honey", {
         title = S("Busy Bee"),
         description = S("Collect 50 bees"),
         icon = "awards_bee_honey.png",
@@ -200,7 +200,7 @@ if minetest.get_modpath("x_farming") then
             item = "x_farming:bee",
             target = 50
         }
-    })
+    })]]--
 
     awards.register_award("award_bee_hive", {
         title = S("For the Swarm!"),
