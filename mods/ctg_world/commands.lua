@@ -1,3 +1,5 @@
+local S = minetest.get_translator(minetest.get_current_modname())
+
 local mods_loaded = false
 minetest.register_on_mods_loaded(function()
     mods_loaded = true
