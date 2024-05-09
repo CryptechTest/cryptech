@@ -1,3 +1,4 @@
+local S = minetest.get_translator("ctg_world")
 local ui = unified_inventory
 
 -- load files

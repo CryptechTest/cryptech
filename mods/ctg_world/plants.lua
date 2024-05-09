@@ -1,5 +1,3 @@
-local S = minetest.get_translator("ctg_world")
-
 -- Papyrus
 minetest.register_decoration({
     name = "default:papyrus",
