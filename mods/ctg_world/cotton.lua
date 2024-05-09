@@ -1,3 +1,5 @@
+local S = minetest.get_translator("ctg_world")
+
 if minetest.get_modpath("moreblocks") then
 
     local pillow_colors = {{
