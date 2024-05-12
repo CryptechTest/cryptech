@@ -78,13 +78,15 @@ minetest.register_craft({
     },
 })
 
-minetest.register_craft({
-    type = "shapeless",
-    output = "x_farming:bonemeal 3",
-    recipe = {
-        "goblins:goblins_goblin_bone",
-    },
-})
+if minetest.get_modpath("goblins") then
+    minetest.register_craft({
+        type = "shapeless",
+        output = "x_farming:bonemeal 3",
+        recipe = {
+            "goblins:goblins_goblin_bone",
+        },
+    })
+end
 
 minetest.register_craft({
     type = "shapeless",

@@ -250,9 +250,6 @@
 [submodule "mods/livingcavesmobs"]
 	path = mods/livingcavesmobs
 	url = git@github.com:CryptechTest/livingcavesmobs.git
-[submodule "mods/goblins"]
-	path = mods/goblins
-	url = git@github.com:CryptechTest/goblins.git
 [submodule "mods/what_is_this_uwu"]
 	path = mods/what_is_this_uwu
 	url = git@github.com:CryptechTest/what_is_this_uwu-minetest.git
