@@ -7,7 +7,8 @@ minetest.register_node("ctg_world:corestone", {
     tiles = {"ctg_corestone.png"},
     groups = {
         cracky = 1,
-        level = 4
+        level = 4,
+        corestone = 1
     },
     drop = "ctg_world:corestone_cobble",
     on_blast = function()
@@ -20,7 +21,8 @@ minetest.register_node("ctg_world:corestone_glow", {
     tiles = {"ctg_corestone_glow.png"},
     groups = {
         cracky = 2,
-        level = 4
+        level = 4,
+        corestone = 3
     },
     paramtype = "light",
     drop = "ctg_world:corestone_glow_cobble",
@@ -35,7 +37,8 @@ minetest.register_node("ctg_world:corestone_glow2", {
     tiles = {"ctg_corestone_glow2.png"},
     groups = {
         cracky = 2,
-        level = 4
+        level = 4,
+        corestone = 3
     },
     paramtype = "light",
     drop = "ctg_world:corestone_glow_cobble",
@@ -53,7 +56,8 @@ minetest.register_node("ctg_world:corestone_cobble", {
     is_ground_content = false,
     groups = {
         cracky = 3,
-        level = 4
+        level = 4,
+        corestone = 2
     },
     on_blast = function()
     end,
@@ -68,7 +72,8 @@ minetest.register_node("ctg_world:corestone_brick", {
     is_ground_content = false,
     groups = {
         cracky = 2,
-        level = 4
+        level = 4,
+        corestone = 5
     },
     on_blast = function()
     end,
@@ -81,7 +86,8 @@ minetest.register_node("ctg_world:corestone_block", {
     is_ground_content = false,
     groups = {
         cracky = 2,
-        level = 4
+        level = 4,
+        corestone = 5
     },
     on_blast = function()
     end,
@@ -94,7 +100,8 @@ minetest.register_node("ctg_world:corestone_mossycobble", {
     is_ground_content = false,
     groups = {
         cracky = 3,
-        level = 4
+        level = 4,
+        corestone = 2
     },
     on_blast = function()
     end,
@@ -130,7 +137,8 @@ stairs.register_stair_and_slab("ctg_world:corestone_bricks", "ctg_world:coreston
     cracky = 1,
     oddly_breakable_by_hand = 0,
     flammable = 0,
-    level = 4
+    level = 4,
+    corestone = 5
 }, {"ctg_corestone_brick.png"}, S("Corestone Brick Stair"), S("Corestone Brick Slab"),
     default.node_sound_stone_defaults())
 
@@ -138,7 +146,8 @@ stairs.register_stair_and_slab("ctg_world:corestone_blocks", "ctg_world:coreston
     cracky = 1,
     oddly_breakable_by_hand = 0,
     flammable = 0,
-    level = 4
+    level = 4,
+    corestone = 5
 }, {"ctg_corestone_block.png"}, S("Corestone Block Stair"), S("Corestone Block Slab"),
     default.node_sound_stone_defaults())
 
@@ -182,7 +191,8 @@ minetest.register_node("ctg_world:corestone_glow_cobble", {
     is_ground_content = false,
     groups = {
         cracky = 3,
-        level = 4
+        level = 4,
+        corestone = 3
     },
     on_blast = function()
     end,
@@ -199,7 +209,8 @@ minetest.register_node("ctg_world:corestone_glow_brick", {
     is_ground_content = false,
     groups = {
         cracky = 2,
-        level = 4
+        level = 4,
+        corestone = 6
     },
     on_blast = function()
     end,
@@ -214,7 +225,8 @@ minetest.register_node("ctg_world:corestone_glow_block", {
     is_ground_content = false,
     groups = {
         cracky = 2,
-        level = 4
+        level = 4,
+        corestone = 6
     },
     on_blast = function()
     end,
@@ -229,7 +241,8 @@ minetest.register_node("ctg_world:corestone_glow_mossycobble", {
     is_ground_content = false,
     groups = {
         cracky = 3,
-        level = 4
+        level = 4,
+        corestone = 2
     },
     on_blast = function()
     end,
@@ -244,7 +257,8 @@ minetest.register_node("ctg_world:corestone_glow_octa", {
     is_ground_content = false,
     groups = {
         cracky = 2,
-        level = 4
+        level = 4,
+        corestone = 6
     },
     on_blast = function()
     end,
@@ -261,7 +275,8 @@ minetest.register_node("ctg_world:corestone_glow_panel", {
     place_param2 = 0,
     groups = {
         cracky = 2,
-        level = 4
+        level = 4,
+        corestone = 6
     },
     on_blast = function()
     end,
@@ -314,7 +329,8 @@ stairs.register_slab("ctg_world:corestone_glow_blocks", "ctg_world:corestone_glo
     cracky = 1,
     oddly_breakable_by_hand = 0,
     flammable = 0,
-    level = 4
+    level = 4,
+    corestone = 5
 }, {"ctg_corestone_glow_block.png"}, S("Corestone Glow Brick Slab"), default.node_sound_stone_defaults())
 
 -- glow cobble recipe
