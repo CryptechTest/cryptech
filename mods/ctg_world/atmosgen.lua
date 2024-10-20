@@ -28,20 +28,22 @@ minetest.register_biome({
 minetest.register_biome({
     name = "space",
     node_stone = "vacuum:vacuum",
+    node_top = "vacuum:vacuum",
+    node_filler = "vacuum:vacuum",
     y_max = 10000,
     y_min = 4000,
     heat_point = 0,
     humidity_point = 0
 })
 
---[[minetest.register_biome({
+minetest.register_biome({
     name = "upper_atmos",
     node_stone = "vacuum:atmos_thin",
     y_max = 4000,
     y_min = 2000,
     heat_point = 10,
     humidity_point = 5
-})--]]
+})
 
 minetest.register_biome({
     name = "lower_atmos",
