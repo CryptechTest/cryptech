@@ -311,3 +311,6 @@
 	path = mods/technic_plus
 	url = git@github.com:CryptechTest/technic_plus.git
 	branch = cryptech
+[submodule "mods/blood"]
+	path = mods/blood
+	url = git@github.com:CryptechTest/blood.git
