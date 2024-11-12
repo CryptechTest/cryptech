@@ -314,3 +314,6 @@
 [submodule "mods/blood"]
 	path = mods/blood
 	url = git@github.com:CryptechTest/blood.git
+[submodule "mods/schemlib"]
+	path = mods/schemlib
+	url = git@github.com:CryptechTest/schemlib.git
