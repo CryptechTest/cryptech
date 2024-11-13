@@ -320,3 +320,6 @@
 [submodule "mods/blood"]
 	path = mods/blood
 	url = git@github.com:CryptechTest/blood.git
+[submodule "mods/xcompat"]
+	path = mods/xcompat
+	url = git@github.com:mt-mods/xcompat.git
