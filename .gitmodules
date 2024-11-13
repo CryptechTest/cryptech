@@ -311,9 +311,12 @@
 	path = mods/technic_plus
 	url = git@github.com:CryptechTest/technic_plus.git
 	branch = cryptech
-[submodule "mods/blood"]
-	path = mods/blood
-	url = git@github.com:CryptechTest/blood.git
 [submodule "mods/schemlib"]
 	path = mods/schemlib
 	url = git@github.com:CryptechTest/schemlib.git
+[submodule "mods/fakelib"]
+	path = mods/fakelib
+	url = https://github.com/OgelGames/fakelib.git
+[submodule "mods/blood"]
+	path = mods/blood
+	url = git@github.com:CryptechTest/blood.git
