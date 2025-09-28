@@ -129,10 +129,10 @@ minetest.register_craft({
     recipe = 'x_farming:corn'
 })
 
-technic.register_compressor_recipe({
+--[[technic.register_compressor_recipe({
     input = {"technic:coal_dust" .. " 4"},
     output = "default:coal_lump"
-})
+})]]
 
 --new item
 
