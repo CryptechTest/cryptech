@@ -28,7 +28,7 @@ minetest.register_node("ctg_world:stone_with_titanium", {
 })
 
 minetest.register_node("ctg_world:desert_stone_with_titanium", {
-    description = S("Titanium Ore"),
+    description = S("Desert Titanium Ore"),
     tiles = {"default_desert_stone.png^ctg_mineral_titanium.png"},
     groups = {
         cracky = 1
@@ -39,7 +39,7 @@ minetest.register_node("ctg_world:desert_stone_with_titanium", {
 
 -- if minetest.get_modpath("other_worlds") then
 minetest.register_node("ctg_world:stone_space_with_titanium", {
-    description = S("Titanium Ore"),
+    description = S("Asteroid Titanium Ore"),
     tiles = {"default_stone.png^ctg_mineral_titanium.png"},
     groups = {
         cracky = 1
@@ -49,7 +49,7 @@ minetest.register_node("ctg_world:stone_space_with_titanium", {
 })
 
 minetest.register_node("ctg_world:stone_red_with_titanium", {
-    description = S("Titanium Ore"),
+    description = S("Red Asteroid Titanium Ore"),
     tiles = {"asteroid_redstone.png^ctg_mineral_titanium.png"},
     groups = {
         cracky = 1
@@ -121,7 +121,7 @@ minetest.register_node("ctg_world:stone_with_nickel", {
 })
 
 minetest.register_node("ctg_world:desert_stone_with_nickel", {
-    description = S("Nickel Ore"),
+    description = S("Desert Nickel Ore"),
     tiles = {"default_desert_stone.png^ctg_mineral_nickel.png"},
     groups = {
         cracky = 2
@@ -132,7 +132,7 @@ minetest.register_node("ctg_world:desert_stone_with_nickel", {
 
 -- if minetest.get_modpath("other_worlds") then
 minetest.register_node("ctg_world:stone_space_with_nickel", {
-    description = S("Nickel Ore"),
+    description = S("Asteroid Nickel Ore"),
     tiles = {"default_stone.png^ctg_mineral_nickel.png"},
     groups = {
         cracky = 2
@@ -142,7 +142,7 @@ minetest.register_node("ctg_world:stone_space_with_nickel", {
 })
 
 minetest.register_node("ctg_world:red_stone_with_nickel", {
-    description = S("Nickel Ore"),
+    description = S("Red Asteroid Nickel Ore"),
     tiles = {"asteroid_redstone.png^ctg_mineral_nickel.png"},
     groups = {
         cracky = 2
@@ -264,7 +264,7 @@ minetest.register_node("ctg_world:stone_with_aluminum", {
 })
 
 minetest.register_node("ctg_world:desert_stone_with_aluminum", {
-    description = S("Aluminum Ore"),
+    description = S("Desert Aluminum Ore"),
     tiles = {"default_desert_stone.png^ctg_mineral_aluminum.png"},
     groups = {
         cracky = 2,
@@ -276,7 +276,7 @@ minetest.register_node("ctg_world:desert_stone_with_aluminum", {
 
 -- if minetest.get_modpath("other_worlds") then
 minetest.register_node("ctg_world:stone_space_with_aluminum", {
-    description = S("Aluminum Ore"),
+    description = S("Asteroid Aluminum Ore"),
     tiles = {"default_stone.png^ctg_mineral_aluminum.png"},
     groups = {
         cracky = 2,
@@ -287,7 +287,7 @@ minetest.register_node("ctg_world:stone_space_with_aluminum", {
 })
 
 minetest.register_node("ctg_world:red_stone_with_aluminum", {
-    description = S("Aluminum Ore"),
+    description = S("Red Asteroid Aluminum Ore"),
     tiles = {"asteroid_redstone.png^ctg_mineral_aluminum.png"},
     groups = {
         cracky = 2,
