@@ -97,11 +97,13 @@ local function update_clouds()
 	local n_speedz = nobj_speedz:get_2d({ x = time, y = 0 })    -- -1 to 1
 
 	for _, player in ipairs(minetest.get_connected_players()) do
+		local player_name = player:get_player_name()
+		local ppos = player:get_pos()
 		-- Fallback to mid-value 50 for very old worlds
 		local precip = "none"
 		local clouds = player:get_clouds()
 		local cloud_height = clouds and clouds.height or 120
-		if player:get_pos().y >= -200 and player:get_pos().y <= cloud_height then
+		if ppos.y >= -200 and ppos.y <= cloud_height then
 			local humid = minetest.get_humidity(player:get_pos()) or 50
 			-- Default and classic density value is 0.4, make this happen
 			-- at humidity midvalue 50 when n_density is at midvalue 0.5.
@@ -127,18 +129,19 @@ local function update_clouds()
 			local is_storming = density > density_max * 0.85 and moisture_index > 17
 			local is_raining = density > density_max * 0.7 and moisture_index > 16
 			local is_sprinkling = density > density_max * 0.6 and moisture_index > 14
-			if player:get_pos().y > cloud_height + 1.5 then
-				player_weather[player:get_player_name()] = "normal"
+			local ppos = player:get_pos()
+			if ppos.y > cloud_height + 1.5 or ppos.y > lightning.ymax or ppos.y < lightning.ymin then
+				player_weather[player_name] = "normal"
 			elseif is_storming then
-				player_weather[player:get_player_name()] = "storm"
+				player_weather[player_name] = "storm"
 			elseif is_raining then
-				player_weather[player:get_player_name()] = "rain"
+				player_weather[player_name] = "rain"
 			elseif is_sprinkling then
-				player_weather[player:get_player_name()] = "sprinkle"
+				player_weather[player_name] = "sprinkle"
 			else
-				player_weather[player:get_player_name()] = "normal"
+				player_weather[player_name] = "normal"
 			end
-			lightning.storm(player, player_weather[player:get_player_name()] ~= nil and is_storming)
+			lightning.storm(player, player_weather[player_name] ~= nil and is_storming)
 
 			if biome.heat > 35 then
 				if is_storming then
@@ -158,15 +161,15 @@ local function update_clouds()
 				end
 			end
 		else
-			player_weather[player:get_player_name()] = nil
-			player_sky[player:get_player_name()] = nil
+			player_weather[player_name] = nil
+			player_sky[player_name] = nil
 			lightning.storm(player, false)
 		end
-		if player:get_pos().y <= cloud_height + 1.5 and player:get_pos().y >= -200 then
+		if ppos.y <= cloud_height + 1.5 and ppos.y >= -200 then
 			precipitation.set_precipitation(player, precip)
 		else
-			player_weather[player:get_player_name()] = nil
-			player_sky[player:get_player_name()] = nil
+			player_weather[player_name] = nil
+			player_sky[player_name] = nil
 			precipitation.set_precipitation(player, "none")
 			lightning.storm(player, false)
 		end
