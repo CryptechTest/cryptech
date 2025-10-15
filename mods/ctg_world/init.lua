@@ -42,6 +42,14 @@ local function refill_player_suit(itemstack, player, pointed_thing)
                 item:get_name() == "spacesuit:pants_base" or item:get_name() == "spacesuit:boots_base" then
                 local max_refill = math.min(item:get_wear(), 65535)
                 armor:damage(player, i, item, -max_refill)
+            elseif item:get_name() == "ctg_spacesuit:helmet_gold" or item:get_name() == "ctg_spacesuit:chestplate_gold" or
+                item:get_name() == "ctg_spacesuit:pants_gold" or item:get_name() == "ctg_spacesuit:boots_gold" then
+                local max_refill = math.min(item:get_wear(), 65535)
+                armor:damage(player, i, item, -max_refill)
+            elseif item:get_name() == "ctg_spacesuit:helmet_titanium" or item:get_name() == "ctg_spacesuit:chestplate_titanium" or
+                item:get_name() == "ctg_spacesuit:pants_titanium" or item:get_name() == "ctg_spacesuit:boots_titanium" then
+                local max_refill = math.min(item:get_wear(), 65535)
+                armor:damage(player, i, item, -max_refill)
             end
         end
     end
