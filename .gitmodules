@@ -323,3 +323,6 @@
 [submodule "mods/xcompat"]
 	path = mods/xcompat
 	url = git@github.com:mt-mods/xcompat.git
+[submodule "mods/tables_chairs"]
+	path = mods/tables_chairs
+	url = git@github.com:Cryptechtest/tables_chairs.git
