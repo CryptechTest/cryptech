@@ -98,9 +98,22 @@ if minetest.get_modpath("x_farming") then
     })
 
     if minetest.get_modpath("farming") then
+        minetest.clear_craft({
+            recipe = {
+                {"", "farming:cotton", "farming:cotton"},
+                {"", "farming:cotton", "farming:cotton"},
+                {"", "", ""},
+            }
+        })
         minetest.register_craft({
+            type = 'shapeless',
             output = 'x_farming:pillow_white',
-            recipe = {{"", ""}, {'farming:cotton', 'farming:cotton'}, {'farming:cotton', 'farming:cotton'}}
+            recipe = {'farming:cotton', 'farming:cotton', 'farming:cotton', 'farming:cotton'}
+        })
+        minetest.register_craft({
+            type = 'shapeless',
+            output = 'x_farming:pillow_white 5',
+            recipe = {'wool:white', 'wool:white', 'wool:white', 'wool:white'}
         })
     end
 end
