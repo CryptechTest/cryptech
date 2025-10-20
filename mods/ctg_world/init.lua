@@ -21,49 +21,6 @@ dofile(default_path .. DIR_DELIM .. "cotton.lua")
 dofile(default_path .. DIR_DELIM .. "awards.lua")
 dofile(default_path .. DIR_DELIM .. "doors.lua")
 
-local function give_or_drop_item(player, itemstack)
-    local inv = minetest.get_inventory({
-        type = "player",
-        name = player:get_player_name()
-    })
-    local remaining = inv:add_item("main", itemstack)
-    minetest.add_item(player:get_pos(), remaining)
-end
-
--- allow player to use an air bottle to fill their suit
-local function refill_player_suit(itemstack, player, pointed_thing)
-    local name, invs = armor:get_valid_player(player, "[refill_spacesuit]")
-    if not name then
-        return
-    end
-    for i, item in ipairs(invs:get_list("armor")) do
-        if item and item:get_name() ~= "" then
-            if item:get_name() == "spacesuit:helmet_base" or item:get_name() == "spacesuit:chestplate_base" or
-                item:get_name() == "spacesuit:pants_base" or item:get_name() == "spacesuit:boots_base" then
-                local max_refill = math.min(item:get_wear(), 65535)
-                armor:damage(player, i, item, -max_refill)
-            elseif item:get_name() == "ctg_spacesuit:helmet_gold" or item:get_name() == "ctg_spacesuit:chestplate_gold" or
-                item:get_name() == "ctg_spacesuit:pants_gold" or item:get_name() == "ctg_spacesuit:boots_gold" then
-                local max_refill = math.min(item:get_wear(), 65535)
-                armor:damage(player, i, item, -max_refill)
-            elseif item:get_name() == "ctg_spacesuit:helmet_titanium" or item:get_name() == "ctg_spacesuit:chestplate_titanium" or
-                item:get_name() == "ctg_spacesuit:pants_titanium" or item:get_name() == "ctg_spacesuit:boots_titanium" then
-                local max_refill = math.min(item:get_wear(), 65535)
-                armor:damage(player, i, item, -max_refill)
-            end
-        end
-    end
-
-    itemstack:set_count(itemstack:get_count() - 1)
-    give_or_drop_item(player, "vessels:steel_bottle")
-    return itemstack
-end
-
-minetest.override_item("vacuum:air_bottle", {
-    on_secondary_use = refill_player_suit,
-    on_place = refill_player_suit
-})
-
 minetest.register_on_newplayer(function(player)
     local inv = player:get_inventory()
     inv:add_item("main", "default:pick_diamond")
@@ -136,7 +93,7 @@ minetest.register_on_respawnplayer(function(player)
     minetest.after(0.2, function()
         -- reset player velocity.
         if player then
-            player:set_velocity({ 0, 0, 0 })
+            player:set_velocity({0, 0, 0})
         end
     end)
     return true
