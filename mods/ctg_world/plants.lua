@@ -155,17 +155,12 @@ local function init_plants()
     add_thorns("saltd:thorny_bush")
     default.register_leafdecay({
         trunks = { "saltd:burnt_trunk" },
-        leaves = "saltd:burnt_branches",
-        radius = 3,
-    })
-    default.register_leafdecay({
-        trunks = { "saltd:burnt_trunk" },
-        leaves = "saltd:burnt_branches",
+        leaves = { "saltd:burnt_branches" },
         radius = 3,
     })
     default.register_leafdecay({
         trunks = { "moretrees:rubber_tree_trunk", "moretrees:rubber_tree_trunk_empty" },
-        leaves = "moretrees:rubber_tree_leaves",
+        leaves = { "moretrees:rubber_tree_leaves" },
         radius = 4,
     })
 end
