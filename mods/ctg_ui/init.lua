@@ -43,12 +43,14 @@ local form = "size[10,7.8] bgcolor[#333444cc; false] image_button_exit[0,0;2,2;"
     "^20_emoji.png;20_emoji;]"
 
 
-unified_inventory.register_button("emoji", {
-    type = "image",
-    image = "ui_emoji_icon.png",
-    tooltip = "Emoji",
-    action = function(player)
-        minetest.log(minetest.serialize(minetest.get_player_information(player:get_player_name())))
-        minetest.show_formspec(player:get_player_name(), "emoji_form", form)
-    end
-})
+if core.get_modpath("emoji") then
+    unified_inventory.register_button("emoji", {
+        type = "image",
+        image = "ui_emoji_icon.png",
+        tooltip = "Emoji",
+        action = function(player)
+            minetest.log(minetest.serialize(minetest.get_player_information(player:get_player_name())))
+            minetest.show_formspec(player:get_player_name(), "emoji_form", form)
+        end
+    })
+end

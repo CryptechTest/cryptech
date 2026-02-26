@@ -173,40 +173,42 @@ if minetest.get_modpath("aquaz") then
     end
 end
 
-local growler_meat_raw = minetest.registered_items["growler:growler_meat_raw"]
-local growler_meat_raw_groups = growler_meat_raw.groups or {}
-growler_meat_raw_groups.hunger_amount = -5
+if core.get_modpath("growler") then
+    local growler_meat_raw = minetest.registered_items["growler:growler_meat_raw"]
+    local growler_meat_raw_groups = growler_meat_raw.groups or {}
+    growler_meat_raw_groups.hunger_amount = -5
 
-minetest.override_item("growler:growler_meat_raw", {
-    description = S(growler_meat_raw.description) .. '\n' ..
-        minetest.colorize(x_farming.colors.brown, S('Hunger') .. ': -5'),
-    groups = growler_meat_raw_groups,
-    on_use = function(itemstack, user, pointed_thing)
-        local hunger_amount = minetest.get_item_group(itemstack:get_name(), "hunger_amount") or 0
-        if hunger_amount == 0 then
-            return itemstack
+    minetest.override_item("growler:growler_meat_raw", {
+        description = S(growler_meat_raw.description) .. '\n' ..
+            minetest.colorize(x_farming.colors.brown, S('Hunger') .. ': -5'),
+        groups = growler_meat_raw_groups,
+        on_use = function(itemstack, user, pointed_thing)
+            local hunger_amount = minetest.get_item_group(itemstack:get_name(), "hunger_amount") or 0
+            if hunger_amount == 0 then
+                return itemstack
+            end
+            return minetest.item_eat(hunger_amount)(itemstack, user, pointed_thing)
         end
-        return minetest.item_eat(hunger_amount)(itemstack, user, pointed_thing)
-    end
-})
+    })
 
 
-local growler_meat = minetest.registered_items["growler:growler_meat"]
-local growler_meat_groups = growler_meat.groups or {}
-growler_meat_groups.hunger_amount = 5
+    local growler_meat = minetest.registered_items["growler:growler_meat"]
+    local growler_meat_groups = growler_meat.groups or {}
+    growler_meat_groups.hunger_amount = 5
 
-minetest.override_item("growler:growler_meat", {
-    description = S(growler_meat.description) .. '\n' ..
-        minetest.colorize(x_farming.colors.brown, S('Hunger') .. ': 5'),
-    groups = growler_meat_groups,
-    on_use = function(itemstack, user, pointed_thing)
-        local hunger_amount = minetest.get_item_group(itemstack:get_name(), "hunger_amount") or 0
-        if hunger_amount == 0 then
-            return itemstack
+    minetest.override_item("growler:growler_meat", {
+        description = S(growler_meat.description) .. '\n' ..
+            minetest.colorize(x_farming.colors.brown, S('Hunger') .. ': 5'),
+        groups = growler_meat_groups,
+        on_use = function(itemstack, user, pointed_thing)
+            local hunger_amount = minetest.get_item_group(itemstack:get_name(), "hunger_amount") or 0
+            if hunger_amount == 0 then
+                return itemstack
+            end
+            return minetest.item_eat(hunger_amount)(itemstack, user, pointed_thing)
         end
-        return minetest.item_eat(hunger_amount)(itemstack, user, pointed_thing)
-    end
-})
+    })
+end
 
 lumpblocks.register_lump_block { base_name = 'aluminum_lump', name = 'ctg_world:aluminum_lump_block', lump =
 'ctg_world:aluminum_lump', colours = {

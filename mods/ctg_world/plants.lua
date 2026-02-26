@@ -73,99 +73,101 @@ minetest.register_decoration({
     schematic = minetest.get_modpath('x_farming') .. '/schematics/x_farming_salt_decor.mts'
 })
 
+if core.get_modpath("livingcaves") then
+    local drop_nodes = {
+        "livingcaves:rootcave_bigroot",
+        "livingcaves:rootcave_bigroot2",
+        "livingcaves:rootcave_hangingroot",
+        "livingcaves:rootcave_hangingroot2",
+        "livingcaves:rootcave_smallroot",
+        "livingcaves:rootcave_smallroot2",
+        "livingcaves:hangingmold",
+        "livingcaves:hangingmoldend",
+        "livingcaves:hangingmoss",
+        "livingcaves:hangingmossend",
+        "livingcaves:hangingmoss2",
+        "livingcaves:hangingmossend2",
+        "livingcaves:lichen",
+        "livingcaves:glowshroom",
+        "livingcaves:glowshroom_top",
+        "livingcaves:moss"
+    }
 
-local drop_nodes = {
-    "livingcaves:rootcave_bigroot",
-    "livingcaves:rootcave_bigroot2",
-    "livingcaves:rootcave_hangingroot",
-    "livingcaves:rootcave_hangingroot2",
-    "livingcaves:rootcave_smallroot",
-    "livingcaves:rootcave_smallroot2",
-    "livingcaves:hangingmold",
-    "livingcaves:hangingmoldend",
-    "livingcaves:hangingmoss",
-    "livingcaves:hangingmossend",
-    "livingcaves:hangingmoss2",
-    "livingcaves:hangingmossend2",
-    "livingcaves:lichen",
-    "livingcaves:glowshroom",
-    "livingcaves:glowshroom_top",
-    "livingcaves:moss"
-}
-
-local function get_node_drops(node)
-    if node.name == "default:papyrus" then
-        if math.random(10) == 1 then
-            return nil
+    local function get_node_drops(node)
+        if node.name == "default:papyrus" then
+            if math.random(10) == 1 then
+                return nil
+            end
+            return {}
         end
-        return {}
+        return minetest.get_node_drops(node)
     end
-    return minetest.get_node_drops(node)
-end
 
--- weird nodes near water
-minetest.register_abm({
-    label = "cave plants water interact",
-    nodenames = drop_nodes,
-    neighbors = { "default:water_flowing", "default:water_source" },
-    interval = 3,
-    chance = 2,
-    max_y = 1000,
-    min_y = -11000,
-    action = function(pos)
-        local node = minetest.get_node(pos)
-        minetest.set_node(pos, { name = "air" })
+    -- weird nodes near water
+    minetest.register_abm({
+        label = "cave plants water interact",
+        nodenames = drop_nodes,
+        neighbors = { "default:water_flowing", "default:water_source" },
+        interval = 3,
+        chance = 2,
+        max_y = 1000,
+        min_y = -11000,
+        action = function(pos)
+            local node = minetest.get_node(pos)
+            minetest.set_node(pos, { name = "air" })
 
-        for _, drop in pairs(get_node_drops(node)) do
-            minetest.add_item(pos, ItemStack(drop))
+            for _, drop in pairs(get_node_drops(node)) do
+                minetest.add_item(pos, ItemStack(drop))
+            end
         end
-    end
-})
-
-minetest.register_abm({
-    label = "cave plants lava interact",
-    nodenames = drop_nodes,
-    neighbors = { "default:lava_flowing", "default:lava_source" },
-    interval = 2,
-    chance = 1,
-    max_y = 1000,
-    min_y = -11000,
-    action = function(pos)
-        local node = minetest.get_node(pos)
-        minetest.set_node(pos, { name = "air" })
-
-        for _, drop in pairs(get_node_drops(node)) do
-            minetest.add_item(pos, ItemStack(drop))
-        end
-    end
-})
-
-local function add_thorns(name)
-    for itemstring, def in pairs(minetest.registered_nodes) do
-        if name == itemstring then
-            local node = minetest.registered_nodes[name]
-            local marked_groups = node.groups
-            marked_groups.thorns = 1
-            minetest.override_item(name, { groups = marked_groups })
-        end
-    end
-end
-
-local function init_plants()
-    add_thorns("saltd:thorny_bush")
-    default.register_leafdecay({
-        trunks = { "saltd:burnt_trunk" },
-        leaves = { "saltd:burnt_branches" },
-        radius = 3,
     })
-    default.register_leafdecay({
-        trunks = { "moretrees:rubber_tree_trunk", "moretrees:rubber_tree_trunk_empty" },
-        leaves = { "moretrees:rubber_tree_leaves" },
-        radius = 4,
+
+    minetest.register_abm({
+        label = "cave plants lava interact",
+        nodenames = drop_nodes,
+        neighbors = { "default:lava_flowing", "default:lava_source" },
+        interval = 2,
+        chance = 1,
+        max_y = 1000,
+        min_y = -11000,
+        action = function(pos)
+            local node = minetest.get_node(pos)
+            minetest.set_node(pos, { name = "air" })
+
+            for _, drop in pairs(get_node_drops(node)) do
+                minetest.add_item(pos, ItemStack(drop))
+            end
+        end
     })
 end
 
-minetest.after(0, init_plants)
+if core.get_modpath("saltd") then
+    local function add_thorns(name)
+        for itemstring, def in pairs(minetest.registered_nodes) do
+            if name == itemstring then
+                local node = minetest.registered_nodes[name]
+                local marked_groups = node.groups
+                marked_groups.thorns = 1
+                minetest.override_item(name, { groups = marked_groups })
+            end
+        end
+    end
+    local function init_plants()
+        add_thorns("saltd:thorny_bush")
+        default.register_leafdecay({
+            trunks = { "saltd:burnt_trunk" },
+            leaves = { "saltd:burnt_branches" },
+            radius = 3,
+        })
+        default.register_leafdecay({
+            trunks = { "moretrees:rubber_tree_trunk", "moretrees:rubber_tree_trunk_empty" },
+            leaves = { "moretrees:rubber_tree_leaves" },
+            radius = 4,
+        })
+    end
+
+    minetest.after(0, init_plants)
+end
 
 minetest.register_craftitem('ctg_world:sugar', {
     description = S('Sugar'),
@@ -187,25 +189,27 @@ if minetest.get_modpath("technic") then
     technic.register_extractor_recipe({input = {'x_farming:stevia'}, output = 'x_farming:sugar_substitute'})
 end
 
-minetest.clear_craft({ output = "scifi_nodes:plant1" })
-minetest.clear_craft({ output = "scifi_nodes:plant2" })
-minetest.clear_craft({ output = "scifi_nodes:plant3" })
-minetest.clear_craft({ output = "scifi_nodes:plant4" })
-minetest.clear_craft({ output = "scifi_nodes:plant5" })
-minetest.clear_craft({ output = "scifi_nodes:plant6" })
-minetest.clear_craft({ output = "scifi_nodes:plant7" })
-minetest.clear_craft({ output = "scifi_nodes:plant8" })
-minetest.clear_craft({ output = "scifi_nodes:plant9" })
-minetest.clear_craft({ output = "scifi_nodes:plant10" })
-minetest.clear_craft({ output = "scifi_nodes:plant_trap" })
-minetest.clear_craft({ output = "scifi_nodes:grassblk" })
-minetest.clear_craft({ output = "scifi_nodes:egg" })
-minetest.clear_craft({ output = "scifi_nodes:grass" })
-minetest.clear_craft({ output = "scifi_nodes:eyetree" })
-minetest.clear_craft({ output = "scifi_nodes:flower1" })
-minetest.clear_craft({ output = "scifi_nodes:flower2" })
-minetest.clear_craft({ output = "scifi_nodes:flower3" })
-minetest.clear_craft({ output = "scifi_nodes:flower4" })
+if core.get_modpath("scifi_nodes") then
+    minetest.clear_craft({ output = "scifi_nodes:plant1" })
+    minetest.clear_craft({ output = "scifi_nodes:plant2" })
+    minetest.clear_craft({ output = "scifi_nodes:plant3" })
+    minetest.clear_craft({ output = "scifi_nodes:plant4" })
+    minetest.clear_craft({ output = "scifi_nodes:plant5" })
+    minetest.clear_craft({ output = "scifi_nodes:plant6" })
+    minetest.clear_craft({ output = "scifi_nodes:plant7" })
+    minetest.clear_craft({ output = "scifi_nodes:plant8" })
+    minetest.clear_craft({ output = "scifi_nodes:plant9" })
+    minetest.clear_craft({ output = "scifi_nodes:plant10" })
+    minetest.clear_craft({ output = "scifi_nodes:plant_trap" })
+    minetest.clear_craft({ output = "scifi_nodes:grassblk" })
+    minetest.clear_craft({ output = "scifi_nodes:egg" })
+    minetest.clear_craft({ output = "scifi_nodes:grass" })
+    minetest.clear_craft({ output = "scifi_nodes:eyetree" })
+    minetest.clear_craft({ output = "scifi_nodes:flower1" })
+    minetest.clear_craft({ output = "scifi_nodes:flower2" })
+    minetest.clear_craft({ output = "scifi_nodes:flower3" })
+    minetest.clear_craft({ output = "scifi_nodes:flower4" })
+end
 
 if (minetest.get_modpath("nature_classic")) then
     -- apple decay

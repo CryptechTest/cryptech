@@ -3,6 +3,7 @@ local ui = unified_inventory
 
 -- load files
 local default_path = minetest.get_modpath("ctg_world")
+dofile(default_path .. DIR_DELIM .. "commands.lua")
 dofile(default_path .. DIR_DELIM .. "coregen.lua")
 dofile(default_path .. DIR_DELIM .. "atmosgen.lua")
 dofile(default_path .. DIR_DELIM .. "biomes.lua")
@@ -14,11 +15,18 @@ dofile(default_path .. DIR_DELIM .. "mapgen.lua")
 dofile(default_path .. DIR_DELIM .. "mapgen_border.lua")
 dofile(default_path .. DIR_DELIM .. "mapgen_decor.lua")
 dofile(default_path .. DIR_DELIM .. "items.lua")
-dofile(default_path .. DIR_DELIM .. "loot.lua")
-dofile(default_path .. DIR_DELIM .. "commands.lua")
-dofile(default_path .. DIR_DELIM .. "vehicles.lua")
-dofile(default_path .. DIR_DELIM .. "cotton.lua")
-dofile(default_path .. DIR_DELIM .. "awards.lua")
+if core.get_modpath("dungeon_loot") then
+    dofile(default_path .. DIR_DELIM .. "loot.lua")
+end
+if core.get_modpath("vehicles") then
+    dofile(default_path .. DIR_DELIM .. "vehicles.lua")
+end
+if core.get_modpath("x_farming") then
+    dofile(default_path .. DIR_DELIM .. "cotton.lua")
+end
+if core.get_modpath("awards") then
+    dofile(default_path .. DIR_DELIM .. "awards.lua")
+end
 dofile(default_path .. DIR_DELIM .. "doors.lua")
 
 minetest.register_on_newplayer(function(player)
@@ -29,8 +37,13 @@ minetest.register_on_newplayer(function(player)
     inv:add_item("main", "mesecons_torch:mesecon_torch_on")
     inv:add_item("main", "ctg_jetpack:jetpack_copper")
     inv:add_item("main", "vacuum:air_bottle 1")
-    inv:add_item("main", "mobs:meat 5")
-    inv:add_item("main", "ctg_world:coffee_cup_hot_3 3")
+    if core.get_modpath("mobs") then
+        inv:add_item("main", "mobs:meat 5")
+    end
+    if core.get_modpath("bottles") then
+        inv:add_item("main", "ctg_world:coffee_cup_hot_3 3")
+    end
+
     local player = player
     -- 3d_armor´s inventory is not fully set up in the beginning. They use a delay of 0, so we wait a bit for them and afterwards equip the spacesuit.
     minetest.after(2, function()
@@ -66,7 +79,12 @@ end)
 
 minetest.register_on_respawnplayer(function(player)
     local player_name = player:get_player_name()
-    local spawn = beds.spawn[player_name]
+    local spawn = nil
+    if core.get_modpath("beds") then
+        if beds ~= nil then
+            spawn = beds.spawn[player_name]
+        end
+    end
     if spawn == nil then
         local inv = player:get_inventory()
         armor:remove_all(player)
@@ -76,8 +94,12 @@ minetest.register_on_respawnplayer(function(player)
         inv:add_item("main", "mesecons_torch:mesecon_torch_on")
         inv:add_item("main", "ctg_jetpack:jetpack_copper")
         inv:add_item("main", "vacuum:air_bottle 1")
-        inv:add_item("main", "mobs:meat 5")
-        inv:add_item("main", "ctg_world:coffee_cup_hot_3 3")
+        if core.get_modpath("mobs") then
+            inv:add_item("main", "mobs:meat 5")
+        end
+        if core.get_modpath("bottles") then
+            inv:add_item("main", "ctg_world:offee_cup_hot_3 3")
+        end
 
         armor:equip(player, ItemStack("spacesuit:helmet_base"))
         armor:equip(player, ItemStack("spacesuit:chestplate_base"))

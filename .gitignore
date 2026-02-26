@@ -1,6 +1,9 @@
 # vscode
 mods/.vscode/*
 
+# EmmyLua
+.emmyrc.json
+
 # remote media
 media/*
 !media/.gitkeep

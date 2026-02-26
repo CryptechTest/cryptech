@@ -86,16 +86,18 @@ if minetest.get_modpath("moreblocks") then
 end
 
 if minetest.get_modpath("x_farming") then
-    awards.register_award("awards_pillow", {
-        title = S("Something Soft and Fluffy"),
-        description = S("Craft 250 white pillow."),
-        icon = "awards_soft_and_fluffy.png",
-        trigger = {
-            type = "craft",
-            item = "x_farming:pillow",
-            target = 250
-        }
-    })
+    if core.get_modpath("awards") then
+        awards.register_award("awards_pillow", {
+            title = S("Something Soft and Fluffy"),
+            description = S("Craft 250 white pillow."),
+            icon = "awards_soft_and_fluffy.png",
+            trigger = {
+                type = "craft",
+                item = "x_farming:pillow",
+                target = 250
+            }
+        })
+    end
 
     if minetest.get_modpath("farming") then
         minetest.clear_craft({
