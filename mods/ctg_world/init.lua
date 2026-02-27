@@ -98,7 +98,7 @@ minetest.register_on_respawnplayer(function(player)
             inv:add_item("main", "mobs:meat 5")
         end
         if core.get_modpath("bottles") then
-            inv:add_item("main", "ctg_world:offee_cup_hot_3 3")
+            inv:add_item("main", "ctg_world:coffee_cup_hot_3 3")
         end
 
         armor:equip(player, ItemStack("spacesuit:helmet_base"))
