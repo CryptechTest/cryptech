@@ -220,6 +220,11 @@ technic.register_grinder_recipe({
     output = "ctg_world:nickel_dust 1"
 })
 
+technic.register_grinder_recipe({
+    input = {"ctg_world:nickel_lump"},
+    output = "ctg_world:nickel_dust 2"
+})
+
 technic.register_alloy_recipe({
     input = {"technic:copper_dust 2", "ctg_world:nickel_dust 1"},
     output = "ctg_world:coppery_metal 1",
@@ -322,6 +327,11 @@ minetest.register_craftitem("ctg_world:aluminum_ingot", {
 minetest.register_craftitem("ctg_world:aluminum_lump", {
     description = S("Aluminum Lump"),
     inventory_image = "ctg_aluminum_lump.png"
+})
+
+technic.register_grinder_recipe({
+    input = {"ctg_world:aluminum_ingot"},
+    output = "ctg_world:aluminum_dust 1"
 })
 
 -- Crafting
