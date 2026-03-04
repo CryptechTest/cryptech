@@ -540,8 +540,12 @@ if minetest.get_modpath("bottles") then
             liquid_image = contents_node2.inventory_image
         end
 
-        spec.image = "[combine:16x16:0,0=" .. liquid_image .. "^" .. spec.image .. "^[opacity:128" ..
-            "^vessels_glass_bottle_mask.png^[makealpha:0,254,0"
+        local bott_image = spec.image .. "^[opacity:128" .. "^vessels_glass_bottle_mask.png^[makealpha:0,254,0"
+        if liquid_image and liquid_image ~= "" then
+            spec.image = "[combine:16x16:0,0=" .. liquid_image .. "^" .. bott_image
+        else
+            spec.image = bott_image
+        end
         spec.name = "ctg_world:" .. spec.name
 
         -- Ensure that name is not already in use, fail registration if so
