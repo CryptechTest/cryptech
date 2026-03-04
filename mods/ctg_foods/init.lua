@@ -309,7 +309,7 @@ end
 -- rice bowl
 local rice_bowl = {
     description = ('Rice Bowl') .. '\n' .. ('Compost chance') .. ': 80%\n' ..
-        minetest.colorize(x_farming.colors.brown, ('Hunger') .. ': 6'),
+        minetest.colorize(x_farming.colors.brown, ('Hunger') .. ': 7'),
     short_description = ('Rice Bowl'),
     inventory_image = 'ctg_foods_rice_bowl.png',
     -- wield_scale = 0.7,
@@ -342,7 +342,7 @@ if core.get_modpath("mobs") then
     -- fried rice
     local rice_bowl = {
         description = ('Fried Rice Bowl') .. '\n' .. ('Compost chance') .. ': 90%\n' ..
-            minetest.colorize(x_farming.colors.brown, ('Hunger') .. ': 10'),
+            minetest.colorize(x_farming.colors.brown, ('Hunger') .. ': 12'),
         short_description = ('Fried Bowl'),
         inventory_image = 'ctg_foods_fried_rice_bowl.png',
         -- wield_scale = 0.7,
@@ -360,7 +360,7 @@ if core.get_modpath("mobs") then
     }
 
     if minetest.get_modpath('farming') then
-        rice_bowl.on_use = minetest.item_eat(10, 'x_farming:bowl')
+        rice_bowl.on_use = minetest.item_eat(11, 'x_farming:bowl')
     end
 
     minetest.register_craftitem('ctg_foods:fried_rice_bowl', rice_bowl)
@@ -474,7 +474,20 @@ minetest.register_craft({
 minetest.register_craft({
     type = 'shapeless',
     output = 'ctg_foods:fruit_bowl_2',
+    recipe = {'x_farming:melon', 'group:food_sugar', 'ctg_foods:fruit_bowl_1'}
+})
+
+minetest.register_craft({
+    type = 'shapeless',
+    output = 'ctg_foods:fruit_bowl_2',
     recipe = {'x_farming:kiwi_fruit', 'default:apple', 'x_farming:strawberry', 'default:blueberries',
+              'group:food_sugar', 'x_farming:bowl'}
+})
+
+minetest.register_craft({
+    type = 'shapeless',
+    output = 'ctg_foods:fruit_bowl_2',
+    recipe = {'x_farming:kiwi_fruit', 'x_farming:melon', 'x_farming:strawberry', 'default:blueberries',
               'group:food_sugar', 'x_farming:bowl'}
 })
 
@@ -488,7 +501,20 @@ minetest.register_craft({
 minetest.register_craft({
     type = 'shapeless',
     output = 'ctg_foods:fruit_bowl_3',
+    recipe = {'x_farming:kiwi_fruit', 'x_farming:cactus_fruit_item', 'x_farming:melon', 'x_farming:strawberry',
+              'default:blueberries', 'group:food_sugar', 'x_farming:bowl'}
+})
+
+minetest.register_craft({
+    type = 'shapeless',
+    output = 'ctg_foods:fruit_bowl_3',
     recipe = {'x_farming:cactus_fruit_item', 'default:apple', 'group:food_sugar', 'ctg_foods:fruit_bowl_1'}
+})
+
+minetest.register_craft({
+    type = 'shapeless',
+    output = 'ctg_foods:fruit_bowl_3',
+    recipe = {'x_farming:cactus_fruit_item', 'x_farming:melon', 'group:food_sugar', 'ctg_foods:fruit_bowl_1'}
 })
 
 minetest.register_craft({
