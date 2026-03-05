@@ -522,3 +522,152 @@ minetest.register_craft({
     output = 'ctg_foods:fruit_bowl_3',
     recipe = {'x_farming:cactus_fruit_item', 'ctg_foods:fruit_bowl_2'}
 })
+
+-------------------------------------------------------------------------------------
+
+-- RYE
+x_farming.register_plant('ctg_foods:rye', {
+    description = ('Rye Seed') .. '\n' .. ('Compost chance') .. ': 30%',
+    short_description = ('Rye Seed'),
+    paramtype2 = 'meshoptions',
+    inventory_image = 'ctg_foods_rye_seed.png',
+    steps = 11,
+    minlight = 13,
+    maxlight = 14,
+    fertility = {'grassland'},
+    groups = {
+        flammable = 4,
+        --plant = 1
+    },
+    place_param2 = 11
+})
+
+-- needed
+local override_def = {
+    description = ('Rye') .. '\n' .. ('Compost chance') .. ': 50%',
+    short_description = ('Rye'),
+    groups = {
+        -- X Farming
+        compost = 50,
+        -- MCL
+        compostability = 50
+    },
+    _mcl_blast_resistance = 0
+}
+
+minetest.override_item('ctg_foods:rye', override_def)
+
+minetest.register_craft({
+    type = 'shapeless',
+    output = 'farming:flour',
+    recipe = {'ctg_foods:rye', 'ctg_foods:rye', 'ctg_foods:rye'}
+})
+
+minetest.register_on_mods_loaded(function()
+    local deco_place_on = {}
+    local deco_biomes = {}
+
+    -- MTG
+    if minetest.get_modpath('default') then
+        table.insert(deco_place_on, 'default:dry_dirt_with_dry_grass')
+        table.insert(deco_place_on, 'default:dry_dirt')
+        table.insert(deco_biomes, 'savanna')
+        table.insert(deco_place_on, 'default:silver_sand')
+        table.insert(deco_biomes, 'cold_desert')
+    end
+
+    -- Everness
+    if minetest.get_modpath('everness') then
+        table.insert(deco_place_on, 'everness:dry_dirt_with_dry_grass')
+        table.insert(deco_biomes, 'everness_baobab_savanna')
+    end
+
+    -- MCL
+    if minetest.get_modpath('mcl_core') then
+        table.insert(deco_place_on, 'mcl_core:dirt_with_grass')
+        table.insert(deco_biomes, 'Savanna')
+        table.insert(deco_biomes, 'SavannaM')
+    end
+
+    if next(deco_place_on) and next(deco_biomes) then
+        minetest.register_decoration({
+            name = 'ctg_foods:rye',
+            deco_type = 'simple',
+            place_on = deco_place_on,
+            sidelen = 16,
+            noise_params = {
+                offset = -0.1,
+                scale = 0.105,
+                spread = {
+                    x = 60,
+                    y = 60,
+                    z = 60
+                },
+                seed = 4201,
+                octaves = 3,
+                persist = 0.7
+            },
+            biomes = deco_biomes,
+            y_max = 31000,
+            y_min = 1,
+            decoration = {'ctg_foods:rye_3', 'ctg_foods:rye_5', 'ctg_foods:rye_6', 'ctg_foods:rye_7', 'ctg_foods:rye_8',
+                          'ctg_foods:rye_9', 'ctg_foods:rye_11'},
+            param2 = 11
+        })
+    end
+end)
+
+-- rye bread
+local rye_bread = {
+    description = ('Rye Bread') .. '\n' .. ('Compost chance') .. ': 85%\n' ..
+        minetest.colorize(x_farming.colors.brown, ('Hunger') .. ': 7'),
+    inventory_image = 'ctg_foods_bread_rye.png',
+    -- wield_scale = 0.7,
+    groups = {
+        -- MTG
+        food_bread = 1,
+        flammable = 2,
+        -- X Farming
+        compost = 85,
+        -- MCL
+        food = 2,
+        eatable = 5,
+        compostability = 85
+    },
+    _mcl_saturation = 6.0
+}
+
+if minetest.get_modpath('farming') then
+    rye_bread.on_use = minetest.item_eat(7)
+end
+
+minetest.register_craftitem('ctg_foods:bread_rye', rye_bread)
+
+minetest.register_craftitem('ctg_foods:dough_bread_rye', {
+    description = ('Rye Bread Dough') .. '\n' .. ('Compost chance') .. ': 50%',
+    short_description = ('Rye Bread Dough'),
+    inventory_image = 'ctg_foods_dough_rye.png',
+    groups = {
+        dough = 1,
+        -- X Farming
+        compost = 50,
+        -- MCL
+        compostability = 50
+    },
+    _mcl_blast_resistance = 0
+})
+
+minetest.register_craft({
+    type = 'shapeless',
+    output = 'ctg_foods:dough_bread_rye',
+    recipe = {'group:food_flour', 'group:food_flour', 'group:food_flour', 'ctg_foods:rye', 'ctg_foods:rye',
+              'group:food_sugar', 'group:food_water', "group:food_salt"},
+    replacements = {{'group:food_water', 'vessels:glass_bottle'}}
+})
+
+minetest.register_craft({
+    type = 'cooking',
+    cooktime = 16,
+    output = 'ctg_foods:bread_rye 5',
+    recipe = 'ctg_foods:dough_bread_rye'
+})

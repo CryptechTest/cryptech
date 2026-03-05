@@ -215,9 +215,10 @@ minetest.register_craftitem("ctg_world:hiduminium_stock", {
     inventory_image = "ctg_hiduminium_stock.png"
 })
 
-technic.register_grinder_recipe({
-    input = {"ctg_world:nickel_ingot"},
-    output = "ctg_world:nickel_dust 1"
+minetest.register_craft({
+    type = "cooking",
+    output = "ctg_world:nickel_ingot",
+    recipe = "ctg_world:nickel_dust"
 })
 
 technic.register_grinder_recipe({
