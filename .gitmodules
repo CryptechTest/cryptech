@@ -326,3 +326,12 @@
 [submodule "mods/tables_chairs"]
 	path = mods/tables_chairs
 	url = git@github.com:Cryptechtest/tables_chairs.git
+[submodule "mods/BioFuel"]
+	path = mods/BioFuel
+	url = git@github.com:Lokrates/Biofuel.git
+[submodule "mods/airutils"]
+	path = mods/airutils
+	url = git@github.com:APercy/airutils.git
+[submodule "mods/b47_heli"]
+	path = mods/b47_heli
+	url = https://github.com/APercy/b47_heli.git
