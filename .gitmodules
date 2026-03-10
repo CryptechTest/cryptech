@@ -347,3 +347,6 @@
 [submodule "mods/mods/ctg_poi"]
 	path = mods/mods/ctg_poi
 	url = git@github.com:CryptechTest/ctg_poi.git
+[submodule ".mods/ctg_poi"]
+	path = .mods/ctg_poi
+	url = git@github.com:CryptechTest/ctg_poi.git
