@@ -344,6 +344,3 @@
 [submodule "mods/ctg_quartz"]
 	path = mods/ctg_quartz
 	url = git@github.com:CryptechTest/ctg_quartz.git
-[submodule "mods/mods/ctg_poi"]
-	path = mods/mods/ctg_poi
-	url = git@github.com:CryptechTest/ctg_poi.git
