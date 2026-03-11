@@ -38,6 +38,8 @@ minetest.register_node("ctg_world:lightbar", {
 minetest.register_craft({
     output = "ctg_world:lightbar 10",
     recipe = {
-        {"scifi_nodes:white2", "default:meselamp", "default:glass", "scifi_nodes:white2"}
+        {"scifi_nodes:white2", "default:glass", "scifi_nodes:white2"},
+        {"", "default:meselamp", ""},
+        {"", "", ""}
     }
 })
