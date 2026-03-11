@@ -15,6 +15,7 @@ dofile(default_path .. DIR_DELIM .. "mapgen.lua")
 dofile(default_path .. DIR_DELIM .. "mapgen_border.lua")
 dofile(default_path .. DIR_DELIM .. "mapgen_decor.lua")
 dofile(default_path .. DIR_DELIM .. "items.lua")
+dofile(default_path .. DIR_DELIM .. "lamps.lua")
 if core.get_modpath("dungeon_loot") then
     dofile(default_path .. DIR_DELIM .. "loot.lua")
 end
