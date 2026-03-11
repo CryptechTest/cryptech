@@ -537,7 +537,8 @@ x_farming.register_plant('ctg_foods:rye', {
     fertility = {'grassland'},
     groups = {
         flammable = 4,
-        --plant = 1
+        bees_pollinate_crop = 1,
+        plant = 1
     },
     place_param2 = 11
 })
