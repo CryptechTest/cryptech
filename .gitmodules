@@ -241,7 +241,7 @@
 [submodule "mods/roads"]
 	path = mods/roads
 	url = git@github.com:CryptechTest/roads.git
-[submodule "ctg_airs"]
+[submodule "mods/ctg_airs"]
 	path = mods/ctg_airs
 	url = git@github.com:CryptechTest/ctg_airs.git
 [submodule "mods/livingcaves"]
