@@ -385,11 +385,16 @@ local function tnt_explode(pos, radius, ignore_protection, ignore_on_blast, owne
 	for _, queued_data in pairs(on_blast_queue) do
 		local dist = math.max(1, vector.distance(queued_data.pos, pos))
 		local intensity = (radius * radius) / (dist * dist)
-		local node_drops = queued_data.on_blast(queued_data.pos, intensity)
-		if node_drops then
-			for _, item in pairs(node_drops) do
-				add_drop(drops, item)
+		if queued_data.on_blast ~= nil then
+			local node_drops = queued_data.on_blast(queued_data.pos, intensity)
+			if node_drops then
+				for _, item in pairs(node_drops) do
+					add_drop(drops, item)
+				end
 			end
+		else
+			local n = core.get_node(queued_data.pos)
+			core.log("[ERROR] on_blast nil for " .. n.name .. " at " .. core.serialize(queued_data.pos))
 		end
 	end
 

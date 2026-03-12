@@ -338,12 +338,9 @@
 [submodule "mods/geodes_lib"]
 	path = mods/geodes_lib
 	url = git@github.com:CryptechTest/geodes_lib.git
-[submodule "mods/amethsyt_new"]
-	path = mods/amethsyt_new
-	url = git@github.com:CryptechTest/amethyst_new.git
-[submodule "mods/ctg_quartz"]
-	path = mods/ctg_quartz
-	url = git@github.com:CryptechTest/ctg_quartz.git
 [submodule "mods/ctg_poi"]
 	path = mods/ctg_poi
 	url = git@github.com:CryptechTest/ctg_poi.git
+[submodule "mods/ctg_gems"]
+	path = mods/ctg_gems
+	url = git@github.com:CryptechTest/ctg_gems.git
