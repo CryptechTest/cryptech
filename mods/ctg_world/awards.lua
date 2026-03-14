@@ -294,7 +294,7 @@ end
 if core.get_modpath("mese_rift") then
     awards.register_award("gem_mese", {
         title = S("Crystalline Spice of the Rift"),
-        description = S("Find and Break 5 Mese crystal growth."),
+        description = S("Find and Break 21 Mese crystal growth."),
         icon = "ctg_geode_award_5.png",
         secret = true,
         trigger = {
