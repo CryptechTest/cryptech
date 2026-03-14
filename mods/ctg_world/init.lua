@@ -124,7 +124,7 @@ end)
 
 -- uranium ore fix
 
-local stones = {"default:stone", "ctg_world:corestone"}
+local stones = {"default:stone", "ctg_world:corestone", "deepslate:deepslate"}
 local uranium_params = {
 	offset = 0,
 	scale = 1,
