@@ -344,3 +344,6 @@
 [submodule "mods/ctg_gems"]
 	path = mods/ctg_gems
 	url = git@github.com:CryptechTest/ctg_gems.git
+[submodule "mods/deepslate"]
+	path = mods/deepslate
+	url = git@github.com:CryptechTest/deepslate.git
