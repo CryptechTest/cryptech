@@ -233,7 +233,7 @@ if core.get_modpath("ctg_quartz") then
         icon = "ctg_geode_award_1.png",
         trigger = {
             type = "dig",
-            node = "ctg_quartz:quartz_cluster_large",
+            node = "ctg_quartz:cluster_large",
             target = 3
         }
     })
@@ -246,7 +246,7 @@ if core.get_modpath("amethyst_new") then
         icon = "ctg_geode_award_3.png",
         trigger = {
             type = "dig",
-            node = "amethyst_new:amethyst_cluster_large",
+            node = "amethyst_new:cluster_large",
             target = 3
         }
     })
@@ -259,7 +259,7 @@ if core.get_modpath("ctg_sapphire") then
         icon = "ctg_geode_award_2.png",
         trigger = {
             type = "dig",
-            node = "ctg_sapphire:sapphire_cluster_large",
+            node = "ctg_sapphire:cluster_large",
             target = 3
         }
     })
@@ -272,7 +272,7 @@ if core.get_modpath("ctg_ruby") then
         icon = "ctg_geode_award_6.png",
         trigger = {
             type = "dig",
-            node = "ctg_ruby:ruby_cluster_large",
+            node = "ctg_ruby:cluster_large",
             target = 3
         }
     })
@@ -285,7 +285,7 @@ if core.get_modpath("ctg_emerald") then
         icon = "ctg_geode_award_4.png",
         trigger = {
             type = "dig",
-            node = "ctg_emerald:emerald_cluster_large",
+            node = "ctg_emerald:cluster_large",
             target = 3
         }
     })
@@ -299,7 +299,7 @@ if core.get_modpath("mese_rift") then
         secret = true,
         trigger = {
             type = "dig",
-            node = "mese_rift:mese_cluster_large",
+            node = "mese_rift:cluster_large",
             target = 21
         }
     })
