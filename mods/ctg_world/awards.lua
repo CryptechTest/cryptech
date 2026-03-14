@@ -299,7 +299,7 @@ if core.get_modpath("mese_rift") then
         secret = true,
         trigger = {
             type = "dig",
-            node = "mese_rift:cluster_large",
+            node = "mese_rift:mese_cluster_large",
             target = 21
         }
     })
