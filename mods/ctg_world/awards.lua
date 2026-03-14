@@ -221,7 +221,94 @@ if minetest.get_modpath("x_farming") then
             type = "craft",
             item = "x_farming:bee_hive",
             target = 100,
-            requires = {"award_bee_honey", "award_bee_hive"}
+            requires = {"award_bee_hive"}
         }
     })
+end
+
+if core.get_modpath("ctg_quartz") then
+    awards.register_award("gem_quartz", {
+        title = S("Crystalline Caverns"),
+        description = S("Find and Break 3 Quartz crystal growth."),
+        icon = "ctg_geode_award_1.png",
+        trigger = {
+            type = "dig",
+            node = "ctg_quartz:quartz_cluster_large",
+            target = 3
+        }
+    })
+end
+
+if core.get_modpath("amethyst_new") then
+    awards.register_award("gem_amethyst", {
+        title = S("Amethystic Depths"),
+        description = S("Find and Break 3 Amethyst crystal growth."),
+        icon = "ctg_geode_award_3.png",
+        trigger = {
+            type = "dig",
+            node = "amethyst_new:amethyst_cluster_large",
+            target = 3
+        }
+    })
+end
+
+if core.get_modpath("ctg_sapphire") then
+    awards.register_award("gem_sapphire", {
+        title = S("Precious Stones"),
+        description = S("Find and Break 3 Sapphire crystal growth."),
+        icon = "ctg_geode_award_2.png",
+        trigger = {
+            type = "dig",
+            node = "ctg_sapphire:sapphire_cluster_large",
+            target = 3
+        }
+    })
+end
+
+if core.get_modpath("ctg_ruby") then
+    awards.register_award("gem_ruby", {
+        title = S("Ruby Riches"),
+        description = S("Find and Break 3 Ruby crystal growth."),
+        icon = "ctg_geode_award_6.png",
+        trigger = {
+            type = "dig",
+            node = "ctg_ruby:ruby_cluster_large",
+            target = 3
+        }
+    })
+end
+
+if core.get_modpath("ctg_emerald") then
+    awards.register_award("gem_emerald", {
+        title = S("Emerald Envy"),
+        description = S("Find and Break 3 Emerald crystal growth."),
+        icon = "ctg_geode_award_4.png",
+        trigger = {
+            type = "dig",
+            node = "ctg_emerald:emerald_cluster_large",
+            target = 3
+        }
+    })
+end
+
+if core.get_modpath("mese_rift") then
+    awards.register_award("gem_mese", {
+        title = S("Crystalline Spice of the Rift"),
+        description = S("Find and Break 5 Mese crystal growth."),
+        icon = "ctg_geode_award_5.png",
+        secret = true,
+        trigger = {
+            type = "dig",
+            node = "mese_rift:mese_cluster_large",
+            target = 21
+        }
+    })
+
+    awards.register_on_dig(function(player, data)
+        local pos = player:get_pos()
+        if pos and pos.y <= -128 and data.name == "mese_rift:mese_cluster_large" then
+            return "gem_mese"
+        end
+        return nil
+    end)
 end
