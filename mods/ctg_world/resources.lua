@@ -226,6 +226,11 @@ technic.register_grinder_recipe({
     output = "ctg_world:nickel_dust 2"
 })
 
+technic.register_grinder_recipe({
+    input = {"ctg_world:nickel_ingot"},
+    output = "ctg_world:nickel_dust"
+})
+
 technic.register_alloy_recipe({
     input = {"technic:copper_dust 2", "ctg_world:nickel_dust 1"},
     output = "ctg_world:coppery_metal 1",

@@ -19,7 +19,7 @@ dofile(default_path .. DIR_DELIM .. "lamps.lua")
 if core.get_modpath("dungeon_loot") then
     dofile(default_path .. DIR_DELIM .. "loot.lua")
 end
-if core.get_modpath("vehicles") then
+if core.get_modpath("vehicle_mash") then
     dofile(default_path .. DIR_DELIM .. "vehicles.lua")
 end
 if core.get_modpath("x_farming") then
@@ -155,7 +155,7 @@ minetest.register_ore({
 	clust_scarcity = 7*7*7,
 	clust_num_ores = 5,
 	clust_size = 3,
-	y_min = -11000,
+	y_min = -10000,
 	y_max = -3000,
 	noise_params = uranium_params,
 	noise_threshold = uranium_threshold,
