@@ -347,3 +347,27 @@
 [submodule "mods/deepslate"]
 	path = mods/deepslate
 	url = git@github.com:CryptechTest/deepslate.git
+[submodule "mods/cloudlands"]
+	path = mods/cloudlands
+	url = git@github.com:Treer/cloudlands.git
+[submodule "mods/naturalbiomes"]
+	path = mods/naturalbiomes
+	url = git@github.com:Skandarella/naturalbiomes.git
+[submodule "mods/Swamp"]
+	path = mods/Swamp
+	url = git@github.com:smnoe01/Swamp.git
+[submodule "mods/itemframes"]
+	path = mods/itemframes
+	url = https://codeberg.org/tenplus1/itemframes.git
+[submodule "mods/marinaramobs"]
+	path = mods/marinaramobs
+	url = git@github.com:Skandarella/marinaramobs.git
+[submodule "mods/livingjungle"]
+	path = mods/livingjungle
+	url = git@github.com:CryptechTest/livingjungle.git
+[submodule "mods/livingdesert"]
+	path = mods/livingdesert
+	url = git@github.com:CryptechTest/livingdesert.git
+[submodule "mods/marinara"]
+	path = mods/marinara
+	url = git@github.com:CryptechTest/marinara.git
