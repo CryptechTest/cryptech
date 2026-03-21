@@ -371,3 +371,6 @@
 [submodule "mods/marinara"]
 	path = mods/marinara
 	url = git@github.com:CryptechTest/marinara.git
+[submodule "mods/winuserleafdecay"]
+	path = mods/winuserleafdecay
+	url = git@github.com:Skandarella/winuserleafdecay.git
