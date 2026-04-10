@@ -374,3 +374,6 @@
 [submodule "mods/winuserleafdecay"]
 	path = mods/winuserleafdecay
 	url = git@github.com:Skandarella/winuserleafdecay.git
+[submodule "mods/entities_protection"]
+	path = mods/entities_protection
+	url = git@github.com:JamesClarke7283/entities_protection.git
